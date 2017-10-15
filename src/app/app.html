@@ -1,0 +1,31 @@
+<ion-menu [content]="content" side="right"  type="overlay" class="toggle-menu">
+    <ion-header>
+        <ion-toolbar text-center>
+            <h3>菜单</h3>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-grid>
+            <ion-row margin-top>
+                <ion-col text-center>
+                    <ion-icon class="iconfont icon-erweima5"></ion-icon>
+                    <p>分享APP</p>
+                </ion-col>
+            </ion-row>
+            <ion-row margin-top>
+                <ion-col text-center>
+                    <ion-icon class="iconfont icon-tianjia"></ion-icon>
+                    <p>安装到桌面</p>
+                </ion-col>
+            </ion-row>
+            <ion-row margin-top>
+                <ion-col text-center>
+                    <ion-icon class="iconfont icon-denglu"></ion-icon>
+                    <p>立即登录</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

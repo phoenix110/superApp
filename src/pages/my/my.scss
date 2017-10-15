@@ -1,0 +1,37 @@
+@import "../../theme/function";
+#my-content{
+  ion-card {
+    width:70%;
+    margin:2px auto 0;
+    padding:10px 10px;
+    @include radius();
+    -webkit-box-shadow:-40px 40px 70px rgba(0,0,0,0.4);
+    @include flex(column,center);
+    ul.card-title {
+      @include flex(row,flex-start);
+      flex-wrap: wrap;
+      padding:5px;
+        li{
+          flex:0 0 20%;
+          margin-bottom:4px;
+          a img{
+            width:32px;
+            height:33px;
+            margin:0 auto;
+            text-align: center;
+          }
+        }
+
+    }
+    ion-card-content{
+      padding:0 8px;
+      button{
+        width:85%;
+        display: block;
+        margin:10px auto 0;
+        padding:2px 0;
+      }
+    }
+
+  }
+}

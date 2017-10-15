@@ -1,0 +1,14 @@
+@import "../../theme/function";
+page-company {
+	#com-category{
+		.item-inner{
+			padding-left:15px;
+		}
+		.com-info{
+			@include position();
+			.gray-bg{
+				@include grayBg(100%,100%);
+			}
+		}
+	}
+}

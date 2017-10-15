@@ -1,0 +1,78 @@
+$grayColor:#666;
+$pinkColor:#ff0455;
+$redColor:#f00;
+//设置Android头部导航居中问题保持与ios样式同步
+.toolbar-title-md {
+  text-align: center;
+}
+/*box盒阴影*/
+@mixin boxShadow($shadow: 0 1px 2px rgba(0, 0, 0, 0.3)){
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+/*水平方向为主轴盒模型*/
+
+
+/*弹性盒模型*/
+@mixin flex($direction,$align) {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: $direction;
+  justify-content: $align;
+  align-items: center;
+}
+
+.flex-row-start {
+  @include flex(row,flex-start);
+}
+.flex-row-end {
+    @include flex(row,flex-end);
+};
+.flex-row-center {
+  @include flex(row,center);
+};
+.flex-row-around {
+  @include flex(row,space-around);
+};
+.flex-row-between {
+  @include flex(row,space-between);
+};
+
+/*垂直方向为主轴盒模型*/
+
+.flex-column-start {
+  @include flex(column,flex-start);
+};
+.flex-column-end {
+  @include flex(column,flex-end);
+};
+.flex-column-center {
+  @include flex(column,center);
+};
+.flex-column-around {
+  @include flex(column,space-around);
+};
+.flex-column-between {
+  @include flex(column,space-between);
+};
+
+
+/*圆角*/
+@mixin radius($val:6px){
+  border-radius: $val;
+  -webkit-border-radius: $val;
+}
+/*定位*/
+@mixin position($pos:relative,$top:0,$bottom:0){
+  position:$pos;
+  top:$top;
+  left:$bottom;
+}
+/*深灰色背景*/
+@mixin grayBg($wid,$hgt){
+    width: $wid;
+    height: $hgt;
+    background: rgba(0, 0, 0, 0.1);
+    @include position(absolute);
+}

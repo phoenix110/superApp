@@ -1,0 +1,49 @@
+@import "theme/function";
+$first:first;
+$rest:rest;
+/*商品展示函数*/
+@mixin shop-instro($first,$align,$wid){
+	.shop-#{$first} {
+		text-align: $align;
+		@content;
+		good-intro{
+			width:$wid;
+			ion-card{
+				margin:0;
+				width:100%;
+				@include radius();
+				@include boxShadow(none);
+				ion-card-content{
+					padding:13px 0 14px;
+					h6{
+						font-size:14px;
+						color:$grayColor;
+					}
+					p.shop-price{
+						ion-icon{
+							color:#000;
+						}
+						b{
+							color:$pinkColor;
+							font-weight: bold;
+						}				
+					}
+					p.shop-num{
+						color:$grayColor;
+						font-size:7px;
+					}
+				}			
+			}	
+		}
+		
+	}
+}
+/*第一件商品大图展示*/
+@include shop-instro($first,center,100%);
+/*剩余商品左右两列显示*/
+@include shop-instro($rest,left,49%){
+	@include flex(row,space-between);
+	flex:0 1 0;
+	flex-wrap: wrap;
+};
+	

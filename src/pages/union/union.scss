@@ -1,0 +1,34 @@
+@import "../../theme/function";
+$background:#f4f4f4;
+#page-union {
+    background:$background;
+    .nav-bar {
+          margin:10px 10px 10px 0;
+          -webkit-padding-start:10px;
+          overflow-x:scroll;
+          .nav-scroll .swiper-slide{
+              width:auto;
+          }
+    }
+	.card-pic {
+        .top-img{
+          @include position();
+          .gray-bg{
+            @include grayBg(100%,100%);
+          }
+        }
+		ion-avatar {
+          @include position();
+          @include radius(6px);
+          overflow: hidden;
+          img {
+            width: 50px;
+            height: 50px;
+            @include radius(0);
+          }
+          .gray-bg{
+            @include grayBg(50px,50px);
+          }
+        }
+	}
+}

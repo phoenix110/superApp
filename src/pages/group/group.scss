@@ -1,0 +1,39 @@
+@import "theme/function";
+page-group {
+  .group-header{
+    @include flex(row,flex-start);
+    .group-icon{
+      width:45px;
+      height:45px;
+      margin-right:10px;
+      margin-top:-5px;
+      @include radius();
+      background:#FA6B5B;
+      ion-icon{
+        height:45px;
+        line-height:45px;
+        font-size:20px;
+        color:#fff;
+      }
+    }
+    .group-dec{
+      h2{
+        font-size:17px;
+        font-weight:bold;
+      }
+      p{
+        font-size:8px;
+      }
+    }
+  }
+  .group-count{
+    span{
+      margin:0 5px;
+      color:#666;
+      font-size:10px;
+      b{
+        margin-left:5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+#page-find {
+  .find-card{
+    padding:0;
+    height:172px;
+    ion-grid{
+      padding:0;
+      ion-row ion-col{
+        padding:0;
+        h2{
+          font:{
+            size:20px;
+            weight:bold;
+          }
+        }
+      }
+    }
+  }
+}
