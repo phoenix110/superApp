@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController , App } from 'ionic-angular';
+import {NavController, AlertController, App, IonicPage} from 'ionic-angular';
 import { GoodPage } from '../good/good';
 /**
  * Generated class for the ChatPage page.
@@ -7,7 +7,7 @@ import { GoodPage } from '../good/good';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-
+@IonicPage()
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html',

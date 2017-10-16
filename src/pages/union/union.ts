@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { CompanyPage } from '../company/company'
 import * as Swiper from 'swiper';
 /**
@@ -8,7 +8,7 @@ import * as Swiper from 'swiper';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-
+@IonicPage()
 @Component({
   selector: 'page-union',
   templateUrl: 'union.html',

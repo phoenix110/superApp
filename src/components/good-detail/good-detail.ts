@@ -10,7 +10,7 @@ import { Slides } from 'ionic-angular';
   selector: 'good-detail',
   templateUrl: 'good-detail.html'
 })
-export class GoodStyleComponent {
+export class GoodDetailComponent {
 @ViewChild(Slides) slides: Slides;
   text: string;
 
