@@ -7,7 +7,9 @@ import { NavController, NavParams,IonicPage } from 'ionic-angular';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+@IonicPage({
+    segment:"good/:id"
+})
 @Component({
   selector: 'page-good',
   templateUrl: 'good.html',

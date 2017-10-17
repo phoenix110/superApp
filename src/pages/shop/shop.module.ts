@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ShopPage } from './shop';
-import {MyComponentModule} from "../../components/myComponent.module";
+import { CommonComponentModule } from "../../components/commonComponent.module";
 
 @NgModule ({
     declarations: [
@@ -9,11 +9,10 @@ import {MyComponentModule} from "../../components/myComponent.module";
     ],
     imports: [
         IonicPageModule.forChild(ShopPage),
-        MyComponentModule
+        CommonComponentModule
     ],
     exports: [
         ShopPage
-
     ]
 })
 

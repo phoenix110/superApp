@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { SelfHeadComponent } from '../../components/self-head/self-head';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 
 /**
  * Generated class for the CompanyPage page.
@@ -8,7 +7,9 @@ import { SelfHeadComponent } from '../../components/self-head/self-head';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-
+@IonicPage({
+    segment:'company/:id'
+})
 @Component({
   selector: 'page-company',
   templateUrl: 'company.html',

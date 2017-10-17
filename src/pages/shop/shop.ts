@@ -22,7 +22,6 @@ export class ShopPage {
     console.log('ionViewDidLoad ShopPage');
   }
 	getGoodDetail(id){
-    console.log(id);
 	  	this.navCtrl.push("GoodPage", {id:id});
 	}
 }

@@ -116,7 +116,7 @@ export class UnionPage {
   // 导航至分类详情页
   private company(id){
     console.log(id);
-    this.navCtrl.push(CompanyPage,{id});
+    this.navCtrl.push('CompanyPage',{id});
   }
   // 点击分类切换相应商品
   private categoryTap(index){
