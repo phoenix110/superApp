@@ -1,14 +1,41 @@
 @import "../../theme/function";
+$bg-color:#000;
+$alpha:0.3;
 page-company {
-	#com-category{
-		.item-inner{
-			padding-left:15px;
-		}
-		.com-info{
-			@include position();
-			.gray-bg{
-				@include grayBg(100%,100%);
-			}
-		}
-	}
+  #com-category{
+    margin: -1px 0 0;
+    .item-title{
+      height:54px;
+      min-height: 0;
+      @include transition(0.3s);
+      padding-left:15px;
+    }
+    .com-info{
+      height:0;
+      overflow: hidden;
+      @include transition(0.3s);
+      .com-thumb{
+        @include position();
+        img{
+          max-height: 210px;
+          width:100%;
+        }
+        .gray-bg{
+          @include grayBg(100%,100%,$bg-color,$alpha);
+        }
+      }
+      button{
+        margin-top: -4px;
+      }
+    }
+  }
+  #com-category.active{
+    .item-title{
+      height:0;
+      overflow: hidden;
+    }
+    .com-info{
+      height:256px;
+    }
+  }
 }

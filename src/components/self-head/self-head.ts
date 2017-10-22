@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Input} from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -12,7 +12,8 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'self-head.html'
 })
 export class SelfHeadComponent {
-
+  @Input() centerText:string = '';
+  @Input() rightText:string = '';
   constructor( public navCtrl:NavController , public navParams:NavParams ) {
     console.log('Hello SelfHeadComponent Component');
     

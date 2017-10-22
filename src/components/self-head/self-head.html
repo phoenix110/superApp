@@ -5,7 +5,7 @@
         <ion-icon ios="ios-close-circle-outline"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>  </ion-title>
-    <button ion-button color="pink" end small class="concern">关注
+    <ion-title *ngIf="centerText">{{centerText}}</ion-title>
+    <button *ngIf="rightText" ion-button color="pink" end small class="concern">{{rightText}}
     </button>
 </ion-toolbar>

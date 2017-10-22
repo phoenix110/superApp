@@ -1,21 +1,22 @@
-import { NgModule } from "@angular/core";
+import { NgModule, ErrorHandler } from "@angular/core";
 import { IonicPageModule } from "ionic-angular";
-import  { CompanyPage } from "./company";
+import { ArticlePage } from "./article";
+
 // 公共组件Module
 import {MyComponentModule} from "../../components/myComponent.module";
 
 @NgModule ({
     declarations: [
-        CompanyPage
+        ArticlePage
     ],
     imports: [
-        IonicPageModule.forChild(CompanyPage),
+        IonicPageModule.forChild(ArticlePage),
         MyComponentModule
     ],
     exports: [
-        CompanyPage
+        ArticlePage
     ]
 })
-export class CompanyPageModule {
+export class ArticlePageModule {
 
 }

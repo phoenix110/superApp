@@ -1,7 +1,9 @@
 import { NgModule, ErrorHandler } from "@angular/core";
 import { IonicPageModule } from "ionic-angular";
 import { GoodPage } from "./good";
-import {CommonComponentModule} from "../../components/commonComponent.module";
+
+// 导入公共Module
+import {MyComponentModule} from "../../components/myComponent.module";
 
 @NgModule ({
     declarations: [
@@ -9,7 +11,7 @@ import {CommonComponentModule} from "../../components/commonComponent.module";
     ],
     imports: [
         IonicPageModule.forChild(GoodPage),
-        CommonComponentModule
+        MyComponentModule
     ],
     exports: [
         GoodPage

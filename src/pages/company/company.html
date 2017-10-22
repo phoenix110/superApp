@@ -5,17 +5,18 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <self-head></self-head>
+  <self-head [centerText]="'官网'" [rightText]="'关注'"></self-head>
 </ion-header>
 
-
 <ion-content>
-	<ion-list id="com-category" >
-	    <ion-item no-padding>首页</ion-item>
-	    <div class="com-info">
-	    	<img src="assets/images/item01.jpg">
-	    	<button ion-item color="pink" no-padding>首页</button>
-	    	<div class="gray-bg"></div>
-	    </div>	
-	</ion-list>
+    <ion-list id="com-category" [ngClass]="index == i ? 'active' : ''"  *ngFor="let item of companyInstro;let i = index;">
+        <ion-item no-padding class="item-title" (tap)="newStatus(i)">{{item.title}}</ion-item>
+        <div class="com-info" (tap)="toArticle(i)">
+            <div class="com-thumb">
+                <img src="{{item.thumb}}">
+                <div class="gray-bg"></div>
+            </div>
+            <button ion-item color="pink">{{item.title}}</button>
+        </div>
+    </ion-list>
 </ion-content>

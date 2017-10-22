@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { CompanyPage } from '../company/company'
 import * as Swiper from 'swiper';
+
 /**
  * Generated class for the UnionPage page.
  *
@@ -14,6 +15,7 @@ import * as Swiper from 'swiper';
   templateUrl: 'union.html',
 })
 export class UnionPage {
+  public headerTitle:string = "联盟";
   public categoryArr: Array<object> = [
       {
           id: 1,
@@ -115,7 +117,7 @@ export class UnionPage {
   }
   // 导航至分类详情页
   private company(id){
-    console.log(id);
+    console.log(id,'12121');
     this.navCtrl.push('CompanyPage',{id});
   }
   // 点击分类切换相应商品

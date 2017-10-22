@@ -1,0 +1,28 @@
+page-article {
+  .advertise{
+    contain:content;
+  }
+  .advertise-detail{
+    padding:10px 7%;
+    h2{
+      color:#f00;
+    }
+    .advertise-instro p{
+      font-size: 15px;
+      color:#333;
+    }
+    .advertise-cont{
+      line-height: 25px;
+      font-size: 15px;
+      color:#666;
+    }
+  }
+  .advertise-img{
+    padding:30px 7%;
+    background: #ddd;
+    ion-card{
+      width:100%;
+      margin:20px 0;
+    }
+  }
+}

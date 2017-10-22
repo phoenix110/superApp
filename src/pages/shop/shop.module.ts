@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ShopPage } from './shop';
-import { CommonComponentModule } from "../../components/commonComponent.module";
+
+// 组件Module
+import { MyComponentModule } from "../../components/myComponent.module";
 
 @NgModule ({
     declarations: [
@@ -9,7 +11,7 @@ import { CommonComponentModule } from "../../components/commonComponent.module";
     ],
     imports: [
         IonicPageModule.forChild(ShopPage),
-        CommonComponentModule
+        MyComponentModule
     ],
     exports: [
         ShopPage

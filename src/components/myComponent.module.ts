@@ -1,9 +1,11 @@
 import { NgModule, ErrorHandler } from "@angular/core";
 import { IonicModule } from "ionic-angular";
 
+// 导入组件Module
 import { GoodDetailModule } from "./good-detail/good-detail.module";
 import { GoodIntroModule } from "./good-intro/good-intro.module";
 import { SelfHeadModule } from "./self-head/self-head.module";
+import { HeaderModule } from "./header/header.module";
 
 @NgModule ({
     declarations: [
@@ -14,9 +16,10 @@ import { SelfHeadModule } from "./self-head/self-head.module";
     exports: [
         GoodDetailModule,
         GoodIntroModule,
-        SelfHeadModule
+        SelfHeadModule,
+        HeaderModule
     ]
 })
-export class CommonComponentModule {
+export class MyComponentModule {
 
 }
