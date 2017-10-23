@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { HttpModule  } from '@angular/http';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,6 +16,7 @@ import {MyComponentModule} from "../components/myComponent.module";
   imports: [
     BrowserModule,
     MyComponentModule,
+    HttpModule,
     // 配置项：tabsHideOnSubPages用于控制由主页面进入子页面是的底部导航的隐藏和现实
     IonicModule.forRoot(MyApp,{
         tabsHideOnSubPages: 'true',
