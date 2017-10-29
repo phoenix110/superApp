@@ -3,7 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { ShopPage } from './shop';
 
 // 组件Module
-import { MyComponentModule } from "../../components/myComponent.module";
+import { ComponentsModule } from "../../components/components.module";
 
 @NgModule ({
     declarations: [
@@ -11,7 +11,7 @@ import { MyComponentModule } from "../../components/myComponent.module";
     ],
     imports: [
         IonicPageModule.forChild(ShopPage),
-        MyComponentModule
+        ComponentsModule
     ],
     exports: [
         ShopPage

@@ -1,0 +1,43 @@
+reviewer {
+  .card{
+    @include position(absolute,0,0,0,0);
+    margin: auto!important;
+    width: 72%!important;
+    height: 380px!important;
+    @include radius(10px);
+    .reviewer-pic{
+      @include position(relative,0,0);
+      img{
+        min-height: 220px;
+      }
+      ion-grid{
+        width:100%;
+        padding: 0;
+        background: rgba(#000,0.7);
+        color: #fff;
+        font-size: 10px;
+        @include position(absolute,null,null,0,0);
+      }
+    }
+    .reviewer-name{
+      font-weight: bold;
+    }
+    .reviewer-online{
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+      width:50px;
+      color:#f53d3d;
+    }
+    .reviewer-chat{
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+      width:60%;
+      height:35px;
+      line-height: 35px;
+      color:#fff;
+    }
+  }
+
+}

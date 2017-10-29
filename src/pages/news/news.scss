@@ -1,0 +1,30 @@
+page-news,page-news-detail {
+  .news-grid{
+    padding: 5px 2.7%;
+    border-bottom: 1px solid #ededed;
+    .news-avatar img{
+      width: 45px;
+      height: 45px;
+    }
+    .news-card{
+      width:100%;
+      .news-tit{
+        margin: 8px 5px;
+      }
+      .news-cont{
+        padding: 10px 5px;
+        p.news-instro{
+          @include text-overflow-more(5);
+        }
+      }
+      .news-day{
+        color:#e93a3a;
+      }
+      .new-zan{
+        color:#666;
+        font-size: 8px;
+      }
+    }
+  }
+
+}

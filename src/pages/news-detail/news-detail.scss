@@ -1,0 +1,24 @@
+page-news-detail {
+  .news-imgs li{
+    margin: 5px 0;
+  }
+  .news-clickzan{
+    margin: 10px 0;
+  }
+  .news-clickzan ion-icon{
+    color:#666;
+    font-size:22px;
+  }
+  .circle-zanCount {
+    background: rgba(#333,0.1);
+    @include radius(5px);
+    padding:3px 6px;
+    margin-bottom: 5px;
+    color:#b3886b;
+    font-size: 10px;
+    ion-icon{
+      color:#b3886b;
+      font-size:20px;
+    }
+  }
+}

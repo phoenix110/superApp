@@ -1,9 +1,9 @@
-import { NgModule, ErrorHandler } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { IonicPageModule } from "ionic-angular";
 import { FindPage } from "./find";
 
 // 组件Module
-import { MyComponentModule } from "../../components/myComponent.module";
+import { ComponentsModule } from "../../components/components.module";
 
 @NgModule ({
     declarations: [
@@ -11,7 +11,7 @@ import { MyComponentModule } from "../../components/myComponent.module";
     ],
     imports: [
         IonicPageModule.forChild(FindPage),
-        MyComponentModule
+        ComponentsModule
     ],
     exports: [
         FindPage

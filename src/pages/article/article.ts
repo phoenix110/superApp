@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { Injectable } from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import { Http, Response } from "@angular/http";
+import { HttpClient } from "@angular/common/http";
 
-import { Observable }     from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 /**
  * Generated class for the ArticlePage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@Injectable()
 @IonicPage({
     segment:"article/:id"
 })
@@ -20,15 +16,22 @@ import 'rxjs/add/operator/map';
   templateUrl: 'article.html',
 })
 export class ArticlePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient ) {
   }
+    public article:Object = {};
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ArticlePage');
-    this.getArticle().subscribe(res=>console.log(res));
+      this.getArticle();
   }
-  public getArticle(): Observable<void>{
-    return this.http.get("assets/data.json").map(response => console.log(response));
+  // 获取文章详情数据
+  public getArticle(){
+      return this.http.get("/assets/data.json").subscribe(data=>{
+          this.article = data['article'];
+      })
+  }
+  // 跳转至文章详情页
+  public toArticleCont (id){
+      console.log(id);
+      this.navCtrl.push('ArticlePage',{id:id});
   }
 }

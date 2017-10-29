@@ -12,13 +12,13 @@ $background:#f4f4f4;
     }
 	.card-pic {
         .top-img{
-          @include position();
+          @include position(relative,0,0);
           .gray-bg{
             @include grayBg(100%,100%);
           }
         }
 		ion-avatar {
-          @include position();
+          @include position(relative,0,0);
           @include radius(6px);
           overflow: hidden;
           img {

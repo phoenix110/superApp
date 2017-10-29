@@ -17,7 +17,7 @@ $redColor:#f00;
 
 
 /*弹性盒模型*/
-@mixin flex($direction,$align) {
+@mixin flex($direction:row,$align:flex-start) {
   display: flex;
   display: -moz-flex;
   display: -webkit-flex;
@@ -68,17 +68,19 @@ $redColor:#f00;
   -moz-border-radius: $val;
 }
 /*定位*/
-@mixin position($pos:relative,$top:0,$bottom:0){
+@mixin position($pos:relative,$top:null,$right:null,$bottom:null,$left:null){
   position:$pos;
-  top:$top;
-  left:$bottom;
+  @if $top {top:$top;};
+  @if $right {right:$right};
+  @if $bottom {bottom:$bottom};
+  @if $left {left:$left};
 }
 /*深灰色背景*/
 @mixin grayBg($wid,$hgt,$color:#000,$alpha:0.2){
     width: $wid;
     height: $hgt;
     background: rgba($color,$alpha);
-    @include position(absolute);
+    @include position(absolute,0,0);
 }
 //transition动画
 @mixin transition($time){
@@ -86,4 +88,17 @@ $redColor:#f00;
   -webkit-transition: all $time;
   -moz-transition:all $time;
   -o-transition: all $time;
+}
+@mixin outline-box($border,$padding,$radius,$color,$size){
+  border:$border;
+  padding:$padding;
+  @include radius($radius);
+  color:$color;
+  font-size: $size;
+}
+@mixin text-overflow-more($num){
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: $num;
+   overflow: hidden;
 }

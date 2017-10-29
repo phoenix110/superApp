@@ -11,9 +11,9 @@
 <ion-content id="page-union" class="cont-bg">
   <nav class="nav-bar">
     <div class="nav-scroll">
-      <div class="swiper-button">
+      <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" *ngFor="let item of categoryArr;let i = index"  (click)="categoryTap(i)">
+          <div class="swiper-slide" *ngFor="let item of union;let i = index"  (tap)="categoryList(i)" style="width: none!important;">
             <button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>
           </div>
         </div>
@@ -21,7 +21,7 @@
     </div>
   </nav>
 
-  <ion-card class="card-pic" *ngFor="let item of goodInstro" (click)="company( item.id )">
+  <ion-card class="card-pic" *ngFor="let item of recommend" (tap)="toCompany( item.id )">
     <div class="top-img">
       <img src="{{item.imgSrc}}">
       <div class="gray-bg"></div>

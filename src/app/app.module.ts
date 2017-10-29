@@ -1,13 +1,13 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { HttpModule  } from '@angular/http';
+import { IonicApp, IonicModule } from 'ionic-angular';
+import { HttpClientModule  } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 // 导入公共Module
-import {MyComponentModule} from "../components/myComponent.module";
+import { ComponentsModule } from "../components/components.module";
 
 @NgModule({
   declarations: [
@@ -15,12 +15,12 @@ import {MyComponentModule} from "../components/myComponent.module";
   ],
   imports: [
     BrowserModule,
-    MyComponentModule,
-    HttpModule,
+      ComponentsModule,
+      HttpClientModule,
     // 配置项：tabsHideOnSubPages用于控制由主页面进入子页面是的底部导航的隐藏和现实
     IonicModule.forRoot(MyApp,{
         tabsHideOnSubPages: 'true',
-        backButtonText: '返回',
+        backButtonText: '',
     }
     )
   ],
@@ -30,8 +30,7 @@ import {MyComponentModule} from "../components/myComponent.module";
   ],
   providers: [
     StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SplashScreen
   ]
 })
 export class AppModule {}

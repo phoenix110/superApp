@@ -18,14 +18,11 @@
 		</div>
 		<!-- 当前商品分类第一个1列展示 -->
 		<div class="shop-first">
-			<good-intro (click)="getGoodDetail(1)"></good-intro>
+			<good-intro [goodList]="shop.goodRecommend"></good-intro>
 		</div>
 		<!-- 当前商品分类其余商品2列显示 -->
 		<div class="shop-rest">
-			<good-intro (click)="getGoodDetail(1)"></good-intro>
-			<good-intro (click)="getGoodDetail(1)"></good-intro>
-			<good-intro (click)="getGoodDetail(1)"></good-intro>
-			<good-intro (click)="getGoodDetail(1)"></good-intro>
+			<good-intro [goodList]="shop.goodList"></good-intro>
 		</div>
 	</section>
 	

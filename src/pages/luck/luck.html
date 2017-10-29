@@ -1,0 +1,19 @@
+<!--
+  Generated template for the LuckPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <share-header [headerTitle]="'缘分'" [all]="'全部'" (checkEmitter)="openActionSheet($event)"></share-header>
+
+</ion-header>
+
+<ion-content padding class="reviwer-box" style="background: #ccc">
+  <reviewer [reviewerInfo]="reviewerArr"></reviewer>
+</ion-content>
+    <!--开始聊天-->
+<ion-footer>
+    <chatbtn></chatbtn>
+</ion-footer>

@@ -89,3 +89,10 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+.text-overflow-one{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+

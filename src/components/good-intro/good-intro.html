@@ -1,15 +1,15 @@
 <!-- Generated template for the GoodIntroComponent component -->
-<ion-card>
-  <img src="assets/images/goods/goods01.jpg"/>
+<ion-card (tap)="getGoodDetail(i)" *ngFor="let item of goodList;let i = index">
+  <img src="{{item.thumb}}"/>
   <ion-card-content>
     <h6>
-      快乐梦幻月饼礼盒
+      {{item.title}}
     </h6>
     <p class="shop-price">
-      <ion-icon name="cart"></ion-icon><b>￥168</b>
+      <ion-icon name="cart"></ion-icon><b>￥{{item.price}}</b>
     </p>
     <p class="shop-num">
-      库存889 &nbsp;&nbsp;&nbsp;销量106
+      库存{{item.stock}} &nbsp;&nbsp;&nbsp;销量{{item.sales}}
     </p>
   </ion-card-content>
 </ion-card>

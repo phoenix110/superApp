@@ -10,69 +10,14 @@
 
 
 <ion-content class="cont-background" id="page-find">
-    <ion-card class="find-card">
+    <ion-card class="find-card" *ngFor="let item of find;let i = index;" tappable (click)="toFind(item.route)">
         <ion-grid>
             <ion-row>
-                <ion-col col-3><h2 text-center margin-top>官网</h2></ion-col>
+                <ion-col col-3><h2 text-center margin-top>{{item.title}}</h2></ion-col>
                 <ion-col col-9>
-                    <img src="assets/images/pic01.jpg" alt="">
+                    <img src="{{item.thumb}}" alt="">
                 </ion-col>
             </ion-row>
         </ion-grid>
     </ion-card>
-
-    <ion-card class="find-card">
-        <ion-grid>
-            <ion-row>
-                <ion-col col-3><h2 text-center margin-top>商城 </h2></ion-col>
-                <ion-col col-9>
-                    <img src="assets/images/pic02.jpg" alt="">
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-card>
-    <ion-card class="find-card">
-        <ion-grid>
-            <ion-row>
-                <ion-col col-3><h2 text-center margin-top>圈子</h2></ion-col>
-                <ion-col col-9>
-                    <img src="assets/images/pic03.jpg" alt="">
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-card>
-
-    <ion-card class="find-card">
-        <ion-grid>
-            <ion-row>
-                <ion-col col-3><h2 text-center margin-top>活动</h2></ion-col>
-                <ion-col col-9>
-                    <img src="assets/images/pic04.jpg" alt="">
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-card>
-
-    <ion-card class="find-card">
-        <ion-grid>
-            <ion-row>
-                <ion-col col-3><h2 text-center margin-top>直播</h2></ion-col>
-                <ion-col col-9>
-                    <img src="assets/images/pic05.jpg" alt="">
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-card>
-
-    <ion-card class="find-card">
-        <ion-grid>
-            <ion-row>
-                <ion-col col-3><h2 text-center margin-top>联盟</h2></ion-col>
-                <ion-col col-9>
-                    <img src="assets/images/pic06.jpg" alt="">
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-card>
-
 </ion-content>

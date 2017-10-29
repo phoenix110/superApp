@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {NavController} from "ionic-angular";
+
 /**
  * Generated class for the GoodIntroComponent component.
  *
@@ -10,12 +12,15 @@ import { Component } from '@angular/core';
   templateUrl: 'good-intro.html'
 })
 export class GoodIntroComponent {
-
+  @Input() goodList:Array<object>;
   text: string;
 
-  constructor() {
+  constructor(public navCtrl:NavController) {
     console.log('Hello GoodIntroComponent Component');
     this.text = 'Hello World';
   }
-
+  // 跳转至商品详情页
+    getGoodDetail(id){
+        this.navCtrl.push("GoodPage", {id:id});
+    }
 }

@@ -1,9 +1,9 @@
-import { NgModule, ErrorHandler } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { IonicPageModule } from "ionic-angular";
 import { ChatPage } from "./chat";
 
 // 组件Module
-import { MyComponentModule } from "../../components/myComponent.module";
+import { ComponentsModule } from "../../components/components.module";
 
 @NgModule ({
     declarations: [
@@ -11,7 +11,7 @@ import { MyComponentModule } from "../../components/myComponent.module";
     ],
     imports: [
         IonicPageModule.forChild(ChatPage),
-        MyComponentModule
+        ComponentsModule
     ],
     exports: [
         ChatPage

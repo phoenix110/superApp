@@ -5,12 +5,11 @@ $rest:rest;
 @mixin shop-instro($first,$align,$wid){
 	.shop-#{$first} {
 		text-align: $align;
-		@content;
 		good-intro{
-			width:$wid;
+			@content;
 			ion-card{
 				margin:0;
-				width:100%;
+				width:$wid;
 				@include radius();
 				@include boxShadow(none);
 				ion-card-content{

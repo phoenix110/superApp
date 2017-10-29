@@ -1,0 +1,40 @@
+<!--
+  Generated template for the CirclePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>头条</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-card class="news-card" *ngFor="let item of touTiao;let i = index;" tappable (click)="toDetail(i)">
+    <div class="news-img">
+      <img src="{{item.thumb}}"/>
+    </div>
+    <ion-card-content>
+      <ion-card-title>
+        {{item.title}}
+      </ion-card-title>
+      <p>
+        {{item.content}}
+      </p>
+    </ion-card-content>
+    <ion-grid class="news-count">
+      <ion-row no-padding>
+        <ion-col col-4 text-left>
+          阅读 <b>{{item.read}}</b>
+        </ion-col>
+        <ion-col col-4 text-center>
+          点赞  <b>{{item.zan}}</b>
+        </ion-col>
+        <ion-col col-4 text-right>
+          评论 <b>{{item.comment}}</b>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

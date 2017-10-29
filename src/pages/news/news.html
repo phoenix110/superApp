@@ -1,0 +1,40 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>新闻</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="news-box">
+  <ion-grid class="news-grid" *ngFor="let item of news;let i = index;" tappable (click)="newsDetail(i)">
+    <ion-row>
+      <ion-col col-2 class="news-avatar">
+        <img src="{{item.avatar}}" alt="">
+      </ion-col>
+      <ion-col col-10>
+        <ion-card no-margin class="news-card">
+          <div class="news-tit">
+            <h2 class="news-day">{{item.day}}天前</h2>
+            <p>{{item.time}}</p>
+          </div>
+          <img src="{{item.banner}}">
+          <ion-card-content class="news-cont">
+            <p class="news-instro">{{item.content}}</p>
+          </ion-card-content>
+          <ion-row class="new-zan">
+            <ion-col col-6>点赞 {{item.zan}}</ion-col>
+            <ion-col col-6 text-right>评论 {{item.comment}}</ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

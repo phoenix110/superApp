@@ -5,11 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <self-head [centerText]="'官网'" [rightText]="'关注'"></self-head>
+    <header [headerTitle]="'公司介绍'"></header>
 </ion-header>
 
 <ion-content>
-    <ion-list id="com-category" [ngClass]="index == i ? 'active' : ''"  *ngFor="let item of companyInstro;let i = index;">
+    <ion-list id="com-category" [ngClass]="index == i ? 'active' : ''"  *ngFor="let item of company;let i = index;">
         <ion-item no-padding class="item-title" (tap)="newStatus(i)">{{item.title}}</ion-item>
         <div class="com-info" (tap)="toArticle(i)">
             <div class="com-thumb">

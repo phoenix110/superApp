@@ -1,0 +1,15 @@
+<!-- Generated template for the ShareHeaderComponent component -->
+<ion-navbar color="white">
+  <ion-title *ngIf="headerTitle">{{headerTitle}}</ion-title>
+    <!--分享按钮-->
+    <ion-icon *ngIf="shareLink" ios="ios-open-outline" md="md-open" float-end (click)="share()"></ion-icon>
+    <!--评论按钮-->
+    <ion-icon *ngIf="commentPage" ios="ios-create-outline" md="md-create" float-end (click)="comment()"></ion-icon>
+    <!--关注按钮-->
+    <button *ngIf="concern" ion-button color="pink"  small class="concern">{{concern}}</button>
+    <!--选择男生、女生、全部按钮-->
+    <button *ngIf="all" ion-button clear small class="concern" no-padding tappable (click)="openAction()">
+        {{all}}
+        <ion-icon name='arrow-down'></ion-icon>
+    </button>
+</ion-navbar>
