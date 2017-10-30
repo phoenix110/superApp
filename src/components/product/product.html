@@ -1,0 +1,13 @@
+<!-- Generated template for the ProductComponent component -->
+<ion-card *ngFor="let item of product;let i = index;" tappable (click)="toDetail(item.id)">
+  <div class="product-pic">
+    <img src="{{item.picture}}"/>
+  </div>
+  <ion-card-content>
+    <ion-card-title text-center class="product-name">
+      {{item.title}}
+    </ion-card-title>
+    <!--活动状态-->
+    <p text-center class="text-overflow-one product-down" [class.product-on]="item.status == 1">{{item.status == 1 ? '活动进行中' : '活动已结束'}}</p>
+  </ion-card-content>
+</ion-card>

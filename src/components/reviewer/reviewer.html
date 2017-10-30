@@ -11,7 +11,7 @@
   </div>
   <ion-card-content>
     <ion-card-title text-center class="reviewer-name text-overflow-one">
-      {{reviewerInfo.name}}
+      {{item.name}}
     </ion-card-title>
       <!--公司名-->
     <p text-center class="text-overflow-one" *ngIf="item.company">{{item.company}}</p>
@@ -19,7 +19,7 @@
     <p text-center class="text-overflow-one" *ngIf="item.job">{{item.job}}</p>
       <!--住址-->
       <p text-center class="text-overflow-one" *ngIf="item.address">{{item.address}}</p>
-      <button ion-button outline small color="{{item.type == 1 ? 'danger' : 'gray'}}" class="reviewer-online" >在线</button>
-    <button ion-button color="dark" class="reviewer-chat">开始聊天</button>
+      <button ion-button outline small  *ngIf="item.status == 1" class="reviewer-line" [class.reviewer-online]="item.status == 1" >{{item.status == 1 ? '在线' : '下线'}}</button>
+    <button ion-button color="dark" class="reviewer-chat" *ngIf="item.chat">开始聊天</button>
   </ion-card-content>
 </ion-card>

@@ -29,10 +29,11 @@ public reviewerArr:Array<object> = [];
     this.http.get("/assets/data.json").subscribe(data=>{
         this.reviewerInfo = data['reviewerInfo'];
         // 若返回数据是对象格式则处理成数组形式
-        if(this.reviewerInfo instanceof Object){
-            this.reviewerArr.push(this.reviewerInfo);
-        }else{
+        if(this.reviewerInfo instanceof Array){
             this.reviewerArr = this.reviewerInfo;
+        }else{
+            this.reviewerArr.push(this.reviewerInfo);
+
         }
     });
   }

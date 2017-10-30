@@ -22,12 +22,21 @@ reviewer {
     .reviewer-name{
       font-weight: bold;
     }
-    .reviewer-online{
+
+    .reviewer-line{
       display: block;
       margin: 10px auto;
       text-align: center;
       width:50px;
-      color:#f53d3d;
+      color:#999;
+      border-radius: 2px;
+      background: #fff;
+      border:1px solid #999;
+      padding:5px;
+    }
+    .reviewer-online{
+      color:#e93a3a;
+      border:1px solid #e93a3a;
     }
     .reviewer-chat{
       display: block;

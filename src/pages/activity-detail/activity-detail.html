@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ActivityDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <share-header [headerTitle] ="'活动'" [shareLink]="'shareLink'"></share-header>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="activ-picture">
+    <img src="{{activityDetail.picture}}" alt="">
+  </div>
+    <h2 text-center padding class="activ-tit">{{activityDetail.theme}}</h2>
+    <div class="activ-cont" padding>
+        <div class="activ-bg">
+            <div class="activ-status">
+                <ion-icon name="alarm"></ion-icon>
+                <p [style.color]="activityDetail.status == 1 ? '#e93a3a' : ''">{{activityDetail.status == 1 ? '活动进行中' : '活动已结束'}}</p>
+            </div>
+            <ion-card padding margin class="activ-card">
+                <img src="{{activityDetail.thumb}}" alt="">
+                <p text-center padding>{{activityDetail.title}}</p>
+                <ion-row>
+                    <ion-col col-6 text-center>单价 <b>{{activityDetail.price}}</b></ion-col>
+                    <ion-col col-6 text-center>活动 <b>{{activityDetail.youhui}}</b></ion-col>
+                </ion-row>
+                <button ion-button outline color="danger" class="activityDetail.status == 1 ? '' : 'activ-out'"   text-center>{{activityDetail.status == 1 ? '活动进行中' : '活动已结束'}}</button>
+            </ion-card>
+            <h4 text-center>剩余 <span>{{activityDetail.rest}}</span> 件</h4>
+            <h3 text-center padding>已售出</h3>
+            <h4 text-center><span> {{activityDetail.sale}} 件</span></h4>
+        </div>
+    </div>
+
+</ion-content>

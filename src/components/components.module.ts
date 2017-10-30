@@ -5,8 +5,9 @@ import { GoodIntroModule } from "./good-intro/good-intro.module";
 import { HeaderModule } from "./header/header.module";
 import { SelfHeadModule } from "./self-head/self-head.module";
 import { ShareHeaderModule } from './share-header/share-header.module';
-import { ReviewerPageModule } from './reviewer/reviewer.module';
+import { ReviewerModule } from './reviewer/reviewer.module';
 import { ChatbtnModule } from './chatbtn/chatbtn.module';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
 	declarations: [],
@@ -18,8 +19,9 @@ import { ChatbtnModule } from './chatbtn/chatbtn.module';
         SelfHeadModule,
         HeaderModule,
         ShareHeaderModule,
-        ReviewerPageModule,
+        ReviewerModule,
         ChatbtnModule,
+        ProductModule,
 	]
 })
 export class ComponentsModule {

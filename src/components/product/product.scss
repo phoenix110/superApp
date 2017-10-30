@@ -1,0 +1,42 @@
+product {
+  .card{
+    @include radius(10px);
+    position: relative;
+    height:90%;
+    .product-pic{
+      height: 70%;
+      width: 100%;
+      @include position(relative,0,null,null,0);
+      img{
+        width:100%;
+        height:100%;
+      }
+      &::before{
+        content: '';
+        @include position(absolute,0,null,null,0);
+        background: url("../../assets/images/goods/ended.png") top left no-repeat;
+        background-size:100% 100%;
+        width:72px;
+        height:72px;
+        z-index: 200;
+      }
+    }
+    .product-name{
+      padding: 0;
+      margin: 0;
+      font-weight: bold;
+      font-size: 17px;
+      line-height: 30px;
+    }
+    .product-down{
+      color:#999;
+      @include position(absolute,null,null,10px,0);
+      width: 100%;
+      text-align: center;
+    }
+    .product-on{
+      color:#e93a3a;
+    }
+  }
+
+}

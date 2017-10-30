@@ -1,0 +1,60 @@
+page-activity-detail {
+  .activ-tit{
+    font-weight: bold;
+    font-size: 19px;
+  }
+  .activ-cont{
+    background: #555964;
+    .activ-bg{
+      .activ-status{
+        ion-icon{
+          display: block;
+          text-align: center;
+          color: #f96;
+          font-size: 40px;
+        }
+        p{
+          text-align: center;
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+      .activ-card{
+        @include radius(6px);
+        p{
+          font-size: 18px;
+          font-weight: bold;
+          color: #4d4d4d;
+        }
+        ion-row{
+          padding: 10px 0;
+          font-size: 17px;
+          font-weight: bold;
+          b{
+            color:#e93a3a;
+            font-weight: bold;
+          }
+        }
+        button{
+          display: block;
+          margin: auto;
+          padding: 10px 40px;
+          &.activ-out{
+            color:#999;
+            border: 1px solid #999;
+          }
+        }
+      }
+      h4{
+        color: #fff;
+        span{
+          font-weight: bold;
+          color: #f96;
+        }
+      }
+      h3{
+        color: #fff;
+      }
+    }
+  }
+}

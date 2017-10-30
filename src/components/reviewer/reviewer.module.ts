@@ -16,6 +16,6 @@ import { PipesModule } from "../../pipes/pipes.module";
         ReviewerComponent
     ]
 })
-export class ReviewerPageModule {
+export class ReviewerModule {
 
 }

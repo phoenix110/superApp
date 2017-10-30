@@ -703,11 +703,13 @@
     "send":"455",
     "name":"廖丹霞",
     "company":"Gworld科技有限公司",
-    "job":"总裁助理"
+    "job":"总裁助理",
+    "chat":"聊天"
   },
   "luckPerson":[
     {
         "avatar":"/assets/images/company/company02.jpg",
+        "status":1,
         "out":"11000",
         "send":"12121",
         "name":"廖丹霞",
@@ -716,6 +718,7 @@
     },
     {
       "avatar":"/assets/images/company/company01.jpg",
+      "status":0,
       "out":"5656",
       "send":"232",
       "name":"廖丹霞",
@@ -724,11 +727,49 @@
     },
     {
       "avatar":"/assets/images/company/company04.jpg",
+      "status":1,
       "out":"54545",
       "send":"6644",
       "name":"廖丹霞",
       "company":"Gworld科技有限公司",
       "job":"总裁助理"
     }
-  ]
+  ],
+  "activity":[
+    {
+      "picture":"/assets/images/company/company03.jpg",
+      "title":"中秋佳节 | 连续三年爆款迪斯尼黑皮月饼买三送一，包邮。",
+      "status":1,
+      "id":10
+    },
+    {
+      "picture":"/assets/images/company/company06.jpg",
+      "title":"连续三年爆款迪斯尼黑皮月饼买三送一。",
+      "status":0,
+      "id":22
+    },
+    {
+      "picture":"/assets/images/company/company07.jpg",
+      "title":"迪斯尼黑皮月饼买三送一，包邮。",
+      "status":0,
+      "id":16
+    },
+    {
+      "picture":"/assets/images/company/company02.jpg",
+      "title":"中秋佳节 | 连续三年爆款。",
+      "status":1,
+      "id":15
+    }
+  ],
+  "activityDetail":{
+    "picture":"/assets/images/company/company02.jpg",
+    "theme":"中秋佳节 | 连续三年爆款迪斯尼黑皮月饼买三送一，包邮。",
+    "status":1,
+    "thumb":"/assets/images/company/company08.jpg",
+    "title":"连续火了三年的超爆款，迪士尼黑皮经典月饼礼盒",
+    "price":"298",
+    "youhui":"买三送一",
+    "rest":"100",
+    "sale":"0"
+  }
 }
