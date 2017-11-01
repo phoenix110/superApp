@@ -1,3 +1,43 @@
-page-chat {
+page-chat, slide-delete {
+  .chat-list {
+    ion-item{
+      height: 60px;
+      border-bottom: 1px solid #ccc;
+      border-top: none!important;
+      ion-thumbnail{
+        margin: 0 10px 0 0 !important;
+          button{
+            width:45px;
+            height: 45px;
+            ion-icon{
+              font-size: 30px;
+            }
+          }
+          img{
+            width:45px;
+            height: 45px;
+            margin-top: 4px;
+          }
+      }
+      ion-label{
+        overflow: visible;
+      }
+      .item-inner{
+        border:none!important;
+      }
+      h2{
+        font-weight: bold;
+        color:#666;
+      }
+      p span {
+        border: 1px solid #e93a3a;
+        padding: 1px;
+        @include radius(5px);
+        color: #e93a3a;
+        margin-right: 5px;
+        font-size: 8px;
+      }
+    }
 
+  }
 }

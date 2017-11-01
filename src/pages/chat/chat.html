@@ -9,6 +9,18 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content no-padding>
+  <ion-list class="chat-list" no-margin no-border>
+    <ion-item *ngFor="let item of chatList.system;let i = index;">
+      <ion-thumbnail item-start no-margin class="chat-avatar">
+        <button ion-button [style.background-color]="colorArr[i]">
+          <ion-icon name="{{item.icon}}"></ion-icon>
+        </button>
+      </ion-thumbnail>
+      <h2>{{item.title}}</h2>
+      <p><span>系统</span>{{item.text}}</p>
+    </ion-item>
+  </ion-list>
+    <!--聊天人员列表-->
+    <slide-delete [chatList]="chatList.chat" (delChat)="delRecord($event)"></slide-delete>
 </ion-content>

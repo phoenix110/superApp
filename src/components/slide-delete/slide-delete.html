@@ -1,0 +1,15 @@
+<!-- Generated template for the SlideDeleteComponent component -->
+<ion-list class="chat-list" no-margin no-border>
+  <ion-item-sliding *ngFor="let item of chatList;let i = index;" tappable (click)="toChat(i)">
+    <ion-item>
+      <ion-thumbnail item-start no-margin class="chat-avatar">
+        <img src="{{item.avatar}}" alt="">
+      </ion-thumbnail>
+      <h2>{{item.title}}</h2>
+      <p>{{item.text}}</p>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button (click)="unread(i)">拉黑名单</button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>

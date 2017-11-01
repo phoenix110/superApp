@@ -13,7 +13,7 @@
     <div class="nav-scroll">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" *ngFor="let item of union;let i = index"  (tap)="categoryList(i)" style="width: none!important;">
+          <div class="swiper-slide" *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)" style="width: none!important;">
             <button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>
           </div>
         </div>

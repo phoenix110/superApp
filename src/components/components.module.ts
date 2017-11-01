@@ -8,6 +8,7 @@ import { ShareHeaderModule } from './share-header/share-header.module';
 import { ReviewerModule } from './reviewer/reviewer.module';
 import { ChatbtnModule } from './chatbtn/chatbtn.module';
 import { ProductModule } from './product/product.module';
+import { SlideDeleteModule } from './slide-delete/slide-delete.module';
 
 @NgModule({
 	declarations: [],
@@ -22,6 +23,7 @@ import { ProductModule } from './product/product.module';
         ReviewerModule,
         ChatbtnModule,
         ProductModule,
+        SlideDeleteModule
 	]
 })
 export class ComponentsModule {

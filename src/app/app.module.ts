@@ -5,7 +5,6 @@ import { HttpClientModule  } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 // 导入公共Module
 import { ComponentsModule } from "../components/components.module";
 

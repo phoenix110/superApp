@@ -9,19 +9,22 @@
 </ion-header>
 
 <ion-content class="cont-background">
-  <ion-card padding>
+  <ion-card padding *ngFor="let item of group;let i = index;">
     <div class="group-header">
-      <div class="group-icon" text-center>
-        <ion-icon class="iconfont icon-voice8"></ion-icon>
+      <div class="group-icon" text-center [style.background-color]="colorArr[i]">
+        <ion-icon name="volume-up"></ion-icon>
       </div>
       <div class="group-dec">
-        <h2>官方社群23232</h2>
-        <p>最高容量20万人</p>
+        <h2>{{item.name}}</h2>
+        <p>最高容量{{item.cont}}人</p>
       </div>
     </div>
+    <ul class="group-tuijian flex-row-between">
+      <li *ngFor="let avatar of item.avatar;let i = index;" tappable (click)="withChat(i)"><img src="{{avatar}}" alt=""></li>
+    </ul>
     <div class="group-count">
-      <span>成员<b>121212</b></span>
-      <span>话题<b>230</b></span>
-      <span>讨论<b>1200</b></span>
+      <span>成员<b>{{item.people}}</b></span>
+      <span>话题<b>{{item.topic}}</b></span>
+      <span>讨论<b>{{item.talk}}</b></span>
     </div>
   </ion-card>

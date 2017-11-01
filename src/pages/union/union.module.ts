@@ -3,7 +3,6 @@ import { IonicPageModule } from "ionic-angular";
 import { UnionPage } from "./union";
 
 import { ComponentsModule } from '../../components/components.module'
-
 @NgModule ({
     declarations: [
         UnionPage

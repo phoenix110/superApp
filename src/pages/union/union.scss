@@ -6,8 +6,11 @@ $background:#f4f4f4;
           margin:10px 10px 10px 0;
           -webkit-padding-start:10px;
           overflow-x:scroll;
+          .nav-scroll .swiper-wrapper{
+            width:auto!important;
+          }
           .nav-scroll .swiper-slide{
-              width:auto;
+              width:auto!important;
           }
     }
 	.card-pic {
