@@ -9,32 +9,49 @@
 </ion-header>
 
 <ion-content id="my-content" class="cont-background">
-    <ion-card>
+    <ion-card *ngIf="my.isLogin.status == 0">
         <ul class="card-title">
-            <li><a href="javascript:;"><img src="assets/images/avatar/1.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/2.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/3.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/4.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/5.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/6.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/7.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/8.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/9.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/10.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/11.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/12.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/13.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/14.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/15.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="assets/images/avatar/3.png" alt=""></a></li>
+            <li *ngFor="let item of my.isLogin.userIcon"><a href="javascript:;"><img src="{{item}}" alt=""></a></li>
         </ul>
         <ion-card-content>
             <ion-card-title no-padding>
                 <h1 text-center>未登录</h1>
             </ion-card-title>
-            <p text-center>当前共有3222张名片</p>
+            <p text-center>当前共有{{my.isLogin.cards}}张名片</p>
             <p text-center>你也可以拥有自已的专属APP名片</p>
             <p text-center>请先登录或注册</p>
             <button ion-button color="danger" padding text-center>登录</button>
         </ion-card-content>
     </ion-card>
+    <section class="my-header">
+        <!--<span>登录或注册</span>-->
+        <ul class="my-info flex-row-around">
+            <li>
+                <ion-icon ios="ios-brush" md="md-brush"></ion-icon>
+                <b>发表圈子</b>
+            </li>
+            <li>
+                <ion-icon ios="ios-film" md="md-film"></ion-icon>
+                <b>超媒体</b>
+            </li>
+            <li>
+                <ion-icon ios="ios-person" md="md-person"></ion-icon>
+                <b>个人中心</b>
+            </li>
+            <li>
+                <ion-icon ios="ios-list-box" md="md-list-box"></ion-icon>
+                <b>我的名片</b>
+            </li>
+        </ul>
+        <ul class="my-concern flex-row-around">
+            <li class="active" *ngFor="let item of my.info.category"><button>{{item.title}}</button></li>
+        </ul>
+    </section>
+    <section class="count-box">
+        <ul class="my-count flex-row-between" padding-horizontal>
+            <li *ngFor="let item of my.info.count"><span>{{item.title}}</span><b>{{item.num}}</b></li>
+        </ul>
+    </section>
+    <!--点评列表-->
+    <comment [commentList]="my.circle"></comment>
+</ion-content>

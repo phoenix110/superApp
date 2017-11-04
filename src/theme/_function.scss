@@ -77,6 +77,7 @@ $redColor:#f00;
 }
 /*深灰色背景*/
 @mixin grayBg($wid,$hgt,$color:#000,$alpha:0.2){
+    content: '';
     width: $wid;
     height: $hgt;
     background: rgba($color,$alpha);

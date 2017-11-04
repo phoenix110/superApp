@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {NavController, NavParams, IonicPage} from 'ionic-angular';
-import Swiper from 'swiper';
+// import Swiper from 'swiper';
 
 /**
  * Generated class for the UnionPage page.
@@ -51,19 +51,19 @@ export class UnionPage {
 
     // 给颜色数组赋值
     public getColorArr() {
-        for (let i in this.union) {
-            console.log(i);
-            // 获取随机的颜色值
-            let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
-            this.colorArr.push(color);
-        }
+        // for (let i in this.union) {
+        //     console.log(i);
+        //     // 获取随机的颜色值
+        //     let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
+        //     this.colorArr.push(color);
+        // }
     }
 
     public swiperButton() {
-         new Swiper('.swiper-container', {
-            observer:true,
-            observeParents:true,
-             freeMode:true
-        })
+        //  new Swiper('.swiper-container', {
+        //     observer:true,
+        //     observeParents:true,
+        //      freeMode:true
+        // })
     }
 }

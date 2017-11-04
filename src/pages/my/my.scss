@@ -1,8 +1,15 @@
 @import "../../theme/function";
+$red:#e93a3a;
+$orange : #FA6B5B;
+$gray:#5F5D5D;
 #my-content{
+  //未登录提示
   ion-card {
-    width:70%;
-    margin:2px auto 0;
+    width:75%;
+    height: 340px;
+    @include position(absolute,0,0,0,0);
+    margin: auto;
+    z-index: 1000;
     padding:10px 10px;
     @include radius();
     -webkit-box-shadow:-40px 40px 70px rgba(0,0,0,0.4);
@@ -32,6 +39,87 @@
         padding:2px 0;
       }
     }
-
+  }
+  //个人中心
+  .my-header{
+    @include position(relative,0,null,null,0);
+    background: url("../../assets/images/company/company05.jpg") left top no-repeat;
+    background-size:100% 100%;
+    width:100%;
+    height:265px;
+    &::after{
+      @include grayBg(100%,100%);
+      z-index: 10;
+      background: -webkit-gradient(linear, 0 50, 0 bottom, from(rgba(0,0,0,0)), to(rgba(0, 0, 0, 0.5)));
+    }
+    span{
+      @include position(absolute,0,0,0,0);
+      z-index: 100;
+      color: #fff;
+      width:120px;
+      height:30px;
+      line-height: 30px;
+      margin:auto;
+      background: rgba(#000,0.5);
+      border:2px solid #fff;
+      @include radius(5px);
+      text-align: center;
+    }
+    .my-info,.my-concern{
+      @include position(absolute,null,null,40px,0);
+      width:100%;
+      z-index: 100;
+      li{
+        @include flex(column,center);
+        ion-icon{
+          font-size: 25px;
+          color:#fff;
+        }
+        b{
+          color:#fff;
+          font-size: 8px;
+        }
+      }
+    }
+    .my-concern{
+      @include position(absolute,null,null,0,0);
+      z-index: 100;
+      height:35px;
+      line-height: 35px;
+      background: #000;
+      padding: 0 5px;
+      width:100%;
+      li{
+        width:100%;
+        box-sizing: border-box;
+        margin: 0 5px;
+        @include flex(column,center);
+        button{
+          background: $gray;
+          @include radius(5px);
+          width:100%;
+          padding:5px 0;
+          color:#fff;
+          font-size: 10px;
+        }
+        &.active button{
+          background: $orange;
+        }
+      }
+    }
+  }
+  .my-count{
+    height: 45px;
+    li{
+      @include flex(column,center);
+      span{
+        font-weight: bold;
+        font-size: 10px;
+      }
+      b{
+        color: $red;
+        font-weight: bold;
+      }
+    }
   }
 }

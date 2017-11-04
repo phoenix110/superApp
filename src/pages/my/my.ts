@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 
 /**
@@ -13,12 +14,25 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
   templateUrl: 'my.html',
 })
 export class MyPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public my:Object = {
+    "isLogin":{},
+    "circle":[],
+    "info":{}
+  };
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyPage');
+    this.myData();
   }
-
+  // 个人中心数据
+  public myData(){
+    this.http.get("/assets/data.json").subscribe(data=>{
+      this.my["isLogin"] = data["my"]["isLogin"];
+      this.my["info"] = data["my"]["info"];
+      this.my["circle"] = data["my"]["circle"];
+      console.log(this.my)
+    });
+  }
 }

@@ -1,23 +1,26 @@
 page-chat, slide-delete {
   .chat-list {
     ion-item{
-      height: 60px;
+
       border-bottom: 1px solid #ccc;
       border-top: none!important;
       ion-thumbnail{
-        margin: 0 10px 0 0 !important;
-          button{
-            width:45px;
-            height: 45px;
-            ion-icon{
-              font-size: 30px;
-            }
+        margin: 0 10px 0 0!important;
+        min-width: 50px;
+        min-height: 50px;
+        @include position(relative);
+        button{
+          width:45px;
+          height:45px;
+          ion-icon{
+            @include position(absolute,0,0,0,0);
+            margin: auto;
+            width:30px;
+            height: 30px;
+            font-size: 30px;
           }
-          img{
-            width:45px;
-            height: 45px;
-            margin-top: 4px;
-          }
+        }
+
       }
       ion-label{
         overflow: visible;
