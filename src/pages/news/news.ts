@@ -25,7 +25,7 @@ export class NewsPage {
   }
   // 获取新闻页面数据
     public newsData(){
-      this.http.get("/assets/data.json").subscribe(data=>{
+      this.http.get("./assets/data.json").subscribe(data=>{
           this.news = data['news'];
       });
     }

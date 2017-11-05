@@ -28,7 +28,7 @@ export class MyPage {
   }
   // 个人中心数据
   public myData(){
-    this.http.get("/assets/data.json").subscribe(data=>{
+    this.http.get("./assets/data.json").subscribe(data=>{
       this.my["isLogin"] = data["my"]["isLogin"];
       this.my["info"] = data["my"]["info"];
       this.my["circle"] = data["my"]["circle"];

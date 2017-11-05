@@ -1,6 +1,11 @@
-import {Component} from '@angular/core';
+
+
+import {Component, ViewChild} from '@angular/core';
+import {NavController, NavParams, IonicPage, Slides} from 'ionic-angular';
+
+
+
 import {HttpClient} from "@angular/common/http";
-import {NavController, NavParams, IonicPage} from 'ionic-angular';
 // import Swiper from 'swiper';
 
 /**
@@ -15,6 +20,7 @@ import {NavController, NavParams, IonicPage} from 'ionic-angular';
     templateUrl: 'union.html',
 })
 export class UnionPage {
+    @ViewChild(Slides) slides:Slides;
     public union: Array<object> = [];
     public recommend: Array<object> = [];
     public colorArr: string[] = [];
@@ -30,11 +36,13 @@ export class UnionPage {
 
     // 获取联盟页面数据
     public getShopData() {
-        this.http.get("/assets/data.json").subscribe(data => {
+        this.http.get("./assets/data.json").subscribe(data => {
             this.union = data['union'];
             this.getColorArr();
             this.categoryList(0);
             this.swiperButton();
+            this.slides.freeMode = true;
+            this.slides.slidesPerView = "auto";
         });
     }
 
@@ -51,12 +59,12 @@ export class UnionPage {
 
     // 给颜色数组赋值
     public getColorArr() {
-        // for (let i in this.union) {
-        //     console.log(i);
-        //     // 获取随机的颜色值
-        //     let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
-        //     this.colorArr.push(color);
-        // }
+        for (let i in this.union) {
+            console.log(i);
+            // 获取随机的颜色值
+            let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
+            this.colorArr.push(color);
+        }
     }
 
     public swiperButton() {

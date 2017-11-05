@@ -25,7 +25,7 @@ export class ArticlePage {
   }
   // 获取文章详情数据
   public getArticle(){
-      return this.http.get("/assets/data.json").subscribe(data=>{
+      return this.http.get("./assets/data.json").subscribe(data=>{
           this.article = data['article'];
       })
   }

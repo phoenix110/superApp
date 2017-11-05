@@ -25,7 +25,7 @@ export class KeFuPage {
   }
   // 获取客服-用户评论数据
   public keFuData(){
-    this.http.get("/assets/data.json").subscribe(data=>{
+    this.http.get("./assets/data.json").subscribe(data=>{
       this.keFu = data['keFu'];
     });
   }

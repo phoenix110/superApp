@@ -14,7 +14,7 @@ product {
       &::before{
         content: '';
         @include position(absolute,0,null,null,0);
-        background: url("../../assets/images/goods/ended.png") top left no-repeat;
+        background: url("../assets/images/goods/ended.png") top left no-repeat;
         background-size:100% 100%;
         width:72px;
         height:72px;

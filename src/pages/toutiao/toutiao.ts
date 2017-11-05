@@ -26,7 +26,7 @@ export class TouTiaoPage {
     }
     // 获取圈子页面数据
     public getCircleData() {
-        this.http.get("/assets/data.json").subscribe(data => {
+        this.http.get("./assets/data.json").subscribe(data => {
             this.touTiao = data['touTiao'];
         });
     }

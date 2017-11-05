@@ -27,7 +27,7 @@ export class CirclePage {
 
     // 获取圈子页面数据
     public getCircleData() {
-        this.http.get("/assets/data.json").subscribe(data => {
+        this.http.get("./assets/data.json").subscribe(data => {
             this.circle = data['circle'];
         });
     }

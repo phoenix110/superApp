@@ -3,31 +3,34 @@ import { HttpClient } from "@angular/common/http";
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ToutiaoDetailPage page.
+ * Generated class for the MypagePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
-@IonicPage({
-    segment:"touTiaoDetail/:id"
-})
+@IonicPage()
 @Component({
-  selector: 'page-toutiao-detail',
-  templateUrl: 'toutiao-detail.html',
+  selector: 'page-mypage',
+  templateUrl: 'mypage.html',
 })
-export class ToutiaoDetailPage {
-  public touDetail:Object = {};
+export class MypagePage {
+  public comment:Object = {
+      "info":{},
+      "circle":[]
+  };
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
   }
 
   ionViewDidLoad() {
-    this.touTiaoDetail();
+    console.log('ionViewDidLoad MypagePage');
+    this.myCommentData();
   }
-  // 获取头条新闻详情页数据
-  public touTiaoDetail(){
+  public myCommentData(){
     this.http.get("./assets/data.json").subscribe(data=>{
-      this.touDetail = data['touTiaoDetail'];
+        this.comment["info"] = data["myComment"]["info"];
+        this.comment["circle"] = data["myComment"]["circle"];
+        console.log(data["myComment"])
     });
   }
 }

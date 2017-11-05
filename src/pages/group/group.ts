@@ -25,9 +25,10 @@ export class GroupPage {
   }
   // 获取社群数据
   public groupData(){
-      this.http.get("assets/data.json").subscribe(data=>{
+      this.http.get("./assets/data.json").subscribe(data=>{
         this.group = data['group'];
         this.getColorArr();
+        console.log(this.group)
       });
   }
     // 给颜色数组赋值

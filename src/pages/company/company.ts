@@ -32,7 +32,7 @@ export class CompanyPage {
   }
     // 获取公司官网页面数据
     public getCompanyData(){
-        this.http.get("/assets/data.json").subscribe(data=>{
+        this.http.get("./assets/data.json").subscribe(data=>{
             this.company = data['company'];
         });
     }

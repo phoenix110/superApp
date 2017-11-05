@@ -14,9 +14,9 @@
     <div class="comment-box" *ngIf="keFu.length > 0">
         <ion-card class="comment-card" *ngFor="let item of keFu;let i = index;">
             <ion-grid>
-                <ion-row *ngFor="let comment of item;let j = index;" class="user-comment">
+                <ion-row *ngFor="let comment of item;let j = index;" class="user-comment" tappable (click)="reviewerInfo(j)">
                     <ion-col col-2 class="user-avatar">
-                        <img src="{{comment.avatar}}" alt="" tappable (click)="reviewerInfo(j)">
+                        <img src="{{comment.avatar}}" alt="" >
                     </ion-col>
                     <ion-col col-10 class="user-cont">
                         <h4 class="user-ask" *ngIf="comment.type == 1 || comment.type == 3">

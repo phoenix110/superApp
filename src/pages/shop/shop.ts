@@ -24,7 +24,7 @@ export class ShopPage {
 
 	// 获取商城首页数据
     public getShopData(){
-	    this.http.get("/assets/data.json").subscribe(data=>{
+	    this.http.get("./assets/data.json").subscribe(data=>{
             this.shop = data['shop'];
         });
     }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NavController } from "ionic-angular";
 
 /**
  * Generated class for the CommentComponent component.
@@ -13,10 +14,12 @@ import { Component, Input } from '@angular/core';
 export class CommentComponent {
   text: string;
   @Input() commentList:Array<object> = [];
-  constructor() {
+  constructor(public navCtrl:NavController) {
     console.log('Hello CommentComponent Component');
     this.text = 'Hello World';
     console.log(this.commentList)
   }
-
+    public toWorld(id){
+        this.navCtrl.push("MypagePage",{id:id});
+    }
 }

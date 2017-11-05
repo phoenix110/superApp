@@ -23,7 +23,7 @@ export class FindPage {
   }
   // 获取find页面数据
   public getFindData(){
-    this.http.get("/assets/data.json").subscribe(data=>{
+    this.http.get("./assets/data.json").subscribe(data=>{
       this.find = data['find'];
     });
   }

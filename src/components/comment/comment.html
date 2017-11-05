@@ -1,6 +1,6 @@
 <!-- Generated template for the CommentComponent component -->
 <ion-grid>
-  <ion-row *ngFor="let item of commentList;let i = index;" class="circle-row">
+  <ion-row *ngFor="let item of commentList;let i = index;" class="circle-row"  tappable (click)="toWorld(i)">
     <ion-col col-2 class="circle-left">
       <img src="{{item.avatar}}" alt="">
     </ion-col>

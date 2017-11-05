@@ -6,26 +6,26 @@
       "goods": [
         {
           "id": 7,
-          "imgSrc": "assets/images/item01.jpg",
-          "thumb": "assets/images/icon01.jpg",
+          "imgSrc": "./assets/images/item01.jpg",
+          "thumb": "./assets/images/icon01.jpg",
           "title": "水映兰庭"
         },
         {
           "id": 8,
-          "imgSrc": "assets/images/item02.jpg",
-          "thumb": "assets/images/icon02.jpg",
+          "imgSrc": "./assets/images/item02.jpg",
+          "thumb": "./assets/images/icon02.jpg",
           "title": "邹氏治愈集"
         },
         {
           "id": 9,
-          "imgSrc": "assets/images/item03.jpg",
-          "thumb": "assets/images/icon03.jpg",
+          "imgSrc": "./assets/images/item03.jpg",
+          "thumb": "./assets/images/icon03.jpg",
           "title": "传世传奇"
         },
         {
           "id": 10,
-          "imgSrc": "assets/images/item04.jpg",
-          "thumb": "assets/images/icon04.jpg",
+          "imgSrc": "./assets/images/item04.jpg",
+          "thumb": "./assets/images/icon04.jpg",
           "title": "诺漫斯商城"
         }
       ]
@@ -36,14 +36,14 @@
       "goods": [
         {
           "id": 1,
-          "imgSrc": "assets/images/item02.jpg",
-          "thumb": "assets/images/icon03.jpg",
+          "imgSrc": "./assets/images/item02.jpg",
+          "thumb": "./assets/images/icon03.jpg",
           "title": "水映兰庭"
         },
         {
           "id": 2,
-          "imgSrc": "assets/images/item04.jpg",
-          "thumb": "assets/images/icon04.jpg",
+          "imgSrc": "./assets/images/item04.jpg",
+          "thumb": "./assets/images/icon04.jpg",
           "title": "诺漫斯商城"
         }
       ]
@@ -54,14 +54,14 @@
       "goods": [
         {
           "id": 3,
-          "imgSrc": "assets/images/item03.jpg",
-          "thumb": "assets/images/icon03.jpg",
+          "imgSrc": "./assets/images/item03.jpg",
+          "thumb": "./assets/images/icon03.jpg",
           "title": "水映兰庭"
         },
         {
           "id": "4",
-          "imgSrc": "assets/images/item02.jpg",
-          "thumb": "assets/images/icon02.jpg",
+          "imgSrc": "./assets/images/item02.jpg",
+          "thumb": "./assets/images/icon02.jpg",
           "title": "邹氏治愈集"
         }
       ]
@@ -72,20 +72,20 @@
       "goods": [
         {
           "id": 5,
-          "imgSrc": "assets/images/item04.jpg",
-          "thumb": "assets/images/icon04.jpg",
+          "imgSrc": "./assets/images/item04.jpg",
+          "thumb": "./assets/images/icon04.jpg",
           "title": "水映兰庭"
         },
         {
           "id": 6,
-          "imgSrc": "assets/images/item06.jpg",
-          "thumb": "assets/images/icon02.jpg",
+          "imgSrc": "./assets/images/item06.jpg",
+          "thumb": "./assets/images/icon02.jpg",
           "title": "邹氏治愈集"
         },
         {
           "id": 7,
-          "imgSrc": "assets/images/item07.jpg",
-          "thumb": "assets/images/icon01.jpg",
+          "imgSrc": "./assets/images/item07.jpg",
+          "thumb": "./assets/images/icon01.jpg",
           "title": "传世传奇"
         }
       ]
@@ -96,26 +96,26 @@
       "goods": [
         {
           "id": 7,
-          "imgSrc": "assets/images/item01.jpg",
-          "thumb": "assets/images/icon01.jpg",
+          "imgSrc": "./assets/images/item01.jpg",
+          "thumb": "./assets/images/icon01.jpg",
           "title": "水映兰庭"
         },
         {
           "id": 8,
-          "imgSrc": "assets/images/item02.jpg",
-          "thumb": "assets/images/icon02.jpg",
+          "imgSrc": "./assets/images/item02.jpg",
+          "thumb": "./assets/images/icon02.jpg",
           "title": "邹氏治愈集"
         },
         {
           "id": 9,
-          "imgSrc": "assets/images/item03.jpg",
-          "thumb": "assets/images/icon03.jpg",
+          "imgSrc": "./assets/images/item03.jpg",
+          "thumb": "./assets/images/icon03.jpg",
           "title": "传世传奇"
         },
         {
           "id": 10,
-          "imgSrc": "assets/images/item04.jpg",
-          "thumb": "assets/images/icon04.jpg",
+          "imgSrc": "./assets/images/item04.jpg",
+          "thumb": "./assets/images/icon04.jpg",
           "title": "诺漫斯商城"
         }
       ]
@@ -126,14 +126,14 @@
       "goods": [
         {
           "id": 1,
-          "imgSrc": "assets/images/item02.jpg",
-          "thumb": "assets/images/icon03.jpg",
+          "imgSrc": "./assets/images/item02.jpg",
+          "thumb": "./assets/images/icon03.jpg",
           "title": "水映兰庭"
         },
         {
           "id": 2,
-          "imgSrc": "assets/images/item04.jpg",
-          "thumb": "assets/images/icon04.jpg",
+          "imgSrc": "./assets/images/item04.jpg",
+          "thumb": "./assets/images/icon04.jpg",
           "title": "诺漫斯商城"
         }
       ]
@@ -144,14 +144,14 @@
       "goods": [
         {
           "id": 3,
-          "imgSrc": "assets/images/item03.jpg",
-          "thumb": "assets/images/icon03.jpg",
+          "imgSrc": "./assets/images/item03.jpg",
+          "thumb": "./assets/images/icon03.jpg",
           "title": "水映兰庭"
         },
         {
           "id": "4",
-          "imgSrc": "assets/images/item02.jpg",
-          "thumb": "assets/images/icon02.jpg",
+          "imgSrc": "./assets/images/item02.jpg",
+          "thumb": "./assets/images/icon02.jpg",
           "title": "邹氏治愈集"
         }
       ]
@@ -162,20 +162,20 @@
       "goods": [
         {
           "id": 5,
-          "imgSrc": "assets/images/item04.jpg",
-          "thumb": "assets/images/icon04.jpg",
+          "imgSrc": "./assets/images/item04.jpg",
+          "thumb": "./assets/images/icon04.jpg",
           "title": "水映兰庭"
         },
         {
           "id": 6,
-          "imgSrc": "assets/images/item06.jpg",
-          "thumb": "assets/images/icon02.jpg",
+          "imgSrc": "./assets/images/item06.jpg",
+          "thumb": "./assets/images/icon02.jpg",
           "title": "邹氏治愈集"
         },
         {
           "id": 7,
-          "imgSrc": "assets/images/item07.jpg",
-          "thumb": "assets/images/icon01.jpg",
+          "imgSrc": "./assets/images/item07.jpg",
+          "thumb": "./assets/images/icon01.jpg",
           "title": "传世传奇"
         }
       ]
@@ -184,35 +184,35 @@
   "company": [
     {
       "title": "首页",
-      "thumb": "assets/images/company/company01.jpg"
+      "thumb": "./assets/images/company/company01.jpg"
     },
     {
       "title": "SuperCard 超G名片",
-      "thumb": "assets/images/company/company02.jpg"
+      "thumb": "./assets/images/company/company02.jpg"
     },
     {
       "title": "SuperTeam 研发及运营团队",
-      "thumb": "assets/images/company/company03.jpg"
+      "thumb": "./assets/images/company/company03.jpg"
     },
     {
       "title": "SuperService 服务支持",
-      "thumb": "assets/images/company/company04.jpg"
+      "thumb": "./assets/images/company/company04.jpg"
     },
     {
       "title": "SuperMind 思想&观点",
-      "thumb": "assets/images/company/company05.jpg"
+      "thumb": "./assets/images/company/company05.jpg"
     },
     {
       "title": "企业介绍",
-      "thumb": "assets/images/company/company06.jpg"
+      "thumb": "./assets/images/company/company06.jpg"
     },
     {
       "title": "Brand Vision 品牌形象",
-      "thumb": "assets/images/company/company07.jpg"
+      "thumb": "./assets/images/company/company07.jpg"
     },
     {
       "title": "新闻动态",
-      "thumb": "assets/images/company/company08.jpg"
+      "thumb": "./assets/images/company/company08.jpg"
     }
   ],
   "shop":{
@@ -222,7 +222,7 @@
         "price":"200",
         "stock":"100",
         "sales":"50",
-        "thumb":"assets/images/goods/goods04.jpg"
+        "thumb":"./assets/images/goods/goods04.jpg"
       }
     ],
     "goodList":[
@@ -231,116 +231,116 @@
         "price":"60",
         "stock":"150",
         "sales":"80",
-        "thumb":"assets/images/goods/goods02.jpg"
+        "thumb":"./assets/images/goods/goods02.jpg"
       },
       {
         "title":"时尚运动鞋",
         "price":"300",
         "stock":"100",
         "sales":"40",
-        "thumb":"assets/images/goods/goods03.jpg"
+        "thumb":"./assets/images/goods/goods03.jpg"
       },
       {
         "title":"足球",
         "price":"300",
         "stock":"100",
         "sales":"30",
-        "thumb":"assets/images/goods/goods04.jpg"
+        "thumb":"./assets/images/goods/goods04.jpg"
       },
       {
         "title":"衣服",
         "price":"400",
         "stock":"130",
         "sales":"50",
-        "thumb":"assets/images/goods/goods05.jpg"
+        "thumb":"./assets/images/goods/goods05.jpg"
       },
       {
         "title":"帽子",
         "price":"200",
         "stock":"160",
         "sales":"22",
-        "thumb":"assets/images/goods/goods06.jpg"
+        "thumb":"./assets/images/goods/goods06.jpg"
       }
     ]
   },
   "find":[
     {
       "title":"官网",
-      "thumb":"assets/images/find/pic01.jpg",
+      "thumb":"./assets/images/find/pic01.jpg",
       "route":"CompanyPage"
     },
     {
       "title":"商城",
-      "thumb":"assets/images/find/pic02.jpg",
+      "thumb":"./assets/images/find/pic02.jpg",
       "route":"ShopPage"
     },
     {
       "title":"圈子",
-      "thumb":"assets/images/find/pic03.jpg",
+      "thumb":"./assets/images/find/pic03.jpg",
       "route":"CirclePage"
     },
     {
       "title":"头条",
-      "thumb":"assets/images/find/pic07.jpg",
+      "thumb":"./assets/images/find/pic07.jpg",
       "route":"TouTiaoPage"
     },
     {
       "title":"新闻",
-      "thumb":"assets/images/find/pic10.jpg",
+      "thumb":"./assets/images/find/pic10.jpg",
       "route":"NewsPage"
     },
     {
       "title":"活动",
-      "thumb":"assets/images/find/pic04.jpg",
+      "thumb":"./assets/images/find/pic04.jpg",
       "route":"ActivityPage"
     },
     {
       "title":"直播",
-      "thumb":"assets/images/find/pic05.jpg",
+      "thumb":"./assets/images/find/pic05.jpg",
       "route":"BroadcastPage"
     },
     {
       "title":"联盟",
-      "thumb":"assets/images/find/pic06.jpg",
+      "thumb":"./assets/images/find/pic06.jpg",
       "route":"UnionPage"
     },
     {
       "title":"客服",
-      "thumb":"assets/images/find/pic08.jpg",
+      "thumb":"./assets/images/find/pic08.jpg",
       "route":"KeFuPage"
     },
     {
       "title":"缘分",
-      "thumb":"assets/images/find/pic09.jpg",
+      "thumb":"./assets/images/find/pic09.jpg",
       "route":"LuckPage"
     }
   ],
   "article":{
       "title":"Nine Inch Nails Live",
-      "banner":"assets/images/company/company02.jpg",
+      "banner":"./assets/images/company/company02.jpg",
       "content":"一张神奇的互联网名片，一个以名片为入口、以移动互联网为载体的超级生意平台，让你通过手机与全世界的人做生意。只需120分钟加一部手机，就可以轻松把自已的品牌、产品、服务乃至整个企业都放进名片里。超G名片发送和交换简单方便，线上线下畅通无阻，你的名片不断发出去，生意就会不断带进来。",
       "thumbs":[
         {
           "title":"概览：5分钟快速了解产品",
-          "thumb":"assets/images/company/company04.jpg"
+          "thumb":"./assets/images/company/company04.jpg"
         },
         {
           "title":"概览：5分钟快速了解产品",
-          "thumb":"assets/images/company/company05.jpg"
+          "thumb":"./assets/images/company/company05.jpg"
         },
         {
           "title":"概览：5分钟快速了解产品",
-          "thumb":"assets/images/company/company02.jpg"
+          "thumb":"./assets/images/company/company02.jpg"
         },
         {
           "title":"概览：5分钟快速了解产品",
-          "thumb":"assets/images/company/company01.jpg"
+          "thumb":"./assets/images/company/company01.jpg"
         }
       ]
     },
   "touTiao":[
     {
-      "thumb":"assets/images/news/news03.jpg",
+      "thumb":"./assets/images/news/news03.jpg",
       "title":" 小名片，大营销！巧用名片赢大单~~",
       "content":"名片是现代商业交往中不可缺少的必备工具之一.销售员在和客户面谈时,送给客户一张名片,不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
@@ -348,7 +348,7 @@
       "comment":"20"
     },
     {
-      "thumb":"assets/images/news/news04.jpg",
+      "thumb":"./assets/images/news/news04.jpg",
       "title":" 使用了一天，iOS 11值得更新",
       "content":"苹果在北京时间9月20日凌晨将正式版iOS11推送出来，早上起来也是第一时间将手机（iPhone 6s）和iPad Air（2014年）升级到最新版本。",
       "read":"10",
@@ -356,7 +356,7 @@
       "comment":"20"
     },
     {
-      "thumb":"assets/images/news/news02.jpg",
+      "thumb":"./assets/images/news/news02.jpg",
       "title":" 只用一部手机就能做生意？超G名片，让生意变得更容易。  ",
       "content":"关于超媒体UltraMedia | 本页面由超G名片的“超媒体”内容工具创建，实现跨数据类型自由组装，支持图文影音、VR/AR、Web3D、图表、超链接、IM即时聊天、跨域支付交易、软件分拆模块、内容集成等。以下部分功能使用“超G名片”独创的SceneResolution场景分拆技术，实现功能模块的独立分拆，可分别嵌入到任何媒体页面中，无需下载，点击即可体验。",
       "read":"10",
@@ -364,7 +364,7 @@
       "comment":"20"
     },
     {
-      "thumb":"assets/images/news/news05.jpg",
+      "thumb":"./assets/images/news/news05.jpg",
       "title":" App要消失了？",
       "content":"名片是现代商业交往中不可缺少的必备工具之一.销售员在和客户面谈时,送给客户一张名片,不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
@@ -372,7 +372,7 @@
       "comment":"20"
     },
     {
-      "thumb":"assets/images/news/news06.jpg",
+      "thumb":"./assets/images/news/news06.jpg",
       "title":" 小名片，大营销！巧用名片赢大单~~",
       "content":"1.从一次面试事故开始说起",
       "read":"10",
@@ -380,7 +380,7 @@
       "comment":"20"
     },
     {
-      "thumb":"assets/images/news/news01.jpg",
+      "thumb":"./assets/images/news/news01.jpg",
       "title":" 面向传统小微企业的移动SaaS服务，市场规模将超21万亿。",
       "content":"国家工商总局数据显示，截止2016年12月底，中国工商注册登记的企业总数已超过7000万家，其中95%以上为小微企业，大型及中型规模企业总数量只占到5%，目前主流的企业SaaS产品主要就是覆盖这5%里的一小部分，如果中小微企业也全面SaaS化，那么，中国将一跃成为全球规模最大的企业SaaS服务市场。",
       "read":"10",
@@ -390,7 +390,7 @@
   ],
   "circle":[
     {
-      "avatar":"/assets/images/avatar/2.png",
+      "avatar":"./assets/images/avatar/2.png",
       "nick":"凌风",
       "send":[
         {
@@ -405,7 +405,7 @@
         }
       ],
       "title":"南日岛风光",
-      "picture":"/assets/images/circle/bigNews.jpg",
+      "picture":"./assets/images/circle/bigNews.jpg",
       "banner":{},
       "video":{},
       "slide":[],
@@ -425,7 +425,7 @@
       ]
     },
     {
-      "avatar":"/assets/images/avatar/1.png",
+      "avatar":"./assets/images/avatar/1.png",
       "nick":"凌风",
       "send":[
         {
@@ -442,7 +442,7 @@
       "title":"南日岛风光",
       "picture":"",
       "banner":{
-        "thumb":"/assets/images/circle/bigNews.jpg",
+        "thumb":"./assets/images/circle/bigNews.jpg",
         "sign":"原创",
         "title":"尊萃活泉水你值得拥有的尊贵"
       },
@@ -464,7 +464,7 @@
       ]
     },
     {
-      "avatar":"/assets/images/avatar/3.png",
+      "avatar":"./assets/images/avatar/3.png",
       "nick":"泰罗",
       "send":[],
       "title":"南日岛风光",
@@ -481,7 +481,7 @@
       "comment":[]
     },
     {
-      "avatar":"/assets/images/avatar/4.png",
+      "avatar":"./assets/images/avatar/4.png",
       "nick":"南日岛",
       "send":[
         {
@@ -501,16 +501,16 @@
       "video":{ },
       "slide":[
         {
-          "picture":"/assets/images/company/company01.jpg"
+          "picture":"./assets/images/company/company01.jpg"
         },
         {
-          "picture":"/assets/images/company/company02.jpg"
+          "picture":"./assets/images/company/company02.jpg"
         },
         {
-          "picture":"/assets/images/company/company03.jpg"
+          "picture":"./assets/images/company/company03.jpg"
         },
         {
-          "picture":"/assets/images/company/company04.jpg"
+          "picture":"./assets/images/company/company04.jpg"
         }
       ],
       "time":"",
@@ -531,50 +531,50 @@
   ],
   "news":[
     {
-      "avatar":"assets/images/avatar/1.png",
+      "avatar":"./assets/images/avatar/1.png",
       "day":"2",
       "time":"10-26 05:30",
-      "banner":"assets/images/company/company03.jpg",
+      "banner":"./assets/images/company/company03.jpg",
       "content":"超G快讯：安康团队尹娟小姐向企业推荐超级APP。日前，超级APP安康G站团队成员尹娟小姐前往汉中市西乡县罗镇延宾茶叶有限公司向该公司胡总介绍了超级APP的多项强大功能，传统茶叶市场对于开展互联网领域业务依然存在着一定的盲区，大多数企业老板对于开展互联网业务转型公司销售模式一筹莫展，此次尹娟小姐的到来，现场让胡总体验了超级APP迅速为企业架构互联网能力的方便与强大",
       "read":"10",
       "zan":"33",
       "comment":"20"
     },
     {
-      "avatar":"assets/images/avatar/2.png",
+      "avatar":"./assets/images/avatar/2.png",
       "day":"1",
       "time":"02-20 05:30",
-      "banner":"assets/images/company/company02.jpg",
+      "banner":"./assets/images/company/company02.jpg",
       "content":"名片是现代商业交往中不可缺少的必备工具之一.销售员在和客户面谈时,送给客户一张名片,不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
       "zan":"33",
       "comment":"20"
     },
     {
-      "avatar":"assets/images/avatar/3.png",
+      "avatar":"./assets/images/avatar/3.png",
       "day":"5",
       "time":"10-20 03:30",
-      "banner":"assets/images/company/company03.jpg",
+      "banner":"./assets/images/company/company03.jpg",
       "content":"不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
       "zan":"33",
       "comment":"20"
     },
     {
-      "avatar":"assets/images/avatar/1.png",
+      "avatar":"./assets/images/avatar/1.png",
       "day":"4",
       "time":"01-30 08:30",
-      "banner":"assets/images/company/company04.jpg",
+      "banner":"./assets/images/company/company04.jpg",
       "content":"销售员在和客户面谈时,送给客户一张名片,不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
       "zan":"33",
       "comment":"20"
     },
     {
-      "avatar":"assets/images/avatar/5.png",
+      "avatar":"./assets/images/avatar/5.png",
       "day":"7",
       "time":"03-26 09:30",
-      "banner":"assets/images/company/company05.jpg",
+      "banner":"./assets/images/company/company05.jpg",
       "content":"加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。",
       "read":"10",
       "zan":"33",
@@ -582,16 +582,16 @@
     }
   ],
   "newsDetail":{
-    "avatar":"assets/images/avatar/1.png",
+    "avatar":"./assets/images/avatar/1.png",
     "day":"2",
     "time":"10-26 05:30",
-    "banner":"assets/images/company/company03.jpg",
+    "banner":"./assets/images/company/company03.jpg",
     "content":"超G快讯：安康团队尹娟小姐向企业推荐超级APP。日前，超级APP安康G站团队成员尹娟小姐前往汉中市西乡县罗镇延宾茶叶有限公司向该公司胡总介绍了超级APP的多项强大功能，传统茶叶市场对于开展互联网领域业务依然存在着一定的盲区，大多数企业老板对于开展互联网业务转型公司销售模式一筹莫展，此次尹娟小姐的到来，现场让胡总体验了超级APP迅速为企业架构互联网能力的方便与强大",
     "advertise":[
-      "assets/images/company/company01.jpg",
-      "assets/images/company/company02.jpg",
-      "assets/images/company/company03.jpg",
-      "assets/images/company/company04.jpg"
+      "./assets/images/company/company01.jpg",
+      "./assets/images/company/company02.jpg",
+      "./assets/images/company/company03.jpg",
+      "./assets/images/company/company04.jpg"
     ],
     "zan":[
       "千叶祥龙","凌风","木叶","千叶祥龙","凌风","木叶"
@@ -599,24 +599,24 @@
   },
   "touTiaoDetail":{
     "title":"Nine Inch Nails Live",
-    "banner":"assets/images/company/company02.jpg",
+    "banner":"./assets/images/company/company02.jpg",
     "content":"一张神奇的互联网名片，一个以名片为入口、以移动互联网为载体的超级生意平台，让你通过手机与全世界的人做生意。只需120分钟加一部手机，就可以轻松把自已的品牌、产品、服务乃至整个企业都放进名片里。超G名片发送和交换简单方便，线上线下畅通无阻，你的名片不断发出去，生意就会不断带进来。",
     "thumbs":[
       {
         "title":"概览：5分钟快速了解产品",
-        "thumb":"assets/images/company/company04.jpg"
+        "thumb":"./assets/images/company/company04.jpg"
       },
       {
         "title":"概览：5分钟快速了解产品",
-        "thumb":"assets/images/company/company05.jpg"
+        "thumb":"./assets/images/company/company05.jpg"
       },
       {
         "title":"概览：5分钟快速了解产品",
-        "thumb":"assets/images/company/company02.jpg"
+        "thumb":"./assets/images/company/company02.jpg"
       },
       {
         "title":"概览：5分钟快速了解产品",
-        "thumb":"assets/images/company/company01.jpg"
+        "thumb":"./assets/images/company/company01.jpg"
       }
     ]
   },
@@ -624,15 +624,15 @@
     [
       {
         "type":"1",
-        "avatar":"/assets/images/avatar/4.png",
+        "avatar":"./assets/images/avatar/4.png",
         "nick":"高山厚谷",
         "day":"2",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "/assets/images/company/company02.jpg",
-          "/assets/images/company/company03.jpg",
-          "/assets/images/company/company04.jpg",
-          "/assets/images/company/company06.jpg"
+          "./assets/images/company/company02.jpg",
+          "./assets/images/company/company03.jpg",
+          "./assets/images/company/company04.jpg",
+          "./assets/images/company/company06.jpg"
         ]
       },
       {
@@ -647,22 +647,22 @@
         "day":"1",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "/assets/images/company/company02.jpg"
+          "./assets/images/company/company02.jpg"
         ]
       }
     ],
     [
       {
         "type":"1",
-        "avatar":"/assets/images/avatar/4.png",
+        "avatar":"./assets/images/avatar/4.png",
         "nick":"高山厚谷",
         "day":"2",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "/assets/images/company/company02.jpg",
-          "/assets/images/company/company03.jpg",
-          "/assets/images/company/company04.jpg",
-          "/assets/images/company/company06.jpg"
+          "./assets/images/company/company02.jpg",
+          "./assets/images/company/company03.jpg",
+          "./assets/images/company/company04.jpg",
+          "./assets/images/company/company06.jpg"
         ]
       },
       {
@@ -677,28 +677,28 @@
         "day":"1",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "/assets/images/company/company02.jpg"
+          "./assets/images/company/company02.jpg"
         ]
       }
     ],
     [
       {
         "type":"1",
-        "avatar":"/assets/images/avatar/4.png",
+        "avatar":"./assets/images/avatar/4.png",
         "nick":"高山厚谷",
         "day":"2",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "/assets/images/company/company02.jpg",
-          "/assets/images/company/company03.jpg",
-          "/assets/images/company/company04.jpg",
-          "/assets/images/company/company06.jpg"
+          "./assets/images/company/company02.jpg",
+          "./assets/images/company/company03.jpg",
+          "./assets/images/company/company04.jpg",
+          "./assets/images/company/company06.jpg"
         ]
       }
     ]
   ],
   "reviewerInfo":{
-    "avatar":"/assets/images/company/company05.jpg",
+    "avatar":"./assets/images/company/company05.jpg",
     "out":"122",
     "send":"455",
     "name":"廖丹霞",
@@ -708,7 +708,7 @@
   },
   "luckPerson":[
     {
-        "avatar":"/assets/images/company/company02.jpg",
+        "avatar":"./assets/images/company/company02.jpg",
         "status":1,
         "out":"11000",
         "send":"12121",
@@ -717,7 +717,7 @@
         "job":"总裁助理"
     },
     {
-      "avatar":"/assets/images/company/company01.jpg",
+      "avatar":"./assets/images/company/company01.jpg",
       "status":0,
       "out":"5656",
       "send":"232",
@@ -726,7 +726,7 @@
       "job":"总裁助理"
     },
     {
-      "avatar":"/assets/images/company/company04.jpg",
+      "avatar":"./assets/images/company/company04.jpg",
       "status":1,
       "out":"54545",
       "send":"6644",
@@ -737,35 +737,35 @@
   ],
   "activity":[
     {
-      "picture":"/assets/images/company/company03.jpg",
+      "picture":"./assets/images/company/company03.jpg",
       "title":"中秋佳节 | 连续三年爆款迪斯尼黑皮月饼买三送一，包邮。",
       "status":1,
       "id":10
     },
     {
-      "picture":"/assets/images/company/company06.jpg",
+      "picture":"./assets/images/company/company06.jpg",
       "title":"连续三年爆款迪斯尼黑皮月饼买三送一。",
       "status":0,
       "id":22
     },
     {
-      "picture":"/assets/images/company/company07.jpg",
+      "picture":"./assets/images/company/company07.jpg",
       "title":"迪斯尼黑皮月饼买三送一，包邮。",
       "status":0,
       "id":16
     },
     {
-      "picture":"/assets/images/company/company02.jpg",
+      "picture":"./assets/images/company/company02.jpg",
       "title":"中秋佳节 | 连续三年爆款。",
       "status":1,
       "id":15
     }
   ],
   "activityDetail":{
-    "picture":"/assets/images/company/company02.jpg",
+    "picture":"./assets/images/company/company02.jpg",
     "theme":"中秋佳节 | 连续三年爆款迪斯尼黑皮月饼买三送一，包邮。",
     "status":1,
-    "thumb":"/assets/images/company/company08.jpg",
+    "thumb":"./assets/images/company/company08.jpg",
     "title":"连续火了三年的超爆款，迪士尼黑皮经典月饼礼盒",
     "price":"298",
     "youhui":"买三送一",
@@ -805,32 +805,32 @@
     ],
     "chat":[
       {
-        "avatar":"/assets/images/avatar/2.png",
+        "avatar":"./assets/images/avatar/2.png",
         "title":"三七分",
         "text":"哈哈哈"
       },
       {
-        "avatar":"/assets/images/avatar/3.png",
+        "avatar":"./assets/images/avatar/3.png",
         "title":"刘昆洪",
         "text":" 广东 深圳市 南山区"
       },
       {
-        "avatar":"/assets/images/avatar/4.png",
+        "avatar":"./assets/images/avatar/4.png",
         "title":"Linda",
         "text":"呦呦呦"
       },
       {
-        "avatar":"/assets/images/avatar/5.png",
+        "avatar":"./assets/images/avatar/5.png",
         "title":"三七分",
         "text":"哈哈哈"
       },
       {
-        "avatar":"/assets/images/avatar/6.png",
+        "avatar":"./assets/images/avatar/6.png",
         "title":"刘昆洪",
         "text":" 广东 深圳市 南山区"
       },
       {
-        "avatar":"/assets/images/avatar/7.png",
+        "avatar":"./assets/images/avatar/7.png",
         "title":"Linda",
         "text":"呦呦呦"
       }
@@ -841,15 +841,15 @@
       "name":"官方社群",
       "cont":"29999",
       "avatar":[
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/2.png",
-        "/assets/images/avatar/3.png",
-        "/assets/images/avatar/4.png",
-        "/assets/images/avatar/5.png",
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/8.png",
-        "/assets/images/avatar/7.png",
-        "/assets/images/avatar/9.png"
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/2.png",
+        "./assets/images/avatar/3.png",
+        "./assets/images/avatar/4.png",
+        "./assets/images/avatar/5.png",
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/8.png",
+        "./assets/images/avatar/7.png",
+        "./assets/images/avatar/9.png"
       ],
       "people":"1212122",
       "topic":"4545",
@@ -859,15 +859,15 @@
       "name":"腾讯社群",
       "cont":"5656565",
       "avatar":[
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/2.png",
-        "/assets/images/avatar/3.png",
-        "/assets/images/avatar/4.png",
-        "/assets/images/avatar/5.png",
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/8.png",
-        "/assets/images/avatar/7.png",
-        "/assets/images/avatar/9.png"
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/2.png",
+        "./assets/images/avatar/3.png",
+        "./assets/images/avatar/4.png",
+        "./assets/images/avatar/5.png",
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/8.png",
+        "./assets/images/avatar/7.png",
+        "./assets/images/avatar/9.png"
       ],
       "people":"44332",
       "topic":"45452",
@@ -877,15 +877,15 @@
       "name":"淘宝群",
       "cont":"454545",
       "avatar":[
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/2.png",
-        "/assets/images/avatar/3.png",
-        "/assets/images/avatar/4.png",
-        "/assets/images/avatar/5.png",
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/8.png",
-        "/assets/images/avatar/7.png",
-        "/assets/images/avatar/9.png"
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/2.png",
+        "./assets/images/avatar/3.png",
+        "./assets/images/avatar/4.png",
+        "./assets/images/avatar/5.png",
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/8.png",
+        "./assets/images/avatar/7.png",
+        "./assets/images/avatar/9.png"
       ],
       "people":"76777",
       "topic":"98989",
@@ -895,15 +895,15 @@
       "name":"京东社群",
       "cont":"454545",
       "avatar":[
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/2.png",
-        "/assets/images/avatar/3.png",
-        "/assets/images/avatar/4.png",
-        "/assets/images/avatar/5.png",
-        "/assets/images/avatar/6.png",
-        "/assets/images/avatar/8.png",
-        "/assets/images/avatar/7.png",
-        "/assets/images/avatar/9.png"
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/2.png",
+        "./assets/images/avatar/3.png",
+        "./assets/images/avatar/4.png",
+        "./assets/images/avatar/5.png",
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/8.png",
+        "./assets/images/avatar/7.png",
+        "./assets/images/avatar/9.png"
       ],
       "people":"43334",
       "topic":"4542345",
@@ -915,17 +915,17 @@
       "status":1,
       "cards":123123,
       "userIcon":[
-        "assets/images/avatar/1.png",
-        "assets/images/avatar/2.png",
-        "assets/images/avatar/3.png",
-        "assets/images/avatar/4.png",
-        "assets/images/avatar/5.png",
-        "assets/images/avatar/6.png",
-        "assets/images/avatar/7.png",
-        "assets/images/avatar/8.png",
-        "assets/images/avatar/9.png",
-        "assets/images/avatar/10.png",
-        "assets/images/avatar/11.png"
+        "./assets/images/avatar/1.png",
+        "./assets/images/avatar/2.png",
+        "./assets/images/avatar/3.png",
+        "./assets/images/avatar/4.png",
+        "./assets/images/avatar/5.png",
+        "./assets/images/avatar/6.png",
+        "./assets/images/avatar/7.png",
+        "./assets/images/avatar/8.png",
+        "./assets/images/avatar/9.png",
+        "./assets/images/avatar/10.png",
+        "./assets/images/avatar/11.png"
       ]
     },
     "info":{
@@ -968,7 +968,7 @@
     },
     "circle":[
       {
-        "avatar":"/assets/images/avatar/2.png",
+        "avatar":"./assets/images/avatar/2.png",
         "nick":"凌风",
         "send":[
           {
@@ -983,7 +983,7 @@
           }
         ],
         "title":"南日岛风光",
-        "picture":"/assets/images/circle/bigNews.jpg",
+        "picture":"./assets/images/circle/bigNews.jpg",
         "banner":{},
         "video":{},
         "slide":[],
@@ -1003,7 +1003,7 @@
         ]
       },
       {
-        "avatar":"/assets/images/avatar/1.png",
+        "avatar":"./assets/images/avatar/1.png",
         "nick":"凌风",
         "send":[
           {
@@ -1020,7 +1020,7 @@
         "title":"南日岛风光",
         "picture":"",
         "banner":{
-          "thumb":"/assets/images/circle/bigNews.jpg",
+          "thumb":"./assets/images/circle/bigNews.jpg",
           "sign":"原创",
           "title":"尊萃活泉水你值得拥有的尊贵"
         },
@@ -1042,7 +1042,7 @@
         ]
       },
       {
-        "avatar":"/assets/images/avatar/3.png",
+        "avatar":"./assets/images/avatar/3.png",
         "nick":"泰罗",
         "send":[],
         "title":"南日岛风光",
@@ -1059,7 +1059,7 @@
         "comment":[]
       },
       {
-        "avatar":"/assets/images/avatar/4.png",
+        "avatar":"./assets/images/avatar/4.png",
         "nick":"南日岛",
         "send":[
           {
@@ -1079,16 +1079,164 @@
         "video":{ },
         "slide":[
           {
-            "picture":"/assets/images/company/company01.jpg"
+            "picture":"./assets/images/company/company01.jpg"
           },
           {
-            "picture":"/assets/images/company/company02.jpg"
+            "picture":"./assets/images/company/company02.jpg"
           },
           {
-            "picture":"/assets/images/company/company03.jpg"
+            "picture":"./assets/images/company/company03.jpg"
           },
           {
-            "picture":"/assets/images/company/company04.jpg"
+            "picture":"./assets/images/company/company04.jpg"
+          }
+        ],
+        "time":"",
+        "zan":[
+          "凌风","泰罗"
+        ],
+        "comment":[
+          {
+            "nick":"木头人",
+            "text":"风景很美"
+          },
+          {
+            "nick":"凌风",
+            "text":"还好吧！"
+          }
+        ]
+      }
+    ]
+  },
+  "myComment":{
+    "info":{
+      "avatar":"./assets/images/avatar/3.png",
+      "name":"袁湋泓",
+      "address":"湖南,株洲市,芦淞区"
+    },
+    "circle":[
+      {
+        "avatar":"./assets/images/avatar/2.png",
+        "nick":"凌风",
+        "send":[
+          {
+            "sign":"师傅",
+            "money":"802",
+            "number":"32"
+          },
+          {
+            "sign":"私募",
+            "money":"1230",
+            "number":"60"
+          }
+        ],
+        "title":"南日岛风光",
+        "picture":"./assets/images/circle/bigNews.jpg",
+        "banner":{},
+        "video":{},
+        "slide":[],
+        "time":"12分钟",
+        "zan":[
+          "木头人","凌风","泰罗"
+        ],
+        "comment":[
+          {
+            "nick":"木头人",
+            "text":"风景很美"
+          },
+          {
+            "nick":"凌风",
+            "text":"还好吧！"
+          }
+        ]
+      },
+      {
+        "avatar":"./assets/images/avatar/1.png",
+        "nick":"凌风",
+        "send":[
+          {
+            "sign":"师傅",
+            "money":"802",
+            "number":"32"
+          },
+          {
+            "sign":"私募",
+            "money":"1230",
+            "number":"60"
+          }
+        ],
+        "title":"南日岛风光",
+        "picture":"",
+        "banner":{
+          "thumb":"./assets/images/circle/bigNews.jpg",
+          "sign":"原创",
+          "title":"尊萃活泉水你值得拥有的尊贵"
+        },
+        "video":{},
+        "slide":[],
+        "time":"3小时",
+        "zan":[
+          "木头人","千叶祥龙"
+        ],
+        "comment":[
+          {
+            "nick":"木头人",
+            "text":"风景很美"
+          },
+          {
+            "nick":"千叶祥龙",
+            "text":"很喜欢这里"
+          }
+        ]
+      },
+      {
+        "avatar":"./assets/images/avatar/3.png",
+        "nick":"泰罗",
+        "send":[],
+        "title":"南日岛风光",
+        "picture":"",
+        "banner":{},
+        "video":{
+          "link":"http://videos.gmall88.com/6481044611614638606_1509085027.mp4",
+          "sign":"原创",
+          "title":"尊萃活泉水你值得拥有的尊贵"
+        },
+        "slide":[],
+        "time":"50分钟",
+        "zan":[],
+        "comment":[]
+      },
+      {
+        "avatar":"./assets/images/avatar/4.png",
+        "nick":"南日岛",
+        "send":[
+          {
+            "sign":"师傅",
+            "money":"802",
+            "number":"32"
+          },
+          {
+            "sign":"私募",
+            "money":"1230",
+            "number":"60"
+          }
+        ],
+        "title":"风光",
+        "picture":"",
+        "banner":{},
+        "video":{ },
+        "slide":[
+          {
+            "picture":"./assets/images/company/company01.jpg"
+          },
+          {
+            "picture":"./assets/images/company/company02.jpg"
+          },
+          {
+            "picture":"./assets/images/company/company03.jpg"
+          },
+          {
+            "picture":"./assets/images/company/company04.jpg"
           }
         ],
         "time":"",

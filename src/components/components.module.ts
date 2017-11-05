@@ -10,6 +10,7 @@ import { ChatbtnModule } from './chatbtn/chatbtn.module';
 import { ProductModule } from './product/product.module';
 import { SlideDeleteModule } from './slide-delete/slide-delete.module';
 import { CommentModule } from './comment/comment.module';
+import { UseravatarModule } from './useravatar/useravatar.module';
 
 @NgModule({
 	declarations: [],
@@ -25,7 +26,8 @@ import { CommentModule } from './comment/comment.module';
         ChatbtnModule,
         ProductModule,
         SlideDeleteModule,
-        CommentModule
+        CommentModule,
+        UseravatarModule
 	]
 })
 export class ComponentsModule {

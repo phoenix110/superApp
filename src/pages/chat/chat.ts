@@ -28,7 +28,7 @@ export class ChatPage {
   }
   // 获取聊天页数据
     public chatListData(){
-        this.http.get("/assets/data.json").subscribe(data=>{
+        this.http.get("./assets/data.json").subscribe(data=>{
             this.chatList = data['chatData'];
             this.getColorArr();
         });
