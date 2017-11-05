@@ -1,0 +1,26 @@
+<!--
+  Generated template for the MallPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+ <share-header [headerTitle]="'商城'" [shareLink]="'shareLink'"></share-header>
+
+</ion-header>
+
+
+<ion-content no-padding>
+    <ion-slides class="slides-parent" #slidesParent pager>
+      <ion-slide *ngFor="let item of good;let i = index;">
+        <h2>{{item.title}}</h2>
+        <ion-slides class="slides-child" #slidesChild>
+          <ion-slide *ngFor="let product of item.goodList;let j = index;">
+            <good-intro [goodList]="product"></good-intro>
+          </ion-slide>
+        </ion-slides>
+      </ion-slide>
+    </ion-slides>
+  <ion-icon name=""></ion-icon>
+</ion-content>

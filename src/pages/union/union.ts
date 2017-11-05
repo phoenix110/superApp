@@ -40,7 +40,6 @@ export class UnionPage {
             this.union = data['union'];
             this.getColorArr();
             this.categoryList(0);
-            this.swiperButton();
             this.slides.freeMode = true;
             this.slides.slidesPerView = "auto";
         });
@@ -65,13 +64,5 @@ export class UnionPage {
             let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
             this.colorArr.push(color);
         }
-    }
-
-    public swiperButton() {
-        //  new Swiper('.swiper-container', {
-        //     observer:true,
-        //     observeParents:true,
-        //      freeMode:true
-        // })
     }
 }
