@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { KeysPipe } from './keys/keys';
+import { ArrsPipe } from './arrs/arrs';
 @NgModule({
-	declarations: [KeysPipe],
+	declarations: [ArrsPipe],
 	imports: [],
-	exports: [KeysPipe]
+	exports: [ArrsPipe]
 })
 export class PipesModule {}

@@ -13,19 +13,11 @@ import {NavController} from "ionic-angular";
 })
 export class GoodIntroComponent {
   @Input() goodList:any;
-  public goodArr:Array<object> = [];
   text: string;
 
   constructor(public navCtrl:NavController) {
     console.log('Hello GoodIntroComponent Component');
     this.text = 'Hello World';
-    console.log(this.goodList);
-      if(this.goodList instanceof Array){
-          this.goodArr = this.goodList;
-      }else{
-          this.goodArr.push(this.goodList);
-      }
-      console.log(this.goodArr)
   }
   // 跳转至商品详情页
     getGoodDetail(id){

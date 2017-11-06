@@ -1,5 +1,5 @@
 <!-- Generated template for the GoodIntroComponent component -->
-<ion-card (tap)="getGoodDetail(i)" *ngFor="let item of goodArr;let i = index">
+<ion-card (tap)="getGoodDetail(i)" *ngFor="let item of goodList  | arrs;let i = index">
   <img src="{{item.thumb}}"/>
   <ion-card-content>
     <h6>

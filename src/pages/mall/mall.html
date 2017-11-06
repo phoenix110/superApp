@@ -12,10 +12,10 @@
 
 
 <ion-content no-padding>
-    <ion-slides class="slides-parent" #slidesParent pager>
+    <ion-slides class="slides-parent"  pager="false">
       <ion-slide *ngFor="let item of good;let i = index;">
-        <h2>{{item.title}}</h2>
-        <ion-slides class="slides-child" #slidesChild>
+        <h2 class="mall-title">{{item.title}}</h2>
+        <ion-slides class="slides-child" #slidesChild pager="false">
           <ion-slide *ngFor="let product of item.goodList;let j = index;">
             <good-intro [goodList]="product"></good-intro>
           </ion-slide>
