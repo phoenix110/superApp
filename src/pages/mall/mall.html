@@ -12,15 +12,31 @@
 
 
 <ion-content no-padding>
-    <ion-slides class="slides-parent"  pager="false">
-      <ion-slide *ngFor="let item of good;let i = index;">
-        <h2 class="mall-title">{{item.title}}</h2>
-        <ion-slides class="slides-child" #slidesChild pager="false">
-          <ion-slide *ngFor="let product of item.goodList;let j = index;">
-            <good-intro [goodList]="product"></good-intro>
-          </ion-slide>
-        </ion-slides>
-      </ion-slide>
-    </ion-slides>
+    <!--<ion-slides class="slides-parent"  pager="false">-->
+      <!--<ion-slide *ngFor="let item of good;let i = index;">-->
+        <!--<h2 class="mall-title">{{item.title}}</h2>-->
+        <!--<ion-slides class="slides-child" #slidesChild pager="false">-->
+          <!--<ion-slide *ngFor="let product of item.goodList;let j = index;">-->
+            <!--<good-intro [goodList]="product"></good-intro>-->
+          <!--</ion-slide>-->
+        <!--</ion-slides>-->
+      <!--</ion-slide>-->
+    <!--</ion-slides>-->
+    <div class="swiper-container swiper-parent">
+        <div class="swiper-wrapper swiper">
+            <div class="swiper-slide" *ngFor="let item of good;let i = index;">
+                <h2 class="mall-title">{{item.title}}</h2>
+                <div class="swiper-container"  data-id="11">
+                    <div class="swiper-wrapper ">
+                        <div class="swiper-slide" *ngFor="let product of item.goodList;let j = index;">
+                            <good-intro [goodList]="product"></good-intro>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
   <ion-icon name=""></ion-icon>
 </ion-content>

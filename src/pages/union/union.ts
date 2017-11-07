@@ -3,10 +3,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavController, NavParams, IonicPage, Slides} from 'ionic-angular';
 
-
-
 import {HttpClient} from "@angular/common/http";
-// import Swiper from 'swiper';
+import  Swiper from 'swiper';
 
 /**
  * Generated class for the UnionPage page.
@@ -32,6 +30,8 @@ export class UnionPage {
     ionViewDidLoad() {
         console.log('ionViewDidLoad UnionPage');
         this.getShopData();
+        this.initSwiper();
+
     }
 
     // 获取联盟页面数据
@@ -40,8 +40,8 @@ export class UnionPage {
             this.union = data['union'];
             this.getColorArr();
             this.categoryList(0);
-            this.slides.freeMode = true;
-            this.slides.slidesPerView = "auto";
+            // this.slides.freeMode = true;
+            // this.slides.slidesPerView = "auto";
         });
     }
 
@@ -64,5 +64,14 @@ export class UnionPage {
             let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
             this.colorArr.push(color);
         }
+    }
+    // 初始化轮播图插件
+    public initSwiper(){
+        new Swiper(".swiper-container",{
+            freeMode:true,
+            slidesPerView:"auto",
+            observer:true,
+            observeParents:true,
+        });
     }
 }

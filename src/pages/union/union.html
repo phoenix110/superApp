@@ -11,11 +11,18 @@
 <ion-content id="page-union" class="cont-bg">
   <nav class="nav-bar">
     <div class="nav-scroll">
-      <ion-slides pager="false">
-        <ion-slide *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)" >
-          <button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>
-        </ion-slide>
-      </ion-slides>
+      <!--<ion-slides pager="false">-->
+        <!--<ion-slide *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)" >-->
+          <!--<button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>-->
+        <!--</ion-slide>-->
+      <!--</ion-slides>-->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)">
+            <button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
 

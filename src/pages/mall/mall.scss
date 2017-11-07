@@ -1,19 +1,17 @@
 page-mall {
-  .slides-parent{
-    h2.mall-title{
-      @include position(absolute,15px,null,null,0);
-      width:100%;
-      height:40px;
-      line-height: 40px;
+    .swiper-parent{
+      .swiper-slide{
+        flex-direction: column;
+        .mall-title{
+          @include position(absolute,30px,null,null,0);
+          width:100%;
+        }
+        .swiper-child{
+          @include position(absolute,0,0,0,0);
+          margin: auto;
+          width:300px;
+          height:400px;
+        }
+      }
     }
-  }
-  .slides-child{
-    @include position(absolute,0,0,0,0);
-    margin:auto;
-    width:300px;
-    height:400px;
-    .swiper-slide{
-      height:400px!important;
-    }
-  }
 }
