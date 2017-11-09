@@ -11,6 +11,7 @@ import { ProductModule } from './product/product.module';
 import { SlideDeleteModule } from './slide-delete/slide-delete.module';
 import { CommentModule } from './comment/comment.module';
 import { UseravatarModule } from './useravatar/useravatar.module';
+import { VideoModule } from './video/video.module';
 
 @NgModule({
 	declarations: [],
@@ -27,7 +28,8 @@ import { UseravatarModule } from './useravatar/useravatar.module';
         ProductModule,
         SlideDeleteModule,
         CommentModule,
-        UseravatarModule
+        UseravatarModule,
+        VideoModule
 	]
 })
 export class ComponentsModule {

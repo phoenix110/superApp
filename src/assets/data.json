@@ -297,7 +297,7 @@
     {
       "title":"直播",
       "thumb":"./assets/images/find/pic05.jpg",
-      "route":"BroadcastPage"
+      "route":"LivePage"
     },
     {
       "title":"联盟",
