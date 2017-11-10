@@ -12,6 +12,7 @@ import { SlideDeleteModule } from './slide-delete/slide-delete.module';
 import { CommentModule } from './comment/comment.module';
 import { UseravatarModule } from './useravatar/useravatar.module';
 import { VideoModule } from './video/video.module';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
 	declarations: [],
@@ -29,7 +30,8 @@ import { VideoModule } from './video/video.module';
         SlideDeleteModule,
         CommentModule,
         UseravatarModule,
-        VideoModule
+        VideoModule,
+        ContactModule
 	]
 })
 export class ComponentsModule {

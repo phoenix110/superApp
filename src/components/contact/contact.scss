@@ -1,0 +1,45 @@
+contact {
+  .contact-box{
+
+    .contact-tel{
+      margin:20px 0 10px;
+      ion-icon{
+        font-size:45px;
+        color:#8c8c8c;
+        text-align: center;
+        display: block;
+      }
+      p{
+        text-align: center;
+        font-size: 15px;
+      }
+    }
+    .contact-cate{
+      ion-col{
+        border-right:1px solid #ddd;
+        text-align: center;
+        height:45px;
+        line-height: 45px;
+        background: #fff;
+        &:last-child{
+          border-right:none;
+        }
+        ion-icon{
+          font-size: 25px;
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+    .contact-promise{
+      margin:20px 0;
+      p{
+        text-align: center;
+        font-size: 8px;
+        margin:2px 0;
+        color: #888;
+      }
+    }
+  }
+
+}

@@ -3,16 +3,32 @@ live-video {
   @mixin video($direction,$leftWid,$leftHgt,$rightHgt,$size){
     .video-#{$direction}{
       @content;
+      @if($direction == 'row'){
+        .video-img{
+          padding: 0 10px;
+          flex:0 0 50%;
+        }
+      }
       .video-left{
         height:$leftHgt;
         overflow: hidden;
         @include position(relative,0,null,0,0);
         @include radius(10px);
         margin-bottom: 10px;
-        flex:0 0 $leftWid;
         img{
           width:100%;
           height:100%;
+        }
+        @if($direction == 'column'){
+          &::before{
+            content:"回放";
+            @include position(absolute,10px,null,null,5px);
+            color:#fff;
+            font-size:12px;
+            padding:2px 5px;
+            background: #000;
+            @include radius(5px);
+          }
         }
         &::after{
           content:"";
@@ -29,10 +45,11 @@ live-video {
           z-index: 100;
         }
         p{
-          color:#8c8c8c;
+          color:#fff;
           @include position(absolute,null,null,4px,4px);
           width:100%;
           font-size: 10px;
+          z-index: 100;
           ion-icon{
             font-size: 22px;
             @include position(relative,3px);
@@ -45,12 +62,12 @@ live-video {
         align-items: flex-start;
         flex:0 0 auto;
         height: $rightHgt;
-        @if($direction == 'row'){padding-left:16px;}
-        @if($direction == 'column'){padding-left:0;}
+        padding-left:0;
+        @if($direction == 'row'){margin-top: -15px;};
         h2{
           font-weight: bold;
           font-size: $size;
-          max-width: 200px;
+          max-width: 174px;
         }
         p{
           color:#8c8c8c;
