@@ -1,3 +1,23 @@
 page-live {
+  .video-live{
+    margin: 5px 0;
+    padding: 0 16px 10px;
+    background: #fff;
+  }
+  .video-status{
+    ion-icon{
+      color:#000;
+      font-size:25px;
+      @include position(relative,4px);
+      padding: 16px 5px 16px 0;
+    }
+    span{
+      color:#FA6B5B;
+    }
+  }
+.video-playback{
+  background: #fff;
+  padding: 0 16px;
+}
 
 }

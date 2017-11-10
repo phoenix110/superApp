@@ -1377,6 +1377,39 @@
         }
       ]
     }
-  ]
-
+  ],
+  "video":{
+    "onLive":{
+      "thumb":"./assets/images/video/video2.jpg",
+      "people":150,
+      "name":"赵丽颖",
+      "days":3
+    },
+    "outLive":[
+      {
+        "thumb":"./assets/images/video/video3.jpg",
+        "people":80,
+        "name":"李易峰",
+        "days":2
+      },
+      {
+        "thumb":"./assets/images/video/video4.jpg",
+        "people":30,
+        "name":"黄渤",
+        "days":1
+      },
+      {
+        "thumb":"./assets/images/video/video5.jpg",
+        "people":50,
+        "name":"何炅",
+        "days":7
+      },
+      {
+        "thumb":"./assets/images/video/video6.jpg",
+        "people":70,
+        "name":"图灵",
+        "days":3
+      }
+    ]
+  }
 }

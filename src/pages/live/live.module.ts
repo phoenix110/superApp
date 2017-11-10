@@ -3,7 +3,6 @@ import { IonicPageModule } from 'ionic-angular';
 import { LivePage } from './live';
 
 import { ComponentsModule} from "../../components/components.module";
-
 @NgModule({
   declarations: [
     LivePage,

@@ -11,6 +11,20 @@
 </ion-header>
 
 
-<ion-content padding>
-  <live-video></live-video>
+<ion-content style="background: #f6f6f6">
+  <section class="video-live">
+    <div class="video-status">
+      <ion-icon class="iconfont icon-zhibo"></ion-icon>最新直播
+      <span>{{status == 1 ? '[进行中]' : '[已结束]'}}</span>
+    </div>
+    <live-video [direction]="'row'" [videoList]="video.onLive"></live-video>
+  </section>
+  <section class="video-playback">
+    <div class="video-status">
+      <ion-icon class="iconfont icon-xunhuan"></ion-icon>直播回放
+    </div>
+      <div class="playback-list flex-row-start">
+          <live-video [direction]="'column'" [videoList]="video.outLive"></live-video>
+      </div>
+  </section>
 </ion-content>

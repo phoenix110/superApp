@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , Input} from '@angular/core';
+import { NavController, NavParams } from "ionic-angular"
+
 
 /**
  * Generated class for the VideoComponent component.
@@ -11,10 +13,11 @@ import { Component } from '@angular/core';
   templateUrl: 'video.html'
 })
 export class VideoComponent {
-
+  @Input() direction:string = "row";
+  @Input() videoList:any;
   text: string;
 
-  constructor() {
+  constructor(public navCtrl:NavController, public navParams:NavParams) {
     console.log('Hello VideoComponent Component');
     this.text = 'Hello World';
   }
