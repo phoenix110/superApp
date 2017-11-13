@@ -44,7 +44,7 @@
             </li>
         </ul>
         <ul class="my-concern flex-row-around">
-            <li class="active" *ngFor="let item of my.info.category"><button>{{item.title}}</button></li>
+            <li [class.active]="i == listNum" *ngFor="let item of my.info.category;let i = index;" tappable (click)="getCateList(i)"><button>{{item.title}}</button></li>
         </ul>
     </section>
     <section class="count-box">
@@ -53,5 +53,8 @@
         </ul>
     </section>
     <!--点评列表-->
-    <comment [commentList]="my.circle"></comment>
+    <comment *ngIf="listNum < 1" [commentList]="my.circle[listNum]"></comment>
+    <comment *ngIf="listNum > 1" [commentList]="my.circle[listNum-1]"></comment>
+    <!--点评头条-->
+    <topnews *ngIf="listNum == 1" [topNews]="my.topNews"></topnews>
 </ion-content>

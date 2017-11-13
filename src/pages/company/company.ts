@@ -17,7 +17,10 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
 })
 export class CompanyPage {
   private index:number = 0;
-  public company: Array<object> = [];
+  public company: object = {
+      companyInstro:[],
+      contact:{}
+  };
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
   	console.log(this.navParams.data.id);
   }
@@ -33,7 +36,8 @@ export class CompanyPage {
     // 获取公司官网页面数据
     public getCompanyData(){
         this.http.get("./assets/data.json").subscribe(data=>{
-            this.company = data['company'];
+            this.company["companyInstro"] = data['company']['companyInstro'];
+            this.company["contact"] = data['company']['contact'];
         });
     }
   public newStatus(index){

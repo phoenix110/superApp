@@ -19,6 +19,7 @@ export class MyPage {
     "circle":[],
     "info":{}
   };
+  public listNum = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
   }
 
@@ -32,7 +33,12 @@ export class MyPage {
       this.my["isLogin"] = data["my"]["isLogin"];
       this.my["info"] = data["my"]["info"];
       this.my["circle"] = data["my"]["circle"];
+      this.my["topNews"] = data["my"]["topNews"];
       console.log(this.my)
     });
+  }
+  // 切换分类列表
+  public getCateList(index){
+    this.listNum = index;
   }
 }

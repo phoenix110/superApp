@@ -1,3 +1,30 @@
 page-good {
-
+  .goodTalk{
+    border:1px solid #ccc;
+    @include radius(10px);
+    .item-inner{
+      border-bottom:0!important;
+      ion-label{
+        height:40px;
+        overflow: visible;
+        h2{
+          font-weight: bold;
+        }
+        b{
+          color:#e93a3a;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .commentEdit{
+    ion-icon{
+      width:100%;
+      height:50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 30px;
+      color:#333;
+    }
+  }
 }

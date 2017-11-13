@@ -11,5 +11,21 @@
 <ion-content>
 	<!-- 商品轮播图及规格 -->
 	<good-detail></good-detail>
-
+	<!--商品讨论群-->
+	<section class="talkBox" padding>
+		<ion-item class="goodTalk">
+			<ion-thumbnail item-start>
+				<img src="./assets/images/goods/goodsImg01.jpg">
+			</ion-thumbnail>
+			<h2>商品讨论群</h2>
+			<h3>讨论数：<b>1212</b></h3>
+		</ion-item>
+	</section>
+	<!--商品评论-->
+	<section class="goodComment">
+		<div class="commentEdit">
+			<ion-icon class="iconfont icon-edit1"></ion-icon>
+		</div>
+		<comment [commentList]="commentList"></comment>
+	</section>
 </ion-content>

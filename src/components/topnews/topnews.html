@@ -1,0 +1,16 @@
+<!-- Generated template for the TopnewsComponent component -->
+<section class="topNews" margin>
+    <div class="topNewsBox" *ngFor="let item of topNews;let i = index;">
+        <h5>{{item.title}}</h5>
+        <div class="topNews-video">
+            <img src="{{item.thumb}}" alt="">
+            <video *ngIf="item.video" src="{{item.video}}"></video>
+            <ion-icon *ngIf="item.video" class="iconfont icon-play"></ion-icon>
+        </div>
+        <p class="topNews-comment">
+            <span>{{item.commenter.nick}}</span>
+            <span>评论{{item.commenter.num}}</span>
+            <span>{{item.commenter.time}}分钟前</span>
+        </p>
+    </div>
+</section>

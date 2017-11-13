@@ -1,21 +1,22 @@
 import { Component, Input } from '@angular/core';
 
 /**
- * Generated class for the ContactComponent component.
+ * Generated class for the TopnewsComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'contact',
-  templateUrl: 'contact.html'
+  selector: 'topnews',
+  templateUrl: 'topnews.html'
 })
-export class ContactComponent {
-  @Input() contact:Object = {};
+export class TopnewsComponent {
+  @Input() topNews:Array<object> = [];
   text: string;
 
   constructor() {
-    console.log('Hello ContactComponent Component');
+    console.log('Hello TopnewsComponent Component');
     this.text = 'Hello World';
   }
+
 }

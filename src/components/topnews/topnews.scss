@@ -1,0 +1,46 @@
+topnews {
+  .topNewsBox{
+    border-bottom:1px solid #ccc;
+    padding: 10px 0;
+    h5{
+      font-weight: bold;
+      @include text-overflow-more(2);
+      margin:10px 0;
+    }
+    .topNews-video{
+      width:100%;
+      height:180px;
+      @include border-radius(10px);
+      overflow: hidden;
+      @include position(relative,0,null,null,0);
+
+      img{
+        width:100%;
+        height:100%;
+        @include position(absolute,0,null,null,0);
+        z-index: 100;
+      }
+      video{
+        width:100%;
+        @include position(absolute,0,null,null,0);
+        z-index: 10;
+      }
+      ion-icon{
+        @include position(absolute,0,0,0,0);
+        font-size: 45px;
+        color: #fff;
+        width:45px;
+        height:45px;
+        margin: auto;
+        z-index:101;
+      }
+    }
+    .topNews-comment{
+      span{
+        margin-right: 10px;
+        font-size:10px;
+        color:#333;
+      }
+    }
+  }
+}

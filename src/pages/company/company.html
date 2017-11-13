@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content style="background: #EDEEF2;">
-    <ion-list id="com-category" [ngClass]="index == i ? 'active' : ''"  *ngFor="let item of company;let i = index;">
+    <ion-list id="com-category" [ngClass]="index == i ? 'active' : ''"  *ngFor="let item of company.companyInstro;let i = index;">
         <ion-item no-padding class="item-title" (tap)="newStatus(i)">{{item.title}}</ion-item>
         <div class="com-info" (tap)="toArticle(i)">
             <div class="com-thumb">
@@ -19,5 +19,5 @@
             <button ion-item color="pink">{{item.title}}</button>
         </div>
     </ion-list>
-    <contact></contact>
+    <contact [contact]="company.contact"></contact>
 </ion-content>

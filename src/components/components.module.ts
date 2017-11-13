@@ -13,6 +13,7 @@ import { CommentModule } from './comment/comment.module';
 import { UseravatarModule } from './useravatar/useravatar.module';
 import { VideoModule } from './video/video.module';
 import { ContactModule } from './contact/contact.module';
+import { TopnewsModule } from './topnews/topnews.module';
 
 @NgModule({
 	declarations: [],
@@ -31,7 +32,8 @@ import { ContactModule } from './contact/contact.module';
         CommentModule,
         UseravatarModule,
         VideoModule,
-        ContactModule
+        ContactModule,
+        TopnewsModule
 	]
 })
 export class ComponentsModule {
