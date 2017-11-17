@@ -9,35 +9,38 @@
 </ion-header>
 
 <ion-content id="page-union" class="cont-bg">
-  <nav class="nav-bar">
-    <div class="nav-scroll">
-      <!--<ion-slides pager="false">-->
+    <nav class="nav-bar">
+      <div class="nav-scroll">
+        <!--<ion-slides pager="false">-->
         <!--<ion-slide *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)" >-->
-          <!--<button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>-->
+        <!--<button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>-->
         <!--</ion-slide>-->
-      <!--</ion-slides>-->
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)">
-            <button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>
+        <!--</ion-slides>-->
+        <div class="swiper-container swiper-box">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)">
+              <button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <ion-card class="card-pic" *ngFor="let item of recommend" (tap)="toCompany( item.id )">
-    <div class="top-img">
-      <img src="{{item.imgSrc}}">
-      <div class="gray-bg"></div>
-    </div>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="{{item.thumb}}">
+  <div class="card-box">
+    <ion-card class="card-pic" *ngFor="let item of recommend" (tap)="toCompany( item.id )">
+      <div class="top-img">
+        <img src="{{item.imgSrc}}">
         <div class="gray-bg"></div>
-      </ion-avatar>
-      <h2>{{item.title}}</h2>
-    </ion-item>
-  </ion-card>
+      </div>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{item.thumb}}">
+          <div class="gray-bg"></div>
+        </ion-avatar>
+        <h2>{{item.title}}</h2>
+      </ion-item>
+    </ion-card>
+
+  </div>
 
 </ion-content>
