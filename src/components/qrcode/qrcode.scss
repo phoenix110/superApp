@@ -1,0 +1,34 @@
+qrcode {
+  .qrcode-box{
+    @include position(fixed,0,null,null,0);
+    width:100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(#000,0.5);
+    .qrcode{
+      width:70%;
+      margin: 15% auto;
+      @include position(absolute,0,0,0,0);
+      @include radius(10px);
+      .myAvatar{
+        width:100%;
+        height:60%;
+      }
+      ion-card-title{
+        font-size:20px;
+        text-align: center;
+        height:40px;
+      }
+      .code{
+        width:100%;
+        img{
+          display: block;
+          width:85px;
+          height:85px;
+          margin: auto;
+        }
+      }
+    }
+
+  }
+}

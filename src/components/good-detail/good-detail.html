@@ -2,30 +2,22 @@
 <div class="good-style">
 	<div class="good-message">
 		<ion-slides pager>
-		  <ion-slide>
-		    <img src="assets/images/goods/goods01.jpg">
-		  </ion-slide>
-
-		  <ion-slide>
-		    <img src="assets/images/goods/goods02.jpg">
-		  </ion-slide>
-
-		  <ion-slide>
-		    <img src="assets/images/goods/goods03.jpg">
+		  <ion-slide *ngFor="let item of goodInfo.pictures;let i = index;">
+		    <img src="{{item}}">
 		  </ion-slide>
 		</ion-slides>
 		<div class="good-guige">
 			<div class="guige-top">
-			<h5 padding-top padding-bottom>迪士尼快乐奇缘月饼礼盒</h5>
+			<h5 padding-top padding-bottom>{{goodInfo.title}}</h5>
 			</div>
 			<div class="guige-bottom flex-row-between">
 				<div class="guige-left">
-					<h2>￥198</h2>
-					<p>库存 415</p>
-					<p>销量 85</p>
+					<h2>￥{{goodInfo.price}}</h2>
+					<p>库存 {{goodInfo.kucun}}</p>
+					<p>销量 {{goodInfo.sales}}</p>
 				</div>
 				<div class="guige-right">
-					<img src="assets/images/goods/goodsImg01.jpg">
+					<img src="{{goodInfo.thumb}}">
 				</div>
 			</div>
 		</div>

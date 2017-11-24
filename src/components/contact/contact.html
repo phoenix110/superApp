@@ -6,9 +6,9 @@
   </div>
     <ion-grid class="contact-cate" no-padding>
         <ion-row>
-            <ion-col ion-col-3><ion-icon name="mail"></ion-icon></ion-col>
+            <ion-col ion-col-3 tappable (click)="showToast()"><ion-icon name="mail"></ion-icon></ion-col>
             <ion-col ion-col-3><ion-icon name="call"></ion-icon></ion-col>
-            <ion-col ion-col-3><ion-icon name="chatbubbles"></ion-icon></ion-col>
+            <ion-col ion-col-3 tappable (click)="talkCustomer()"><ion-icon name="chatbubbles"></ion-icon></ion-col>
             <ion-col ion-col-3><ion-icon name="pin"></ion-icon></ion-col>
         </ion-row>
     </ion-grid>

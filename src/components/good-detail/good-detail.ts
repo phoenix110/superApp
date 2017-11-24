@@ -1,4 +1,4 @@
-import { Component , ViewChild } from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import { Slides } from 'ionic-angular';
 /**
  * Generated class for the GoodStyleComponent component.
@@ -11,7 +11,8 @@ import { Slides } from 'ionic-angular';
   templateUrl: 'good-detail.html'
 })
 export class GoodDetailComponent {
-@ViewChild(Slides) slides: Slides;
+  @Input() goodInfo:Object = {};
+  @ViewChild(Slides) slides: Slides;
   text: string;
 
   constructor() {

@@ -14,6 +14,7 @@ import { UseravatarModule } from './useravatar/useravatar.module';
 import { VideoModule } from './video/video.module';
 import { ContactModule } from './contact/contact.module';
 import { TopnewsModule } from './topnews/topnews.module';
+import { QrcodeModule } from './qrcode/qrcode.module';
 
 @NgModule({
 	declarations: [],
@@ -33,7 +34,8 @@ import { TopnewsModule } from './topnews/topnews.module';
         UseravatarModule,
         VideoModule,
         ContactModule,
-        TopnewsModule
+        TopnewsModule,
+        QrcodeModule
 	]
 })
 export class ComponentsModule {

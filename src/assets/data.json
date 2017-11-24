@@ -271,55 +271,206 @@
       }
     ]
   },
+  "good":{
+    "pictures":[
+      "./assets/images/goods/goods01.jpg",
+      "./assets/images/goods/goods02.jpg",
+      "./assets/images/goods/goods03.jpg",
+      "./assets/images/goods/goods04.jpg"
+    ],
+    "title":"迪士尼快乐奇缘月饼礼盒",
+    "price":"300",
+    "kucun":"500",
+    "thumb":"./assets/images/goods/goods03.jpg",
+    "sales":"300",
+    "talks":"120",
+    "qun":"./assets/images/goods/goods02.jpg",
+    "comment":[
+        {
+          "avatar":"./assets/images/avatar/2.png",
+          "nick":"凌风",
+          "send":[
+            {
+              "sign":"师傅",
+              "money":"802",
+              "number":"32"
+            },
+            {
+              "sign":"私募",
+              "money":"1230",
+              "number":"60"
+            }
+          ],
+          "title":"南日岛风光",
+          "picture":"./assets/images/circle/bigNews.jpg",
+          "banner":{},
+          "video":{},
+          "slide":[],
+          "time":"12分钟",
+          "zan":[
+            "木头人","凌风","泰罗"
+          ],
+          "comment":[
+            {
+              "nick":"木头人",
+              "text":"风景很美"
+            },
+            {
+              "nick":"凌风",
+              "text":"还好吧！"
+            }
+          ]
+        },
+        {
+          "avatar":"./assets/images/avatar/1.png",
+          "nick":"凌风",
+          "send":[
+            {
+              "sign":"师傅",
+              "money":"802",
+              "number":"32"
+            },
+            {
+              "sign":"私募",
+              "money":"1230",
+              "number":"60"
+            }
+          ],
+          "title":"南日岛风光",
+          "picture":"",
+          "banner":{
+            "thumb":"./assets/images/circle/bigNews.jpg",
+            "sign":"原创",
+            "title":"尊萃活泉水你值得拥有的尊贵"
+          },
+          "video":{},
+          "slide":[],
+          "time":"3小时",
+          "zan":[
+            "木头人","千叶祥龙"
+          ],
+          "comment":[
+            {
+              "nick":"木头人",
+              "text":"风景很美"
+            },
+            {
+              "nick":"千叶祥龙",
+              "text":"很喜欢这里"
+            }
+          ]
+        },
+        {
+          "avatar":"./assets/images/avatar/3.png",
+          "nick":"泰罗",
+          "send":[],
+          "title":"南日岛风光",
+          "picture":"",
+          "banner":{},
+          "video":{
+            "link":"http://videos.gmall88.com/6481044611614638606_1509085027.mp4",
+            "sign":"原创",
+            "title":"尊萃活泉水你值得拥有的尊贵"
+          },
+          "slide":[],
+          "time":"50分钟",
+          "zan":[],
+          "comment":[]
+        },
+        {
+          "avatar":"./assets/images/avatar/4.png",
+          "nick":"南日岛",
+          "send":[
+            {
+              "sign":"师傅",
+              "money":"802",
+              "number":"32"
+            },
+            {
+              "sign":"私募",
+              "money":"1230",
+              "number":"60"
+            }
+          ],
+          "title":"风光",
+          "picture":"",
+          "banner":{},
+          "video":{ },
+          "slide":[
+            {
+              "picture":"./assets/images/company/company01.jpg"
+            },
+            {
+              "picture":"./assets/images/company/company02.jpg"
+            },
+            {
+              "picture":"./assets/images/company/company03.jpg"
+            },
+            {
+              "picture":"./assets/images/company/company04.jpg"
+            }
+          ],
+          "time":"",
+          "zan":[
+            "凌风","泰罗"
+          ],
+          "comment":[
+            {
+              "nick":"木头人",
+              "text":"风景很美"
+            },
+            {
+              "nick":"凌风",
+              "text":"还好吧！"
+            }
+          ]
+        }
+    ]
+  },
   "find":[
     {
       "title":"官网",
-      "thumb":"./assets/images/find/pic01.jpg",
+      "thumb":"./assets/images/find/guanwang.png",
       "route":"CompanyPage"
     },
     {
       "title":"商城",
-      "thumb":"./assets/images/find/pic02.jpg",
+      "thumb":"./assets/images/find/shangcheng.png",
       "route":"MallPage"
     },
     {
       "title":"圈子",
-      "thumb":"./assets/images/find/pic03.jpg",
+      "thumb":"./assets/images/find/shejiao.png",
       "route":"CirclePage"
     },
     {
       "title":"头条",
-      "thumb":"./assets/images/find/pic07.jpg",
+      "thumb":"./assets/images/find/toutiao.png",
       "route":"TouTiaoPage"
     },
     {
       "title":"新闻",
-      "thumb":"./assets/images/find/pic10.jpg",
+      "thumb":"./assets/images/find/xinwen.png",
       "route":"NewsPage"
     },
     {
-      "title":"活动",
-      "thumb":"./assets/images/find/pic04.jpg",
-      "route":"ActivityPage"
-    },
-    {
       "title":"直播",
-      "thumb":"./assets/images/find/pic05.jpg",
+      "thumb":"./assets/images/find/zhibo.png",
       "route":"LivePage"
     },
     {
       "title":"联盟",
-      "thumb":"./assets/images/find/pic06.jpg",
+      "thumb":"./assets/images/find/lianmeng.png",
       "route":"UnionPage"
     },
     {
       "title":"客服",
-      "thumb":"./assets/images/find/pic08.jpg",
+      "thumb":"./assets/images/find/kefu.png",
       "route":"KeFuPage"
     },
     {
       "title":"缘分",
-      "thumb":"./assets/images/find/pic09.jpg",
+      "thumb":"./assets/images/find/yuanfen.png",
       "route":"LuckPage"
     }
   ],
