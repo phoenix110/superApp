@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 import { NavController, NavParams,IonicPage } from 'ionic-angular';
 
 /**
@@ -8,20 +9,35 @@ import { NavController, NavParams,IonicPage } from 'ionic-angular';
  * on Ionic pages and navigation.
  */
 @IonicPage({
-    segment:"good/:id"
+    segment:"good/:id",
 })
 @Component({
   selector: 'page-good',
   templateUrl: 'good.html',
 })
 export class GoodPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public goodDetail: Object= {};
+  public loginStatus:false;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GoodPage');
+    this.goodsData();
   }
+  // 请求商品详情页数据
+  public goodsData(){
+    this.http.get("./assets/data.json").subscribe(data=>{
+      this.goodDetail = data['good'];
+    });
+  }
+  // 去评论
+  public toTalk(){
+    if(this.loginStatus){
+      // 跳转至商品评论页面
+    }else{
 
+    }
+  }
 }

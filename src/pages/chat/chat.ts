@@ -49,7 +49,7 @@ export class ChatPage {
   showConfirm() {
       let confirm = this.alertCtrl.create({
           title: '',
-          message: '您还没登录，是否现在登录?',
+          message: '您还没登录，<br>是否现在登录?',
           buttons: [
               {
                   text: '取消',

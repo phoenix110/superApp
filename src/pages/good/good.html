@@ -10,22 +10,22 @@
 
 <ion-content>
 	<!-- 商品轮播图及规格 -->
-	<good-detail></good-detail>
+	<good-detail [goodInfo]="goodDetail"></good-detail>
 	<!--商品讨论群-->
 	<section class="talkBox" padding>
 		<ion-item class="goodTalk">
 			<ion-thumbnail item-start>
-				<img src="./assets/images/goods/goodsImg01.jpg">
+				<img src="{{goodDetail.qun}}">
 			</ion-thumbnail>
 			<h2>商品讨论群</h2>
-			<h3>讨论数：<b>1212</b></h3>
+			<h3>讨论数：<b>{{goodDetail.talks}}</b></h3>
 		</ion-item>
 	</section>
 	<!--商品评论-->
 	<section class="goodComment">
 		<div class="commentEdit">
-			<ion-icon class="iconfont icon-edit1"></ion-icon>
+			<ion-icon class="iconfont icon-edit1" tappable (click)="toTalk()"></ion-icon>
 		</div>
-		<comment [commentList]="commentList"></comment>
+		<comment [commentList]="goodDetail.comment"></comment>
 	</section>
 </ion-content>

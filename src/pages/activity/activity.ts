@@ -26,7 +26,9 @@ export class ActivityPage {
   // 获取活动产品详情数据
   public activityData(){
     this.http.get('/assets/data.json').subscribe(data=>{
-      this.productInfo = data['activity'];
+        console.log(data['activity'])
+
+        this.productInfo = data['activity'];
     });
   }
 }
