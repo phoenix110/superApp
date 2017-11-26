@@ -1,0 +1,69 @@
+<!--
+  Generated template for the OrderDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <header [headerTitle]="'填写订单信息'"></header>
+</ion-header>
+
+
+<ion-content padding>
+  <!--收货地址-->
+  <div class="addressOut">
+    <div class="addressIn flex-row-between" tappable (click)="toAddressList()">
+      <div class="address-left">
+        <div class="user-info flex-row-between">
+          <b>收货人：我翻翻</b>
+          <span>15236832266</span>
+        </div>
+        <div class="user-address">
+          收货地址：北京市朝阳区花园路金水路广播电视大厦1212号楼
+        </div>
+      </div>
+      <div class="address-right">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <!--订单信息-->
+  <div class="order-info flex-row-start">
+    <div class="order-pic">
+      <img src="../../assets/images/goods/goods06.jpg" alt="">
+    </div>
+    <div class="order-title">
+      <h5 class="text-overflow-one">爱咖啡</h5>
+      <p class="flex-row-between">
+        <span>￥25.00</span>
+        <b>X1</b>
+      </p>
+    </div>
+  </div>
+  <!--购买数量-->
+  <div class="order-num flex-row-between">
+    <span>购买数量</span>
+    <div class="set-num">
+      <b class="down">-</b>
+      <b>1</b>
+      <b class="up">+</b>
+    </div>
+  </div>
+  <!--配送方式-->
+  <div class="order-send flex-row-between">
+    <div class="send-left">
+      <ion-icon ></ion-icon>配送方式
+    </div>
+    <div class="send-right">
+      快递免邮
+    </div>
+  </div>
+  <!--留言-->
+  <textarea class="order-liuyan" cols="30" rows="10" placeholder="请填写卖家留言，对本次交易的说明"></textarea>
+</ion-content>
+<ion-footer class="flex-row-between">
+  <div class="pay-total">
+    合计：￥<b>225</b>元
+  </div>
+  <button ion-button color="red" small>立即支付</button>
+</ion-footer>

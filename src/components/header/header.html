@@ -4,4 +4,8 @@
     <button ion-button menuToggle color="dark" end>
       <ion-icon name="menu"></ion-icon>
     </button>
+      <!--保存-->
+    <span float-end *ngIf="save" class="text-btn" tappable (click)="saveInfo()">{{save}}</span>
+      <!--新增收货地址-->
+      <span float-end *ngIf="addAddress" class="text-btn" tappable (click)="newAddress()">{{addAddress}}</span>
   </ion-navbar>

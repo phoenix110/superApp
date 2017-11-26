@@ -29,7 +29,7 @@ import { ComponentsModule } from "../components/components.module";
   ],
   providers: [
     StatusBar,
-    SplashScreen
+    SplashScreen,
   ]
 })
 export class AppModule {}

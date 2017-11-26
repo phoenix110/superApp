@@ -34,7 +34,6 @@ export class MyPage {
       this.my["info"] = data["my"]["info"];
       this.my["circle"] = data["my"]["circle"];
       this.my["topNews"] = data["my"]["topNews"];
-      console.log(this.my)
     });
   }
   // 切换分类列表

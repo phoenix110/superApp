@@ -1,14 +1,22 @@
 <!-- Generated template for the ShareHeaderComponent component -->
 <ion-navbar color="white">
   <ion-title *ngIf="headerTitle">{{headerTitle}}</ion-title>
-    <!--分享按钮-->
-    <ion-icon *ngIf="shareLink" ios="ios-open-outline" md="md-open" float-end (click)="share()"></ion-icon>
+    <!--分享文章-->
+    <ion-icon *ngIf="shareLink" name="md-open" float-end tappable (click)="share()"></ion-icon>
     <!--评论按钮-->
-    <ion-icon *ngIf="commentPage" ios="ios-create-outline" md="md-create" float-end (click)="comment()"></ion-icon>
+    <ion-icon *ngIf="commentPage" name="md-create" float-end tappable (click)="comment()"></ion-icon>
+    <!--购买商品-->
+    <button *ngIf="buy" ion-button class="clickBtn" float-end color="pink"  small tappable (click)="buyGood(goodId)">{{buy}}</button>
+    <!--添加购物车-->
+    <ion-icon *ngIf="cart" name="cart" float-end tappable (click)="addCart()"></ion-icon>
+    <!--分享商品-->
+    <ion-icon *ngIf="shareGood" name="share" float-end tappable (click)="addShare()"></ion-icon>
+    <!--收藏商品-->
+    <ion-icon *ngIf="collect" name="star" float-end tappable (click)="addCollect()"></ion-icon>
     <!--关注按钮-->
-    <button *ngIf="concern" ion-button color="pink"  small class="concern">{{concern}}</button>
+    <button *ngIf="concern" ion-button class="clickBtn" color="pink"  small class="concern" tappable (click)="collect()">{{concern}}</button>
     <!--选择男生、女生、全部按钮-->
-    <button *ngIf="all" ion-button clear small class="concern" no-padding tappable (click)="openAction()">
+    <button *ngIf="all" ion-button clear small class="concern" no-padding tappable (click)="sexAlert()">
         {{all}}
         <ion-icon name='arrow-down'></ion-icon>
     </button>

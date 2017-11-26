@@ -1,4 +1,5 @@
 import { Component ,Input} from '@angular/core';
+import { NavController } from "ionic-angular";
 
 /**
  * Generated class for the HeaderComponent component.
@@ -13,9 +14,19 @@ import { Component ,Input} from '@angular/core';
 export class HeaderComponent {
 
   @Input() headerTitle: string;
+  @Input() save: string;
+  @Input() addAddress: string;
 
-  constructor() {
+  constructor(public navCtrl:NavController) {
     console.log('Hello HeaderComponent Component');
   }
-
+  // 跳转至新增收货地址页面
+  public newAddress(){
+    this.navCtrl.push("AddressEditPage");
+  }
+  // 保存当前页面信息
+  public saveInfo(){
+    console.log('保存当前页面信息');
+      this.navCtrl.push("AddressListPage");
+  }
 }

@@ -1,0 +1,41 @@
+@import "../../theme/function";
+address-item {
+  .address-list{
+    border:1px solid #f3f3f3;
+    @include position(relative,0,null,null,0);
+    @include radius(10px);
+    box-shadow: -4px 4px 2px #ccc;
+    padding:15px 10px 0 30px;
+    background: #fff;
+    margin-bottom: 20px;
+    .address-zhen{
+      @include position(absolute,15px,null,null,-20px);
+      img{
+        width:40px;
+        height:35px;
+      }
+    }
+    .address-user{
+      .address-name{
+        b{
+          color:#1AADC7;
+          margin-left: 15px;
+        }
+
+      }
+      .address-manage{
+        width:35px;
+        color:#FA6B5B;
+      }
+
+    }
+    h6{
+      height:25px;
+      font-weight: normal;
+    }
+    p{
+      color:#8B8B8B;
+      margin-top: 5px;
+    }
+  }
+}

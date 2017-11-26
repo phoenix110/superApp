@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { IonicPageModule } from "ionic-angular";
 import { MyPage } from "./my";
-
 // 组件Module
 import { ComponentsModule } from "../../components/components.module";
 @NgModule ({

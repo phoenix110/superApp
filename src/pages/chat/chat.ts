@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {NavController, AlertController, App, IonicPage} from 'ionic-angular';
+import {NavController, App, IonicPage} from 'ionic-angular';
+import { NativeServiceProvider } from "../../providers/NativeService";
 /**
  * Generated class for the ChatPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
+
 @IonicPage()
 @Component({
   selector: 'page-chat',
@@ -16,13 +18,20 @@ export class ChatPage {
   private isLogin:boolean = false;
   public chatList:object= {};
   public colorArr: string[] = [];
-  constructor(public navCtrl: NavController, public app: App, public alertCtrl: AlertController,public http:HttpClient) {
+  constructor(public navCtrl: NavController, public app: App, public nativeService: NativeServiceProvider,public http:HttpClient) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
     if(!this.isLogin){
-        this.showConfirm();
+        let options:Object = {
+            title:"确认登录"
+        };
+        this.nativeService.loginConfirm(options).subscribe(data=>{
+            if(data['is_login']){
+                console.log('去登陆');
+            }
+        });
     }
     this.chatListData();
   }
@@ -46,26 +55,5 @@ export class ChatPage {
             this.colorArr.push(color);
         }
     }
-  showConfirm() {
-      let confirm = this.alertCtrl.create({
-          title: '',
-          message: '您还没登录，<br>是否现在登录?',
-          buttons: [
-              {
-                  text: '取消',
-                  handler: () => {
-                      console.log('Disagree clicked');
-                  }
-              },
-              {
-                  text: '确定',
-                  handler: () => {
-                      console.log('Agree clicked');
-                      // this.app.getRootNav().setRoot(GoodPage);
-                  }
-              }
-          ]
-      });
-      confirm.present();
-  }
+
 }

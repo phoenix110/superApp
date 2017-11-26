@@ -15,6 +15,7 @@ import { VideoModule } from './video/video.module';
 import { ContactModule } from './contact/contact.module';
 import { TopnewsModule } from './topnews/topnews.module';
 import { QrcodeModule } from './qrcode/qrcode.module';
+import { AddressItemModule } from './address-item/address-item.module';
 
 @NgModule({
 	declarations: [],
@@ -35,7 +36,8 @@ import { QrcodeModule } from './qrcode/qrcode.module';
         VideoModule,
         ContactModule,
         TopnewsModule,
-        QrcodeModule
+        QrcodeModule,
+        AddressItemModule
 	]
 })
 export class ComponentsModule {

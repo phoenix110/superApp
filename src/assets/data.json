@@ -272,6 +272,7 @@
     ]
   },
   "good":{
+    "id":12,
     "pictures":[
       "./assets/images/goods/goods01.jpg",
       "./assets/images/goods/goods02.jpg",
