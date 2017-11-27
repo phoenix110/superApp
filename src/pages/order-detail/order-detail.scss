@@ -33,6 +33,7 @@ page-order-detail {
     height:80px;
     margin-top: 15px;
     @include radius(5px);
+    overflow: hidden;
     .order-pic{
       width:80px;
       height:80px;
@@ -88,6 +89,10 @@ page-order-detail {
     }
     .send-right{
       color:#00a2e9;
+      select{
+        width:100px;
+        height:25px;
+      }
     }
   }
 

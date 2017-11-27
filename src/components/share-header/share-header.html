@@ -16,7 +16,7 @@
     <!--关注按钮-->
     <button *ngIf="concern" ion-button class="clickBtn" color="pink"  small class="concern" tappable (click)="collect()">{{concern}}</button>
     <!--选择男生、女生、全部按钮-->
-    <button *ngIf="all" ion-button clear small class="concern" no-padding tappable (click)="sexAlert()">
+    <button *ngIf="all" ion-button clear small float-end class="concern" no-padding tappable (click)="sexAlert()">
         {{all}}
         <ion-icon name='arrow-down'></ion-icon>
     </button>

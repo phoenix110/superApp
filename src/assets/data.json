@@ -6,87 +6,87 @@
       "goods": [
         {
           "id": 7,
-          "imgSrc": "./assets/images/item01.jpg",
-          "thumb": "./assets/images/icon01.jpg",
-          "title": "水映兰庭"
+          "imgSrc": "./assets/images/shouji01.jpg",
+          "thumb": "./assets/images/shouji01.jpg",
+          "title": "巧布施-手机"
         },
         {
           "id": 8,
-          "imgSrc": "./assets/images/item02.jpg",
-          "thumb": "./assets/images/icon02.jpg",
-          "title": "邹氏治愈集"
+          "imgSrc": "./assets/images/shouji02.jpg",
+          "thumb": "./assets/images/shouji02.jpg",
+          "title": "巧布施-手机"
         },
         {
           "id": 9,
-          "imgSrc": "./assets/images/item03.jpg",
-          "thumb": "./assets/images/icon03.jpg",
-          "title": "传世传奇"
+          "imgSrc": "./assets/images/shuju01.jpg",
+          "thumb": "./assets/images/shuju01.jpg",
+          "title": "巧布施-一体机"
         },
         {
           "id": 10,
-          "imgSrc": "./assets/images/item04.jpg",
-          "thumb": "./assets/images/icon04.jpg",
-          "title": "诺漫斯商城"
+          "imgSrc": "./assets/images/shuju02.jpg",
+          "thumb": "./assets/images/shuju02.jpg",
+          "title": "巧布施-一体机"
         }
       ]
     },
     {
       "id": 2,
-      "name": "女性",
+      "name": "一体机",
       "goods": [
         {
           "id": 1,
-          "imgSrc": "./assets/images/item02.jpg",
-          "thumb": "./assets/images/icon03.jpg",
-          "title": "水映兰庭"
+          "imgSrc": "./assets/images/tiji01.jpg",
+          "thumb": "./assets/images/tiji01.jpg",
+          "title": "巧布施-一体机"
         },
         {
           "id": 2,
-          "imgSrc": "./assets/images/item04.jpg",
-          "thumb": "./assets/images/icon04.jpg",
-          "title": "诺漫斯商城"
+          "imgSrc": "./assets/images/tiji02.jpg",
+          "thumb": "./assets/images/tiji02.jpg",
+          "title": "巧布施-一体机"
         }
       ]
     },
     {
       "id": 3,
-      "name": "产品",
+      "name": "大数据",
       "goods": [
         {
           "id": 3,
-          "imgSrc": "./assets/images/item03.jpg",
-          "thumb": "./assets/images/icon03.jpg",
-          "title": "水映兰庭"
+          "imgSrc": "./assets/images/shuju01.jpg",
+          "thumb": "./assets/images/shuju01.jpg",
+          "title": "布施-大数据"
         },
         {
           "id": "4",
-          "imgSrc": "./assets/images/item02.jpg",
-          "thumb": "./assets/images/icon02.jpg",
-          "title": "邹氏治愈集"
+          "imgSrc": "./assets/images/shuju02.jpg",
+          "thumb": "./assets/images/shuju02.jpg",
+          "title": "布施-大数据"
         }
       ]
     },
     {
       "id": 4,
-      "name": "美容",
+      "name": "手机",
       "goods": [
         {
           "id": 5,
-          "imgSrc": "./assets/images/item04.jpg",
-          "thumb": "./assets/images/icon04.jpg",
-          "title": "水映兰庭"
+          "imgSrc": "./assets/images/shouji01.jpg",
+          "thumb": "./assets/images/shouji01.jpg",
+          "title": "布施-手机"
         },
         {
           "id": 6,
-          "imgSrc": "./assets/images/item06.jpg",
-          "thumb": "./assets/images/icon02.jpg",
-          "title": "邹氏治愈集"
+          "imgSrc": "./assets/images/shouji02.jpg",
+          "thumb": "./assets/images/shouji02.jpg",
+          "title": "布施-手机"
         },
         {
           "id": 7,
-          "imgSrc": "./assets/images/item07.jpg",
-          "thumb": "./assets/images/icon01.jpg",
-          "title": "传世传奇"
+          "imgSrc": "./assets/images/shuju01.jpg",
+          "thumb": "./assets/images/shuju01.jpg",
+          "title": "布施-大数据"
         }
       ]
     },
@@ -96,45 +96,45 @@
       "goods": [
         {
           "id": 7,
-          "imgSrc": "./assets/images/item01.jpg",
-          "thumb": "./assets/images/icon01.jpg",
-          "title": "水映兰庭"
+          "imgSrc": "./assets/images/tiji01.jpg",
+          "thumb": "./assets/images/tiji01.jpg",
+          "title": "巧布施-一体机"
         },
         {
           "id": 8,
-          "imgSrc": "./assets/images/item02.jpg",
-          "thumb": "./assets/images/icon02.jpg",
-          "title": "邹氏治愈集"
+          "imgSrc": "./assets/images/tiji02.jpg",
+          "thumb": "./assets/images/tiji02.jpg",
+          "title": "巧布施-一体机"
         },
         {
           "id": 9,
-          "imgSrc": "./assets/images/item03.jpg",
-          "thumb": "./assets/images/icon03.jpg",
-          "title": "传世传奇"
+          "imgSrc": "./assets/images/shuju01.jpg",
+          "thumb": "./assets/images/shuju01.jpg",
+          "title": "巧布施-大数据"
         },
         {
           "id": 10,
-          "imgSrc": "./assets/images/item04.jpg",
-          "thumb": "./assets/images/icon04.jpg",
-          "title": "诺漫斯商城"
+          "imgSrc": "./assets/images/shuju02.jpg",
+          "thumb": "./assets/images/shuju02.jpg",
+          "title": "巧布施-大数据"
         }
       ]
     },
     {
       "id": 2,
-      "name": "女性",
+      "name": "大数据",
       "goods": [
         {
           "id": 1,
-          "imgSrc": "./assets/images/item02.jpg",
-          "thumb": "./assets/images/icon03.jpg",
-          "title": "水映兰庭"
+          "imgSrc": "./assets/images/shuju01.jpg",
+          "thumb": "./assets/images/shuju01.jpg",
+          "title": "巧布施-大数据"
         },
         {
           "id": 2,
-          "imgSrc": "./assets/images/item04.jpg",
-          "thumb": "./assets/images/icon04.jpg",
-          "title": "诺漫斯商城"
+          "imgSrc": "./assets/images/shuju02.jpg",
+          "thumb": "./assets/images/shuju02.jpg",
+          "title": "巧布施-大数据"
         }
       ]
     },
@@ -144,39 +144,39 @@
       "goods": [
         {
           "id": 3,
-          "imgSrc": "./assets/images/item03.jpg",
-          "thumb": "./assets/images/icon03.jpg",
-          "title": "水映兰庭"
+          "imgSrc": "./assets/images/tiji01.jpg",
+          "thumb": "./assets/images/tiji01.jpg",
+          "title": "巧布施-一体机"
         },
         {
           "id": "4",
-          "imgSrc": "./assets/images/item02.jpg",
-          "thumb": "./assets/images/icon02.jpg",
-          "title": "邹氏治愈集"
+          "imgSrc": "./assets/images/shuju01.jpg",
+          "thumb": "./assets/images/shuju01.jpg",
+          "title": "布施-大数据"
         }
       ]
     },
     {
       "id": 4,
-      "name": "美容",
+      "name": "巧布施-大数据",
       "goods": [
         {
           "id": 5,
-          "imgSrc": "./assets/images/item04.jpg",
+          "imgSrc": "./assets/images/shuju01.jpg",
           "thumb": "./assets/images/icon04.jpg",
-          "title": "水映兰庭"
+          "title": "布施-大数据"
         },
         {
           "id": 6,
           "imgSrc": "./assets/images/item06.jpg",
           "thumb": "./assets/images/icon02.jpg",
-          "title": "邹氏治愈集"
+          "title": "布施-大数据"
         },
         {
           "id": 7,
-          "imgSrc": "./assets/images/item07.jpg",
+          "imgSrc": "./assets/images/shuju02.jpg",
           "thumb": "./assets/images/icon01.jpg",
-          "title": "传世传奇"
+          "title": "布施-大数据"
         }
       ]
     }
@@ -185,107 +185,105 @@
     "companyInstro": [
       {
         "title": "首页",
-        "thumb": "./assets/images/company/company01.jpg"
+        "thumb": "./assets/images/company/jieshao.jpg"
       },
       {
-        "title": "SuperCard 超G名片",
-        "thumb": "./assets/images/company/company02.jpg"
+        "title": "巧布施-名片",
+        "thumb": "./assets/images/company/mingpian.jpg"
       },
       {
-        "title": "SuperTeam 研发及运营团队",
-        "thumb": "./assets/images/company/company03.jpg"
+        "title": "巧布施-研发及运营团队",
+        "thumb": "./assets/images/company/yunying.jpg"
       },
       {
-        "title": "SuperService 服务支持",
-        "thumb": "./assets/images/company/company04.jpg"
+        "title": "巧布施-服务支持",
+        "thumb": "./assets/images/company/fuwu.jpg"
       },
       {
-        "title": "SuperMind 思想&观点",
-        "thumb": "./assets/images/company/company05.jpg"
+        "title": "巧布施-思想&观点",
+        "thumb": "./assets/images/company/mingpian.jpg"
       },
       {
-        "title": "企业介绍",
-        "thumb": "./assets/images/company/company06.jpg"
+        "title": "巧布施-企业介绍",
+        "thumb": "./assets/images/company/jieshao.jpg"
       },
       {
-        "title": "Brand Vision 品牌形象",
-        "thumb": "./assets/images/company/company07.jpg"
+        "title": "巧布施-品牌形象",
+        "thumb": "./assets/images/company/shouye.jpg"
       },
       {
-        "title": "新闻动态",
-        "thumb": "./assets/images/company/company08.jpg"
+        "title": "巧布施-新闻动态",
+        "thumb": "./assets/images/company/xinwen.jpg"
       }
     ],
     "contact": {
       "tel": "(020)8654222452",
       "xuke": "增值电信业务经营许可证: 粤B1-20150552",
       "bianhao": "经营许可证编号: 粤ICP备14072963号",
-      "banquan": "2017 超G名片 版权所有"
+      "banquan": "2017 巧布施 版权所有"
     }
   },
   "shop":{
     "goodRecommend":[
       {
-        "title":"手表",
+        "title":"巧布施-吸粉、互粉高端智能手机",
         "price":"200",
         "stock":"100",
         "sales":"50",
-        "thumb":"./assets/images/goods/goods04.jpg"
+        "thumb":"./assets/images/goods/shouji01.jpg"
       }
     ],
     "goodList":[
       {
-        "title":"爱咖啡",
+        "title":"巧布施-吸粉、互粉高端智能手机",
         "price":"60",
         "stock":"150",
         "sales":"80",
-        "thumb":"./assets/images/goods/goods02.jpg"
+        "thumb":"./assets/images/goods/shouji02.jpg"
       },
       {
-        "title":"时尚运动鞋",
+        "title":"巧布施-大数据统计分析机",
         "price":"300",
         "stock":"100",
         "sales":"40",
-        "thumb":"./assets/images/goods/goods03.jpg"
+        "thumb":"./assets/images/goods/shuju01.jpg"
       },
       {
-        "title":"足球",
+        "title":"巧布施-大数据统计分析机",
         "price":"300",
         "stock":"100",
         "sales":"30",
-        "thumb":"./assets/images/goods/goods04.jpg"
+        "thumb":"./assets/images/goods/shuju02.jpg"
       },
       {
-        "title":"衣服",
+        "title":"巧布施-智能化统计一体机",
         "price":"400",
         "stock":"130",
         "sales":"50",
-        "thumb":"./assets/images/goods/goods05.jpg"
+        "thumb":"./assets/images/goods/tiji01.jpg"
       },
       {
-        "title":"帽子",
+        "title":"巧布施-智能化统计一体机",
         "price":"200",
         "stock":"160",
         "sales":"22",
-        "thumb":"./assets/images/goods/goods06.jpg"
+        "thumb":"./assets/images/goods/tiji02.jpg"
       }
     ]
   },
   "good":{
     "id":12,
     "pictures":[
-      "./assets/images/goods/goods01.jpg",
-      "./assets/images/goods/goods02.jpg",
-      "./assets/images/goods/goods03.jpg",
-      "./assets/images/goods/goods04.jpg"
+      "./assets/images/goods/shouji01.jpg",
+      "./assets/images/goods/shouji02.jpg"
     ],
-    "title":"迪士尼快乐奇缘月饼礼盒",
+    "title":"巧布施-吸粉、互粉高端智能手机",
     "price":"300",
     "kucun":"500",
-    "thumb":"./assets/images/goods/goods03.jpg",
+    "thumb":"./assets/images/goods/shouji01.jpg",
     "sales":"300",
     "talks":"120",
-    "qun":"./assets/images/goods/goods02.jpg",
+    "qun":"./assets/images/goods/shouji01.jpg",
     "comment":[
         {
           "avatar":"./assets/images/avatar/2.png",
@@ -303,7 +301,7 @@
             }
           ],
           "title":"南日岛风光",
-          "picture":"./assets/images/circle/bigNews.jpg",
+          "picture":"./assets/images/company/mingpian.jpg",
           "banner":{},
           "video":{},
           "slide":[],
@@ -340,7 +338,7 @@
           "title":"南日岛风光",
           "picture":"",
           "banner":{
-            "thumb":"./assets/images/circle/bigNews.jpg",
+            "thumb":"./assets/images/company/mingpian.jpg",
             "sign":"原创",
             "title":"尊萃活泉水你值得拥有的尊贵"
           },
@@ -399,16 +397,16 @@
           "video":{ },
           "slide":[
             {
-              "picture":"./assets/images/company/company01.jpg"
+              "picture":"./assets/images/company/jieshao.jpg"
             },
             {
-              "picture":"./assets/images/company/company02.jpg"
+              "picture":"./assets/images/company/yunying.jpg"
             },
             {
-              "picture":"./assets/images/company/company03.jpg"
+              "picture":"./assets/images/company/xinwen.jpg"
             },
             {
-              "picture":"./assets/images/company/company04.jpg"
+              "picture":"./assets/images/company/fuwu.jpg"
             }
           ],
           "time":"",
@@ -431,37 +429,37 @@
   "find":[
     {
       "title":"官网",
-      "thumb":"./assets/images/find/guanwang.png",
+      "thumb":"./assets/images/find/guanwang.jpg",
       "route":"CompanyPage"
     },
     {
       "title":"商城",
-      "thumb":"./assets/images/find/shangcheng.png",
+      "thumb":"./assets/images/find/shangcheng.jpg",
       "route":"MallPage"
     },
     {
       "title":"圈子",
-      "thumb":"./assets/images/find/shejiao.png",
+      "thumb":"./assets/images/find/quanzi.jpg",
       "route":"CirclePage"
     },
     {
       "title":"头条",
-      "thumb":"./assets/images/find/toutiao.png",
+      "thumb":"./assets/images/find/toutiao.jpg",
       "route":"TouTiaoPage"
     },
     {
-      "title":"新闻",
-      "thumb":"./assets/images/find/xinwen.png",
+      "title":"社群",
+      "thumb":"./assets/images/find/shejiao.jpg",
       "route":"NewsPage"
     },
     {
       "title":"直播",
-      "thumb":"./assets/images/find/zhibo.png",
+      "thumb":"./assets/images/find/zhibo.jpg",
       "route":"LivePage"
     },
     {
       "title":"联盟",
-      "thumb":"./assets/images/find/lianmeng.png",
+      "thumb":"./assets/images/find/lianmeng.jpg",
       "route":"UnionPage"
     },
     {
@@ -471,30 +469,30 @@
     },
     {
       "title":"缘分",
-      "thumb":"./assets/images/find/yuanfen.png",
+      "thumb":"./assets/images/find/yuanfen.jpg",
       "route":"LuckPage"
     }
   ],
   "article":{
-      "title":"Nine Inch Nails Live",
-      "banner":"./assets/images/company/company02.jpg",
+      "title":"以移动互联网为载体的超级生意平台",
+      "banner":"./assets/images/goods/shouji01.jpg",
       "content":"一张神奇的互联网名片，一个以名片为入口、以移动互联网为载体的超级生意平台，让你通过手机与全世界的人做生意。只需120分钟加一部手机，就可以轻松把自已的品牌、产品、服务乃至整个企业都放进名片里。超G名片发送和交换简单方便，线上线下畅通无阻，你的名片不断发出去，生意就会不断带进来。",
       "thumbs":[
         {
           "title":"概览：5分钟快速了解产品",
-          "thumb":"./assets/images/company/company04.jpg"
+          "thumb":"./assets/images/goods/shouji02.jpg"
         },
         {
-          "title":"概览：5分钟快速了解产品",
-          "thumb":"./assets/images/company/company05.jpg"
+          "title":"一个以名片为入口、以移动互联网为载体的超级生意平台",
+          "thumb":"./assets/images/goods/shuju01.jpg"
         },
         {
-          "title":"概览：5分钟快速了解产品",
-          "thumb":"./assets/images/company/company02.jpg"
+          "title":"让你通过手机与全世界的人做生意",
+          "thumb":"./assets/images/goods/shuju02.jpg"
         },
         {
-          "title":"概览：5分钟快速了解产品",
-          "thumb":"./assets/images/company/company01.jpg"
+          "title":"一张神奇的互联网名片",
+          "thumb":"./assets/images/goods/tiji01.jpg"
         }
       ]
     },
@@ -565,7 +563,7 @@
         }
       ],
       "title":"南日岛风光",
-      "picture":"./assets/images/circle/bigNews.jpg",
+      "picture":"./assets/images/company/mingpian.jpg",
       "banner":{},
       "video":{},
       "slide":[],
@@ -602,7 +600,7 @@
       "title":"南日岛风光",
       "picture":"",
       "banner":{
-        "thumb":"./assets/images/circle/bigNews.jpg",
+        "thumb":"./assets/images/company/mingpian.jpg",
         "sign":"原创",
         "title":"尊萃活泉水你值得拥有的尊贵"
       },
@@ -661,16 +659,16 @@
       "video":{ },
       "slide":[
         {
-          "picture":"./assets/images/company/company01.jpg"
+          "picture":"./assets/images/company/jieshao.jpg"
         },
         {
-          "picture":"./assets/images/company/company02.jpg"
+          "picture":"./assets/images/company/mingpian.jpg"
         },
         {
-          "picture":"./assets/images/company/company03.jpg"
+          "picture":"./assets/images/company/yunying.jpg"
         },
         {
-          "picture":"./assets/images/company/company04.jpg"
+          "picture":"./assets/images/company/fuwu.jpg"
         }
       ],
       "time":"",
@@ -694,7 +692,7 @@
       "avatar":"./assets/images/avatar/1.png",
       "day":"2",
       "time":"10-26 05:30",
-      "banner":"./assets/images/company/company03.jpg",
+      "banner":"./assets/images/company/yunying.jpg",
       "content":"超G快讯：安康团队尹娟小姐向企业推荐超级APP。日前，超级APP安康G站团队成员尹娟小姐前往汉中市西乡县罗镇延宾茶叶有限公司向该公司胡总介绍了超级APP的多项强大功能，传统茶叶市场对于开展互联网领域业务依然存在着一定的盲区，大多数企业老板对于开展互联网业务转型公司销售模式一筹莫展，此次尹娟小姐的到来，现场让胡总体验了超级APP迅速为企业架构互联网能力的方便与强大",
       "read":"10",
       "zan":"33",
@@ -704,7 +702,7 @@
       "avatar":"./assets/images/avatar/2.png",
       "day":"1",
       "time":"02-20 05:30",
-      "banner":"./assets/images/company/company02.jpg",
+      "banner":"./assets/images/company/mingpian.jpg",
       "content":"名片是现代商业交往中不可缺少的必备工具之一.销售员在和客户面谈时,送给客户一张名片,不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
       "zan":"33",
@@ -714,7 +712,7 @@
       "avatar":"./assets/images/avatar/3.png",
       "day":"5",
       "time":"10-20 03:30",
-      "banner":"./assets/images/company/company03.jpg",
+      "banner":"./assets/images/company/yunying.jpg",
       "content":"不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
       "zan":"33",
@@ -724,7 +722,7 @@
       "avatar":"./assets/images/avatar/1.png",
       "day":"4",
       "time":"01-30 08:30",
-      "banner":"./assets/images/company/company04.jpg",
+      "banner":"./assets/images/company/fuwu.jpg",
       "content":"销售员在和客户面谈时,送给客户一张名片,不仅是很好的自我介绍,而且还与客户建立了联系,既方便,又体面。加之名片花钱少且直观,保存时间长,在销售中有着不可替代的作用。因此,销售员一定要会用名片善用名片。也许你无意中发出的一张名片，会给你带来一笔巨大的生意。",
       "read":"10",
       "zan":"33",
@@ -745,13 +743,13 @@
     "avatar":"./assets/images/avatar/1.png",
     "day":"2",
     "time":"10-26 05:30",
-    "banner":"./assets/images/company/company03.jpg",
+    "banner":"./assets/images/company/yunying.jpg",
     "content":"超G快讯：安康团队尹娟小姐向企业推荐超级APP。日前，超级APP安康G站团队成员尹娟小姐前往汉中市西乡县罗镇延宾茶叶有限公司向该公司胡总介绍了超级APP的多项强大功能，传统茶叶市场对于开展互联网领域业务依然存在着一定的盲区，大多数企业老板对于开展互联网业务转型公司销售模式一筹莫展，此次尹娟小姐的到来，现场让胡总体验了超级APP迅速为企业架构互联网能力的方便与强大",
     "advertise":[
-      "./assets/images/company/company01.jpg",
-      "./assets/images/company/company02.jpg",
-      "./assets/images/company/company03.jpg",
-      "./assets/images/company/company04.jpg"
+      "./assets/images/company/jieshao.jpg",
+      "./assets/images/company/mingpian.jpg",
+      "./assets/images/company/yunying.jpg",
+      "./assets/images/company/fuwu.jpg"
     ],
     "zan":[
       "千叶祥龙","凌风","木叶","千叶祥龙","凌风","木叶"
@@ -759,12 +757,12 @@
   },
   "touTiaoDetail":{
     "title":"Nine Inch Nails Live",
-    "banner":"./assets/images/company/company02.jpg",
+    "banner":"./assets/images/company/mingpian.jpg",
     "content":"一张神奇的互联网名片，一个以名片为入口、以移动互联网为载体的超级生意平台，让你通过手机与全世界的人做生意。只需120分钟加一部手机，就可以轻松把自已的品牌、产品、服务乃至整个企业都放进名片里。超G名片发送和交换简单方便，线上线下畅通无阻，你的名片不断发出去，生意就会不断带进来。",
     "thumbs":[
       {
         "title":"概览：5分钟快速了解产品",
-        "thumb":"./assets/images/company/company04.jpg"
+        "thumb":"./assets/images/company/fuwu.jpg"
       },
       {
         "title":"概览：5分钟快速了解产品",
@@ -772,11 +770,11 @@
       },
       {
         "title":"概览：5分钟快速了解产品",
-        "thumb":"./assets/images/company/company02.jpg"
+        "thumb":"./assets/images/company/mingpian.jpg"
       },
       {
         "title":"概览：5分钟快速了解产品",
-        "thumb":"./assets/images/company/company01.jpg"
+        "thumb":"./assets/images/company/jieshao.jpg"
       }
     ]
   },
@@ -789,10 +787,10 @@
         "day":"2",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "./assets/images/company/company02.jpg",
-          "./assets/images/company/company03.jpg",
-          "./assets/images/company/company04.jpg",
-          "./assets/images/company/company06.jpg"
+          "./assets/images/company/mingpian.jpg",
+          "./assets/images/company/yunying.jpg",
+          "./assets/images/company/fuwu.jpg",
+          "./assets/images/company/jieshao.jpg"
         ]
       },
       {
@@ -807,7 +805,7 @@
         "day":"1",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "./assets/images/company/company02.jpg"
+          "./assets/images/company/mingpian.jpg"
         ]
       }
     ],
@@ -819,10 +817,10 @@
         "day":"2",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "./assets/images/company/company02.jpg",
-          "./assets/images/company/company03.jpg",
-          "./assets/images/company/company04.jpg",
-          "./assets/images/company/company06.jpg"
+          "./assets/images/company/mingpian.jpg",
+          "./assets/images/company/yunying.jpg",
+          "./assets/images/company/fuwu.jpg",
+          "./assets/images/company/jieshao.jpg"
         ]
       },
       {
@@ -837,7 +835,7 @@
         "day":"1",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "./assets/images/company/company02.jpg"
+          "./assets/images/company/mingpian.jpg"
         ]
       }
     ],
@@ -849,10 +847,10 @@
         "day":"2",
         "content":"我用华为手机，明片不能存在手机电话簿里，怎么办？",
         "slide":[
-          "./assets/images/company/company02.jpg",
-          "./assets/images/company/company03.jpg",
-          "./assets/images/company/company04.jpg",
-          "./assets/images/company/company06.jpg"
+          "./assets/images/company/mingpian.jpg",
+          "./assets/images/company/yunying.jpg",
+          "./assets/images/company/fuwu.jpg",
+          "./assets/images/company/jieshao.jpg"
         ]
       }
     ]
@@ -868,7 +866,7 @@
   },
   "luckPerson":[
     {
-        "avatar":"./assets/images/company/company02.jpg",
+        "avatar":"./assets/images/company/mingpian.jpg",
         "status":1,
         "out":"11000",
         "send":"12121",
@@ -877,7 +875,7 @@
         "job":"总裁助理"
     },
     {
-      "avatar":"./assets/images/company/company01.jpg",
+      "avatar":"./assets/images/company/jieshao.jpg",
       "status":0,
       "out":"5656",
       "send":"232",
@@ -886,7 +884,7 @@
       "job":"总裁助理"
     },
     {
-      "avatar":"./assets/images/company/company04.jpg",
+      "avatar":"./assets/images/company/fuwu.jpg",
       "status":1,
       "out":"54545",
       "send":"6644",
@@ -897,35 +895,35 @@
   ],
   "activity":[
     {
-      "picture":"./assets/images/company/company03.jpg",
+      "picture":"./assets/images/company/yunying.jpg",
       "title":"中秋佳节 | 连续三年爆款迪斯尼黑皮月饼买三送一，包邮。",
       "status":1,
       "id":10
     },
     {
-      "picture":"./assets/images/company/company06.jpg",
+      "picture":"./assets/images/company/jieshao.jpg",
       "title":"连续三年爆款迪斯尼黑皮月饼买三送一。",
       "status":0,
       "id":22
     },
     {
-      "picture":"./assets/images/company/company07.jpg",
+      "picture":"./assets/images/company/shouye.jpg",
       "title":"迪斯尼黑皮月饼买三送一，包邮。",
       "status":0,
       "id":16
     },
     {
-      "picture":"./assets/images/company/company02.jpg",
+      "picture":"./assets/images/company/mingpian.jpg",
       "title":"中秋佳节 | 连续三年爆款。",
       "status":1,
       "id":15
     }
   ],
   "activityDetail":{
-    "picture":"./assets/images/company/company02.jpg",
+    "picture":"./assets/images/company/mingpian.jpg",
     "theme":"中秋佳节 | 连续三年爆款迪斯尼黑皮月饼买三送一，包邮。",
     "status":1,
-    "thumb":"./assets/images/company/company08.jpg",
+    "thumb":"./assets/images/company/mingpian.jpg",
     "title":"连续火了三年的超爆款，迪士尼黑皮经典月饼礼盒",
     "price":"298",
     "youhui":"买三送一",
@@ -1144,7 +1142,7 @@
             }
           ],
           "title":"南日岛风光",
-          "picture":"./assets/images/circle/bigNews.jpg",
+          "picture":"./assets/images/company/mingpian.jpg",
           "banner":{},
           "video":{},
           "slide":[],
@@ -1181,7 +1179,7 @@
           "title":"南日岛风光",
           "picture":"",
           "banner":{
-            "thumb":"./assets/images/circle/bigNews.jpg",
+            "thumb":"./assets/images/company/mingpian.jpg",
             "sign":"原创",
             "title":"尊萃活泉水你值得拥有的尊贵"
           },
@@ -1240,16 +1238,16 @@
           "video":{ },
           "slide":[
             {
-              "picture":"./assets/images/company/company01.jpg"
+              "picture":"./assets/images/company/jieshao.jpg"
             },
             {
-              "picture":"./assets/images/company/company02.jpg"
+              "picture":"./assets/images/company/mingpian.jpg"
             },
             {
-              "picture":"./assets/images/company/company03.jpg"
+              "picture":"./assets/images/company/yunying.jpg"
             },
             {
-              "picture":"./assets/images/company/company04.jpg"
+              "picture":"./assets/images/company/fuwu.jpg"
             }
           ],
           "time":"",
@@ -1285,7 +1283,7 @@
             }
           ],
           "title":"南日岛风光",
-          "picture":"./assets/images/circle/bigNews.jpg",
+          "picture":"./assets/images/company/mingpian.jpg",
           "banner":{},
           "video":{},
           "slide":[],
@@ -1322,7 +1320,7 @@
           "title":"南日岛风光",
           "picture":"",
           "banner":{
-            "thumb":"./assets/images/circle/bigNews.jpg",
+            "thumb":"./assets/images/company/mingpian.jpg",
             "sign":"原创",
             "title":"尊萃活泉水你值得拥有的尊贵"
           },
@@ -1381,16 +1379,16 @@
           "video":{ },
           "slide":[
             {
-              "picture":"./assets/images/company/company01.jpg"
+              "picture":"./assets/images/company/jieshao.jpg"
             },
             {
-              "picture":"./assets/images/company/company02.jpg"
+              "picture":"./assets/images/company/mingpian.jpg"
             },
             {
-              "picture":"./assets/images/company/company03.jpg"
+              "picture":"./assets/images/company/yunying.jpg"
             },
             {
-              "picture":"./assets/images/company/company04.jpg"
+              "picture":"./assets/images/company/fuwu.jpg"
             }
           ],
           "time":"",
@@ -1426,7 +1424,7 @@
             }
           ],
           "title":"南日岛风光",
-          "picture":"./assets/images/circle/bigNews.jpg",
+          "picture":"./assets/images/company/mingpian.jpg",
           "banner":{},
           "video":{},
           "slide":[],
@@ -1463,7 +1461,7 @@
           "title":"南日岛风光",
           "picture":"",
           "banner":{
-            "thumb":"./assets/images/circle/bigNews.jpg",
+            "thumb":"./assets/images/company/mingpian.jpg",
             "sign":"原创",
             "title":"尊萃活泉水你值得拥有的尊贵"
           },
@@ -1522,16 +1520,16 @@
           "video":{ },
           "slide":[
             {
-              "picture":"./assets/images/company/company01.jpg"
+              "picture":"./assets/images/company/jieshao.jpg"
             },
             {
-              "picture":"./assets/images/company/company02.jpg"
+              "picture":"./assets/images/company/mingpian.jpg"
             },
             {
-              "picture":"./assets/images/company/company03.jpg"
+              "picture":"./assets/images/company/yunying.jpg"
             },
             {
-              "picture":"./assets/images/company/company04.jpg"
+              "picture":"./assets/images/company/fuwu.jpg"
             }
           ],
           "time":"",
@@ -1567,7 +1565,7 @@
             }
           ],
           "title":"南日岛风光",
-          "picture":"./assets/images/circle/bigNews.jpg",
+          "picture":"./assets/images/company/mingpian.jpg",
           "banner":{},
           "video":{},
           "slide":[],
@@ -1604,7 +1602,7 @@
           "title":"南日岛风光",
           "picture":"",
           "banner":{
-            "thumb":"./assets/images/circle/bigNews.jpg",
+            "thumb":"./assets/images/company/mingpian.jpg",
             "sign":"原创",
             "title":"尊萃活泉水你值得拥有的尊贵"
           },
@@ -1663,16 +1661,16 @@
           "video":{ },
           "slide":[
             {
-              "picture":"./assets/images/company/company01.jpg"
+              "picture":"./assets/images/company/jieshao.jpg"
             },
             {
-              "picture":"./assets/images/company/company02.jpg"
+              "picture":"./assets/images/company/mingpian.jpg"
             },
             {
-              "picture":"./assets/images/company/company03.jpg"
+              "picture":"./assets/images/company/yunying.jpg"
             },
             {
-              "picture":"./assets/images/company/company04.jpg"
+              "picture":"./assets/images/company/fuwu.jpg"
             }
           ],
           "time":"",
@@ -1695,7 +1693,7 @@
     "topNews":[
       {
         "title":"如何让三无人员能申请到信用卡",
-        "thumb":"./assets/images/company/company01.jpg",
+        "thumb":"./assets/images/company/jieshao.jpg",
         "video":"",
         "commenter":{
           "nick":"追梦者",
@@ -1705,7 +1703,7 @@
       },
       {
         "title":"[爱心] ――【八府堂-参茸胶囊】我们的参茸胶囊手续资质证书齐全噢，可以去国家食品药品监督管理局网站上查询[愉快][愉快] 传送门在下方",
-        "thumb":"./assets/images/company/company02.jpg",
+        "thumb":"./assets/images/company/mingpian.jpg",
         "video":"http://videos.gmall88.com/o_1buq99srpgqa8c117km1ivd1t0h7_MTUxMDU2Mjg1MzA2NC5tcDQa.mp4",
         "commenter":{
           "nick":"追梦者",
@@ -1715,7 +1713,7 @@
       },
       {
         "title":"[爱心] ——【解密八府堂参茸胶囊】再来看看我们的👉检测研发中心科技就是第一生产力，每一粒胶囊💊的背后都有无数科学家的努力，凝结着我们传承千年的文化底蕴‼️",
-        "thumb":"./assets/images/company/company03.jpg",
+        "thumb":"./assets/images/company/yunying.jpg",
         "video":"http://videos.gmall88.com/o_1buq92jmql6b19091jpj1pmi1brf7_MTUxMDU2MjkxMjgzMy5tcDQa.mp4",
         "commenter":{
           "nick":"追梦者",
@@ -1725,7 +1723,7 @@
       },
       {
         "title":"中粮集团胜海系列压榨一级菜籽油",
-        "thumb":"./assets/images/company/company07.jpg",
+        "thumb":"./assets/images/company/shouye.jpg",
         "video":"",
         "commenter":{
           "nick":"追梦者",
@@ -1758,7 +1756,7 @@
           }
         ],
         "title":"南日岛风光",
-        "picture":"./assets/images/circle/bigNews.jpg",
+        "picture":"./assets/images/company/mingpian.jpg",
         "banner":{},
         "video":{},
         "slide":[],
@@ -1795,7 +1793,7 @@
         "title":"南日岛风光",
         "picture":"",
         "banner":{
-          "thumb":"./assets/images/circle/bigNews.jpg",
+          "thumb":"./assets/images/company/mingpian.jpg",
           "sign":"原创",
           "title":"尊萃活泉水你值得拥有的尊贵"
         },
@@ -1820,122 +1818,122 @@
   },
   "mall":[
     {
-      "title":"中秋必备礼品",
+      "title":"智能手机",
       "goodList":[
         {
-          "title":"爱咖啡",
+          "title":"巧布施-智能高吸粉手机",
           "price":"60",
           "stock":"150",
           "sales":"80",
-          "thumb":"./assets/images/goods/goods02.jpg"
+          "thumb":"./assets/images/goods/shouji01.jpg"
         },
         {
-          "title":"时尚运动鞋",
+          "title":"巧布施-大数据统计分析机",
           "price":"300",
           "stock":"100",
           "sales":"40",
-          "thumb":"./assets/images/goods/goods03.jpg"
+          "thumb":"./assets/images/goods/shuju01.jpg"
         },
         {
-          "title":"足球",
+          "title":"巧布施-超级一体机",
           "price":"300",
           "stock":"100",
           "sales":"30",
-          "thumb":"./assets/images/goods/goods04.jpg"
+          "thumb":"./assets/images/goods/shuju01.jpg"
         },
         {
-          "title":"衣服",
+          "title":"巧布施-超级一体机",
           "price":"400",
           "stock":"130",
           "sales":"50",
-          "thumb":"./assets/images/goods/goods05.jpg"
+          "thumb":"./assets/images/goods/shuju02.jpg"
         },
         {
-          "title":"帽子",
+          "title":"巧布施-大数据统计分析机",
           "price":"200",
           "stock":"160",
           "sales":"22",
-          "thumb":"./assets/images/goods/goods06.jpg"
+          "thumb":"./assets/images/goods/tiji01.jpg"
         }
       ]
     },
     {
-      "title":"这是创意品牌",
+      "title":"数据分析机",
       "goodList":[
         {
-          "title":"爱咖啡1",
+          "title":"巧布施-智能高吸粉手机1",
           "price":"60",
           "stock":"150",
           "sales":"80",
-          "thumb":"./assets/images/goods/goods02.jpg"
+          "thumb":"./assets/images/goods/tiji01.jpg"
         },
         {
-          "title":"时尚运动鞋",
+          "title":"巧布施-大数据统计分析机",
           "price":"300",
           "stock":"100",
           "sales":"40",
-          "thumb":"./assets/images/goods/goods03.jpg"
+          "thumb":"./assets/images/goods/tiji02.jpg"
         },
         {
-          "title":"足球",
+          "title":"巧布施-超级一体机",
           "price":"300",
           "stock":"100",
           "sales":"30",
-          "thumb":"./assets/images/goods/goods04.jpg"
+          "thumb":"./assets/images/goods/shouji01.jpg"
         },
         {
-          "title":"衣服",
+          "title":"巧布施-超级一体机",
           "price":"400",
           "stock":"130",
           "sales":"50",
-          "thumb":"./assets/images/goods/goods05.jpg"
+          "thumb":"./assets/images/goods/shouji02.jpg"
         },
         {
-          "title":"帽子",
+          "title":"巧布施-大数据统计分析机",
           "price":"200",
           "stock":"160",
           "sales":"22",
-          "thumb":"./assets/images/goods/goods06.jpg"
+          "thumb":"./assets/images/goods/shuju01.jpg"
         }
       ]
     },
     {
-      "title":"VR演示商品",
+      "title":"大数据统计分析机",
       "goodList":[
         {
-          "title":"爱咖啡",
+          "title":"巧布施-智能高吸粉手机",
           "price":"60",
           "stock":"150",
           "sales":"80",
-          "thumb":"./assets/images/goods/goods02.jpg"
+          "thumb":"./assets/images/goods/shouji01.jpg"
         },
         {
-          "title":"时尚运动鞋",
+          "title":"巧布施-大数据统计分析机",
           "price":"300",
           "stock":"100",
           "sales":"40",
-          "thumb":"./assets/images/goods/goods03.jpg"
+          "thumb":"./assets/images/goods/shuju01.jpg"
         },
         {
-          "title":"足球",
+          "title":"巧布施-超级一体机",
           "price":"300",
           "stock":"100",
           "sales":"30",
-          "thumb":"./assets/images/goods/goods04.jpg"
+          "thumb":"./assets/images/goods/tiji02.jpg"
         },
         {
-          "title":"衣服",
+          "title":"巧布施-超级一体机",
           "price":"400",
           "stock":"130",
           "sales":"50",
-          "thumb":"./assets/images/goods/goods05.jpg"
+          "thumb":"./assets/images/goods/tiji01.jpg"
         },
         {
-          "title":"帽子",
+          "title":"巧布施-大数据统计分析机",
           "price":"200",
           "stock":"160",
           "sales":"22",
-          "thumb":"./assets/images/goods/goods06.jpg"
+          "thumb":"./assets/images/goods/shuju01.jpg"
         }
       ]
     }
@@ -1973,5 +1971,48 @@
         "days":3
       }
     ]
-  }
+  },
+  "orderDetail":{
+    "orderAddress":{
+      "id":20,
+      "name":"我翻翻",
+      "mobile":"15236832266",
+      "address":"北京市朝阳区花园路金水路广播电视大厦1212号楼"
+    },
+    "orderInfo":{
+      "thumb":"./assets/images/goods/shouji01.jpg",
+      "title":"巧布施-智能高吸粉手机",
+      "price":"25.00",
+      "num":"1",
+      "stock":"5"
+    },
+    "sendWay":[
+      "快递免邮",
+      "货到付款",
+      "网银付款"
+    ]
+  },
+  "addressList":[
+    {
+      "id":"10",
+      "name":"千叶祥龙",
+      "mobile":"15236932532",
+      "address":"北京市西城区花园路文化路2323号",
+      "default":false
+    },
+    {
+      "id":"5",
+      "name":"淘小子",
+      "mobile":"13452325655",
+      "address":"郑州市东风路东明街78787号",
+      "default":true
+    },
+    {
+      "id":"30",
+      "name":"爱谁谁",
+      "mobile":"15755532222",
+      "address":"海南省海南市海口区九龙镇9090号",
+      "default":false
+    }
+  ]
 }

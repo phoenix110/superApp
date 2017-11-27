@@ -2,26 +2,24 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the AddressEditPage page.
+ * Generated class for the AddressAddPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
-@IonicPage({
-    segment:"addressEdit/:id"
-})
+@IonicPage()
 @Component({
-  selector: 'page-address-edit',
-  templateUrl: 'address-edit.html',
+  selector: 'page-address-add',
+  templateUrl: 'address-add.html',
 })
-export class AddressEditPage {
+export class AddressAddPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddressEditPage');
+    console.log('ionViewDidLoad AddressAddPage');
   }
 
 }

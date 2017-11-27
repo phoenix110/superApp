@@ -1,46 +1,16 @@
 <!-- Generated template for the AddressItemComponent component -->
-<section class="address-list">
-  <div class="address-zhen"><img src="../../assets/images/avatar/shot.png" alt=""></div>
+<section class="address-list" *ngFor="let item of addressList;let i = index;">
+  <div class="address-zhen"><img src="./assets/images/avatar/shot.png" alt=""></div>
   <div class="address-detail">
     <div class="address-user flex-row-between">
       <div class="address-name">
-        我翻翻 <b>[默认地址]</b>
+        {{item.name}} <b *ngIf="item.default">[默认地址]</b>
       </div>
-      <div class="address-manage">
+      <div class="address-manage" tappable (click)="editAddress(item.id)">
         管理
       </div>
     </div>
-      <h6>15236588555</h6>
-      <p>北京市西城区花园路文化路2323号</p>
+      <h6>{{item.mobile}}</h6>
+      <p>{{item.address}}</p>
   </div>
-</section>
-<section class="address-list">
-    <div class="address-zhen"><img src="../../assets/images/avatar/shot.png" alt=""></div>
-    <div class="address-detail">
-        <div class="address-user flex-row-between">
-            <div class="address-name">
-                我翻翻 <b>[默认地址]</b>
-            </div>
-            <div class="address-manage">
-                管理
-            </div>
-        </div>
-        <h6>15236588555</h6>
-        <p>北京市西城区花园路文化路2323号</p>
-    </div>
-</section>
-<section class="address-list">
-    <div class="address-zhen"><img src="../../assets/images/avatar/shot.png" alt=""></div>
-    <div class="address-detail">
-        <div class="address-user flex-row-between">
-            <div class="address-name">
-                我翻翻 <b>[默认地址]</b>
-            </div>
-            <div class="address-manage">
-                管理
-            </div>
-        </div>
-        <h6>15236588555</h6>
-        <p>北京市西城区花园路文化路2323号</p>
-    </div>
 </section>

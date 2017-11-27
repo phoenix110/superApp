@@ -22,7 +22,7 @@ export class HeaderComponent {
   }
   // 跳转至新增收货地址页面
   public newAddress(){
-    this.navCtrl.push("AddressEditPage");
+    this.navCtrl.push("AddressAddPage");
   }
   // 保存当前页面信息
   public saveInfo(){
