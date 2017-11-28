@@ -1,0 +1,41 @@
+page-user-edit {
+  .avatar-img{
+    height:200px;
+    @include position(relative,0,null,null,0);
+    img{
+      width:140px;
+      height:140px;
+      @include position(absolute,0,0,0,0);
+      margin: auto;
+      overflow: hidden;
+      @include radius(50%);
+    }
+  }
+  .form-list{
+    ion-item{
+
+      ion-label[fixed]{
+        flex:0 0 50px;
+        width:50px;
+        min-width: 70px;
+      }
+      ion-select{
+        border: 1px solid #ccc;
+        @include radius(5px);
+        margin-left:10px;
+        min-width:50px;
+      }
+    }
+  }
+  .user-xieyi{
+    height:50px;
+    line-height: 50px;
+    padding:0 10px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    background: #fff;
+    h5{
+      font-size:14px;
+    }
+  }
+}

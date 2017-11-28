@@ -27,7 +27,7 @@ export class MyPage {
     console.log('ionViewDidLoad MyPage');
     this.myData();
   }
-  // 个人中心数据
+  // 我的数据
   public myData(){
     this.http.get("./assets/data.json").subscribe(data=>{
       this.my["isLogin"] = data["my"]["isLogin"];
@@ -39,5 +39,9 @@ export class MyPage {
   // 切换分类列表
   public getCateList(index){
     this.listNum = index;
+  }
+  // 跳转至会员中心页面
+  public toUser(uid){
+    this.navCtrl.push("UserPage",{uid:uid});
   }
 }

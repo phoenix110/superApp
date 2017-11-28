@@ -1,0 +1,75 @@
+<!--
+  Generated template for the UserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <header [headerTitle]="'我的世界'"></header>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <div class="user-header" tappable (click)="userEdit(20)">
+    <ul class="user-avatar flex-row-between">
+      <li>账号</li>
+      <li class="avatar"><img src="./assets/images/user/avatar.jpg" alt=""></li>
+      <li><ion-icon name="arrow-forward"></ion-icon></li>
+    </ul>
+    <div class="user-info">
+      <h4>千叶祥龙</h4>
+      <p>河南，郑州市，金水区</p>
+    </div>
+  </div>
+    <div class="user-things">
+        <ul class="user-list">
+            <li class="flex-row-start">
+                <!--<ion-icon class="icon-left"  name="notifications"></ion-icon>-->
+                <h5>零钱包</h5>
+                <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
+            </li>
+            <li class="flex-row-start">
+                <!--<ion-icon class="icon-left" name="cart"></ion-icon>-->
+                <h5>保定收款银行卡</h5>
+                <!--<ion-icon class="icon-right" name="arrow-forward"></ion-icon>-->
+                <span>未绑定</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="user-things">
+        <div class="user-text">
+            日常事务
+        </div>
+        <ul class="user-list">
+            <li class="flex-row-start">
+                <ion-icon class="icon-left"  name="notifications"></ion-icon>
+                <h5>公告信息</h5>
+                <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
+            </li>
+            <li class="flex-row-start">
+                <ion-icon class="icon-left" name="cart"></ion-icon>
+                <h5>购物车</h5>
+                <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
+            </li>
+            <li class="flex-row-start">
+                <ion-icon class="icon-left" name="basket"></ion-icon>
+                <h5>订单</h5>
+                <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
+            </li>
+            <li class="flex-row-start">
+                <ion-icon class="icon-left" name="pricetags"></ion-icon>
+                <h5>优惠券</h5>
+                <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
+            </li>
+            <li class="flex-row-start">
+                <ion-icon class="icon-left" name="heart"></ion-icon>
+                <h5>收藏</h5>
+                <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
+            </li>
+        </ul>
+    </div>
+
+</ion-content>
