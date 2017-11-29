@@ -2,29 +2,24 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the UserEditPage page.
+ * Generated class for the OrderPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
-@IonicPage({
-    segment:"userEdit/:uid"
-})
+@IonicPage()
 @Component({
-  selector: 'page-user-edit',
-  templateUrl: 'user-edit.html',
+  selector: 'page-order',
+  templateUrl: 'order.html',
 })
-export class UserEditPage {
+export class OrderPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UserEditPage');
+    console.log('ionViewDidLoad OrderPage');
   }
-  // 保存会员资料
-  public saveInfo(uid){
-    this.navCtrl.pop();
-  }
+
 }

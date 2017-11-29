@@ -2,29 +2,26 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the UserEditPage page.
+ * Generated class for the WalletPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @IonicPage({
-    segment:"userEdit/:uid"
+    segment:"wallet/:uid"
 })
 @Component({
-  selector: 'page-user-edit',
-  templateUrl: 'user-edit.html',
+  selector: 'page-wallet',
+  templateUrl: 'wallet.html',
 })
-export class UserEditPage {
+export class WalletPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UserEditPage');
+    console.log('ionViewDidLoad WalletPage');
   }
-  // 保存会员资料
-  public saveInfo(uid){
-    this.navCtrl.pop();
-  }
+
 }

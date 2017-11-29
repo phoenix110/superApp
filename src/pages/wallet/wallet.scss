@@ -1,0 +1,31 @@
+page-wallet {
+  .wallet-box{
+    h6{
+      color:#808080;
+      text-align: center;
+      height:40px;
+      line-height: 40px;
+    }
+    h2{
+      font-weight: bold;
+      color:#FA6B5B;
+      font-size:24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    button{
+      margin-bottom: 10px;
+    }
+    button.record{
+      border:1px solid #ccc;
+      color:#757575;
+    }
+  }
+  .wallet-sang{
+    margin-top: 30px;
+    p{
+      color:#ccc;
+      text-align: center;
+    }
+  }
+}

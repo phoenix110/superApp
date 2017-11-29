@@ -1,0 +1,19 @@
+page-notice-detail {
+  .notice-cont{
+    h2{
+      font-size: 20px;
+      font-weight: bold;
+      height: 30px;
+      line-height: 30px;
+    }
+    p.notice-time{
+      color:#ccc;
+      font-size:14px;
+      margin: 10px 0;
+    }
+    p.notice-news{
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+}

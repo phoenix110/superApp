@@ -25,8 +25,8 @@ export class HeaderComponent {
     this.navCtrl.push("AddressAddPage");
   }
   // 保存当前页面信息
-  public saveInfo(){
+  public saveAddress(){
     console.log('保存当前页面信息');
-      this.navCtrl.push("AddressListPage");
+      this.navCtrl.pop();
   }
 }

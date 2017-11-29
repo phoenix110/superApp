@@ -26,4 +26,20 @@ export class UserPage {
     public userEdit(uid){
       this.navCtrl.push("UserEditPage",{uid:uid});
     }
+    // 跳转至零钱包页面
+  public toWallet(uid){
+      this.navCtrl.push("WalletPage",{uid:uid});
+  }
+    // 跳转至公告信息页面
+    public toNotice(){
+        this.navCtrl.push("NoticePage");
+    }
+    // 跳转至购物车页面
+    public toCard(uid){
+        this.navCtrl.push("CartPage",{uid:uid});
+    }
+    // 跳转至订单页面
+    public toOrder(uid){
+        this.navCtrl.push("OrderPage",{uid:uid});
+    }
 }

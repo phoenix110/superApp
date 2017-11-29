@@ -1,0 +1,36 @@
+<!--
+  Generated template for the NoticePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <header [headerTitle]="'全局公告'"></header>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card tappable (click)="noticeDetail(20)">
+    <img src="./assets/images/company/jieshao.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        巧布施-手机群控系统，期待您的加盟！
+      </ion-card-title>
+      <p>
+        09月22日
+      </p>
+    </ion-card-content>
+  </ion-card>
+    <ion-card tappable  (click)="noticeDetail(15)">
+        <img src="./assets/images/company/fuwu.jpg"/>
+        <ion-card-content>
+            <ion-card-title>
+                您的满意，我们服务的宗旨！
+            </ion-card-title>
+            <p>
+                09月10日
+            </p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

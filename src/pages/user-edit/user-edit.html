@@ -25,8 +25,8 @@
       <ion-item>
         <ion-label>性别</ion-label>
         <ion-select  interface="popover">
-          <ion-option value="nes">男</ion-option>
-          <ion-option value="nes">女</ion-option>
+          <ion-option value="man">男</ion-option>
+          <ion-option value="women">女</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
@@ -78,5 +78,7 @@
         <h5>用户协议</h5>
         <ion-icon name="arrow-forward"></ion-icon>
     </div>
-    <button ion-button [color]="red" margin-top="30"></button>
+    <div class="save-info" padding>
+        <button ion-button [color]="red" block margin-top="30" tappable (click)="saveInfo(20)">确定</button>
+    </div>
 </ion-content>

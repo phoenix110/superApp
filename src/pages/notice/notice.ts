@@ -2,29 +2,27 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the UserEditPage page.
+ * Generated class for the NoticePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
-@IonicPage({
-    segment:"userEdit/:uid"
-})
+@IonicPage()
 @Component({
-  selector: 'page-user-edit',
-  templateUrl: 'user-edit.html',
+  selector: 'page-notice',
+  templateUrl: 'notice.html',
 })
-export class UserEditPage {
+export class NoticePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UserEditPage');
+    console.log('ionViewDidLoad NoticePage');
   }
-  // 保存会员资料
-  public saveInfo(uid){
-    this.navCtrl.pop();
+  // 跳转至公告详情页
+  public noticeDetail(id){
+    this.navCtrl.push("NoticeDetailPage",{id:id});
   }
 }
