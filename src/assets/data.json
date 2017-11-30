@@ -2014,5 +2014,38 @@
       "address":"海南省海南市海口区九龙镇9090号",
       "default":false
     }
-  ]
+  ],
+  "notice":[
+    {
+      "id":"23",
+      "advertise":"./assets/images/company/jieshao.jpg",
+      "title":"巧布施-手机群控系统，期待您的加盟！",
+      "time":"06月31日"
+    },
+    {
+      "id":"21",
+      "advertise":"./assets/images/company/fuwu.jpg",
+      "title":"百变app企业版（3.5版）更新内容",
+      "time":"5月31日"
+    },
+    {
+      "id":"13",
+      "advertise":"./assets/images/company/xinwen.jpg",
+      "title":"您的满意，我们服务的宗旨！",
+      "time":"4月31日"
+    },
+    {
+      "id":"10",
+      "advertise":"./assets/images/company/yunying.jpg",
+      "title":"新功能上线：圈子发红包功能上线啦！",
+      "time":"03月31日"
+    }
+  ],
+  "noticeDetail":{
+    "banner":"./assets/images/company/yunying.jpg",
+    "title":"新功能上线：圈子发红包功能上线啦！",
+    "time":"03月31日",
+    "content":"今晚新上线“头条”功能，你可以在圈子的标签栏里看到它，第二个按钮“头条”就是也！头条是一个新的内容聚合平台，展示每个用户原创或转载的优质文章及视频，让大家更方便阅读和检索优质内容，提高文章曝光率。欢迎大家多多创作优质文章，或者从第三方转载优质内容，让圈子变得越来越好！今晚新上线“头条”功能，你可以在圈子的标签栏里看到它，第二个按钮“头条”就是也！头条是一个新的内容聚合平台，展示每个用户原创或转载的优质文章及视频，让大家更方便阅读和检索优质内容，提高文章曝光率。欢迎大家多多创作优质文章，或者从第三方转载优质内容，让圈子变得越来越好！"
+
+  }
 }

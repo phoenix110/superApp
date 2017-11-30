@@ -35,7 +35,7 @@ export class UserPage {
         this.navCtrl.push("NoticePage");
     }
     // 跳转至购物车页面
-    public toCard(uid){
+    public toCart(uid){
         this.navCtrl.push("CartPage",{uid:uid});
     }
     // 跳转至订单页面

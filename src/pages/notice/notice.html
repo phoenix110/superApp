@@ -11,26 +11,15 @@
 
 
 <ion-content padding>
-  <ion-card tappable (click)="noticeDetail(20)">
-    <img src="./assets/images/company/jieshao.jpg"/>
+  <ion-card tappable (click)="noticeDetail(item.id)" *ngFor="let item of noticeInfo;let i = index;">
+    <img src="{{item.advertise}}"/>
     <ion-card-content>
       <ion-card-title>
-        巧布施-手机群控系统，期待您的加盟！
+        {{item.title}}
       </ion-card-title>
       <p>
-        09月22日
+        {{item.time}}
       </p>
     </ion-card-content>
   </ion-card>
-    <ion-card tappable  (click)="noticeDetail(15)">
-        <img src="./assets/images/company/fuwu.jpg"/>
-        <ion-card-content>
-            <ion-card-title>
-                您的满意，我们服务的宗旨！
-            </ion-card-title>
-            <p>
-                09月10日
-            </p>
-        </ion-card-content>
-    </ion-card>
 </ion-content>
