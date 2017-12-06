@@ -103,3 +103,13 @@ $redColor:#f00;
    -webkit-line-clamp: $num;
    overflow: hidden;
 }
+//css3绘制三角形
+@mixin arrest($border,$borderTop:null,$borderRight:null,$borderBottom:null,$borderLeft:null){
+  width:0;
+  height:0;
+  border: $border;
+  @if $borderTop {border-top-color:$borderTop;};
+  @if $borderRight {border-right-color:$borderTop;};
+  @if $borderBottom {border-bottom-color:$borderTop;};
+  @if $borderLeft {border-left-color:$borderTop;};
+}

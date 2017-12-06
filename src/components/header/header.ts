@@ -26,7 +26,6 @@ export class HeaderComponent {
   }
   // 保存当前页面信息
   public saveAddress(){
-    console.log('保存当前页面信息');
       this.navCtrl.pop();
   }
 }

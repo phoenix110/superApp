@@ -1,3 +1,90 @@
 page-cart {
+  .cart{
+    padding:0 10px;
+    ion-card{
+      margin-top: 15px;
+      @include radius(8px);
+      .cart-top{
+        padding:10px;
+        align-items: center;
+        img{
+          flex:0 0 25px;
+          width: 25px;
+          height:25px;
+        }
+        h5{
+          flex:1 1 auto;
+          font-weight: bold;
+          max-width: 280px;
+          margin: 0 6px;
+        }
+        span{
+          flex:0 0 30px;
+          font-weight: bold;
+        }
+      }
+      .cart-center{
+        border-top:1px solid #ccc;
+
+        padding:10px;
+        ion-checkbox{
+          flex:0 0 25px;
+          height:25px;
+        }
+        img{
+          flex:0 0 60px;
+          width: 60px;
+          height:60px;
+          margin: 0 6px;
+        }
+        .cart-guige{
+          flex:1 1 auto;
+          align-self: flex-start;
+          h5,p{
+            overflow: hidden;
+            color:#333;
+            font-size: 10px;
+            span{
+              float:left;
+              em{
+                font-style: normal;
+              }
+            }
+            span.text-overflow-one{
+              max-width: 200px;
+            }
+            b{
+              float:right;
+            }
+          }
+          h5 b{
+            color:#FF4055;
+          }
+        }
+      }
+      .cart-bottom{
+        padding: 10px;
+        border-top:1px solid #ccc;
+        ion-checkbox{
+          flex:0 0 25px;
+          height:25px;
+          margin-right:6px;
+        }
+        .cart-total{
+          flex:1 1 auto;
+          .cart-heji{
+            align-items: center;
+            span b{
+              color:#FF4055;
+            }
+            button{
+              margin-left: 5px;
+              background: #FA6B5B;
+            }
+          }
+        }
+      }
+    }
+  }
 
 }

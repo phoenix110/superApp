@@ -1,5 +1,5 @@
 import {Component, Input, ViewChild} from '@angular/core';
-import { Slides } from 'ionic-angular';
+import { Slides , NavController} from 'ionic-angular';
 /**
  * Generated class for the GoodStyleComponent component.
  *
@@ -15,9 +15,12 @@ export class GoodDetailComponent {
   @ViewChild(Slides) slides: Slides;
   text: string;
 
-  constructor() {
+  constructor(public navCtrl:NavController) {
     console.log('Hello GoodStyleComponent Component');
     this.text = 'Hello World';
   }
-
+  // 跳转至产品（秀）图片详情页
+  public goodPics(id){
+    this.navCtrl.push("GoodImgsPage",{id:id});
+  }
 }

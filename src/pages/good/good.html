@@ -11,6 +11,11 @@
 <ion-content>
 	<!-- 商品轮播图及规格 -->
 	<good-detail [goodInfo]="goodDetail"></good-detail>
+    <!--商品交流-->
+    <good-chat></good-chat>
+    <!--商品详情图-->
+
+    <good-pics></good-pics>
 	<!--商品讨论群-->
 	<section class="talkBox" padding>
 		<ion-item class="goodTalk">
@@ -28,4 +33,5 @@
 		</div>
 		<comment [commentList]="goodDetail.comment"></comment>
 	</section>
+
 </ion-content>
