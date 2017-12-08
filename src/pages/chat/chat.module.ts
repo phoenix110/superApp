@@ -5,7 +5,7 @@ import { ChatPage } from "./chat";
 // 组件Module
 import { ComponentsModule } from "../../components/components.module";
 // 服务
-import { NativeServiceProvider } from "../../providers/NativeService";
+import { AlertProvider } from "../../providers/alert";
 
 @NgModule ({
     declarations: [
@@ -19,7 +19,7 @@ import { NativeServiceProvider } from "../../providers/NativeService";
         ChatPage
     ],
     providers:[
-        NativeServiceProvider
+        AlertProvider
     ]
 })
 export class ChatPageModule {
