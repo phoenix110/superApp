@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule} from 'ionic-angular';
 import { HttpClientModule  } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // 导入公共Module
 import { ComponentsModule } from "../components/components.module";
+import { RequestProvider } from '../providers/request';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,11 @@ import { ComponentsModule } from "../components/components.module";
   providers: [
     StatusBar,
     SplashScreen,
+    RequestProvider,
   ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(){
+
+  }
+}

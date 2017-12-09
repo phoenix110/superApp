@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {NavController, App, IonicPage} from 'ionic-angular';
-import { NativeServiceProvider } from "../../providers/NativeService";
+import { AlertProvider } from "../../providers/alert";
 /**
  * Generated class for the ChatPage page.
  *
@@ -18,7 +18,7 @@ export class ChatPage {
   private isLogin:boolean = false;
   public chatList:object= {};
   public colorArr: string[] = [];
-  constructor(public navCtrl: NavController, public app: App, public nativeService: NativeServiceProvider,public http:HttpClient) {
+  constructor(public navCtrl: NavController, public app: App, public AlertProvider: AlertProvider,public http:HttpClient) {
   }
 
   ionViewDidLoad() {
@@ -27,7 +27,7 @@ export class ChatPage {
         let options:Object = {
             title:"确认登录"
         };
-        this.nativeService.loginConfirm(options).subscribe(data=>{
+        this.AlertProvider.loginConfirm(options).subscribe(data=>{
             if(data['is_login']){
                 console.log('去登陆');
             }

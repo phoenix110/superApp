@@ -8,19 +8,19 @@
         <ion-grid>
             <ion-row margin-top>
                 <ion-col text-center tappable (click)="showQr()">
-                    <ion-icon class="iconfont icon-erweima5"></ion-icon>
+                    <ion-icon class="iconfont icon-erweima5" menuToggle></ion-icon>
                     <p>分享给朋友</p>
                 </ion-col>
             </ion-row>
             <ion-row margin-top>
                 <ion-col text-center>
-                    <ion-icon class="iconfont icon-tianjia"></ion-icon>
+                    <ion-icon class="iconfont icon-tianjia" menuToggle></ion-icon>
                     <p>安装到桌面</p>
                 </ion-col>
             </ion-row>
-            <ion-row margin-top>
+            <ion-row margin-top (click)="login()">
                 <ion-col text-center>
-                    <ion-icon class="iconfont icon-denglu"></ion-icon>
+                    <ion-icon class="iconfont icon-denglu" menuToggle></ion-icon>
                     <p>立即登录</p>
                 </ion-col>
             </ion-row>
@@ -28,4 +28,4 @@
     </ion-content>
 </ion-menu>
 <qrcode  *ngIf="codeStatus" (hideQr)="fadeOut($event)"></qrcode>
-<ion-nav [root]="rootPage" #content></ion-nav>
+<ion-nav [root]="rootPage" #content ></ion-nav>

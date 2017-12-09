@@ -9,7 +9,7 @@ import { Observable} from "rxjs/Observable";
   and Angular DI.
 */
 @Injectable()
-export class NativeServiceProvider {
+export class AlertProvider {
 
   constructor(public alertCtrl:AlertController) {
     console.log('Hello NativeServiceProvider Provider');
