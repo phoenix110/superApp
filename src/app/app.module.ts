@@ -20,6 +20,7 @@ import { ComponentsModule } from "../components/components.module";
     IonicModule.forRoot(MyApp,{
         tabsHideOnSubPages: 'true',
         backButtonText: '',
+            mode: 'md',
     }
     )
   ],

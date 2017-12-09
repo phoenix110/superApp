@@ -46,21 +46,19 @@ export class MallPage {
         });
         // 监听@viewChildren组件的增加或删除后自动改变@viewChildren集合的值
         this.swiperChildren.changes.subscribe(()=>{
-            this.good.forEach( (e) =>{
-                new Swiper(".swiper-child",{
-                    slidesPerView:"auto",
-                    pagination : '.child-pagination',
-                    paginationType : 'fraction',
-                    observer:true,
-                    observeParents:true,
-                    effect:"cube",
-                    cube:{
-                        slideShadows: true,
-                        shadow: true,
-                        shadowOffset: 50,
-                        shadowScale: 1.0
-                    }
-                });
+            new Swiper(".swiper-child",{
+                slidesPerView:"auto",
+                pagination : '.child-pagination',
+                paginationType : 'fraction',
+                observer:true,
+                observeParents:true,
+                effect:"cube",
+                cube:{
+                    slideShadows: true,
+                    shadow: true,
+                    shadowOffset: 50,
+                    shadowScale: 1.0
+                }
             });
         });
     }
