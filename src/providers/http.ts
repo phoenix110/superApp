@@ -60,7 +60,7 @@ export class HttpProvider {
         let headers = new HttpHeaders({'Content-Type':contentType});
         return Observable.create( observer => {
             this.AlertProvider.showLoading();
-            this.http.post(APP_SERVE_URL+1 ,this.toBodyString(body),{headers:headers})
+            this.http.post(APP_SERVE_URL ,this.toBodyString(body),{headers:headers})
                 .subscribe(res=>{
                         this.AlertProvider.hideLoading();
                         observer.next(res);
