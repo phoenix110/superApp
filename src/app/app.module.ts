@@ -7,7 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // 导入公共Module
 import { ComponentsModule } from "../components/components.module";
-import { RequestProvider } from '../providers/request';
+import { HttpProvider } from '../providers/http';
+import { NativeProvider } from '../providers/native';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { RequestProvider } from '../providers/request';
     IonicModule.forRoot(MyApp,{
         tabsHideOnSubPages: 'true',
         backButtonText: '',
-            mode: 'md',
+            mode: 'ios',
     }
     )
   ],
@@ -32,7 +33,8 @@ import { RequestProvider } from '../providers/request';
   providers: [
     StatusBar,
     SplashScreen,
-    RequestProvider,
+    HttpProvider,
+    NativeProvider,
   ]
 })
 export class AppModule {

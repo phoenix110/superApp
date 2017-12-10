@@ -1,26 +1,36 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>登录</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="login-outer">
+    <section class="login-header flex-row-between">
+        <b (click)="popOut()">返回</b>
+        <h5>登录</h5>
+        <span (click)="toRegister()">注册</span>
+    </section>
+    <section class="login-form">
+        <div class="avatar-img">
+            <div class="avatar-box">
+                <img alt="" src="./assets/images/icon.png">
+                <h3>百变APP</h3>
+            </div>
+        </div>
+        <div class="form-item flex-row-start">
+            <ion-icon name="person"></ion-icon>
+            <input type="text" placeholder="请输入您的手机号" #mobile>
+        </div>
+        <div class="form-item flex-row-start">
+            <ion-icon name="lock"></ion-icon>
+            <input type="password" placeholder="请输入您的密码" #password>
+        </div>
+        <div class="form-password flex-row-between">
+            <div class="remember">
+                <ion-checkbox color="danger" checked="true"></ion-checkbox>
+                <span>记住密码</span>
+            </div>
+            <div class="forget" (click)="forgetPwd()">
+                <span>忘记密码？</span>
+            </div>
+        </div>
+        <button ion-button block class="toLogin" (click)="login()">
+            登录
+        </button>
+    </section>
 
-<ion-content>
-  <ion-item>
-    <ion-label fixed>手机号</ion-label>
-    <ion-input type="text" placeholder="请输入账号" #mobile></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label fixed>密码</ion-label>
-    <ion-input type="password" placeholder="请输入密码" #password></ion-input>
-  </ion-item>
-  <ion-item no-lines>
-    <label item-right>记住密码</label>
-    <ion-toggle></ion-toggle>
-  </ion-item>
-
-  <div style="text-align: center; margin-left: 30px; margin-right: 30px;">
-    <button ion-button block color="danger" (click)="login()">
-      登录
-    </button>
-  </div>
 </ion-content>

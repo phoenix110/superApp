@@ -1,3 +1,14 @@
-page-register {
-
-}
+@import "../login/login";
+  .get-code {
+    input{
+      width:150px;
+    }
+    button.qrCode{
+      flex: 0 0 29%;
+      height: 80%;
+      font-size: 9px;
+      background: #fa6b5b;
+      border-radius: 5px;
+      color: #fff;
+    }
+  }

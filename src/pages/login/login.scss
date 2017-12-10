@@ -1,3 +1,86 @@
-page-login {
+  .login-outer{
+    background-image:-webkit-linear-gradient(rgba(0, 145, 255, 0.14), rgba(46, 201, 92, 0.35));
+    background-image:linear-gradient(rgba(0, 145, 255, 0.14), rgba(46, 201, 92, 0.35));
+  .login-header{
+    height: 45px;
+    line-height: 45px;
+    padding:0 12px;
+    position: fixed;
+    width: 100%;
+    b,span{
+      font-size:10px;
+    }
+  }
+  .login-form{
+    padding:30px;
+    height: 100%;
+    .avatar-img {
+      height: 45%;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .avatar-box{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 50%;
+      height: 72%;
+      overflow: hidden;
+      img {
+        width: 80%;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        display: block;
+        margin: auto;
+      }
+      h3{
+        text-align: center;
+        height: 10%;
+        margin-top: 10%;
+        color: #333;
+      }
+    }
 
-}
+    .form-item{
+      border-bottom:1px solid #ccc;
+      height: 7%;
+      margin-bottom: 5px;
+      padding:2px 4px;
+      ion-icon{
+        flex:0 0 30px;
+        margin-right: 5px;
+        text-align: center;
+        font-size: 25px;
+      }
+      input{
+        flex:1 1 auto;
+        height:35px;
+        line-height: 35px;
+        border: none;
+        padding:2px 4px;
+        background: transparent;
+      }
+    }
+    .form-password{
+      margin:5% 5px;
+      .remember{
+        ion-checkbox{
+          top:2px;
+        }
+      }
+      .forget{
+        color: #ff0000;
+      }
+    }
+    .toLogin{
+      height: 8%;
+      margin-top: 20px;
+    }
+  }
+  }
+

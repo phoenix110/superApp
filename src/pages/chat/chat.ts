@@ -27,7 +27,7 @@ export class ChatPage {
         let options:Object = {
             title:"确认登录"
         };
-        this.AlertProvider.loginConfirm(options).subscribe(data=>{
+        this.AlertProvider.confirm(options).subscribe(data=>{
             if(data['is_login']){
                 console.log('去登陆');
             }

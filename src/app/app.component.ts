@@ -31,7 +31,9 @@ export class MyApp {
   }
 
   public login(){
-      this.nav.push("MallPage");
-
+      this.nav.push("LoginPage");
+  }
+  public register(){
+    this.nav.push("RegisterPage");
   }
 }

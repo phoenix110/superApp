@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { LoginPage } from './login';
 
+// http服务
+import { HttpProvider } from "../../providers/http";
+
 @NgModule({
   declarations: [
     LoginPage,
@@ -9,5 +12,8 @@ import { LoginPage } from './login';
   imports: [
     IonicPageModule.forChild(LoginPage),
   ],
+    providers:[
+        HttpProvider
+    ]
 })
 export class LoginPageModule {}
