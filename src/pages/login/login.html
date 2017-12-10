@@ -13,11 +13,11 @@
         </div>
         <div class="form-item flex-row-start">
             <ion-icon name="person"></ion-icon>
-            <input type="text" placeholder="请输入您的手机号" #mobile>
+            <input type="text" placeholder="请输入您的手机号" [(ngModel)]="userInfo.mobile">
         </div>
         <div class="form-item flex-row-start">
             <ion-icon name="lock"></ion-icon>
-            <input type="password" placeholder="请输入您的密码" #password>
+            <input type="password" placeholder="请输入您的密码" [(ngModel)]="userInfo.password">
         </div>
         <div class="form-password flex-row-between">
             <div class="remember">

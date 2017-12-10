@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { RegisterPage } from './register';
-import { HttpProvider } from "../../providers/http";
-
+import { UserProvider} from "../../providers/user";
+import { PopProvider } from "../../providers/pop";
 @NgModule({
   declarations: [
     RegisterPage,
@@ -11,7 +11,8 @@ import { HttpProvider } from "../../providers/http";
     IonicPageModule.forChild(RegisterPage),
   ],
     providers:[
-        HttpProvider,
+        UserProvider,
+        PopProvider
     ]
 })
 export class RegisterPageModule {}

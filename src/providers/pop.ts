@@ -10,7 +10,7 @@ import {observable} from "rxjs/symbol/observable";
   and Angular DI.
 */
 @Injectable()
-export class AlertProvider {
+export class PopProvider {
     private load;
   constructor(
       public alertCtrl:AlertController,

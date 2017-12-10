@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HttpProvider } from "../../providers/http";
-import { AlertProvider} from "../../providers/alert";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular'
+import {UserProvider} from "../../providers/user";
+import {PopProvider} from "../../providers/pop";
+import { ValidateProvider} from "../../providers/validate";
 
 /**
  * Generated class for the RegisterPage page.
@@ -12,37 +13,59 @@ import { AlertProvider} from "../../providers/alert";
 
 @IonicPage()
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+    selector: 'page-register',
+    templateUrl: 'register.html',
 })
 export class RegisterPage {
-  private mobile:number;
-  private password:string;
-  private confirmPassword:string;
-  private qrCode:number;
-  constructor(
-      public navCtrl: NavController,
-      public navParams: NavParams,
-      public AlertProvider:AlertProvider,
-      public HttpProvider:HttpProvider
-  ) {
-  }
+    public userInfo = {
+        mobile: "",
+        password: "",
+        reassword: "",
+        code: ""
+    };
+    public codeText = "获取验证码";
+    public codeStatus = false;
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public Pop: PopProvider,
+        public User: UserProvider,
+        public Validate:ValidateProvider
+    ) {
+    }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad RegisterPage');
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
-    this.HttpProvider.post({op:"login"}).subscribe(res=>{
-        console.log(res)
-    });
-  }
+    }
+
     // 退出注册
-    public popOut(){
+    public popOut() {
         this.navCtrl.pop();
     }
+
     // 去登录
-    public toLogin(){
+    public toLogin() {
         this.navCtrl.push("LoginPage");
     }
-    public register(){
-        this.AlertProvider.toast("失败");
+
+    // 新用户注册
+    public register() {
+        if(!this.User.validate(this.userInfo)){
+            return false;
+        }
+        this.User.register(this.userInfo).subscribe(res => {
+            if (res.type == 'success') {
+                this.Pop.toast(res.message);
+                this.navCtrl.pop();
+            } else {
+                this.Pop.toast(res.message);
+            }
+        });
+    }
+
+    // 获取短信验证码
+    public getCode() {
+        let that = this;
+        that.User.getCode(that);
     }
 }

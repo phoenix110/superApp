@@ -19,23 +19,23 @@
         </div>
         <div class="form-item flex-row-start">
             <ion-icon name="person"></ion-icon>
-            <input type="text" placeholder="请输入您的手机号" #mobile>
+            <input type="number" placeholder="请输入您的手机号" [(ngModel)]="userInfo.mobile">
         </div>
         <div class="form-item flex-row-start">
             <ion-icon name="lock"></ion-icon>
-            <input type="password" placeholder="请输入您的新密码" #password>
+            <input type="password" placeholder="请输入您的密码" [(ngModel)]="userInfo.password">
         </div>
         <div class="form-item flex-row-start">
             <ion-icon class="iconfont icon-weibiaoti203"></ion-icon>
-            <input type="password" placeholder="请重新输入您的新密码" #password>
+            <input type="password" placeholder="请重新输入您的密码" [(ngModel)]="userInfo.repassword">
         </div>
-        <div class="form-item flex-row-between">
+        <div class="form-item flex-row-between get-code">
             <ion-icon class="iconfont icon-yanzhengma1"></ion-icon>
-            <input type="password" placeholder="请输入您的验证码" #password>
-            <button class="qrCode">获取验证码</button>
+            <input type="number" placeholder="请输入您的验证码" [(ngModel)]="userInfo.code">
+            <button class="qrCode" (click)="getCode()" [disabled]="codeStatus">{{codeText}}</button>
         </div>
         <button ion-button block class="toLogin" (click)="register()">
-            注册
+            重置密码
         </button>
     </section>
 

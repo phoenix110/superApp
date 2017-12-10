@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { APP_SERVE_URL } from "../app/app.config";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {APP_SERVE_URL} from "../app/app.config";
 import 'rxjs/add/operator/map';
-import { Observable } from "rxjs/Observable";
-import { TimeoutError } from "rxjs/Rx";
+import {Observable} from "rxjs/Observable";
+import {TimeoutError} from "rxjs/Rx";
 
 // 服务注入
-import { AlertProvider } from "./alert";
-import { NativeProvider } from "./native";
+import {PopProvider} from "./pop";
+import {NativeProvider} from "./native";
 
 /*
   Generated class for the HttpProvider provider.
@@ -18,30 +18,28 @@ import { NativeProvider } from "./native";
 @Injectable()
 export class HttpProvider {
 
-  constructor(
-      public http: HttpClient,
-      public AlertProvider:AlertProvider,
-      public NativeProvider:NativeProvider
-  ) {
-    console.log('Hello HttpProvider Provider');
-  }
+    constructor(public http: HttpClient,
+                public Pop: PopProvider,
+                public NativeProvider: NativeProvider) {
+        console.log('Hello HttpProvider Provider');
+    }
+
     /**
      * get方式请求
      * @param {string} url     //url
      * @param paramObj      //json对象 如:{name:'大见',age:'23'}
      * @return {Promise<never | {}>}
      */
-    get(paramObj:any = {}) {
+    get(paramObj: any = {}) {
         // let timestamp = Math.floor(new Date().getTime() / 1000 - 1420070400).toString();    //获取当前时间 减 2015年1月1日的 时间戳
         // let headers = new HttpHeaders({'timestamp': timestamp});
-        console.log(78787)
-        return Observable.create( observer => {
-            this.AlertProvider.showLoading();
+        return Observable.create(observer => {
+            this.Pop.showLoading();
             this.http.get(APP_SERVE_URL + this.toQueryString(paramObj))
-                .subscribe(res=>{
-                        this.AlertProvider.hideLoading();
+                .subscribe(res => {
+                        this.Pop.hideLoading();
                         observer.next(res);
-                    },err=>{
+                    }, err => {
                         this.handleError(err);
                     }
                 )
@@ -56,15 +54,15 @@ export class HttpProvider {
      * @param {string} contentType      //post请求的编码方式  application/x-www-form-urlencoded  multipart/form-data   application/json   text/xml
      * @return {Promise<never | {}>}
      */
-    post(body:any = {}, contentType:string="application/x-www-form-urlencoded") {
-        let headers = new HttpHeaders({'Content-Type':contentType});
-        return Observable.create( observer => {
-            this.AlertProvider.showLoading();
-            this.http.post(APP_SERVE_URL ,this.toBodyString(body),{headers:headers})
-                .subscribe(res=>{
-                        this.AlertProvider.hideLoading();
+    post(body: any = {}, contentType: string = "application/x-www-form-urlencoded") {
+        let headers = new HttpHeaders({'Content-Type': contentType});
+        return Observable.create(observer => {
+            this.Pop.showLoading();
+            this.http.post(APP_SERVE_URL, this.toBodyString(body), {headers: headers})
+                .subscribe(res => {
+                        this.Pop.hideLoading();
                         observer.next(res);
-                    },err=>{
+                    }, err => {
                         this.handleError(err);
                     }
                 )
@@ -143,21 +141,22 @@ export class HttpProvider {
         return key + '=' + (value === null ? '' : String(value));
     }
 
-    private extractData(res:Response) {
+    private extractData(res: Response) {
         let body = res.json();
         return body || {};
     }
+
     /**
      * 处理请求失败事件
      * @param url
      * @param options
      * @param err
      */
-    private handleError( err: any): void {
-        this.AlertProvider.hideLoading();
-        console.log('%c 请求失败 %c', 'color:red',  'err', err);
+    private handleError(err: any): void {
+        this.Pop.hideLoading();
+        console.log('%c 请求失败 %c', 'color:red', 'err', err);
         if (err instanceof TimeoutError) {
-            this.AlertProvider.alert('请求超时,请稍后再试!');
+            this.Pop.alert('请求超时,请稍后再试!');
             return;
         }
         // if (!this.NativeProvider.isConnecting()) {
@@ -166,8 +165,7 @@ export class HttpProvider {
         // }
         let msg = '请求发生异常';
         try {
-            this.AlertProvider.alert( err.message || msg);
-            console.log(5656565)
+            this.Pop.alert(err.message || msg);
         } catch (err) {
             let status = err.status;
             if (status === 0) {
@@ -177,7 +175,7 @@ export class HttpProvider {
             } else if (status === 500) {
                 msg = '请求失败，服务器出错，请稍后再试';
             }
-            this.AlertProvider.alert(msg);
+            this.Pop.alert(msg);
             // this.logger.httpLog(err, msg, {
             //     url: url,
             //     status: status

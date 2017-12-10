@@ -5,19 +5,18 @@ import 'rxjs/add/operator/map';
 
 /*
   Generated class for the NativeServieProvider provider.
-
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
 export class NativeProvider {
 
-  constructor(
-      public platform:Platform,
-      // public network:Network
-  ) {
-    console.log('Hello NativeServieProvider Provider');
-  }
+    constructor(
+        public platform:Platform,
+        // public network:Network
+    ) {
+        console.log('Hello NativeServieProvider Provider');
+    }
     /**
      * 是否真机环境
      */

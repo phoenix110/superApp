@@ -3,7 +3,7 @@ import { IonicPageModule } from "ionic-angular";
 import { ShareHeaderComponent } from "./share-header";
 
 // 添加交互反馈服务模块
-import { AlertProvider} from "../../providers/alert";
+import { PopProvider} from "../../providers/pop";
 
 @NgModule ({
     declarations: [
@@ -16,7 +16,7 @@ import { AlertProvider} from "../../providers/alert";
         ShareHeaderComponent
     ],
     providers:[
-        AlertProvider
+        PopProvider
     ]
 })
 export class ShareHeaderModule {

@@ -9,6 +9,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ComponentsModule } from "../components/components.module";
 import { HttpProvider } from '../providers/http';
 import { NativeProvider } from '../providers/native';
+import { UserProvider } from '../providers/user';
+import { ValidateProvider } from '../providers/validate';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { NativeProvider } from '../providers/native';
     SplashScreen,
     HttpProvider,
     NativeProvider,
+    UserProvider,
+    ValidateProvider,
   ]
 })
 export class AppModule {

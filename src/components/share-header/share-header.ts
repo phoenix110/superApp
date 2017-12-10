@@ -1,7 +1,7 @@
 import {Component, Input, Output} from '@angular/core';
 import {EventEmitter} from "@angular/core";
 import { NavController, NavParams} from "ionic-angular";
-import { AlertProvider } from "../../providers/alert";
+import { PopProvider } from "../../providers/pop";
 
 /**
  * Generated class for the ShareHeaderComponent component.
@@ -28,7 +28,7 @@ export class ShareHeaderComponent {
     @Output() checkEmitter = new EventEmitter<boolean>();
     text: string;
     private isLogin:boolean = false;
-    constructor(public AlertProvider:AlertProvider,
+    constructor(public Pop:PopProvider,
                 public navCtrl:NavController,
                 public navParams:NavParams) {
         console.log('Hello ShareHeaderComponent Component');
@@ -56,7 +56,7 @@ export class ShareHeaderComponent {
             let options:Object = {
                 title:"确认登录"
             };
-            this.AlertProvider.confirm(options).subscribe(data=>{
+            this.Pop.confirm(options).subscribe(data=>{
                 if(data['is_login']){
                     this.navCtrl.push("OrderDetailPage",{id:id});
                 }
@@ -70,7 +70,7 @@ export class ShareHeaderComponent {
             let options:Object = {
                 title:"确认登录"
             };
-            this.AlertProvider.confirm(options).subscribe(data=>{
+            this.Pop.confirm(options).subscribe(data=>{
                 if(data['is_login']){
                     console.log('去登陆');
                 }
@@ -84,7 +84,7 @@ export class ShareHeaderComponent {
             let options:Object = {
                 title:"确认登录"
             };
-            this.AlertProvider.confirm(options).subscribe(data=>{
+            this.Pop.confirm(options).subscribe(data=>{
                 if(data['is_login']){
                     console.log('去登陆');
                 }
@@ -98,7 +98,7 @@ export class ShareHeaderComponent {
             let options:Object = {
                 title:"确认登录"
             };
-            this.AlertProvider.confirm(options).subscribe(data=>{
+            this.Pop.confirm(options).subscribe(data=>{
                 if(data['is_login']){
                     console.log('去登陆');
                 }
