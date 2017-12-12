@@ -19,6 +19,8 @@ import { FUNDEBUG_API_KEY, IS_DEBUG, ENABLE_FUNDEBUG } from "../providers/consta
 import * as fundebug from "fundebug-javascript";
 import { GlobalDataProvider } from '../providers/globalData';
 import { LoggerProvider } from '../providers/logger';
+import {Camera} from "@ionic-native/camera";
+import {ImagePicker} from "@ionic-native/image-picker";
 fundebug.apikey = 'API-KEY';
 fundebug.apikey = FUNDEBUG_API_KEY;
 fundebug.releasestage = IS_DEBUG ? 'development' : 'production';//应用开发阶段，development:开发;production:生产
@@ -56,6 +58,8 @@ export class FunDebugErrorHandler implements ErrorHandler {
     HttpProvider,
     NativeProvider,
     UserProvider,
+    Camera,
+    ImagePicker,
     ValidateProvider,
       {provide: ErrorHandler, useClass: FunDebugErrorHandler},
     GlobalDataProvider,

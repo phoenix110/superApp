@@ -1,70 +1,74 @@
 {
-    "name": "superApp",
-    "version": "0.0.1",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
-    "private": true,
-    "scripts": {
-        "clean": "ionic-app-scripts clean",
-        "build": "ionic-app-scripts build",
-        "lint": "ionic-app-scripts lint",
-        "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve"
-    },
-    "dependencies": {
-        "@angular/common": "4.4.3",
-        "@angular/compiler": "4.4.3",
-        "@angular/compiler-cli": "4.4.3",
-        "@angular/core": "4.4.3",
-        "@angular/forms": "4.4.3",
-        "@angular/http": "4.4.3",
-        "@angular/platform-browser": "4.4.3",
-        "@angular/platform-browser-dynamic": "4.4.3",
-        "@ionic-native/app-version": "^4.5.0",
-        "@ionic-native/camera": "^4.5.0",
-        "@ionic-native/core": "4.3.2",
-        "@ionic-native/file": "^4.5.0",
-        "@ionic-native/image-picker": "^4.5.0",
-        "@ionic-native/network": "^4.5.0",
-        "@ionic-native/splash-screen": "4.3.2",
-        "@ionic-native/status-bar": "4.3.2",
-        "@ionic/storage": "2.0.1",
-        "cordova-android": "^6.2.3",
-        "cordova-plugin-camera": "^2.4.1",
-        "cordova-plugin-compat": "^1.1.0",
-        "cordova-plugin-console": "^1.0.5",
-        "cordova-plugin-device": "^1.1.4",
-        "cordova-plugin-image-picker": "file:node_modules/cordova-plugin-image-picker",
-        "cordova-plugin-splashscreen": "^4.0.3",
-        "cordova-plugin-statusbar": "^2.2.2",
-        "cordova-plugin-whitelist": "^1.3.1",
-        "fundebug-javascript": "^0.3.3",
-        "ionic-angular": "3.8.0",
-        "ionic-plugin-keyboard": "^2.2.1",
-        "ionicons": "3.0.0",
-        "rxjs": "5.4.0",
-        "sw-toolbox": "3.6.0",
-        "swiper": "^3.4.2",
-        "zone.js": "0.8.12"
-    },
-    "devDependencies": {
-        "@ionic/app-scripts": "3.0.1",
-        "@ionic/cli-plugin-ionic-angular": "1.4.1",
-        "typescript": "2.3.4"
-    },
-    "description": "An Ionic project",
-    "cordova": {
-        "platforms": [
-            "android"
-        ],
-        "plugins": {
-            "cordova-plugin-console": {},
-            "cordova-plugin-device": {},
-            "cordova-plugin-splashscreen": {},
-            "cordova-plugin-statusbar": {},
-            "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {},
-            "cordova-plugin-camera": {}
-        }
+  "name": "superApp",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "4.4.3",
+    "@angular/compiler": "4.4.3",
+    "@angular/compiler-cli": "4.4.3",
+    "@angular/core": "4.4.3",
+    "@angular/forms": "4.4.3",
+    "@angular/http": "4.4.3",
+    "@angular/platform-browser": "4.4.3",
+    "@angular/platform-browser-dynamic": "4.4.3",
+    "@ionic-native/app-version": "^4.5.0",
+    "@ionic-native/camera": "^4.5.2",
+    "@ionic-native/core": "4.3.2",
+    "@ionic-native/file": "^4.5.0",
+    "@ionic-native/image-picker": "^4.5.2",
+    "@ionic-native/network": "^4.5.0",
+    "@ionic-native/splash-screen": "4.3.2",
+    "@ionic-native/status-bar": "4.3.2",
+    "@ionic/storage": "2.0.1",
+    "cordova-android": "^6.2.3",
+    "cordova-plugin-camera": "^2.4.1",
+    "cordova-plugin-compat": "^1.1.0",
+    "cordova-plugin-console": "^1.0.5",
+    "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-image-picker": "file:node_modules/cordova-plugin-image-picker",
+    "cordova-plugin-splashscreen": "^4.0.3",
+    "cordova-plugin-statusbar": "^2.2.2",
+    "cordova-plugin-telerik-imagepicker": "^2.1.8",
+    "cordova-plugin-whitelist": "^1.3.1",
+    "fundebug-javascript": "^0.3.3",
+    "ionic-angular": "3.8.0",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "ionicons": "3.0.0",
+    "rxjs": "5.4.0",
+    "sw-toolbox": "3.6.0",
+    "swiper": "^3.4.2",
+    "zone.js": "0.8.12"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.0.1",
+    "@ionic/cli-plugin-ionic-angular": "1.4.1",
+    "typescript": "2.3.4"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-console": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-whitelist": {},
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-camera": {},
+      "com.synconset.imagepicker": {
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "允许访问您的相册"
+      }
     }
+  }
 }
