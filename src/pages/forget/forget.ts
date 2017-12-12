@@ -45,10 +45,10 @@ export class ForgetPage {
         if(!this.User.validate(this.userInfo)){
             return false;
         }
-        this.User.register(this.userInfo).subscribe(res => {
+        this.User.forget(this.userInfo).subscribe(res => {
             if (res.type == 'success') {
-                this.Pop.toast(res.message);
-                this.navCtrl.pop();
+                this.Pop.toast("密码重置完成！");
+                this.navCtrl.push("TabsPage");
             } else {
                 this.Pop.toast(res.message);
             }

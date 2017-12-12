@@ -31,7 +31,7 @@
         </div>
         <div class="form-item flex-row-between get-code">
             <ion-icon class="iconfont icon-yanzhengma1"></ion-icon>
-            <input type="number" placeholder="请输入您的验证码" [(ngModel)]="userInfo.code" [maxlength]="6">
+            <input type="number" placeholder="请输入您的验证码" [(ngModel)]="userInfo.code">
             <button class="qrCode" (click)="getCode()" [disabled]="codeStatus">{{codeText}}</button>
         </div>
         <button ion-button block class="toLogin" (click)="register()">

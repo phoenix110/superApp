@@ -91,7 +91,6 @@ export class UserProvider {
     }
     // 忘记密码
     public forget(params) {
-
         let options = {
             op: "forget",
             mobile: params.mobile,
@@ -155,10 +154,11 @@ export class UserProvider {
             this.Pop.toast("验证码不能为空");
             return false;
         }
-        if(code.length != 6 ){
-            this.Pop.toast("验证码不正确");
+        if(code.length < 6){
+            this.Pop.toast("验证码格式不正确");
             return false;
         }
+        return true;
     }
 
 }

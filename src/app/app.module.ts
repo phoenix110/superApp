@@ -3,22 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule} from 'ionic-angular';
 import { HttpClientModule  } from '@angular/common/http';
 import { MyApp } from './app.component';
+import { Camera } from "@ionic-native/camera";
+import { ImagePicker } from "@ionic-native/image-picker";
+import { AppVersion } from "@ionic-native/app-version";
+import { File } from "@ionic-native/file";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // 导入公共Module
 import { ComponentsModule } from "../components/components.module";
+
+// 注入自定义服务
+import { FUNDEBUG_API_KEY, IS_DEBUG, ENABLE_FUNDEBUG } from "../providers/constant";
 import { HttpProvider } from '../providers/http';
 import { NativeProvider } from '../providers/native';
 import { UserProvider } from '../providers/user';
 import { ValidateProvider } from '../providers/validate';
-// 注入自定义服务
-import { FUNDEBUG_API_KEY, IS_DEBUG, ENABLE_FUNDEBUG } from "../providers/constant";
+import { GlobalDataProvider } from '../providers/globalData';
+import { LoggerProvider } from '../providers/logger';
 
 //安装错误日志依赖:npm i fundebug-javascript --save
 //https://docs.fundebug.com/notifier/javascript/framework/ionic2.html
 import * as fundebug from "fundebug-javascript";
-import { GlobalDataProvider } from '../providers/globalData';
-import { LoggerProvider } from '../providers/logger';
+
 fundebug.apikey = 'API-KEY';
 fundebug.apikey = FUNDEBUG_API_KEY;
 fundebug.releasestage = IS_DEBUG ? 'development' : 'production';//应用开发阶段，development:开发;production:生产
@@ -60,6 +66,10 @@ export class FunDebugErrorHandler implements ErrorHandler {
       {provide: ErrorHandler, useClass: FunDebugErrorHandler},
     GlobalDataProvider,
     LoggerProvider,
+      Camera,
+      ImagePicker,
+      AppVersion,
+      File
   ]
 })
 export class AppModule {

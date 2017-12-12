@@ -28,7 +28,7 @@ export class NativeProvider {
     constructor(
         public platform:Platform,
         // public network:Network,
-        // private camera:Camera,
+        private camera:Camera,
         private imagePicker:ImagePicker,
         private appVersion:AppVersion,
         private Pop:PopProvider,

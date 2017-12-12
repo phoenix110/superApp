@@ -20,7 +20,7 @@ export class RegisterPage {
     public userInfo = {
         mobile: "",
         password: "",
-        reassword: "",
+        repassword: "",
         code: ""
     };
     public codeText = "获取验证码";
@@ -50,13 +50,14 @@ export class RegisterPage {
 
     // 新用户注册
     public register() {
+        console.log(this.User.validate(this.userInfo))
         if(!this.User.validate(this.userInfo)){
             return false;
         }
         this.User.register(this.userInfo).subscribe(res => {
             if (res.type == 'success') {
-                this.Pop.toast(res.message);
-                this.navCtrl.push("UnionPage");
+                this.Pop.toast("恭喜您注册成功！");
+                this.navCtrl.push("TabsPage");
             } else {
                 this.Pop.toast(res.message);
             }

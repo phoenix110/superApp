@@ -59,8 +59,8 @@ export class LoginPage {
         }
         this.User.login(this.userInfo).subscribe(res => {
             if (res.type == "success") {
-                this.Pop.toast(res.message);
-                this.navCtrl.push("UnionPage");
+                this.Pop.toast("登录成功！");
+                this.navCtrl.push("TabsPage");
             } else {
                 this.Pop.alert(res.message);
             }
