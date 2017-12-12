@@ -37,6 +37,8 @@ export class LoginPage {
 
     // 会员登录
     public login() {
+
+
         let mobile = this.userInfo.mobile;
         let password = this.userInfo.password;
         if (mobile == '') {
@@ -58,6 +60,7 @@ export class LoginPage {
         this.User.login(this.userInfo).subscribe(res => {
             if (res.type == "success") {
                 this.Pop.toast(res.message);
+                this.navCtrl.push("UnionPage");
             } else {
                 this.Pop.alert(res.message);
             }
@@ -70,6 +73,7 @@ export class LoginPage {
 
     // 退出登录页面
     public popOut() {
+
         this.navCtrl.pop();
     }
 

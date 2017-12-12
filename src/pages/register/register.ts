@@ -56,7 +56,7 @@ export class RegisterPage {
         this.User.register(this.userInfo).subscribe(res => {
             if (res.type == 'success') {
                 this.Pop.toast(res.message);
-                this.navCtrl.pop();
+                this.navCtrl.push("UnionPage");
             } else {
                 this.Pop.toast(res.message);
             }

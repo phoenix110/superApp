@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule} from 'ionic-angular';
 import { HttpClientModule  } from '@angular/common/http';
@@ -11,6 +11,24 @@ import { HttpProvider } from '../providers/http';
 import { NativeProvider } from '../providers/native';
 import { UserProvider } from '../providers/user';
 import { ValidateProvider } from '../providers/validate';
+// 注入自定义服务
+import { FUNDEBUG_API_KEY, IS_DEBUG, ENABLE_FUNDEBUG } from "../providers/constant";
+
+//安装错误日志依赖:npm i fundebug-javascript --save
+//https://docs.fundebug.com/notifier/javascript/framework/ionic2.html
+import * as fundebug from "fundebug-javascript";
+import { GlobalDataProvider } from '../providers/globalData';
+import { LoggerProvider } from '../providers/logger';
+fundebug.apikey = 'API-KEY';
+fundebug.apikey = FUNDEBUG_API_KEY;
+fundebug.releasestage = IS_DEBUG ? 'development' : 'production';//应用开发阶段，development:开发;production:生产
+fundebug.silent = !ENABLE_FUNDEBUG;//如果暂时不需要使用Fundebug，将silent属性设为true
+export class FunDebugErrorHandler implements ErrorHandler {
+    handleError(err: any): void {
+        fundebug.notifyError(err);
+        console.error(err);
+    }
+}
 
 @NgModule({
   declarations: [
@@ -39,6 +57,9 @@ import { ValidateProvider } from '../providers/validate';
     NativeProvider,
     UserProvider,
     ValidateProvider,
+      {provide: ErrorHandler, useClass: FunDebugErrorHandler},
+    GlobalDataProvider,
+    LoggerProvider,
   ]
 })
 export class AppModule {

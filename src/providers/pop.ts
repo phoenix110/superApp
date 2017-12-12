@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlertController, LoadingController, ToastController} from "ionic-angular";
 import { Observable} from "rxjs/Observable";
-import {observable} from "rxjs/symbol/observable";
 
 /*
   Generated class for the AlternationProvider provider.

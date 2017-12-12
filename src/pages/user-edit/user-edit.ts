@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+// 注入自定义服务
+import { NativeProvider } from "../../providers/native";
+
 /**
  * Generated class for the UserEditPage page.
  *
@@ -17,7 +20,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UserEditPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public native:NativeProvider
+  ) {
   }
 
   ionViewDidLoad() {
@@ -26,5 +33,10 @@ export class UserEditPage {
   // 保存会员资料
   public saveInfo(uid){
     this.navCtrl.pop();
+  }
+  public getAvatar(){
+    this.native.getPictureByPhotoLibrary().subscribe(imageBase64 => {
+        console.log(imageBase64);
+    });
   }
 }
