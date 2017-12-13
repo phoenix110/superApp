@@ -65,3 +65,8 @@ import {LoggerProvider} from '../providers/logger';
         LoggerProvider
     ]
 })
+export class AppModule {
+    constructor() {
+
+    }
+}
