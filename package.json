@@ -1,4 +1,5 @@
 {
+
     "name": "superApp",
     "version": "0.0.1",
     "author": "Ionic Framework",
@@ -57,18 +58,21 @@
     },
     "description": "An Ionic project",
     "cordova": {
-        "platforms": [
-            "android"
-        ],
-        "plugins": {
-            "cordova-plugin-console": {},
-            "cordova-plugin-device": {},
-            "cordova-plugin-splashscreen": {},
-            "cordova-plugin-statusbar": {},
-            "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {},
-            "cordova-plugin-camera": {},
-            "cordova-plugin-actionsheet": {}
+      "platforms": [
+        "android"
+      ],
+      "plugins": {
+        "cordova-plugin-console": {},
+        "cordova-plugin-device": {},
+        "cordova-plugin-splashscreen": {},
+        "cordova-plugin-statusbar": {},
+        "cordova-plugin-whitelist": {},
+        "ionic-plugin-keyboard": {},
+        "cordova-plugin-camera": {},
+        "cordova-plugin-actionsheet": {},
+        "com.synconset.imagepicker": {
+          "PHOTO_LIBRARY_USAGE_DESCRIPTION": "允许访问您的相册"
         }
+      }
     }
 }
