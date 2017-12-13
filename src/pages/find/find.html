@@ -15,8 +15,10 @@
             <ion-row>
                 <ion-col col-3><h2 text-center margin-top>{{item.title}}</h2></ion-col>
                 <ion-col col-9>
-                    <img src="{{item.thumb}}" alt="">
-                </ion-col>
+					<div class=”box-img”>
+						<div class=”cover-img” style="background-image:url({{item.thumb}});"></div>
+					</div>
+				</ion-col>
             </ion-row>
         </ion-grid>
     </ion-card>
