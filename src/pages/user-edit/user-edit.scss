@@ -24,9 +24,7 @@ page-user-edit {
         @include radius(5px);
         margin-left:10px;
         min-width:50px;
-        &.select-md,&select-ios{
-          padding:4px 6px;
-        }
+        padding:4px 6px!important;
       }
     }
   }
@@ -41,4 +39,5 @@ page-user-edit {
       font-size:14px;
     }
   }
+
 }

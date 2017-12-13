@@ -68,7 +68,18 @@ export class HttpProvider {
                 )
         });
     }
-
+    // 获取本地城市列表服务
+    getCityData() {
+        return Observable.create(observer => {
+            this.http.get("./assets/area-data.json")
+                .subscribe(res => {
+                        observer.next(res);
+                    }, err => {
+                        this.handleError(err);
+                    }
+                )
+        });
+    }
     /**
      * get请求参数处理
      *  对于get方法来说，都是把数据串联在请求的url后面作为参数，如果url中出现中文或其它特殊字符的话，很常见的一个乱码问题就要出现了

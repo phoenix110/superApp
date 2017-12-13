@@ -113,8 +113,14 @@ export class UserProvider {
             city: params.city,
             district: params.district
         };
-        console.log(options);
         return this.http.post(options);
+    }
+    // 获取省市区列表数据
+    public cityListData(cityList){
+         this.http.getCityData().subscribe(res=>{
+             cityList.area = res;
+             console.log(cityList)
+        });
     }
     // 完善个人资料
     public updateUserInfo(params) {

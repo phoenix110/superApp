@@ -54,3 +54,15 @@ ion-menu[side=left] > .menu-inner{
 		font-size:40px;
 	}
 }
+//设置省市区联动列表单个数据居中显示
+.picker-toolbar-button:first-child{
+  text-align: start;
+}
+.picker-ios .picker-opt{
+	height: 3.6rem;
+	font-size: 1.6rem;
+}
+.multi-picker-text{
+  font-size: 14px;
+  color: #333;
+}

@@ -5,6 +5,8 @@ import { UserEditPage } from './user-edit';
 import { ComponentsModule } from "../../components/components.module";
 // 注入自定义服务
 import { NativeProvider } from "../../providers/native";
+// 省市区联动服务
+import { MultiPickerModule } from 'ion-multi-picker';
 
 @NgModule({
   declarations: [
@@ -12,8 +14,9 @@ import { NativeProvider } from "../../providers/native";
   ],
   imports: [
     IonicPageModule.forChild(UserEditPage),
-      ComponentsModule
-  ],
+      ComponentsModule,
+      MultiPickerModule
+],
     providers:[
         NativeProvider
     ]
