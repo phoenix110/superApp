@@ -5,11 +5,17 @@
     ion-grid{
       padding:0;
       ion-row ion-col{
-        padding:0;
+		    padding: 0;
+			display: flex;
+			display: -webkit-flex;
+			align-items: center;
+			justify-content: center;
         img{
           height:173px;
         }
         h2{
+		  width:1.5em;
+		  margin:0!important;
           font:{
             size:20px;
             weight:bold;
