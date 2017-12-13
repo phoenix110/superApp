@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ActionSheet, ActionSheetOptions } from '@ionic-native/action-sheet';
 // 注入自定义服务
 import { NativeProvider } from "../../providers/native";
 
@@ -24,7 +23,6 @@ export class UserEditPage {
       public navCtrl: NavController,
       public navParams: NavParams,
       public native:NativeProvider,
-      private actionSheet:ActionSheet
   ) {
   }
 
@@ -36,23 +34,8 @@ export class UserEditPage {
     this.navCtrl.pop();
   }
   public getAvatar(){
-      let buttonLabels = ['Share via Facebook', 'Share via Twitter'];
-
-      const options: ActionSheetOptions = {
-          title: 'What do you want with this image?',
-          subtitle: 'Choose an action',
-          buttonLabels: buttonLabels,
-          addCancelButtonWithLabel: 'Cancel',
-          addDestructiveButtonWithLabel: 'Delete',
-          androidTheme: this.actionSheet.ANDROID_THEMES.THEME_HOLO_DARK,
-          destructiveButtonLast: true
-      };
-
-      this.actionSheet.show(options).then((buttonIndex: number) => {
-          console.log('Button pressed: ' + buttonIndex);
-      });
-    // this.native.getPictureByPhotoLibrary().subscribe(imageBase64 => {
-    //     console.log(imageBase64);
-    // });
+      this.native.getPictureByPhotoLibrary().subscribe(imageBase64 => {
+          console.log(imageBase64);
+      })
   }
 }

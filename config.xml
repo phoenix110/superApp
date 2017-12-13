@@ -3,7 +3,7 @@
     <name>百变APP</name>
     <description>An content all things app.</description>
     <author email="shiLiang" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.0.106:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
@@ -85,6 +85,9 @@
     <allow-navigation href="http://192.168.0.106:8101" />
     <allow-navigation href="http://192.168.0.106:8100" />
     <engine name="android" spec="^6.2.3" />
+    <plugin name="com.synconset.imagepicker" spec="^2.1.10">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="允许访问您的相册" />
+    </plugin>
     <plugin name="cordova-plugin-actionsheet" spec="^2.3.3" />
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />

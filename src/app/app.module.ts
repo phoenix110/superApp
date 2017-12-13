@@ -12,7 +12,6 @@ import {AppVersion} from "@ionic-native/app-version";
 import {File} from "@ionic-native/file";
 import {Network} from "@ionic-native/network";
 import { IonicStorageModule } from "@ionic/storage";
-import { ActionSheet } from "@ionic-native/action-sheet";
 // 导入公共Module
 import {ComponentsModule} from "../components/components.module";
 
@@ -56,7 +55,6 @@ import {LoggerProvider} from '../providers/logger';
         AppVersion,
         File,
         Network,
-        ActionSheet,
         HttpProvider,
         NativeProvider,
         UserProvider,

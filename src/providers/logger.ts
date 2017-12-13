@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 // 注入自定义服务
 import { GlobalDataProvider } from "./globalData";
-declare var fundebug;
 /*
   Generated class for the LoggerProvider provider.
 
@@ -21,25 +20,10 @@ export class LoggerProvider {
         console.log('Logger.log：action-' + action);
         other && console.log(other);
         console.log(err);
-        fundebug.notifyError(err,
-            {
-                metaData: {
-                    action: action,//操作名称
-                    other: other,//其他数据信息
-                    user: {id: this.globalData.userId, name: this.globalData.username}
-                }
-            });
+
     }
 
     public httpLog(err: any, msg: string, other = {}): void {
         console.log('Logger.httpLog：msg-' + msg);
-        fundebug.notifyHttpError(err,
-            {
-                metaData: {
-                    action: msg,//操作名称
-                    other: other,//其他数据信息
-                    user: {id: this.globalData.userId, name: this.globalData.username}
-                }
-            });
     }
 }
