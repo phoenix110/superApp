@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular'
 import {UserProvider} from "../../providers/user";
 import {PopProvider} from "../../providers/pop";
 import { ValidateProvider} from "../../providers/validate";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the RegisterPage page.
@@ -30,12 +31,12 @@ export class RegisterPage {
         public navParams: NavParams,
         public Pop: PopProvider,
         public User: UserProvider,
-        public Validate:ValidateProvider
+        public Validate:ValidateProvider,
+        private Storage:Storage
     ) {
     }
     ionViewDidLoad() {
         console.log('ionViewDidLoad RegisterPage');
-
     }
 
     // 退出注册
@@ -57,6 +58,7 @@ export class RegisterPage {
         this.User.register(this.userInfo).subscribe(res => {
             if (res.type == 'success') {
                 this.Pop.toast("恭喜您注册成功！");
+                this.Storage.set("token",res.message);
                 this.navCtrl.push("TabsPage");
             } else {
                 this.Pop.toast(res.message);

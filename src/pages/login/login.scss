@@ -8,14 +8,14 @@
     position: fixed;
     width: 100%;
     b,span{
-      font-size:10px;
+      font-size:12px;
     }
   }
   .login-form{
     padding:30px;
     height: 100%;
     .avatar-img {
-      height: 45%;
+      height: 200px;
       position: relative;
       top: 0;
       left: 0;
@@ -27,8 +27,8 @@
       bottom: 0;
       left: 0;
       margin: auto;
-      width: 50%;
-      height: 72%;
+      width: 140px;
+      height: 150px;
       overflow: hidden;
       img {
         width: 80%;
@@ -48,7 +48,7 @@
 
     .form-item{
       border-bottom:1px solid #ccc;
-      height: 7%;
+      height: 35px;
       margin-bottom: 5px;
       padding:2px 4px;
       ion-icon{
@@ -67,7 +67,7 @@
       }
     }
     .form-password{
-      margin:5% 5px;
+      margin:15px 5px;
       .remember{
         ion-checkbox{
           top:2px;
@@ -78,8 +78,8 @@
       }
     }
     .toLogin{
-      height: 8%;
-      margin-top: 20px;
+      height: 40px;
+      margin-top: 15px;
     }
   }
   }

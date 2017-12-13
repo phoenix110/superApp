@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user";
 import {PopProvider} from "../../providers/pop";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the ForgetPage page.
@@ -28,7 +29,8 @@ export class ForgetPage {
         public navCtrl: NavController,
         public navParams: NavParams,
         public User: UserProvider,
-        public Pop:PopProvider
+        public Pop:PopProvider,
+        private Storage:Storage
     ) {
     }
 
@@ -48,6 +50,7 @@ export class ForgetPage {
         this.User.forget(this.userInfo).subscribe(res => {
             if (res.type == 'success') {
                 this.Pop.toast("密码重置完成！");
+                this.Storage.set("token",res.message);
                 this.navCtrl.push("TabsPage");
             } else {
                 this.Pop.toast(res.message);

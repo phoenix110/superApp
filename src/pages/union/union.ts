@@ -5,6 +5,7 @@ import {NavController, NavParams, IonicPage, Slides} from 'ionic-angular';
 
 import {HttpClient} from "@angular/common/http";
 import  Swiper from 'swiper';
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the UnionPage page.
@@ -23,7 +24,11 @@ export class UnionPage {
     public recommend: Array<object> = [];
     public colorArr: string[] = [];
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public http: HttpClient,
+        private Storage:Storage) {
 
     }
 
@@ -31,7 +36,6 @@ export class UnionPage {
         console.log('ionViewDidLoad UnionPage');
         this.getShopData();
         this.initSwiper();
-
     }
 
     // 获取联盟页面数据
@@ -59,7 +63,6 @@ export class UnionPage {
     // 给颜色数组赋值
     public getColorArr() {
         for (let i in this.union) {
-            console.log(i);
             // 获取随机的颜色值
             let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
             this.colorArr.push(color);

@@ -72,7 +72,7 @@ export class UserProvider {
     }
     // 验证码倒计时
     public downTime(obj){
-        let time = 5;
+        let time = 60;
         time--;
         obj.codeText = time + "s后重试";
         obj.codeStatus = true;

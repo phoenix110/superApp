@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {PopProvider} from "../../providers/pop";
 import {UserProvider} from "../../providers/user";
 import {ValidateProvider} from "../../providers/validate";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the LoginPage page.
@@ -28,7 +29,8 @@ export class LoginPage {
         public navParams: NavParams,
         public Pop: PopProvider,
         public User: UserProvider,
-        public Valify: ValidateProvider) {
+        public Valify: ValidateProvider,
+        public Storage:Storage) {
     }
 
     ionViewDidLoad() {
@@ -37,8 +39,6 @@ export class LoginPage {
 
     // 会员登录
     public login() {
-
-
         let mobile = this.userInfo.mobile;
         let password = this.userInfo.password;
         if (mobile == '') {
@@ -60,6 +60,7 @@ export class LoginPage {
         this.User.login(this.userInfo).subscribe(res => {
             if (res.type == "success") {
                 this.Pop.toast("登录成功！");
+                this.Storage.set("Token",res.message);
                 this.navCtrl.push("TabsPage");
             } else {
                 this.Pop.alert(res.message);
@@ -73,7 +74,6 @@ export class LoginPage {
 
     // 退出登录页面
     public popOut() {
-
         this.navCtrl.pop();
     }
 
