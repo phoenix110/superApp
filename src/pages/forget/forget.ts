@@ -48,12 +48,10 @@ export class ForgetPage {
             return false;
         }
         this.User.forget(this.userInfo).subscribe(res => {
-            if (res.type == 'success') {
-                this.Pop.toast("密码重置完成！");
-                this.Storage.set("token",res.message);
+			this.Pop.toast(res.message);
+            if (res.code == '0') {
+                this.Storage.set("token",res['data']['token']);
                 this.navCtrl.push("TabsPage");
-            } else {
-                this.Pop.toast(res.message);
             }
         });
     }

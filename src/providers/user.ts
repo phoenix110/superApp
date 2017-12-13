@@ -62,11 +62,9 @@ export class UserProvider {
         };
         console.log(options);
         this.http.post(options).subscribe(res=>{
-            if(res.type == 'success'){
-                this.downTime(obj);
-                this.Pop.toast(res.message);
-            }else{
-                this.Pop.alert(res.message);
+			this.Pop.toast(res.message);
+            if(res.code == '0'){
+                this.downTime(obj);   
             }
         });
     }

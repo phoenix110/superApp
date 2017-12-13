@@ -56,12 +56,10 @@ export class RegisterPage {
             return false;
         }
         this.User.register(this.userInfo).subscribe(res => {
-            if (res.type == 'success') {
-                this.Pop.toast("恭喜您注册成功！");
-                this.Storage.set("token",res.message);
+            this.Pop.toast(res.message);
+            if (res.code == '0') {
+                this.Storage.set("token",res['data']['token']);
                 this.navCtrl.push("TabsPage");
-            } else {
-                this.Pop.toast(res.message);
             }
         });
     }

@@ -58,12 +58,10 @@ export class LoginPage {
             return false;
         }
         this.User.login(this.userInfo).subscribe(res => {
-            if (res.type == "success") {
-                this.Pop.toast("登录成功！");
-                this.Storage.set("Token",res.message);
+            this.Pop.toast(res.message);
+            if (res.code == '0') {
+                this.Storage.set("token",res['data']['token']);
                 this.navCtrl.push("TabsPage");
-            } else {
-                this.Pop.alert(res.message);
             }
         });
     }
