@@ -27,20 +27,20 @@ export class PopProvider {
         }).present();
     }
   // 未登录确认登录提示框
-    confirm(options):Observable<Object> {
+    confirm(title:string = "",message:string = "您还没登录，<br>是否现在登录?",btnText1:string = "取消",btnText2:string = "确定"):Observable<Object> {
       return Observable.create( observable=>{
           let confirm = this.alertCtrl.create({
-              title: options.title || '',
-              message: options.message || '您还没登录，<br>是否现在登录?',
+              title: title,
+              message: message,
               buttons: [
                   {
-                      text: options.text || '取消',
+                      text: btnText1,
                       handler: () => {
                           observable.next( {is_login: false} );
                       }
                   },
                   {
-                      text: '确定',
+                      text: btnText2,
                       handler: () => {
                           observable.next( {is_login: true} );
                       }

@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import {HttpProvider} from "./http";
 import { PopProvider } from "./pop";
 import { ValidateProvider } from "./validate";
+import { Storage } from "@ionic/storage";
 
 /*
   Generated class for the UserProvider provider.
@@ -17,11 +18,19 @@ export class UserProvider {
     constructor(
         public http: HttpProvider,
         public Pop:PopProvider,
-        public Valify:ValidateProvider
+        public Valify:ValidateProvider,
+        public Storage:Storage
     ) {
         console.log('Hello UserProvider Provider');
     }
+
     public num = 0;
+    public token:string = "";
+
+    // 获取用户登录信息的token值
+    public getToken(){
+
+    }
     // 用户登录
     public login(params) {
         let options = {
@@ -96,13 +105,27 @@ export class UserProvider {
             repassword: params.repassword,
             code: params.code
         };
-        console.log(options);
         return this.http.post(options);
     }
     // 获取会员信息
-    public getUserInfo(params) {
+    public getUserInfo(userInfo,val) {
         let options = {
             op: "get_user_info",
+            token:val
+        };
+        this.http.post(options).subscribe(res=>{
+            if(res.code == 0){
+                userInfo = res;
+            }else{
+                this.Pop.toast(res.message);
+            }
+        });
+
+    }
+    //   更新个人资料
+    public updateUserInfo(params) {
+        let options = {
+            op: "update_user_info",
             avatar: params.avatar,
             nickname: params.nickname,
             gender: params.gender,
@@ -120,15 +143,7 @@ export class UserProvider {
              console.log(cityList)
         });
     }
-    // 完善个人资料
-    public updateUserInfo(params) {
-        let options = {
-            op: "update_user_info",
-            token:params.token
-        };
-        console.log(options);
-        return this.http.post(options);
-    }
+
     public validate(params){
         let mobile = params.mobile;
         let password = params.password;

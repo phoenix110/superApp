@@ -53,10 +53,7 @@ export class ShareHeaderComponent {
     // 点击购买商品
     public buyGood(id) {
         if(!this.isLogin){
-            let options:Object = {
-                title:"确认登录"
-            };
-            this.Pop.confirm(options).subscribe(data=>{
+            this.Pop.confirm().subscribe(data=>{
                 if(data['is_login']){
                     this.navCtrl.push("OrderDetailPage",{id:id});
                 }
@@ -67,10 +64,7 @@ export class ShareHeaderComponent {
     // 点击添加购物车
     public addCart() {
         if(!this.isLogin){
-            let options:Object = {
-                title:"确认登录"
-            };
-            this.Pop.confirm(options).subscribe(data=>{
+            this.Pop.confirm().subscribe(data=>{
                 if(data['is_login']){
                     console.log('去登陆');
                 }
@@ -81,10 +75,7 @@ export class ShareHeaderComponent {
     // 点击分享
     public addShare() {
         if(!this.isLogin){
-            let options:Object = {
-                title:"确认登录"
-            };
-            this.Pop.confirm(options).subscribe(data=>{
+            this.Pop.confirm().subscribe(data=>{
                 if(data['is_login']){
                     console.log('去登陆');
                 }
@@ -95,10 +86,7 @@ export class ShareHeaderComponent {
     // 点击收藏
     public addCollect() {
         if(!this.isLogin){
-            let options:Object = {
-                title:"确认登录"
-            };
-            this.Pop.confirm(options).subscribe(data=>{
+            this.Pop.confirm().subscribe(data=>{
                 if(data['is_login']){
                     console.log('去登陆');
                 }

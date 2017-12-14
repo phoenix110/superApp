@@ -19,9 +19,8 @@ import { UserProvider} from "../../providers/user";
   templateUrl: 'user-edit.html',
 })
 export class UserEditPage {
-  public avatar:string = "";
   public userInfo = {
-      avatar:"",
+      avatar:"./assets/images/icon.png",
       cityValue:"",
       sex:"man"
     };
@@ -57,14 +56,14 @@ export class UserEditPage {
                   role: 'destructive',
                   handler: () => {
                       this.native.getPictureByCamera().subscribe(imageBase64 => {
-                          this.avatar = imageBase64;
+                          this.userInfo.avatar = imageBase64;
                       })
                   }
               },{
                   text: '图库',
                   handler: () => {
                       this.native.getPictureByPhotoLibrary().subscribe(imageBase64 => {
-                          this.avatar = imageBase64;
+                          this.userInfo.avatar = imageBase64;
                       })
                   }
               },{

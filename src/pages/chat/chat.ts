@@ -29,10 +29,7 @@ export class ChatPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
     if(!this.isLogin){
-        let options:Object = {
-            title:"确认登录"
-        };
-        this.Pop.confirm(options).subscribe(data=>{
+        this.Pop.confirm().subscribe(data=>{
             if(data['is_login']){
                 console.log('去登陆');
             }

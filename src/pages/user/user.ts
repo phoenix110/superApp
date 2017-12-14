@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserProvider } from "../../providers/user";
+import { Storage } from "@ionic/storage";
+import { PopProvider } from "../../providers/pop";
 
 /**
  * Generated class for the UserPage page.
@@ -16,13 +19,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'user.html',
 })
 export class UserPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public userInfo:Object = {};
+  constructor(
+      public navCtrl:NavController,
+      public navParams: NavParams,
+      public Pop:PopProvider,
+      private User:UserProvider,
+      private Storage:Storage
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserPage');
+    this.userData();
   }
+  // 获取会员信息
+    public userData(){
+    this.Storage.get("token").then((val) =>{
+        if(val == ""){
+            this.Pop.confirm().subscribe(res=>{
+                if(res['is_login'] == true){
+                    this.navCtrl.push("LoginPage");
+                }
+            });
+            return false;
+        }
+        this.User.getUserInfo(this.userInfo,val);
+    });
+    }
     public userEdit(uid){
       this.navCtrl.push("UserEditPage",{uid:uid});
     }
