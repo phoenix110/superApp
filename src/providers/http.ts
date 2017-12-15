@@ -8,6 +8,8 @@ import {TimeoutError} from "rxjs/Rx";
 // 服务注入
 import {PopProvider} from "./pop";
 import {NativeProvider} from "./native";
+import {observable} from "rxjs/symbol/observable";
+import { Storage } from "@ionic/storage";
 
 /*
   Generated class for the HttpProvider provider.
@@ -20,7 +22,8 @@ export class HttpProvider {
 
     constructor(public http: HttpClient,
                 public Pop: PopProvider,
-                public NativeProvider: NativeProvider) {
+                public NativeProvider: NativeProvider,
+                public Storage:Storage) {
         console.log('Hello HttpProvider Provider');
     }
 
@@ -78,6 +81,18 @@ export class HttpProvider {
                         this.handleError(err);
                     }
                 )
+        });
+    }
+    // 获取登录的token值
+    public getToken(){
+        return Observable.create(observer =>{
+            this.Storage.get("token").then(val=>{
+                if(val == ''){
+                    observer.next(false);
+                }else{
+                    observer.next(true);
+                }
+            });
         });
     }
     /**

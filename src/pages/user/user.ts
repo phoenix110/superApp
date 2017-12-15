@@ -36,14 +36,6 @@ export class UserPage {
   // 获取会员信息
     public userData(){
     this.Storage.get("token").then((val) =>{
-        if(val == ""){
-            this.Pop.confirm().subscribe(res=>{
-                if(res['is_login'] == true){
-                    this.navCtrl.push("LoginPage");
-                }
-            });
-            return false;
-        }
         this.User.getUserInfo(this.userInfo,val);
     });
     }

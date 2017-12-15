@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
+import { PopProvider } from "../../providers/pop";
+import { HttpProvider } from "../../providers/http";
 
 /**
  * Generated class for the MyPage page.
@@ -20,7 +23,13 @@ export class MyPage {
     "info":{}
   };
   public listNum = 0;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public http:HttpClient,
+      public Http:HttpProvider,
+      public Storage:Storage,
+      public Pop:PopProvider) {
   }
 
   ionViewDidLoad() {
@@ -42,6 +51,17 @@ export class MyPage {
   }
   // 跳转至会员中心页面
   public toUser(uid){
-    this.navCtrl.push("UserPage",{uid:uid});
+     this.Http.getToken().subscribe(res=>{
+        if(!res){
+            this.Pop.confirm().subscribe(res=>{
+                if(res['is_login']){
+                    this.navCtrl.push("LoginPage");
+                }
+            });
+        }else{
+            this.navCtrl.push("UserPage",{uid:uid});
+        }
+     });
+
   }
 }
