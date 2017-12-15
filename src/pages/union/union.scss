@@ -3,17 +3,18 @@ $background:#f4f4f4;
 #page-union {
     background:$background;
   .swiper-box{
-    @include position(fixed,56px,null,null,0);
+    position: fixed;
+    top: 44px;
+    left: 0;
     z-index: 100;
-    height: 50px;
+    height: 60px;
     line-height: 50px;
     background: #fff;
-    padding:15px 0;
+    padding: 15px 0;
   }
   .nav-bar {
     margin:10px 10px 10px 0;
     -webkit-padding-start:10px;
-
     .nav-scroll{
       width:100%;
     }
