@@ -15,12 +15,12 @@
   <div class="user-header" tappable (click)="userEdit(20)">
     <ul class="user-avatar flex-row-between">
       <li>账号</li>
-      <li class="avatar"><img src="./assets/images/user/avatar.jpg" alt=""></li>
+      <li class="avatar"><img src="{{userInfo.avatar == '' ? './assets/images/user/avatar.jpg' : userInfo.avatar}}" alt=""></li>
       <li><ion-icon name="arrow-forward"></ion-icon></li>
     </ul>
     <div class="user-info">
-      <h4>千叶祥龙</h4>
-      <p>河南，郑州市，金水区</p>
+      <h4>{{userInfo.nickname == null ? '未设置昵称' : userInfo.nickname}}</h4>
+      <p>{{userInfo.province}}{{userInfo.city}}{{userInfo.district}}</p>
     </div>
   </div>
     <div class="user-things">

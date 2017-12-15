@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, ActionSheetController } from 'ioni
 // 注入自定义服务
 import { NativeProvider } from "../../providers/native";
 import { UserProvider} from "../../providers/user";
+import {PopProvider} from "../../providers/pop";
+import { ValidateProvider } from "../../providers/validate";
+import { HttpProvider } from "../../providers/http";
 
 /**
  * Generated class for the UserEditPage page.
@@ -21,9 +24,13 @@ import { UserProvider} from "../../providers/user";
 export class UserEditPage {
   public userInfo = {
       avatar:"./assets/images/icon.png",
-      cityValue:"",
-      sex:"man"
+      province:"",
+      city:"",
+      district:"",
+      gender:"保密",
+      token:""
     };
+  public cityArr:Array<string> = [];
   public cityList = {
       area:[]
   };
@@ -32,19 +39,64 @@ export class UserEditPage {
       public navParams: NavParams,
       public native:NativeProvider,
       private actionSheetCtrl:ActionSheetController,
-      private User:UserProvider
+      private User:UserProvider,
+      private Pop:PopProvider,
+      private Validate:ValidateProvider,
+      private Http:HttpProvider
   ) {
   }
 
   ionViewDidLoad() {
       // 获取省市区城市列表数据
       this.User.cityListData(this.cityList);
+      this.userData();
   }
+    // 获取会员信息
+    public userData() {
+        let token = this.Http.getToken().subscribe(res=>{
+            if(res == false){
+                this.navCtrl.push("LoginPage");
+            }else{
+                this.User.getUserInfo(res).subscribe(res=>{
+                    if(res.code == 0){
+                        this.userInfo = res.data;
+                        console.log(this.userInfo)
+                    }else{
+                        this.Pop.toast(res.message);
+                    }
+                });
+            }
+        });
+    }
   // 保存会员资料
   public saveInfo(uid){
-    // this.navCtrl.pop();
+      let cityArr = document.getElementById("cities").innerText;
+      cityArr = this.Validate.trim(cityArr);
+      console.log(cityArr == '请选择')
+      if(cityArr == '省-市-区(县)'){
+          this.Pop.toast("请选择所在地区");
+          return false;
+      }
+      this.cityArr = cityArr.split("-");
+      this.userInfo.province  = this.cityArr[0];
+      this.userInfo.city  = this.cityArr[1];
+      this.userInfo.district  = this.cityArr[2];
       console.log(this.userInfo)
-      console.log(this.cityList.area)
+      this.Http.getToken().subscribe(res=>{
+          if(res == false){
+              this.navCtrl.push("LoginPage");
+          }else{
+              this.userInfo.token = res;
+              this.User.updateUserInfo(this.userInfo).subscribe(res=>{
+                  if(res == 0){
+                      this.navCtrl.pop();
+                  }else{
+                      this.Pop.toast(res.message);
+                  }
+              });
+          }
+      });
+
 
   }
   public getAvatar(){

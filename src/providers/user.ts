@@ -108,19 +108,12 @@ export class UserProvider {
         return this.http.post(options);
     }
     // 获取会员信息
-    public getUserInfo(userInfo,val) {
+    public getUserInfo(val) {
         let options = {
             op: "get_user_info",
             token:val
         };
-        this.http.post(options).subscribe(res=>{
-            if(res.code == 0){
-                userInfo = res;
-            }else{
-                this.Pop.toast(res.message);
-            }
-        });
-
+        return this.http.post(options);
     }
     //   更新个人资料
     public updateUserInfo(params) {
@@ -132,7 +125,8 @@ export class UserProvider {
             age: params.age,
             province: params.province,
             city: params.city,
-            district: params.district
+            district: params.district,
+            token:params.token
         };
         return this.http.post(options);
     }

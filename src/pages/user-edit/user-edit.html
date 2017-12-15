@@ -18,19 +18,20 @@
     <ion-list class="form-list">
         <ion-item>
           <ion-label fixed>姓名</ion-label>
-          <ion-input type="text" value="" [(ngModel)]="userInfo.name"></ion-input>
+          <ion-input type="text" value="{{userInfo.nickname}}" [(ngModel)]="userInfo.nickname"></ion-input>
         </ion-item>
 
       <ion-item>
         <ion-label>性别</ion-label>
-        <ion-select  interface="popover" [(ngModel)]="userInfo.sex">
-          <ion-option value="man">男</ion-option>
-          <ion-option value="women">女</ion-option>
+        <ion-select  interface="popover" [(ngModel)]="userInfo.gender">
+          <ion-option value="保密" [selected]="userInfo.gender == '保密'">保密</ion-option>
+          <ion-option value="1" [selected]="userInfo.gender == 0">男</ion-option>
+          <ion-option value="2" [selected]="userInfo.gender == 1">女</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>城市</ion-label>
-          <ion-multi-picker id="cities" item-content  [(ngModel)]="userInfo.cityValue" [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="'省-市-区(县)'" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
+          <ion-multi-picker id="cities" item-content [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="userInfo.province == '' ? '省-市-区(县)' : (userInfo.province + userInfo.city + userInfo.district)" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
       </ion-item>
     </ion-list>
     <div class="user-xieyi flex-row-between">

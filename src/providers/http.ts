@@ -87,10 +87,14 @@ export class HttpProvider {
     public getToken(){
         return Observable.create(observer =>{
             this.Storage.get("token").then(val=>{
-                if(val == ''){
-                    observer.next(false);
+                if(val == null || val == "" || val == undefined){
+                    this.Pop.confirm().subscribe(res=>{
+                        if(res['is_login']){
+                            observer.next(false);
+                        }
+                    });
                 }else{
-                    observer.next(true);
+                    observer.next(val);
                 }
             });
         });
@@ -191,7 +195,8 @@ export class HttpProvider {
         // }
         let msg = '请求发生异常';
         try {
-            this.Pop.alert(err.message || msg);
+            let result = err.json();
+            this.Pop.alert(result.message || msg);
         } catch (err) {
             let status = err.status;
             if (status === 0) {

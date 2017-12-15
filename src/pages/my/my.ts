@@ -52,14 +52,10 @@ export class MyPage {
   // 跳转至会员中心页面
   public toUser(uid){
      this.Http.getToken().subscribe(res=>{
-        if(!res){
-            this.Pop.confirm().subscribe(res=>{
-                if(res['is_login']){
-                    this.navCtrl.push("LoginPage");
-                }
-            });
+        if(res == false){
+            this.navCtrl.push("LoginPage");
         }else{
-            this.navCtrl.push("UserPage",{uid:uid});
+            this.navCtrl.push("UserPage",{uid:uid,token:res});
         }
      });
 

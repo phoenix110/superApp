@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UserProvider } from "../../providers/user";
-import { Storage } from "@ionic/storage";
-import { PopProvider } from "../../providers/pop";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {UserProvider} from "../../providers/user";
+import {Storage} from "@ionic/storage";
+import {PopProvider} from "../../providers/pop";
 
 /**
  * Generated class for the UserPage page.
@@ -12,50 +12,63 @@ import { PopProvider } from "../../providers/pop";
  */
 
 @IonicPage({
-    segment:"user/:uid"
+    segment: "user/:uid"
 })
 @Component({
-  selector: 'page-user',
-  templateUrl: 'user.html',
+    selector: 'page-user',
+    templateUrl: 'user.html',
 })
 export class UserPage {
-  public userInfo:Object = {};
-  constructor(
-      public navCtrl:NavController,
-      public navParams: NavParams,
-      public Pop:PopProvider,
-      private User:UserProvider,
-      private Storage:Storage
-  ) {
-  }
+    public userInfo: Object = {
+        avatar:"",
+        nickname:"未设置昵称",
+        address:""
+    };
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public Pop: PopProvider,
+                private User: UserProvider,
+                private Storage: Storage) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserPage');
-    this.userData();
-  }
-  // 获取会员信息
-    public userData(){
-    this.Storage.get("token").then((val) =>{
-        this.User.getUserInfo(this.userInfo,val);
-    });
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad UserPage');
+        this.userData();
     }
-    public userEdit(uid){
-      this.navCtrl.push("UserEditPage",{uid:uid});
+
+    // 获取会员信息
+    public userData() {
+        let token = this.navParams.data.token;
+        this.User.getUserInfo(token).subscribe(res=>{
+            if(res.code == 0){
+                this.userInfo = res.data;
+            }else{
+                this.Pop.toast(res.message);
+            }
+        });
     }
+
+    public userEdit(uid) {
+        this.navCtrl.push("UserEditPage", {uid: uid});
+    }
+
     // 跳转至零钱包页面
-  public toWallet(uid){
-      this.navCtrl.push("WalletPage",{uid:uid});
-  }
+    public toWallet(uid) {
+        this.navCtrl.push("WalletPage", {uid: uid});
+    }
+
     // 跳转至公告信息页面
-    public toNotice(){
+    public toNotice() {
         this.navCtrl.push("NoticePage");
     }
+
     // 跳转至购物车页面
-    public toCart(uid){
-        this.navCtrl.push("CartPage",{uid:uid});
+    public toCart(uid) {
+        this.navCtrl.push("CartPage", {uid: uid});
     }
+
     // 跳转至订单页面
-    public toOrder(uid){
-        this.navCtrl.push("OrderPage",{uid:uid});
+    public toOrder(uid) {
+        this.navCtrl.push("OrderPage", {uid: uid});
     }
 }
