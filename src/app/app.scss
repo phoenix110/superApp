@@ -66,3 +66,13 @@ ion-menu[side=left] > .menu-inner{
   font-size: 14px;
   color: #333;
 }
+
+//底部菜单图标样式
+.tabs-ios .tab-button-icon {
+  margin-top: 4px;
+  margin-bottom: 1px;
+  min-width: 35px;
+  color: #8c8c8c;
+  font-size: 21px;
+  height: auto!important;
+}
