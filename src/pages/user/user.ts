@@ -33,9 +33,10 @@ export class UserPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad UserPage');
+    }
+    ionViewDidEnter(){
         this.userData();
     }
-
     // 获取会员信息
     public userData() {
         let token = this.navParams.data.token;

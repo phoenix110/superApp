@@ -27,8 +27,9 @@ export class UserEditPage {
       province:"",
       city:"",
       district:"",
-      gender:"保密",
-      token:""
+      gender:"1",
+      token:"",
+      age:0
     };
   public cityArr:Array<string> = [];
   public cityList = {
@@ -50,6 +51,7 @@ export class UserEditPage {
       // 获取省市区城市列表数据
       this.User.cityListData(this.cityList);
       this.userData();
+      console.log(this.userInfo)
   }
     // 获取会员信息
     public userData() {
@@ -59,6 +61,7 @@ export class UserEditPage {
             }else{
                 this.User.getUserInfo(res).subscribe(res=>{
                     if(res.code == 0){
+                        res.data.gender = 1;
                         this.userInfo = res.data;
                         console.log(this.userInfo)
                     }else{
@@ -69,15 +72,15 @@ export class UserEditPage {
         });
     }
   // 保存会员资料
-  public saveInfo(uid){
+  public saveInfo(){
       let cityArr = document.getElementById("cities").innerText;
       cityArr = this.Validate.trim(cityArr);
-      console.log(cityArr == '请选择')
       if(cityArr == '省-市-区(县)'){
           this.Pop.toast("请选择所在地区");
           return false;
       }
       this.cityArr = cityArr.split("-");
+      console.log(this.cityArr)
       this.userInfo.province  = this.cityArr[0];
       this.userInfo.city  = this.cityArr[1];
       this.userInfo.district  = this.cityArr[2];
@@ -88,7 +91,7 @@ export class UserEditPage {
           }else{
               this.userInfo.token = res;
               this.User.updateUserInfo(this.userInfo).subscribe(res=>{
-                  if(res == 0){
+                  if(res.code == 0){
                       this.navCtrl.pop();
                   }else{
                       this.Pop.toast(res.message);

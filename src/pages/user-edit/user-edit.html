@@ -20,18 +20,21 @@
           <ion-label fixed>姓名</ion-label>
           <ion-input type="text" value="{{userInfo.nickname}}" [(ngModel)]="userInfo.nickname"></ion-input>
         </ion-item>
-
+        <ion-item>
+            <ion-label fixed>年龄</ion-label>
+            <ion-input type="number" value="{{userInfo.age}}" [(ngModel)]="userInfo.age"></ion-input>
+        </ion-item>
       <ion-item>
         <ion-label>性别</ion-label>
         <ion-select  interface="popover" [(ngModel)]="userInfo.gender">
-          <ion-option value="保密" [selected]="userInfo.gender == '保密'">保密</ion-option>
-          <ion-option value="1" [selected]="userInfo.gender == 0">男</ion-option>
-          <ion-option value="2" [selected]="userInfo.gender == 1">女</ion-option>
+          <ion-option value="保密">保密</ion-option>
+          <ion-option value="1">男</ion-option>
+          <ion-option value="2">女</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>城市</ion-label>
-          <ion-multi-picker id="cities" item-content [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="userInfo.province == '' ? '省-市-区(县)' : (userInfo.province + userInfo.city + userInfo.district)" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
+          <ion-multi-picker id="cities" item-content [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="userInfo.province == '' ? '省-市-区(县)' : (userInfo.province + '-'+ userInfo.city +'-'+ userInfo.district)" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
       </ion-item>
     </ion-list>
     <div class="user-xieyi flex-row-between">
@@ -39,6 +42,6 @@
         <ion-icon name="arrow-forward"></ion-icon>
     </div>
     <div class="save-info" padding>
-        <button ion-button [color]="red" block margin-top="30" tappable (click)="saveInfo(20)">确定</button>
+        <button ion-button [color]="red" block margin-top="30" tappable (click)="saveInfo()">确定</button>
     </div>
 </ion-content>

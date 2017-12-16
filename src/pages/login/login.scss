@@ -8,12 +8,13 @@
     padding:0 12px;
     position: fixed;
     width: 100%;
+    z-index: 100;
     b,span{
       font-size:12px;
     }
   }
   .login-form{
-    padding:30px;
+    padding:20px;
     height: 100%;
     .avatar-img {
       height: 200px;
@@ -65,6 +66,8 @@
         border: none;
         padding:2px 4px;
         background: transparent;
+        margin: 0;
+        width: 100%;
       }
     }
     .form-password{
