@@ -19,19 +19,19 @@
         </div>
         <div class="form-item flex-row-start">
             <ion-icon name="person"></ion-icon>
-            <input type="number" placeholder="请输入您的手机号" [(ngModel)]="userInfo.mobile">
+            <ion-input type="number" placeholder="请输入您的手机号" [(ngModel)]="userInfo.mobile"></ion-input>
         </div>
         <div class="form-item flex-row-start">
             <ion-icon name="lock"></ion-icon>
-            <input type="password" placeholder="请输入您的密码" [(ngModel)]="userInfo.password">
+            <ion-input type="password" placeholder="请输入您的密码" [(ngModel)]="userInfo.password"></ion-input>
         </div>
         <div class="form-item flex-row-start">
             <ion-icon class="iconfont icon-weibiaoti203"></ion-icon>
-            <input type="password" placeholder="请重新输入您的密码" [(ngModel)]="userInfo.repassword">
+            <ion-input type="password" placeholder="请重新输入您的密码" [(ngModel)]="userInfo.repassword"></ion-input>
         </div>
         <div class="form-item flex-row-between get-code">
             <ion-icon class="iconfont icon-yanzhengma1"></ion-icon>
-            <input type="number" placeholder="请输入您的验证码" [(ngModel)]="userInfo.code">
+            <ion-input type="number" placeholder="请输入您的验证码" [(ngModel)]="userInfo.code"></ion-input>
             <button class="qrCode" (click)="getCode()" [disabled]="codeStatus">{{codeText}}</button>
         </div>
         <button ion-button block class="toLogin" (click)="register()">

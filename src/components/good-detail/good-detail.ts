@@ -21,6 +21,6 @@ export class GoodDetailComponent {
   }
   // 跳转至产品（秀）图片详情页
   public goodPics(id){
-    this.navCtrl.push("GoodImgsPage",{id:id});
+      this.navCtrl.push("GoodImgsPage",{id:id});
   }
 }

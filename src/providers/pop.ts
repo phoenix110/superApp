@@ -66,7 +66,7 @@ export class PopProvider {
         }
     }
     // 提示信息
-    toast(message:string = "",position:string = "middle") {
+    toast(message:string = "",position:string = "bottom") {
         let toast = this.toastCtrl.create({
             message: message,
             duration: 2000,
