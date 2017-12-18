@@ -3,9 +3,11 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavController, NavParams, IonicPage, Slides} from 'ionic-angular';
 
-import {HttpClient} from "@angular/common/http";
 import  Swiper from 'swiper';
 import { Storage } from "@ionic/storage";
+
+import {UnionProvider} from "../../providers/union";
+import {PopProvider} from "../../providers/pop";
 
 /**
  * Generated class for the UnionPage page.
@@ -19,55 +21,78 @@ import { Storage } from "@ionic/storage";
     templateUrl: 'union.html',
 })
 export class UnionPage {
+
     @ViewChild(Slides) slides:Slides;
-    public union: Array<object> = [];
-    public recommend: Array<object> = [];
-    public colorArr: string[] = [];
+
+    public companies; //公司列表
+    public categories;//分类列表
+    public colors;//颜色数组
+    public active_index;//当前激活索引
+    public cid;//当前分类
+    public page;//当前页数
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public http: HttpClient,
+        public msgService:PopProvider,
+        public unionService: UnionProvider,
         private Storage:Storage) {
 
+        //初始化变量
+        this.active_index = 0;
+        this.colors = [
+            '#758fc8',
+            '#17b1c0',
+            '#f9624f',
+            '#767779',
+            '#48a5e0',
+            '#ef97b0',
+            '#83c690',
+            '#758fc8'
+        ];
+        this.page = 1;
+        this.cid = 0;
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad UnionPage');
-        this.getShopData();
+
+        //获取联盟页数据
+        this.unionService.getList().subscribe(res => {
+            if (res.code == '0') {
+                this.categories = res.data['categories'];
+                this.companies = res.data['companies'];
+                return true;
+            }
+            this.msgService.toast(res.message);
+        });
+
+        //初始化swiper
         this.initSwiper();
     }
 
-    // 获取联盟页面数据
-    public getShopData() {
-        this.http.get("./assets/data.json").subscribe(data => {
-            this.union = data['union'];
-            this.getColorArr();
-            this.categoryList(0);
-            // this.slides.freeMode = true;
-            // this.slides.slidesPerView = "auto";
+
+    //index索引，改变按钮颜色；cid获取相关的公司列表
+    public getCompanyList(index,cid){
+        this.active_index = index;
+        this.unionService.getList(1,cid).subscribe(res => {
+            if (res.code == '0') {
+                this.companies = res.data['companies'];
+                if(this.companies.length == 0){
+                    this.msgService.toast('没有搜索到相关的公司');
+                }
+                return true;
+            }
+            this.msgService.toast(res.message);
         });
     }
 
+
     // 导航至分类详情页
     public toCompany(id) {
-        console.log(id, '12121');
-        this.navCtrl.push('CompanyPage', {id});
+        this.navCtrl.push('CompanyPage', {id:id});
     }
 
-    // 点击分类切换相应商品
-    public categoryList(index) {
-        this.recommend = this.union[index]['goods'];
-    }
 
-    // 给颜色数组赋值
-    public getColorArr() {
-        for (let i in this.union) {
-            // 获取随机的颜色值
-            let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
-            this.colorArr.push(color);
-        }
-    }
     // 初始化轮播图插件
     public initSwiper(){
         new Swiper(".swiper-container",{
