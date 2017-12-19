@@ -29,6 +29,13 @@ export class FindPage {
   }
   // 跳转至find分类页面
     public toFind(route){
-      this.navCtrl.push(route);
+      if(route == 'CompanyPage'){
+          this.navCtrl.push(route,{
+              id:1
+          });
+      }else{
+          this.navCtrl.push(route);
+      }
+
     }
 }

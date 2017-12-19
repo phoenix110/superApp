@@ -57,25 +57,24 @@ export class UnionPage {
     ionViewDidLoad() {
 
         //获取联盟页数据
-        this.unionService.getList().subscribe(res => {
-            if (res.code == '0') {
-                this.categories = res.data['categories'];
-                this.companies = res.data['companies'];
-                return true;
-            }
-            this.msgService.toast(res.message);
-        });
+        this.getCompanyList();
 
         //初始化swiper
-        this.initSwiper();
+        new Swiper(".swiper-container",{
+            freeMode:true,
+            slidesPerView:"auto",
+            observer:true,
+            observeParents:true,
+        });
     }
 
 
     //index索引，改变按钮颜色；cid获取相关的公司列表
-    public getCompanyList(index,cid){
+    public getCompanyList(index =0,cid = 0,page = 1){
         this.active_index = index;
-        this.unionService.getList(1,cid).subscribe(res => {
+        this.unionService.getList(page,cid).subscribe(res => {
             if (res.code == '0') {
+                this.categories = res.data['categories'];
                 this.companies = res.data['companies'];
                 if(this.companies.length == 0){
                     this.msgService.toast('没有搜索到相关的公司');
@@ -90,16 +89,5 @@ export class UnionPage {
     // 导航至分类详情页
     public toCompany(id) {
         this.navCtrl.push('CompanyPage', {id:id});
-    }
-
-
-    // 初始化轮播图插件
-    public initSwiper(){
-        new Swiper(".swiper-container",{
-            freeMode:true,
-            slidesPerView:"auto",
-            observer:true,
-            observeParents:true,
-        });
     }
 }

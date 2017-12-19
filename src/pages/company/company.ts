@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import {PopProvider} from "../../providers/pop";
+import {CompanyProvider} from "../../providers/company";
 
 /**
  * Generated class for the CompanyPage page.
@@ -16,32 +17,53 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
   templateUrl: 'company.html',
 })
 export class CompanyPage {
-  private index:number = 0;
-  public company: object = {
-      companyInstro:[],
-      contact:{}
-  };
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
-  	console.log(this.navParams.data.id);
+
+  public active_index:number = 0;//当前激活的栏目索引
+  public company = {
+      'title':''
+  };//公司信息
+  public menus;//文章栏目
+  public company_id;//公司ID
+
+  constructor(
+      public navCtrl: NavController,
+      public msgProvider:PopProvider,
+      public navParams: NavParams,
+      public companyService:CompanyProvider
+  ) {
+  	    //获取公司ID
+      this.company_id = this.navParams.data['id'];
   }
 
   ionViewDidLoad() {
-    this.getCompanyData();
+      this.getCompanyInfoById(this.company_id);
   }
+
+
+  public getCompanyInfoById(id){
+      //获取公司信息
+      this.companyService.getInfo(id).subscribe(res=>{
+          if(res.code == 0){
+              this.company = res.data['info'];
+              this.menus = res.data['menus'];
+              if(this.menus.length == 0){
+                  this.msgProvider.toast('本公司网站还没有设置相关栏目');
+              }
+              return true;
+          }
+          this.msgProvider.toast(res.message);
+      });
+  }
+
+
 
   // 跳转至文章详情页
   public toArticle(id){
       this.navCtrl.push('ArticlePage',{id:id});
   }
-    // 获取公司官网页面数据
-    public getCompanyData(){
-        this.http.get("./assets/data.json").subscribe(data=>{
-            this.company["companyInstro"] = data['company']['companyInstro'];
-            this.company["contact"] = data['company']['contact'];
-        });
-    }
-  public newStatus(index){
-    this.index = index;
-    console.log(index)
+
+
+  public setActiveIndex(index){
+    this.active_index = index;
   }
 }

@@ -2,6 +2,9 @@
 $background:#f4f4f4;
 #page-union {
     background:$background;
+  span.title{
+    font-size: 14px;
+  }
   .swiper-box{
     position: fixed;
     top: 44px;

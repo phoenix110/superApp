@@ -5,19 +5,18 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <header [headerTitle]="'公司介绍'"></header>
+    <header [headerTitle]="company['title']"></header>
 </ion-header>
 
 <ion-content style="background: #EDEEF2;">
-    <ion-list id="com-category" [ngClass]="index == i ? 'active' : ''"  *ngFor="let item of company.companyInstro;let i = index;">
-        <ion-item no-padding class="item-title" (tap)="newStatus(i)">{{item.title}}</ion-item>
+    <ion-list id="com-category" [ngClass]="active_index == i ? 'active' : ''"  *ngFor="let menu of menus;let i = index;">
+        <ion-item no-padding class="item-title" (tap)="setActiveIndex(i)">{{menu['title']}}</ion-item>
         <div class="com-info" (tap)="toArticle(i)">
             <div class="com-thumb">
-                <img src="{{item.thumb}}">
-                <div class="gray-bg"></div>
+                <img src="{{menu['thumb']}}">
             </div>
-            <button ion-item color="pink">{{item.title}}</button>
+            <button ion-item color="pink">{{menu['title']}}</button>
         </div>
     </ion-list>
-    <contact [contact]="company.contact"></contact>
+    <contact [contact]="company"></contact>
 </ion-content>

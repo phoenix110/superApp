@@ -2,19 +2,31 @@
 <section class="contact-box">
   <div class="contact-tel">
       <ion-icon  name="phone-portrait"></ion-icon>
-      <p>{{contact.tel}}</p>
+      <p>
+          <a href="tel:{{contact['tel']}}" *ngIf="contact['tel']">电话：{{contact['tel']}}</a>
+          <br>
+          <a href="tel:{{contact['mobile']}}" *ngIf="contact['mobile']">手机：{{contact['mobile']}}</a>
+      </p>
   </div>
     <ion-grid class="contact-cate" no-padding>
         <ion-row>
-            <ion-col ion-col-3 tappable (click)="showToast()"><ion-icon name="mail"></ion-icon></ion-col>
-            <ion-col ion-col-3><ion-icon name="call"></ion-icon></ion-col>
+            <ion-col ion-col-3 tappable>
+                <a style="color: #000000" href="mailto:{{contact['email']}}">
+                    <ion-icon name="mail"></ion-icon>
+                </a>
+            </ion-col>
+            <ion-col ion-col-3>
+                <a style="color: #000000" href="tel:{{contact['tel']?contact['tel']:contact['mobile']}}">
+                    <ion-icon name="call"></ion-icon>
+                </a>
+            </ion-col>
             <ion-col ion-col-3 tappable (click)="talkCustomer()"><ion-icon name="chatbubbles"></ion-icon></ion-col>
-            <ion-col ion-col-3><ion-icon name="pin"></ion-icon></ion-col>
+            <!--<ion-col ion-col-3><ion-icon name="pin"></ion-icon></ion-col>-->
         </ion-row>
     </ion-grid>
     <div class="contact-promise">
-        <p>{{contact.xuke}}</p>
-        <p>{{contact.bianhao}}</p>
-        <p>{{contact.banquan}}</p>
+        <p>{{contact['province']}}{{contact['city']}}{{contact['district']}}</p>
+        <p>{{contact['address']}}</p>
+        <p>{{contact['copyright']}}</p>
     </div>
 </section>
