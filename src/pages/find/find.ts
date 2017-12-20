@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { NavController, NavParams,IonicPage } from 'ionic-angular';
+import {PopProvider} from "../../providers/pop";
+import {FindProvider} from "../../providers/find";
+import {Http} from "@angular/http";
 
 /**
  * Generated class for the FindPage page.
@@ -14,18 +17,24 @@ import { NavController, NavParams,IonicPage } from 'ionic-angular';
   templateUrl: 'find.html',
 })
 export class FindPage {
-  public find:Array<object> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+  public menus;//菜单列表
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public http:HttpClient,
+      public msgService:PopProvider,
+      public findService:FindProvider
+  ) {
+
   }
 
   ionViewDidLoad() {
-      this.getFindData();
-  }
-  // 获取find页面数据
-  public getFindData(){
-    this.http.get("./assets/data.json").subscribe(data=>{
-      this.find = data['find'];
-    });
+      this.findService.getList().subscribe(res=>{
+          if(res.code == 0){
+                this.menus = res.data;
+          }
+          this.msgService.toast(res.message);
+      });
   }
   // 跳转至find分类页面
     public toFind(route){

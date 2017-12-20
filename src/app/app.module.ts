@@ -24,6 +24,8 @@ import {GlobalDataProvider} from '../providers/globalData';
 import {LoggerProvider} from '../providers/logger';
 import {UnionProvider} from "../providers/union";
 import {CompanyProvider} from "../providers/company";
+import { ArticleProvider } from '../providers/article';
+import { FindProvider } from '../providers/find';
 
 @NgModule({
     declarations: [
@@ -64,7 +66,9 @@ import {CompanyProvider} from "../providers/company";
         GlobalDataProvider,
         LoggerProvider,
         UnionProvider,
-        CompanyProvider
+        CompanyProvider,
+        ArticleProvider,
+        FindProvider
     ]
 })
 export class AppModule {

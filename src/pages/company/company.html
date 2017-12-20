@@ -11,7 +11,7 @@
 <ion-content style="background: #EDEEF2;">
     <ion-list id="com-category" [ngClass]="active_index == i ? 'active' : ''"  *ngFor="let menu of menus;let i = index;">
         <ion-item no-padding class="item-title" (tap)="setActiveIndex(i)">{{menu['title']}}</ion-item>
-        <div class="com-info" (tap)="toArticle(i)">
+        <div class="com-info" (tap)="toArticle(menu['id'],0)">
             <div class="com-thumb">
                 <img src="{{menu['thumb']}}">
             </div>

@@ -58,8 +58,8 @@ export class CompanyPage {
 
 
   // 跳转至文章详情页
-  public toArticle(id){
-      this.navCtrl.push('ArticlePage',{id:id});
+  public toArticle(cid){
+      this.navCtrl.push('ArticlePage',{cid:cid,id:0});
   }
 
 
