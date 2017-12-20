@@ -32,6 +32,7 @@ export class FindPage {
       this.findService.getList().subscribe(res=>{
           if(res.code == 0){
                 this.menus = res.data;
+                return true;
           }
           this.msgService.toast(res.message);
       });
