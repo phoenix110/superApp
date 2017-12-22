@@ -28,9 +28,9 @@ export class MyPage {
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      public Http:HttpProvider,
+      public http:HttpProvider,
       public storage:Storage,
-      public Pop:PopProvider) {
+      public pop:PopProvider) {
 
 
   }
@@ -46,8 +46,13 @@ export class MyPage {
 
     //跳转到toUserPage
     toUserPage(){
-        this.navCtrl.push('UserPage');
-        let token = this.storage.get('token');
-        console.log(token);
+        this.storage.get('token').then((token) => {
+            if(token){
+                this.navCtrl.push('UserPage');
+                return true;
+            }
+            this.pop.toast('请先登录');
+            this.navCtrl.push('LoginPage');
+        });
     }
 }

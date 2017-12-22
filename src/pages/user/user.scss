@@ -1,7 +1,6 @@
 page-user {
   .user-header {
-    height:183px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     .user-avatar{
       align-items: center;
       height:150px;
@@ -34,9 +33,9 @@ page-user {
         font-weight: bold;
       }
       p{
+        color: #666;
         margin: 5px 0;
         text-align: center;
-        color:#333;
         font-size:12px;
       }
     }

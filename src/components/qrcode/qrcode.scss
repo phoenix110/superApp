@@ -6,15 +6,11 @@ qrcode {
     z-index: 1000;
     background: rgba(#000,0.5);
     .qrcode{
-      width:70%;
-      height: 66%;
+      width:220px;
+      height: 370px;
       margin: auto;
       @include position(absolute,0,0,0,0);
       @include radius(10px);
-      .myAvatar{
-        width:100%;
-        height:58%;
-      }
       ion-card-title{
         font-size:20px;
         text-align: center;

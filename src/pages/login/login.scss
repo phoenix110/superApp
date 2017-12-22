@@ -14,39 +14,8 @@
     }
   }
   .login-form{
-    padding:20px;
+    padding:50px 20px 20px 20px;
     height: 100%;
-    .avatar-img {
-      height: 200px;
-      position: relative;
-      top: 0;
-      left: 0;
-    }
-    .avatar-box{
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      width: 140px;
-      height: 150px;
-      overflow: hidden;
-      img {
-        width: 80%;
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        display: block;
-        margin: auto;
-      }
-      h3{
-        text-align: center;
-        height: 10%;
-        margin-top: 10%;
-        color: #333;
-      }
-    }
 
     .form-item{
       border-bottom:1px solid #ccc;

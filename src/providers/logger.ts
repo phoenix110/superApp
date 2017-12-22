@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ActionSheetController } from "ionic-angular";
 import 'rxjs/add/operator/map';
 // 注入自定义服务
 import { GlobalDataProvider } from "./globalData";

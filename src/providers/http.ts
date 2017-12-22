@@ -8,7 +8,6 @@ import {TimeoutError} from "rxjs/Rx";
 // 服务注入
 import {PopProvider} from "./pop";
 import {NativeProvider} from "./native";
-import {observable} from "rxjs/symbol/observable";
 import { Storage } from "@ionic/storage";
 
 /*

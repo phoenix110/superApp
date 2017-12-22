@@ -228,5 +228,22 @@ export class AppConfig {
         }
     }
 
+    //比较两个版本号,返回true则需要升级
+    public static compareVersion(oldVersion,newVersion){
+        if(oldVersion == '' || newVersion == ''){
+            return false;
+        }
+        oldVersion = oldVersion.split('.');
+        newVersion = newVersion.split('.');
+        for(let i in newVersion){
+            if(newVersion.hasOwnProperty(i) && oldVersion.hasOwnProperty(i)){
+                if(newVersion[i] > oldVersion[i]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
 }

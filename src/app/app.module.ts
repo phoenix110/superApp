@@ -26,7 +26,7 @@ import {UnionProvider} from "../providers/union";
 import {CompanyProvider} from "../providers/company";
 import { ArticleProvider } from '../providers/article';
 import { FindProvider } from '../providers/find';
-import { AuthProvider } from '../providers/auth';
+import { AppProvider } from '../providers/app';
 
 @NgModule({
     declarations: [
@@ -70,7 +70,7 @@ import { AuthProvider } from '../providers/auth';
         CompanyProvider,
         ArticleProvider,
         FindProvider,
-        AuthProvider
+        AppProvider
     ]
 })
 export class AppModule {

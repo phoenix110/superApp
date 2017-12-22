@@ -108,10 +108,10 @@ export class UserProvider {
         return this.http.post(options);
     }
     // 获取会员信息
-    public getUserInfo(val) {
+    public getUserInfo(token) {
         let options = {
             op: "get_user_info",
-            token:val
+            token:token
         };
         return this.http.post(options);
     }

@@ -5,22 +5,19 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <header [headerTitle]="'我的世界'"></header>
-
+  <header [headerTitle]="'个人中心'"></header>
 </ion-header>
-
-
 <ion-content no-padding>
   <div class="user-header" tappable (click)="userEdit(20)">
     <ul class="user-avatar flex-row-between">
       <li>账号</li>
-      <li class="avatar"><img src="{{userInfo.avatar == '' ? './assets/images/user/avatar.jpg' : userInfo.avatar}}" alt=""></li>
+      <li class="avatar"><img src="{{!member['avatar']? 'assets/images/avatar.jpg' : member['avatar']}}"></li>
       <li><ion-icon name="arrow-forward"></ion-icon></li>
     </ul>
     <div class="user-info">
-      <h4>{{userInfo.nickname == null ? '未设置昵称' : userInfo.nickname}}</h4>
-      <p>{{userInfo.province}}{{userInfo.city}}{{userInfo.district}}</p>
+      <h4>{{!member['nickname'] ? member['mobile'] : member['nickname']}}</h4>
+        <span style="display: block;text-align: center;">编号：{{member['uid']}}&nbsp;&nbsp;/&nbsp;&nbsp;推荐人：{{member['parent_uid']}}</span>
+      <p>{{member['province']}}{{member['city']}}{{member['district']}}</p>
     </div>
   </div>
     <div class="user-things">
@@ -28,13 +25,16 @@
             <li class="flex-row-start" tappable (click)="toWallet(20)">
                 <!--<ion-icon class="icon-left"  name="notifications"></ion-icon>-->
                 <h5>零钱包</h5>
+                <span style="color: red" class="item-note">
+                  ￥{{member['credit2']}}&nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
                 <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
             </li>
             <li class="flex-row-start">
                 <!--<ion-icon class="icon-left" name="cart"></ion-icon>-->
-                <h5>保定收款银行卡</h5>
+                <h5>绑定银行卡</h5>
                 <!--<ion-icon class="icon-right" name="arrow-forward"></ion-icon>-->
-                <span>未绑定</span>
+                <span>{{member['is_bind_bank']?'已绑定':'未绑定'}}</span>
             </li>
         </ul>
     </div>
@@ -72,4 +72,8 @@
         </ul>
     </div>
 
+    <div class="user-things">
+        <button ion-button full style="background-color: #488aff;" (click)="checkUpgrade()">检查更新</button>
+        <button ion-button full style="background-color: #f53d3d;" (click)="logout()">退出登录</button>
+    </div>
 </ion-content>

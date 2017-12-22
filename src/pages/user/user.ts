@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user";
 import {Storage} from "@ionic/storage";
 import {PopProvider} from "../../providers/pop";
+import {AppProvider} from "../../providers/app";
+import {AppConfig} from "../../app/app.config";
 
 /**
  * Generated class for the UserPage page.
@@ -12,41 +14,49 @@ import {PopProvider} from "../../providers/pop";
  */
 
 @IonicPage({
-    segment: "user/:uid"
+    segment: "user"
 })
 @Component({
     selector: 'page-user',
     templateUrl: 'user.html',
 })
 export class UserPage {
-    public userInfo: Object = {
+
+    //会员信息
+    public member = {
         avatar:"",
         nickname:"未设置昵称",
-        address:""
+        address:"",
+        is_bind_bank:0,
+        credit2:0.00
     };
-
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
-                public Pop: PopProvider,
+                public pop: PopProvider,
                 private User: UserProvider,
-                private Storage: Storage) {
+                private storage: Storage,
+                public app:AppProvider
+                ) {
+
+
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad UserPage');
+
     }
     ionViewDidEnter(){
         this.userData();
     }
     // 获取会员信息
     public userData() {
-        let token = this.navParams.data.token;
-        this.User.getUserInfo(token).subscribe(res=>{
-            if(res.code == 0){
-                this.userInfo = res.data;
-            }else{
-                this.Pop.toast(res.message);
-            }
+        this.storage.get('token').then((token)=>{
+            this.User.getUserInfo(token).subscribe(res=>{
+                if(res.code == 0){
+                    this.member = res.data;
+                    return true;
+                }
+                this.pop.toast(res.message);
+            });
         });
     }
 
@@ -72,5 +82,33 @@ export class UserPage {
     // 跳转至订单页面
     public toOrder(uid) {
         this.navCtrl.push("OrderPage", {uid: uid});
+    }
+
+    //退出登录
+    logout(){
+        this.storage.remove('token');
+        this.pop.toast('退出成功');
+        this.navCtrl.push("TabsPage");
+    }
+
+
+    //检查更新
+    checkUpgrade(){
+        this.app.getConfig().subscribe(res =>{
+            if(res.code == '0'){
+                //如果需要升级
+                if(AppConfig.compareVersion(AppConfig.appVersion,res.data['base']['version'])){
+                    if(AppConfig.platform == 'ios'){
+                        window.location.href = res.data['base']['ios_download_url'];
+                    }else{
+                        //其他默认为android
+                        window.location.href = res.data['base']['android_download_url'];
+
+                    }
+                }
+                return true;
+            }
+            this.pop.toast(res.message);
+        });
     }
 }
