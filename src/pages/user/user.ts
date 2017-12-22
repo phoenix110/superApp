@@ -103,9 +103,10 @@ export class UserPage {
                     }else{
                         //其他默认为android
                         window.location.href = res.data['base']['android_download_url'];
-
                     }
+                    return false;
                 }
+                this.pop.toast('已经是最新版本');
                 return true;
             }
             this.pop.toast(res.message);

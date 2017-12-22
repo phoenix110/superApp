@@ -30,7 +30,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
           platform.registerBackButtonAction(function(e){
-              this.nav.pop();
               if(MyApp.backButtonPressedOnceToExit){
                   platform.exitApp();
               }else{
