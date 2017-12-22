@@ -18,7 +18,9 @@ export class GoodDetailComponent {
   constructor(public navCtrl:NavController) {
     console.log('Hello GoodStyleComponent Component');
     this.text = 'Hello World';
+
   }
+
   // 跳转至产品（秀）图片详情页
   public goodPics(id){
       this.navCtrl.push("GoodImgsPage",{id:id});
