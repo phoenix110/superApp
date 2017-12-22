@@ -1,5 +1,5 @@
 import { Component, Input,ViewChild } from '@angular/core';
-import { Platform,ToastController, Nav ,IonicApp} from 'ionic-angular';
+import { Platform, Nav ,IonicApp, Keyboard} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {PopProvider} from "../providers/pop";
@@ -13,15 +13,16 @@ import {TabsPage} from "../pages/tabs/tabs";
 export class MyApp {
   rootPage:any = "TabsPage";
   public codeStatus = false;
-    public static backButtonPressedOnceToExit = false;
+    public backButtonPressed = false;
     @Input() codeData:Object = {};
   @ViewChild(Nav) nav:Nav;
   constructor(
-      ionicApp: IonicApp,
-      platform: Platform,
-      statusBar: StatusBar,
-      splashScreen: SplashScreen,
-      pop:PopProvider
+      public ionicApp: IonicApp,
+      public platform: Platform,
+      public statusBar: StatusBar,
+      public splashScreen: SplashScreen,
+      public pop:PopProvider,
+      public keyboard:Keyboard
   ) {
 
       platform.ready().then(() => {
@@ -29,21 +30,41 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-          platform.registerBackButtonAction(function(e){
-              if(MyApp.backButtonPressedOnceToExit){
-                  platform.exitApp();
-              }else{
-                  MyApp.backButtonPressedOnceToExit = true;
-                  let toast = pop.toast('再按一次退出');
-                  setTimeout(function(){
-                      MyApp.backButtonPressedOnceToExit = false;
-                  },2000)
-              }
-          },101)
+      this.registerBackButtonAction();
     });
 
   }
+    registerBackButtonAction() {
+        this.platform.registerBackButtonAction(() => {
+            if(this.keyboard.isOpen()){
+                this.keyboard.close();
+                return;
+            }
+            //如果想点击返回按钮隐藏toast或loading或Overlay就把下面加上
+            // this.ionicApp._toastPortal.getActive() || this.ionicApp._loadingPortal.getActive() || this.ionicApp._overlayPortal.getActive()
+            let activePortal = this.ionicApp._modalPortal.getActive();
+            if (activePortal) {
+                activePortal.dismiss().catch(() => {});
+                activePortal.onDidDismiss(() => {});
+                return;
+            }
+            let activeVC = this.nav.getActive();
+            let tabs = activeVC.instance.tabs;
+            let activeNav = tabs.getSelected();
+            return activeNav.canGoBack() ? activeNav.pop() : this.showExit()
+        }, 1);
+    }
 
+    //双击退出提示框
+    showExit() {
+        if (this.backButtonPressed) { //当触发标志为true时，即2秒内双击返回按键则退出APP
+            this.platform.exitApp();
+        } else {
+            this.pop.toast("再按一次退出应用");
+            this.backButtonPressed = true;
+            setTimeout(() => this.backButtonPressed = false, 2000);//2秒内没有再次点击返回则将触发标志标记为false
+        }
+    }
 
   public showQr(){
     this.codeStatus = true

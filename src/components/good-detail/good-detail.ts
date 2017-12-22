@@ -20,8 +20,10 @@ export class GoodDetailComponent {
     this.text = 'Hello World';
 
   }
-
-  // 跳转至产品（秀）图片详情页
+    ngOnInit(){
+    console.log(this.goodInfo)
+    }
+    // 跳转至产品（秀）图片详情页
   public goodPics(id){
       this.navCtrl.push("GoodImgsPage",{id:id});
   }

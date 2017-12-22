@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-
+import {Tabs} from "ionic-angular";
 @IonicPage()
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
+  @ViewChild("tabs") tabs:Tabs;
   tab1Root = "UnionPage";
   tab6Root = "ShopPage";
   tab2Root = "FindPage";
