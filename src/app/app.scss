@@ -76,3 +76,23 @@ ion-menu[side=left] > .menu-inner{
   font-size: 21px;
   height: auto!important;
 }
+
+//弹出框样式
+.pop-box{
+  .toast-wrapper{
+    width: 180px;
+    background: rgba(0,0,0,0.7)!important;
+  }
+  .toast-message{
+    padding: 0!important;
+    width: auto;
+    height:25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .toast-bottom {
+    bottom: 55px!important;
+  }
+}

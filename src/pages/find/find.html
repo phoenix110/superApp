@@ -10,16 +10,13 @@
 
 
 <ion-content class="cont-background" id="page-find">
-    <ion-card class="find-card" *ngFor="let item of find;let i = index;" tappable (click)="toFind(item.route)">
+    <ion-card class="find-card" *ngFor="let item of menus;let i = index;" tappable (click)="toFind(item['page'])">
         <ion-grid>
             <ion-row>
-                <ion-col col-3><h2 text-center margin-top>{{item.title}}</h2></ion-col>
+                <ion-col col-3><h2 text-center margin-top>{{item['title']}}</h2></ion-col>
                 <ion-col col-9>
 					<div class="box-img">
-						<div class="cover-img" [ngStyle]="{
-      'background-image': 'url('+item.thumb+')'
-    }">
-						</div>
+						<div class="cover-img" [ngStyle]="{'background-image': 'url('+item['thumb']+')'}"></div>
 					</div>
 				</ion-col>
             </ion-row>

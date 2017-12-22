@@ -2,6 +2,10 @@
 $bg-color:#000;
 $alpha:0.3;
 page-company {
+  .item-inner {
+   border: 0!important;
+    //background-image: url('aa');
+  }
   #com-category{
     margin: -1px 0 0;
     .item-title{
@@ -17,7 +21,7 @@ page-company {
       .com-thumb{
         @include position();
         img{
-          max-height: 210px;
+          height: 196px;
           width:100%;
         }
         .gray-bg{
@@ -35,7 +39,7 @@ page-company {
       overflow: hidden;
     }
     .com-info{
-      height:256px;
+      height:250px;
     }
   }
 }

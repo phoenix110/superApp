@@ -5,28 +5,22 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <header [headerTitle]="'Brand Vision 品牌形象'"></header>
+  <header [headerTitle]="item['title']"></header>
 </ion-header>
-
 <ion-content no-padding>
-  <ion-img class="advertise" src="{{article.banner}}"></ion-img>
-  <div class="advertise-detail">
-      <h2 class="advertise-tit">{{article.title}}</h2>
-      <div class="advertise-instro">
-          <p>我们无法改变过去的历史，</p>
-          <p>但我们可以创造新的“历史”，</p>
-          <p>今天，就是未来的历史。</p>
-          <p>——张行</p>
-      </div>
-      <div class="advertise-cont">
-          {{article.content}}
-      </div>
-  </div>
-    <div class="advertise-img">
-        <ion-card padding *ngFor="let item of article.thumbs;let i = index;" (tap)="toArticleCont(i)">
-            <img src="{{item.thumb}}"/>
+    <div class="advertise-detail">
+        <h2 class="advertise-tit" *ngIf="item['id']">{{item['title']}}</h2>
+        <div class="date">{{item['createtime']}}</div>
+        <div class="advertise-cont" [innerHTML]="assembleHTML(item['detail'])"></div>
+    </div>
+    <div class="advertise-img" *ngIf="list">
+        <ion-card padding *ngFor="let article of list;let i = index;"
+                  (tap)="toArticleCont(item['category_id'],article['id'])">
+            <img src="{{article['thumb']}}"/>
             <ion-card-title text-center padding>
-                {{item.title}}
+                {{article['title']}}
+                <br>
+                <span style="font-size: 12px;color: red">{{article['createtime']}}</span>
             </ion-card-title>
         </ion-card>
     </div>

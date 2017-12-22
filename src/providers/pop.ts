@@ -69,9 +69,9 @@ export class PopProvider {
     toast(message:string = "",position:string = "bottom") {
         let toast = this.toastCtrl.create({
             message: message,
-            duration: 2000,
+            duration: 1500,
             position: position,     //"top", "middle", "bottom".
-            cssClass: '',
+            cssClass: 'pop-box',
             showCloseButton: false,
             closeButtonText: "关闭",
             dismissOnPageChange: false,     //当页面变化时是否dismiss

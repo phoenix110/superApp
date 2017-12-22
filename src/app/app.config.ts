@@ -5,7 +5,7 @@
 // export const APP_SERVE_URL:string = 'http://192.168.1.88/v1';
 // export const APP_SERVE_URL:string = 'http://kmf.dev.ipvp.cn/v1';
 // 生产环境
-// export const APP_SERVE_URL:string = 'http://weixin.com/app/index.php?i=2&c=entry&do=api&m=vapp';
+//export const APP_SERVE_URL:string = 'http://weixin.com/app/index.php?i=2&c=entry&do=api&m=vapp';
 export const APP_SERVE_URL:string = 'http://wx.51muma.com/app/index.php?i=6&c=entry&do=api&m=vapp';
 //AES加密key
 export const AES_key:string =")O[NB]6,YF}+efcaj{+oESb9d8>Z'e9M";

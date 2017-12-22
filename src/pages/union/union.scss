@@ -2,6 +2,9 @@
 $background:#f4f4f4;
 #page-union {
     background:$background;
+  span.title{
+    font-size: 14px;
+  }
   .swiper-box{
     position: fixed;
     top: 44px;
@@ -26,9 +29,19 @@ $background:#f4f4f4;
     margin-top: 65px;
     .card-pic {
       .top-img{
+        position: relative;
         @include position(relative,0,0);
         .gray-bg{
           @include grayBg(100%,100%);
+        }
+        .desc{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 30px;
+          line-height: 30px;
+          background: rgba(0,0,0,0.6);
+          color: #ffffff
         }
       }
       ion-avatar {

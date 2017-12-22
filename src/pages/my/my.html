@@ -9,15 +9,15 @@
 </ion-header>
 
 <ion-content id="my-content" class="cont-background">
-    <ion-card *ngIf="my.isLogin.status == 0">
+    <ion-card *ngIf="false">
         <ul class="card-title">
-            <li *ngFor="let item of my.isLogin.userIcon"><a href="javascript:;"><img src="{{item}}" alt=""></a></li>
+            <li><a href="javascript:;"><img src="#img#" alt=""></a></li>
         </ul>
         <ion-card-content>
             <ion-card-title no-padding>
                 <h1 text-center>未登录</h1>
             </ion-card-title>
-            <p text-center>当前共有{{my.isLogin.cards}}张名片</p>
+            <p text-center>当前共有10张名片</p>
             <p text-center>你也可以拥有自已的专属APP名片</p>
             <p text-center>请先登录或注册</p>
             <button ion-button color="danger" padding text-center>登录</button>
@@ -34,7 +34,7 @@
                 <ion-icon ios="ios-film" md="md-film"></ion-icon>
                 <b>超媒体</b>
             </li>
-            <li tappable (click)="toUser(20)">
+            <li tappable (click)="toUserPage()">
                 <ion-icon ios="ios-person" md="md-person"></ion-icon>
                 <b>个人中心</b>
             </li>
@@ -44,12 +44,14 @@
             </li>
         </ul>
         <ul class="my-concern flex-row-around">
-            <li [class.active]="i == listNum" *ngFor="let item of my.info.category;let i = index;" tappable (click)="getCateList(i)"><button>{{item.title}}</button></li>
+            <li [class.active]="i==active_index" tappable (click)="getListByType(i)" *ngFor="let type of types;let i= index" ><button>{{type}}</button></li>
         </ul>
     </section>
     <section class="count-box">
         <ul class="my-count flex-row-between" padding-horizontal>
-            <li *ngFor="let item of my.info.count"><span>{{item.title}}</span><b>{{item.num}}</b></li>
+            <li><span>发表</span><b>100</b></li>
+            <li><span>成员</span><b>100</b></li>
+            <li><span>GDP</span><b>100</b></li>
         </ul>
     </section>
     <!--点评列表-->

@@ -11,15 +11,10 @@
 <ion-content id="page-union" class="cont-bg" style="position:relative;">
     <nav class="nav-bar">
       <div class="nav-scroll">
-        <!--<ion-slides pager="false">-->
-        <!--<ion-slide *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)" >-->
-        <!--<button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>-->
-        <!--</ion-slide>-->
-        <!--</ion-slides>-->
         <div class="swiper-container swiper-box">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" *ngFor="let item of union;let i = index"  tappable (click)="categoryList(i)">
-              <button ion-button [style.background-color]="colorArr[i]" >{{item.name}}</button>
+            <div class="swiper-slide" *ngFor="let category of categories;let i= index">
+              <button (click)="getCompanyList(i,category['id'])" ion-button [ngStyle]="{'background-color':active_index == i?'black':colors[i%8]}">{{category['title']}}</button>
             </div>
           </div>
         </div>
@@ -27,20 +22,21 @@
     </nav>
 
   <div class="card-box">
-    <ion-card class="card-pic" *ngFor="let item of recommend" (tap)="toCompany( item.id )">
+    <ion-card class="card-pic" *ngFor="let company of companies" (tap)="toCompany(company['id'])">
       <div class="top-img">
-        <img src="{{item.imgSrc}}">
-        <div class="gray-bg"></div>
+          <img src="{{company['thumb']}}">
+          <div class="desc">
+              <marquee onMouseOut="this.start()" onMouseOver="this.stop()">
+                  {{company['desc']}}
+              </marquee>
+          </div>
       </div>
       <ion-item>
         <ion-avatar item-start>
-          <img src="{{item.thumb}}">
-          <div class="gray-bg"></div>
+          <img src="{{company['logo']}}">
         </ion-avatar>
-        <h2>{{item.title}}</h2>
+        <span class="title">{{company['title']}}</span>
       </ion-item>
     </ion-card>
-
   </div>
-
 </ion-content>

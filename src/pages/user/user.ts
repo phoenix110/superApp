@@ -24,6 +24,7 @@ export class UserPage {
         nickname:"未设置昵称",
         address:""
     };
+
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public Pop: PopProvider,

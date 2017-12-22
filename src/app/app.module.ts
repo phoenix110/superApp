@@ -22,6 +22,11 @@ import {UserProvider} from '../providers/user';
 import {ValidateProvider} from '../providers/validate';
 import {GlobalDataProvider} from '../providers/globalData';
 import {LoggerProvider} from '../providers/logger';
+import {UnionProvider} from "../providers/union";
+import {CompanyProvider} from "../providers/company";
+import { ArticleProvider } from '../providers/article';
+import { FindProvider } from '../providers/find';
+import { AuthProvider } from '../providers/auth';
 
 @NgModule({
     declarations: [
@@ -60,7 +65,12 @@ import {LoggerProvider} from '../providers/logger';
         UserProvider,
         ValidateProvider,
         GlobalDataProvider,
-        LoggerProvider
+        LoggerProvider,
+        UnionProvider,
+        CompanyProvider,
+        ArticleProvider,
+        FindProvider,
+        AuthProvider
     ]
 })
 export class AppModule {
