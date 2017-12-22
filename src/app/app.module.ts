@@ -27,6 +27,7 @@ import {CompanyProvider} from "../providers/company";
 import { ArticleProvider } from '../providers/article';
 import { FindProvider } from '../providers/find';
 import { AppProvider } from '../providers/app';
+import {PopProvider} from "../providers/pop";
 
 @NgModule({
     declarations: [
@@ -70,7 +71,8 @@ import { AppProvider } from '../providers/app';
         CompanyProvider,
         ArticleProvider,
         FindProvider,
-        AppProvider
+        AppProvider,
+        PopProvider
     ]
 })
 export class AppModule {
