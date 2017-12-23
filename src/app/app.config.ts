@@ -26,7 +26,7 @@ export class AppConfig {
     //APP信息
     static platform:string = '';          // android  ios
     static appName:string = 'CRM_KmfApp';           //CRM_KmfApp
-    static appVersion:string = '2.0.3';        //版本号 2.0.2
+    static appVersion:string = '2.0.5';        //版本号 2.0.2
     //常规配置
     static userProtocol:string = '';      //用户协议
     //导购用户信息

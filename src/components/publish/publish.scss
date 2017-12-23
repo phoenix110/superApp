@@ -1,0 +1,16 @@
+publish {
+  textarea{
+    width: 100%;
+    height: 150px;
+    padding: 5px;
+    border: 1px solid #eee;
+  }
+  .images-show{
+    display: flex;
+    display: -webkit-flex;
+    img{
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

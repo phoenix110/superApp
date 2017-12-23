@@ -80,11 +80,9 @@ export class UserEditPage {
           return false;
       }
       this.cityArr = cityArr.split("-");
-      console.log(this.cityArr)
       this.userInfo.province  = this.cityArr[0];
       this.userInfo.city  = this.cityArr[1];
       this.userInfo.district  = this.cityArr[2];
-      console.log(this.userInfo)
       this.Http.getToken().subscribe(res=>{
           if(res == false){
               this.navCtrl.push("LoginPage");

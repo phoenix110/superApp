@@ -16,6 +16,7 @@ export class HeaderComponent {
   @Input() headerTitle: string;
   @Input() save: string;
   @Input() addAddress: string;
+  @Input() publish;
 
   constructor(public navCtrl:NavController) {
     console.log('Hello HeaderComponent Component');
@@ -28,4 +29,9 @@ export class HeaderComponent {
   public saveAddress(){
       this.navCtrl.pop();
   }
+
+  //发表圈子
+    pushArticle(){
+
+    }
 }

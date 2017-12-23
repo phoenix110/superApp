@@ -161,7 +161,7 @@ export class NativeProvider {
                         })
                     }
                 }
-            }).catch(err => {
+            }) .catch(err => {
                 this.logger.log(err, '通过图库选择多图失败');
                 this.Pop.alert('获取照片失败');
             });

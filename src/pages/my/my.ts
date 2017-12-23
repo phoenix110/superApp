@@ -46,13 +46,22 @@ export class MyPage {
 
     //跳转到toUserPage
     toUserPage(){
-        this.storage.get('token').then((token) => {
-            if(token){
-                this.navCtrl.push('UserPage');
+        this.checkLogin('UserPage');
+    }
+
+    //跳转到发表界面
+    toPushPage(){
+        this.checkLogin('PushPage');
+    }
+
+    //检查是否登录
+    checkLogin(page,params = {}){
+        this.http.getToken().subscribe(res =>{
+            if(!res){
+                this.navCtrl.push('LoginPage');
                 return true;
             }
-            this.pop.toast('请先登录');
-            this.navCtrl.push('LoginPage');
+            this.navCtrl.push(page,params);
         });
     }
 }
