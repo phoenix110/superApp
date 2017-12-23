@@ -1,0 +1,49 @@
+@import "../../theme/function";
+
+add-comment {
+  .add-comment {
+    position: fixed;
+    bottom:-45px;
+    left:0;
+    width: 100%;
+    @include transition(1s);
+    background: #f9f9f9;
+    border-top: 1px solid #ccc;
+    height: 45px;
+    line-height: 30px;
+    &.active{
+      bottom:0;
+      @include transition(1s);
+    }
+    ion-grid{
+      height:100%;
+      ion-row {
+        align-items: center;
+        height: 100%;
+        ion-col {
+        }
+      }
+      .add-picture{
+        ion-icon{
+          font-size: 33px;
+        }
+      }
+      ion-input {
+        background: #fff;
+        border: 1px solid #ccc;
+        padding-left:3px;
+        @include radius(5px);
+      }
+      .send-comment {
+        @include radius(5px);
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        width: 80%;
+        height: 90%;
+        display: inline-block;
+      }
+    }
+
+  }
+}

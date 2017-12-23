@@ -1,0 +1,16 @@
+<!-- Generated template for the AddCommentComponent component -->
+<section  [class.active]="showStatus"  class="add-comment">
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-2 text-center class="add-picture"  (click)="addPicture()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-col>
+      <ion-col col-8>
+        <ion-input no-margin placeholder="评论..."></ion-input>
+      </ion-col>
+      <ion-col col-2 text-center>
+        <span class="send-comment" (click)="sendComment()">发送</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</section>
