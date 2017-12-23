@@ -13,6 +13,10 @@
     <section class="login-form">
         <div class="form-item flex-row-start">
             <ion-icon name="person"></ion-icon>
+            <ion-input type="number" placeholder="请输入推荐人编号" [(ngModel)]="userInfo.parent_uid"></ion-input>
+        </div>
+        <div class="form-item flex-row-start">
+            <ion-icon name="phone-portrait"></ion-icon>
             <ion-input type="number" placeholder="请输入您的手机号" [(ngModel)]="userInfo.mobile"></ion-input>
         </div>
         <div class="form-item flex-row-start">

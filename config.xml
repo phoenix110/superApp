@@ -89,6 +89,8 @@
     <allow-navigation href="http://192.168.0.106:8101" />
     <allow-navigation href="http://192.168.56.1:8101" />
     <allow-navigation href="http://192.168.0.103:8101" />
+    <allow-navigation href="http://192.168.0.103:8100" />
+    <allow-navigation href="http://192.168.0.103:8103" />
     <engine name="android" spec="6.2.3" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.7" />
@@ -102,4 +104,5 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="是否允许访问您的相册" />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="^2.1.4" />
+    <plugin name="cordova-plugin-file" spec="^4.3.3" />
 </widget>

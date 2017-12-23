@@ -22,7 +22,8 @@ export class RegisterPage {
         mobile: "",
         password: "",
         repassword: "",
-        code: ""
+        code: "",
+        parent_uid:''
     };
     public codeText = "获取验证码";
     public codeStatus = false;
@@ -51,7 +52,6 @@ export class RegisterPage {
 
     // 新用户注册
     public register() {
-        console.log(this.User.validate(this.userInfo))
         if(!this.User.validate(this.userInfo)){
             return false;
         }

@@ -1,3 +1,5 @@
+@import "../../theme/function";
+
 qrcode {
   .qrcode-box{
     @include position(fixed,0,null,null,0);
