@@ -17,6 +17,9 @@ import {FindProvider} from "../../providers/find";
   templateUrl: 'my.html',
 })
 export class MyPage {
+    public circleData = {
+
+    };
     public codeStatus = false;
     public active_index = 0;//当前激活的条件
     //筛选条件
@@ -39,9 +42,8 @@ export class MyPage {
 
 
   }
-
   ionViewDidLoad() {
-
+      this.getList(0,1);
   }
 
   //根据不同类型筛选不同的数据列表
@@ -80,11 +82,13 @@ export class MyPage {
     }
 
     public getList(type,page){
-        this.find.getCircleList(type,page).subscribe(res=>{
-            if(res.code == '-1'){
-
+        let res = this.find.getCircleList(type,page).subscribe(res=>{
+            if(res === false){
+                this.navCtrl.push("LoginPage");
+                return false;
             }
-        });
+            console.log(res);
+        })
     }
 
 }

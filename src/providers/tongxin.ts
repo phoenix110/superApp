@@ -23,7 +23,8 @@ export class TongxinProvider {
     public publish:Publish = {
         circleData:{}
     };
-    constructor() {
+    constructor(
+    ) {
         console.log('Hello TongxinProvider Provider');
     }
     private Source=new Subject<any>();
@@ -38,4 +39,5 @@ export class TongxinProvider {
     public pubCircle(data){
         this.publish.circleData = data;
     }
+
 }
