@@ -18,6 +18,7 @@ import { QrcodeModule } from './qrcode/qrcode.module';
 import { AddressItemModule } from './address-item/address-item.module';
 import { GoodPicsModule } from './good-pics/good-pics.module';
 import { GoodChatModule } from './good-chat/good-chat.module';
+import { AddCommentModule } from './add-comment/add-comment.module';
 import {PublishModule} from './publish/publish.module';
 
 @NgModule({
@@ -43,6 +44,7 @@ import {PublishModule} from './publish/publish.module';
         AddressItemModule,
         GoodPicsModule,
         GoodChatModule,
+        AddCommentModule,
         PublishModule
     ]
 })

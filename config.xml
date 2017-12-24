@@ -3,7 +3,11 @@
     <name>百变APP</name>
     <description>An content all things app.</description>
     <author email="shiLiang" href="http://ionicframework.com/">Ionic Framework Team</author>
+<<<<<<< HEAD
     <content original-src="index.html" src="http://192.168.0.103:8100" />
+=======
+    <content original-src="index.html" src="http://192.168.0.107:8101" />
+>>>>>>> 56a51cccb8dc4d849fdf24bf402e84d61519f33f
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
@@ -91,18 +95,20 @@
     <allow-navigation href="http://192.168.0.103:8101" />
     <allow-navigation href="http://192.168.0.103:8100" />
     <allow-navigation href="http://192.168.0.103:8103" />
+    <allow-navigation href="http://192.168.0.107:8101" />
+    <allow-navigation href="http://192.168.19.2:8101" />
     <engine name="android" spec="6.2.3" />
-    <plugin name="cordova-plugin-console" spec="^1.1.0" />
-    <plugin name="cordova-plugin-device" spec="^1.1.7" />
-    <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
-    <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <plugin name="cordova-plugin-actionsheet" spec="^2.3.3" />
-    <plugin name="cordova-plugin-camera" spec="^2.4.1" />
     <plugin name="com.synconset.imagepicker" spec="^2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="是否允许访问您的相册" />
     </plugin>
-    <plugin name="cordova-sqlite-storage" spec="^2.1.4" />
+    <plugin name="cordova-plugin-actionsheet" spec="^2.3.3" />
+    <plugin name="cordova-plugin-camera" spec="^2.4.1" />
+    <plugin name="cordova-plugin-console" spec="^1.1.0" />
+    <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <plugin name="cordova-plugin-file" spec="^4.3.3" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-sqlite-storage" spec="^2.1.4" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
 </widget>

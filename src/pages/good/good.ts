@@ -19,12 +19,12 @@ export class GoodPage {
   public goodDetail: Object= {};
   public loginStatus:false;
     constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+        this.goodsData();
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GoodPage');
-    this.goodsData();
   }
   // 请求商品详情页数据
   public goodsData(){

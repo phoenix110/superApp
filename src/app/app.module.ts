@@ -28,6 +28,7 @@ import { ArticleProvider } from '../providers/article';
 import { FindProvider } from '../providers/find';
 import { AppProvider } from '../providers/app';
 import {PopProvider} from "../providers/pop";
+import { TongxinProvider } from '../providers/tongxin';
 
 @NgModule({
     declarations: [
@@ -72,7 +73,8 @@ import {PopProvider} from "../providers/pop";
         ArticleProvider,
         FindProvider,
         AppProvider,
-        PopProvider
+        PopProvider,
+    TongxinProvider
     ]
 })
 export class AppModule {

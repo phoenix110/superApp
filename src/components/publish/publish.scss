@@ -8,9 +8,25 @@ publish {
   .images-show{
     display: flex;
     display: -webkit-flex;
-    img{
-      width: 80px;
-      height: 80px;
+
+  }
+  .push-btns{
+    flex-wrap: wrap;
+
+    li{
+      flex:0 0 23%;
+      padding: 5px 0;
+      box-sizing: border-box;
+      border:1px solid #ccc;
+      display: flex;
+      margin: 5px 1%;
+      display: -webkit-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      ion-icon{
+        font-size: 20px;
+      }
     }
   }
 }

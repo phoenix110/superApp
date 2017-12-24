@@ -1,4 +1,4 @@
-import {Component, Input, ViewChild} from '@angular/core';
+import {Component, Input, ViewChild,OnChanges} from '@angular/core';
 import { Slides , NavController} from 'ionic-angular';
 /**
  * Generated class for the GoodStyleComponent component.
@@ -10,7 +10,7 @@ import { Slides , NavController} from 'ionic-angular';
   selector: 'good-detail',
   templateUrl: 'good-detail.html'
 })
-export class GoodDetailComponent {
+export class GoodDetailComponent implements OnChanges{
   @Input() goodInfo:Object = {};
   @ViewChild(Slides) slides: Slides;
   text: string;
@@ -18,9 +18,10 @@ export class GoodDetailComponent {
   constructor(public navCtrl:NavController) {
     console.log('Hello GoodStyleComponent Component');
     this.text = 'Hello World';
+      console.log(this.goodInfo)
 
   }
-    ngOnInit(){
+    ngOnChanges(){
     console.log(this.goodInfo)
     }
     // 跳转至产品（秀）图片详情页
