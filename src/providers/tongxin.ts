@@ -9,24 +9,33 @@ import { Subject } from "rxjs/Subject";
 */
 export class Comment {
     showStatus:boolean;
-    commentId:number;
+    commentData:object;
+}
+export class Publish{
+    circleData:object
 }
 @Injectable()
 export class TongxinProvider {
     public commentStatus:Comment = {
         showStatus:false,
-        commentId:0
+        commentData:{}
     };
-
+    public publish:Publish = {
+        circleData:{}
+    };
     constructor() {
         console.log('Hello TongxinProvider Provider');
     }
     private Source=new Subject<any>();
     public Status$=this.Source.asObservable();
-    // 添加评论组件通信
-    public comment(id) {
+    // 圈子添加评论组件间通信
+    public CircleComment(data) {
         this.commentStatus.showStatus = !this.commentStatus.showStatus;
-        this.commentStatus.commentId = id;
+        this.commentStatus.commentData = data;
        this.Source.next(this.commentStatus);
+    }
+    // 个人中心发布页组件通信
+    public pubCircle(data){
+        this.publish.circleData = data;
     }
 }

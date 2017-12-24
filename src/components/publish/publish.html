@@ -2,8 +2,33 @@
 <div class="push-box">
     <textarea placeholder="请输入内容"></textarea>
     <div class="images-show">
-        <img *ngFor="let item of images.src" src="{{item}}">
+        <img src="{{item}}" *ngFor="let item of images;let i = index;">
     </div>
-    <button ion-button color="dark" outline (click)="uploadFiles()">+</button>
+    <div class="push-file">
+        <img src="" alt="" *ngIf="hasPic">
+        <video src="" *ngIf="hasVideo"></video>
+    </div>
+    <ul class="push-btns flex-row-start" >
+        <li tappable (click)="uploadPics()">
+            <ion-icon name="ios-image"></ion-icon>
+            <span>图片</span>
+        </li>
+        <li tappable (click)="uploadVideo()">
+            <ion-icon name="ios-videocam"></ion-icon>
+            <span>视频</span>
+        </li>
+        <li>
+            <ion-icon class="iconfont icon-card"></ion-icon>
+            <span>名片</span>
+        </li>
+        <li>
+            <ion-icon class="iconfont icon-iconfonthongbao0"></ion-icon>
+            <span>红包</span>
+        </li>
+        <li>
+            <ion-icon name="ios-stats"></ion-icon>
+            <span>投票</span>
+        </li>
+    </ul>
 </div>
 

@@ -15,7 +15,7 @@ import {NativeProvider} from "../../providers/native";
 })
 export class AddCommentComponent {
     private showStatus: boolean = false;
-    private commentId: number = 0;
+    private commentData: object = {};
     public pictures: Array<string> = [];
     constructor(public TongXin: TongxinProvider,
                 public native: NativeProvider,
@@ -27,7 +27,7 @@ export class AddCommentComponent {
     public subComment() {
         this.TongXin.Status$.subscribe(res => {
             this.showStatus = res.showStatus;
-            this.commentId = res.commentId;
+            this.commentData = res.commentData;
         });
     }
 
@@ -41,14 +41,15 @@ export class AddCommentComponent {
                     role: 'destructive',
                     handler: () => {
                         this.native.getPictureByCamera().subscribe(imageBase64 => {
-                            this.pictures.push(imageBase64);
+                            this.commentData['comment'][0]['pictures'].push(imageBase64);
                         })
                     }
                 }, {
                     text: '图库',
                     handler: () => {
-                        this.native.getPictureByPhotoLibrary().subscribe(imageBase64 => {
-                            this.pictures.push(imageBase64);
+                        this.native.getMultiplePicture().subscribe(picsArr => {
+                            let oldPics = this.commentData['comment'][0]['pictures'];
+                            oldPics.push.apply(oldPics,picsArr);
                         })
                     }
                 }, {
