@@ -30,15 +30,11 @@
                 <ion-icon ios="ios-brush" md="md-brush"></ion-icon>
                 <b>发表圈子</b>
             </li>
-            <li>
-                <ion-icon ios="ios-film" md="md-film"></ion-icon>
-                <b>超媒体</b>
-            </li>
             <li tappable (click)="toUserPage()">
                 <ion-icon ios="ios-person" md="md-person"></ion-icon>
                 <b>个人中心</b>
             </li>
-            <li>
+            <li tappable (click)="showQr()">
                 <ion-icon ios="ios-list-box" md="md-list-box"></ion-icon>
                 <b>我的名片</b>
             </li>
@@ -59,4 +55,7 @@
     <comment *ngIf="listNum > 1" [commentList]="my.circle[listNum-1]"></comment>
     <!--点评头条-->
     <topnews *ngIf="listNum == 1" [topNews]="my.topNews"></topnews>
+
+    <!-- 我的名片 -->
+    <qrcode  *ngIf="codeStatus" (hideQr)="fadeOut($event)"></qrcode>
 </ion-content>

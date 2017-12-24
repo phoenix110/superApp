@@ -3,6 +3,7 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { PopProvider } from "../../providers/pop";
 import { HttpProvider } from "../../providers/http";
+import {FindProvider} from "../../providers/find";
 
 /**
  * Generated class for the MyPage page.
@@ -16,6 +17,7 @@ import { HttpProvider } from "../../providers/http";
   templateUrl: 'my.html',
 })
 export class MyPage {
+    public codeStatus = false;
     public active_index = 0;//当前激活的条件
     //筛选条件
     public types = [
@@ -30,7 +32,10 @@ export class MyPage {
       public navParams: NavParams,
       public http:HttpProvider,
       public storage:Storage,
-      public pop:PopProvider) {
+      public pop:PopProvider,
+      public find:FindProvider
+
+  ) {
 
 
   }
@@ -64,4 +69,22 @@ export class MyPage {
             this.navCtrl.push(page,params);
         });
     }
+
+    public showQr(){
+        this.codeStatus = true
+
+
+    }
+    public fadeOut(event){
+        this.codeStatus = event;
+    }
+
+    public getList(type,page){
+        this.find.getCircleList(type,page).subscribe(res=>{
+            if(res.code == '-1'){
+
+            }
+        });
+    }
+
 }

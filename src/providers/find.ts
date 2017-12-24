@@ -24,4 +24,14 @@ export class FindProvider {
       });
   }
 
+
+  //获取圈子列表
+    public getCircleList(type = 0,page = 1){
+        return this.http.post({
+            op:'get_circle_list',
+            type:type,
+            page:page
+        });
+    }
+
 }
