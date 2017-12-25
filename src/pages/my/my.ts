@@ -17,8 +17,12 @@ import {FindProvider} from "../../providers/find";
   templateUrl: 'my.html',
 })
 export class MyPage {
+    //圈子数据
     public circleData = {
-
+        'push_num':0,
+        'member_num':0,
+        'sum_credit2':0,
+        'list':[]
     };
     public codeStatus = false;
     public active_index = 0;//当前激活的条件
@@ -42,13 +46,16 @@ export class MyPage {
 
 
   }
+
+
   ionViewDidLoad() {
-      this.getList(0,1);
+      this.getData();
   }
 
   //根据不同类型筛选不同的数据列表
     getListByType(type){
       this.active_index = type;
+      this.getData(type);
     }
 
     //跳转到toUserPage
@@ -81,14 +88,19 @@ export class MyPage {
         this.codeStatus = event;
     }
 
-    public getList(type,page){
-        let res = this.find.getCircleList(type,page).subscribe(res=>{
-            if(res === false){
-                this.navCtrl.push("LoginPage");
-                return false;
-            }
-            console.log(res);
-        })
+    public getData(type = 0,page = 1){
+        this.storage.get('token').then((token)=>{
+            this.find.getCircleList(type,page,token).subscribe(res=>{
+                if(res.code == 0){
+                    this.circleData = res.data;
+                    return true;
+                }
+                this.pop.toast(res.message);
+                if(res.code == '-1'){
+                    this.navCtrl.push("LoginPage");
+                }
+            })
+        });
     }
 
 }

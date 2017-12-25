@@ -25,22 +25,13 @@ export class FindProvider {
       });
   }
     //获取圈子列表
-    public getCircleList($this,type = 0,page = 1) {
-        return Observable.create(observer => {
-            this.http.post({
-                op: 'get_circle_list',
-                type: type,
-                page: page
-            }).subscribe(res => {
-                if (res.code == '0') {
-                    $this.circleData = res.data;
-                }
-                if (res.code == '-1') {
-                    observer.next(false);
-                }
-            });
-        })
-
+    public getCircleList(type = 0,page = 1,token = '') {
+        return this.http.post({
+            op: 'get_circle_list',
+            type: type,
+            page: page,
+            token:token
+        });
     }
 
 }
