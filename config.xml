@@ -3,7 +3,12 @@
     <name>百变APP</name>
     <description>An content all things app.</description>
     <author email="shiLiang" href="http://ionicframework.com/">Ionic Framework Team</author>
+<<<<<<< HEAD
     <content original-src="index.html" src="http://192.168.0.104:8101" />
+=======
+    <content original-src="index.html" src="http://192.168.0.103:8100" />
+    <content original-src="index.html" src="http://192.168.0.107:8101" />
+>>>>>>> 0d1845180a218fa3c644bdd7634a3dd1ae3cf926
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />

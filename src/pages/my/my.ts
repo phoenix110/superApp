@@ -3,6 +3,7 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { PopProvider } from "../../providers/pop";
 import { HttpProvider } from "../../providers/http";
+import {FindProvider} from "../../providers/find";
 
 /**
  * Generated class for the MyPage page.
@@ -16,6 +17,14 @@ import { HttpProvider } from "../../providers/http";
   templateUrl: 'my.html',
 })
 export class MyPage {
+    //圈子数据
+    public circleData = {
+        'push_num':0,
+        'member_num':0,
+        'sum_credit2':0,
+        'list':[]
+    };
+    public codeStatus = false;
     public active_index = 0;//当前激活的条件
     //筛选条件
     public types = [
@@ -30,18 +39,23 @@ export class MyPage {
       public navParams: NavParams,
       public http:HttpProvider,
       public storage:Storage,
-      public pop:PopProvider) {
+      public pop:PopProvider,
+      public find:FindProvider
+
+  ) {
 
 
   }
 
-  ionViewDidLoad() {
 
+  ionViewDidLoad() {
+      this.getData();
   }
 
   //根据不同类型筛选不同的数据列表
     getListByType(type){
       this.active_index = type;
+      this.getData(type);
     }
 
     //跳转到toUserPage
@@ -64,4 +78,29 @@ export class MyPage {
             this.navCtrl.push(page,params);
         });
     }
+
+    public showQr(){
+        this.codeStatus = true
+
+
+    }
+    public fadeOut(event){
+        this.codeStatus = event;
+    }
+
+    public getData(type = 0,page = 1){
+        this.storage.get('token').then((token)=>{
+            this.find.getCircleList(type,page,token).subscribe(res=>{
+                if(res.code == 0){
+                    this.circleData = res.data;
+                    return true;
+                }
+                this.pop.toast(res.message);
+                if(res.code == '-1'){
+                    this.navCtrl.push("LoginPage");
+                }
+            })
+        });
+    }
+
 }
