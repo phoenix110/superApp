@@ -21,7 +21,11 @@ import {PublishProvider} from "../../providers/publish";
 export class PushPage {
     public pubData:object = {
         content:"",
+<<<<<<< HEAD
         files:""
+=======
+        src:""
+>>>>>>> f0620c32425bda72a389c8f90ea53dac3d8d2fc4
     };
   constructor(
       public navCtrl: NavController,
@@ -39,7 +43,7 @@ export class PushPage {
     //上传文件
     public uploadPics(){
         let actionSheet = this.actionSheetCtrl.create({
-            title: '请选择图片/视频',
+            title: '请选择图片',
             buttons: [
                 {
                     text: '相机',
