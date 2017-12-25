@@ -18,7 +18,9 @@ export class HeaderComponent {
   @Input() addAddress: string;
   @Input() publish;
 
-  constructor(public navCtrl:NavController) {
+  constructor(
+      public navCtrl:NavController
+  ) {
     console.log('Hello HeaderComponent Component');
   }
   // 跳转至新增收货地址页面
@@ -29,9 +31,4 @@ export class HeaderComponent {
   public saveAddress(){
       this.navCtrl.pop();
   }
-
-  //发表圈子
-    pushArticle(){
-
-    }
 }

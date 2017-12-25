@@ -34,8 +34,10 @@ export class TongxinProvider {
         this.commentStatus.commentData = data;
        this.Source.next(this.commentStatus);
     }
-    // 个人中心发布页组件通信
+    // 个人中心发布页（完成组件和编辑组件）通信
     public pubCircle(data){
         this.publish.circleData = data;
+        this.Source.next(this.publish.circleData);
+
     }
 }

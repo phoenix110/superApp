@@ -24,7 +24,7 @@ import { IMAGE_SIZE, QUALITY_SIZE } from "./constant";
 */
 @Injectable()
 export class NativeProvider {
-
+    public formData;
     constructor(
         public platform:Platform,
         // public network:Network,
@@ -139,6 +139,7 @@ export class NativeProvider {
      */
     getMultiplePicture(options = {}): Observable<any> {
         let that = this;
+        this.formData = new FormData();
         let ops = Object.assign({
             maximumImagesCount: 6,
             width: IMAGE_SIZE,//缩放图像的宽度（像素）
@@ -146,16 +147,21 @@ export class NativeProvider {
             quality: QUALITY_SIZE//图像质量，范围为0 - 100
         }, options);
         return Observable.create(observer => {
-            this.imagePicker.getPictures(ops).then(files => {
+            this.imagePicker.getPictures(ops).then(filesUrl => {
                 let destinationType = options['destinationType'] || 0;//0:base64字符串,1:图片url
                 if (destinationType === 1) {
-                    observer.next(files);
+                    observer.next(filesUrl);
+                    // for (let file of filesUrl){
+                    //     this.formData.append("file[]", file);
+                    // }
+                    this.formData.append("file", "22222");
+                    console.log(this.formData)
                 } else {
                     let imgBase64s = [];//base64字符串数组
-                    for (let fileUrl of files) {
+                    for (let fileUrl of filesUrl) {
                         that.convertImgToBase64(fileUrl).subscribe(base64 => {
                             imgBase64s.push(base64);
-                            if (imgBase64s.length === files.length) {
+                            if (imgBase64s.length === filesUrl.length) {
                                 observer.next(imgBase64s);
                             }
                         })
@@ -180,7 +186,7 @@ export class NativeProvider {
                     reader.onloadend = function (e) {
                         observer.next(this.result);
                     };
-                    reader.readAsDataURL(file);
+                    reader.readAsArrayBuffer(file);
                 });
             }).catch(err => {
                 this.logger.log(err, '根据图片绝对路径转化为base64字符串失败');

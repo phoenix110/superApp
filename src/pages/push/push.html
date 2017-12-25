@@ -5,10 +5,45 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <header [headerTitle]="'发表'" [publish]="'完成'"></header>
+    <ion-navbar color="white">
+        <ion-title>发布</ion-title>
+        <span float-end  class="text-btn" tappable (click)="pushCircle()">完成</span>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-    <publish></publish>
+    <!-- Generated template for the PublishComponent component -->
+    <div class="push-box">
+        <textarea placeholder="请输入内容" [(ngModel)]="pubData.content"></textarea>
+        <div class="images-show">
+            <img src="{{item}}" *ngFor="let item of images;let i = index;">
+        </div>
+        <div class="push-file">
+            <img src="" alt="" *ngIf="hasPic">
+            <video src="" *ngIf="hasVideo"></video>
+        </div>
+        <ul class="push-btns flex-row-start" >
+            <li tappable (click)="uploadPics()">
+                <ion-icon name="ios-image"></ion-icon>
+                <span>图片</span>
+            </li>
+            <li tappable (click)="uploadVideo()">
+                <ion-icon name="ios-videocam"></ion-icon>
+                <span>视频</span>
+            </li>
+            <li>
+                <ion-icon class="iconfont icon-card"></ion-icon>
+                <span>名片</span>
+            </li>
+            <li>
+                <ion-icon class="iconfont icon-iconfonthongbao0"></ion-icon>
+                <span>红包</span>
+            </li>
+            <li>
+                <ion-icon name="ios-stats"></ion-icon>
+                <span>投票</span>
+            </li>
+        </ul>
+    </div>
 </ion-content>
