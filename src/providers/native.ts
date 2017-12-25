@@ -139,7 +139,6 @@ export class NativeProvider {
      */
     getMultiplePicture(options = {}): Observable<any> {
         let that = this;
-        this.formData = new FormData();
         let ops = Object.assign({
             maximumImagesCount: 6,
             width: IMAGE_SIZE,//缩放图像的宽度（像素）
@@ -151,11 +150,6 @@ export class NativeProvider {
                 let destinationType = options['destinationType'] || 0;//0:base64字符串,1:图片url
                 if (destinationType === 1) {
                     observer.next(filesUrl);
-                    // for (let file of filesUrl){
-                    //     this.formData.append("file[]", file);
-                    // }
-                    this.formData.append("file", "22222");
-                    console.log(this.formData)
                 } else {
                     let imgBase64s = [];//base64字符串数组
                     for (let fileUrl of filesUrl) {

@@ -2,7 +2,7 @@
  * 请求地址头
  */
 // 测试环境
-// export const APP_SERVE_URL:string = 'http://192.168.1.88/v1';
+// export const APP_SERVE_URL:sctring = 'http://192.168.1.88/v1';
 // export const APP_SERVE_URL:string = 'http://kmf.dev.ipvp.cn/v1';
 // 生产环境
 //export const APP_SERVE_URL:string = 'http://weixin.com/app/index.php?i=2&c=entry&do=api&m=vapp';
@@ -26,7 +26,7 @@ export class AppConfig {
     //APP信息
     static platform:string = '';          // android  ios
     static appName:string = 'CRM_KmfApp';           //CRM_KmfApp
-    static appVersion:string = '2.0.5';        //版本号 2.0.2
+    static appVersion:string = '2.0.6';        //版本号 2.0.2
     //常规配置
     static userProtocol:string = '';      //用户协议
     //导购用户信息

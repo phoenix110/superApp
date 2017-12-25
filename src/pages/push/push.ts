@@ -17,8 +17,8 @@ import {PopProvider} from "../../providers/pop";
 })
 export class PushPage {
     public pubData:object = {
-        content:"56565",
-        files:"21212121"
+        content:"",
+        src:""
     };
     public content; //存放发表的内容
     public images = []; //存放图片url
@@ -39,7 +39,7 @@ export class PushPage {
     //上传文件
     public uploadPics(){
         let actionSheet = this.actionSheetCtrl.create({
-            title: '请选择图片/视频',
+            title: '请选择图片',
             buttons: [
                 {
                     text: '相机',
