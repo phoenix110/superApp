@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { NativeProvider } from "../../providers/native";
 import {PopProvider} from "../../providers/pop";
+import { HttpProvider } from "../../providers/http";
+import {PublishProvider} from "../../providers/publish";
+
 /**
  * Generated class for the PushPage page.
  *
@@ -17,23 +20,20 @@ import {PopProvider} from "../../providers/pop";
 })
 export class PushPage {
     public pubData:object = {
-        content:"56565",
-        files:"21212121"
+        content:"",
+        files:""
     };
-    public content; //存放发表的内容
-    public images = []; //存放图片url
-    public video = "";  //存放视频url
-    public hasAdd:boolean = true;
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
+      public Http:HttpProvider,
       public pop:PopProvider,
       private actionSheetCtrl:ActionSheetController,
-      public native:NativeProvider) {
+      public native:NativeProvider,
+      public publish:PublishProvider) {
   }
 
   ionViewDidLoad() {
-
 
   }
     //上传文件
@@ -46,15 +46,14 @@ export class PushPage {
                     role: 'destructive',
                     handler: () => {
                         this.native.getPictureByCamera().subscribe(res => {
-                            this.images.push.apply(res);
+                            this.pubData['src'] = res;
                         })
                     }
                 },{
                     text: '图库',
                     handler: () => {
-                        this.native.getMultiplePicture({destinationType:1}).subscribe(res => {
-                            this.images.push.apply(res);
-                            console.log(res)
+                        this.native.getPictureByPhotoLibrary({}).subscribe(res => {
+                            this.pubData['src'] = res;
                         })
                     }
                 },{
@@ -78,7 +77,7 @@ export class PushPage {
                     role: 'destructive',
                     handler: () => {
                         this.native.getPictureByCamera({ mediaType:1}).subscribe(res => {
-                            this.video = res;
+                            this.pubData['src'] = res;
                         })
                     }
                 },{
@@ -94,6 +93,6 @@ export class PushPage {
     }
 //发表圈子
     public  pushCircle(){
-        console.log(this.pubData)
+        this.publish.pubCircle(this.pubData).subscribe();
     }
 }

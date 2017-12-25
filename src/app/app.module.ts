@@ -29,6 +29,7 @@ import { FindProvider } from '../providers/find';
 import { AppProvider } from '../providers/app';
 import {PopProvider} from "../providers/pop";
 import { TongxinProvider } from '../providers/tongxin';
+import { PublishProvider } from '../providers/publish';
 
 @NgModule({
     declarations: [
@@ -74,7 +75,8 @@ import { TongxinProvider } from '../providers/tongxin';
         FindProvider,
         AppProvider,
         PopProvider,
-    TongxinProvider
+    TongxinProvider,
+    PublishProvider
     ]
 })
 export class AppModule {

@@ -20,10 +20,10 @@
             <img src="{{item}}" *ngFor="let item of images;let i = index;">
         </div>
         <div class="push-file">
-            <img src="" alt="" *ngIf="hasPic">
-            <video src="" *ngIf="hasVideo"></video>
+            <img src="{{pubData.files}}" alt="" *ngIf="pubData.files">
+            <video src="{{pubData.files}}" *ngIf="pubData.files"></video>
         </div>
-        <ul class="push-btns flex-row-start" >
+        <ul class="push-btns flex-row-start" *ngIf="!pubData.files">
             <li tappable (click)="uploadPics()">
                 <ion-icon name="ios-image"></ion-icon>
                 <span>图片</span>
