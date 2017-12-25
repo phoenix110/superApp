@@ -16,14 +16,12 @@
     <!-- Generated template for the PublishComponent component -->
     <div class="push-box">
         <textarea placeholder="请输入内容" [(ngModel)]="pubData.content"></textarea>
-        <div class="images-show">
-            <img src="{{item}}" *ngFor="let item of images;let i = index;">
-        </div>
         <div class="push-file">
-            <img src="{{pubData.files}}" alt="" *ngIf="pubData.files">
-            <video src="{{pubData.files}}" *ngIf="pubData.files"></video>
+            <img src="{{pubData.src}}" alt="" *ngIf="hasPic">
+            <video src="{{pubData.src}}"  webkit-playsinline="true" playsinline="true"
+                   controls="controls" *ngIf="hasVideo"></video>
         </div>
-        <ul class="push-btns flex-row-start" *ngIf="!pubData.files">
+        <ul class="push-btns flex-row-start" *ngIf="!pubData.src">
             <li tappable (click)="uploadPics()">
                 <ion-icon name="ios-image"></ion-icon>
                 <span>图片</span>

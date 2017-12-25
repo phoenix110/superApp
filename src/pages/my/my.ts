@@ -93,6 +93,7 @@ export class MyPage {
             this.find.getCircleList(type,page,token).subscribe(res=>{
                 if(res.code == 0){
                     this.circleData = res.data;
+                    console.log(this.circleData)
                     return true;
                 }
                 this.pop.toast(res.message);

@@ -2,7 +2,7 @@
 
 comment {
   .circle-row {
-    border-bottom: 2px dotted #ddd;
+    border-bottom: 1px dotted #ddd;
     margin-bottom: 5px;
   }
   .circle-left img {
@@ -43,7 +43,11 @@ comment {
     }
     .circle-img {
       max-width: 80%;
-      height: auto;
+      max-height: 200px;
+      img{
+        width: 100%;
+        max-height: 200px;
+      }
     }
     .circle-banner {
       @include position(relative, 0, 0);

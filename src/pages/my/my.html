@@ -51,11 +51,13 @@
         </ul>
     </section>
     <!--点评列表-->
-    <comment *ngIf="listNum < 1" [commentList]="my.circle[listNum]"></comment>
-    <comment *ngIf="listNum > 1" [commentList]="my.circle[listNum-1]"></comment>
+    <comment [commentList]="circleData['list']"></comment>
+    <!--<comment *ngIf="listNum > 1" [commentList]="my.circle[listNum-1]"></comment>-->
     <!--点评头条-->
-    <topnews *ngIf="listNum == 1" [topNews]="my.topNews"></topnews>
+    <!--<topnews *ngIf="listNum == 1" [topNews]="my.topNews"></topnews>-->
 
     <!-- 我的名片 -->
     <qrcode  *ngIf="codeStatus" (hideQr)="fadeOut($event)"></qrcode>
+    <!--添加评论-->
+    <add-comment></add-comment>
 </ion-content>

@@ -47,6 +47,8 @@ export class CommentComponent {
     }
     // 发表评论
     public addComment(id){
+        console.log(id)
+        console.log(this.commentList[id])
         this.TongXin.CircleComment(this.commentList[id]);
     }
 }

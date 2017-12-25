@@ -19,8 +19,11 @@ export class PublishProvider {
 
     // 圈子发布
     public pubCircle(params) {
+
         let options = {
-            op: "",
+            op: "push_circle",
+            token:params.token,
+            content:params.content,
             src: params.src
         };
         return this.http.post(options);

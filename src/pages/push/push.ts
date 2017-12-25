@@ -5,6 +5,7 @@ import { NativeProvider } from "../../providers/native";
 import {PopProvider} from "../../providers/pop";
 import { HttpProvider } from "../../providers/http";
 import {PublishProvider} from "../../providers/publish";
+import { ValidateProvider } from "../../providers/validate";
 
 /**
  * Generated class for the PushPage page.
@@ -21,12 +22,10 @@ import {PublishProvider} from "../../providers/publish";
 export class PushPage {
     public pubData:object = {
         content:"",
-<<<<<<< HEAD
-        files:""
-=======
         src:""
->>>>>>> f0620c32425bda72a389c8f90ea53dac3d8d2fc4
     };
+    public hasPic:boolean = false;
+    public hasVideo:boolean = false;
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
@@ -34,7 +33,8 @@ export class PushPage {
       public pop:PopProvider,
       private actionSheetCtrl:ActionSheetController,
       public native:NativeProvider,
-      public publish:PublishProvider) {
+      public publish:PublishProvider,
+      public validate:ValidateProvider) {
   }
 
   ionViewDidLoad() {
@@ -50,14 +50,20 @@ export class PushPage {
                     role: 'destructive',
                     handler: () => {
                         this.native.getPictureByCamera().subscribe(res => {
+                            this.hasPic = true;
                             this.pubData['src'] = res;
+                            console.log(res)
+
                         })
                     }
                 },{
                     text: '图库',
                     handler: () => {
                         this.native.getPictureByPhotoLibrary({}).subscribe(res => {
+                            this.hasPic = true;
                             this.pubData['src'] = res;
+                            console.log(res)
+
                         })
                     }
                 },{
@@ -80,8 +86,14 @@ export class PushPage {
                     text: '视频',
                     role: 'destructive',
                     handler: () => {
-                        this.native.getPictureByCamera({ mediaType:1}).subscribe(res => {
+                        let options = {
+                            sourceType:0,
+                            mediaType:1
+                        };
+                        this.native.getPictureByCamera(options).subscribe(res => {
+                            this.hasVideo = true;
                             this.pubData['src'] = res;
+                            console.log(res)
                         })
                     }
                 },{
@@ -97,6 +109,32 @@ export class PushPage {
     }
 //发表圈子
     public  pushCircle(){
-        this.publish.pubCircle(this.pubData).subscribe();
+        this.Http.getToken().subscribe(res=>{
+            if(this.validate.trim(this.pubData['content']) == ''){
+                this.pop.toast("发布内容不能为空！")
+                return false;
+            }
+            if(res === false){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }else{
+                this.pubData['token'] = res;
+                this.publish.pubCircle(this.pubData).subscribe(res=>{
+                    this.pop.toast(res.msg);
+                    if(res.code == 0){
+                        this.navCtrl.pop();
+                    }else if(res.code == -1){
+                        this.pop.confirm().subscribe(res=>{
+                            if(res === false){
+                                this.navCtrl.push("LoginPage");
+                            }
+                        });
+                    }else{
+                        this.pop.toast(res.msg);
+                    }
+                });
+            }
+        });
+
     }
 }

@@ -26,6 +26,7 @@ export class AddCommentComponent {
     // 订阅添加评论输入框显示状态
     public subComment() {
         this.TongXin.Status$.subscribe(res => {
+            console.log(res)
             this.showStatus = res.showStatus;
             this.commentData = res.commentData;
         });

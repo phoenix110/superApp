@@ -12,7 +12,12 @@ page-push {
   .images-show{
     display: flex;
     display: -webkit-flex;
-
+  }
+  .push-file{
+    img,video{
+      width:100px;
+      height: 100px;
+    }
   }
   .push-btns{
     flex-wrap: wrap;

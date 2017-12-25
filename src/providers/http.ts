@@ -22,7 +22,9 @@ export class HttpProvider {
     constructor(public http: HttpClient,
                 public Pop: PopProvider,
                 public NativeProvider: NativeProvider,
-                public Storage:Storage) {
+                public Storage:Storage,
+                public pop:PopProvider,
+                public find:FindProvider) {
         console.log('Hello HttpProvider Provider');
     }
 

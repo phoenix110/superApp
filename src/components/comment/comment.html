@@ -6,54 +6,54 @@
         </ion-col>
         <ion-col col-10 class="circle-right">
             <div class="circle-tit flex-row-between">
-                <b class="text-overflow-one">{{item.nick}}</b>
+                <b class="text-overflow-one">{{item.show_name}}</b>
                 <span>赏</span>
             </div>
-            <div class="circle-sign" *ngIf="item.send.length > 0">
-                <span *ngFor="let send of item.send;"><em>{{send.sign}}</em>受赏￥{{send.money}}元/{{send.number}}次 </span>
+            <!--<div class="circle-sign" *ngIf="item.send.length > 0">-->
+                <!--<span *ngFor="let send of item.send;"><em>{{send.sign}}</em>受赏￥{{send.money}}元/{{send.number}}次 </span>-->
+            <!--</div>-->
+            <p class="circle-text">{{item.content}}</p>
+            <div class="circle-img" *ngIf="item.type == 0">
+                <img src="{{item.src}}" alt="">
             </div>
-            <p class="circle-text">{{item.title}}</p>
-            <div class="circle-img" *ngIf="item.picture">
-                <img src="{{item.picture}}" alt="">
-            </div>
-            <div class="circle-banner" *ngIf="item.banner.thumb">
-                <img src="{{item.banner.thumb}}" alt="">
-                <div class="banner-title text-overflow-more">
-                    <span>{{item.banner.sign}} | </span>
-                    <b>{{item.banner.title}}</b>
-                </div>
-            </div>
-            <div class="circle-video" *ngIf="item.video.link">
+            <!--<div class="circle-banner" *ngIf="item.banner.thumb">-->
+                <!--<img src="{{item.banner.thumb}}" alt="">-->
+                <!--<div class="banner-title text-overflow-more">-->
+                    <!--<span>{{item.banner.sign}} | </span>-->
+                    <!--<b>{{item.banner.title}}</b>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="circle-video" *ngIf="item.type == 1">
                 <video src="{{item.video.link}}" webkit-playsinline="true" playsinline="true"
                        controls="controls"></video>
-                <div class="banner-title text-overflow-more">
-                    <span>{{item.video.sign}} | </span>
-                    <b>{{item.video.title}}</b>
-                </div>
+                <!--<div class="banner-title text-overflow-more">-->
+                    <!--<span>{{item.video.sign}} | </span>-->
+                    <!--<b>{{item.video.title}}</b>-->
+                <!--</div>-->
             </div>
-            <ul class="circle-pic flex-row-start" *ngIf="item.slide.length > 0">
-                <li *ngFor="let slide of item.slide;"><img src="{{slide.picture}}" alt=""></li>
-            </ul>
+            <!--<ul class="circle-pic flex-row-start" *ngIf="item.slide.length > 0">-->
+                <!--<li *ngFor="let slide of item.slide;"><img src="{{slide.picture}}" alt=""></li>-->
+            <!--</ul>-->
             <div class="circle-zan flex-row-between">
-                <b *ngIf="item.time">{{item.time}}前</b>
-                <b *ngIf="!item.time"></b>
+                <b *ngIf="item.createtime">{{item.createtime}}</b>
+                <b *ngIf="!item.createtime"></b>
                 <span>
                     <ion-icon name="thumbs-up" [class.active]="item.is_zan" tappable (click)="dianZan(i)"></ion-icon>
                     <ion-icon name="chatbubbles" (click)="addComment(i)"></ion-icon>
                 </span>
             </div>
-            <div class="circle-zanCount" *ngIf="item.zan.length > 0">
-                <ion-icon name="thumbs-up"></ion-icon>
-                {{item.zan}}
-            </div>
-            <ul class="circle-zanCount circle-comment" *ngIf="item.comment.length > 0">
-                <li *ngFor="let comment of item.comment;">
-                    <span>{{comment.nick}}：</span>{{comment.text}}
-                    <ul class="flex-row-start">
-                        <li *ngFor="let item of comment.pictures;let i = index;"><img src="{{item}}" alt=""></li>
-                    </ul>
-                </li>
-            </ul>
+            <!--<div class="circle-zanCount" *ngIf="item.zan.length > 0">-->
+                <!--<ion-icon name="thumbs-up"></ion-icon>-->
+                <!--{{item.zan}}-->
+            <!--</div>-->
+            <!--<ul class="circle-zanCount circle-comment" *ngIf="item.comment.length > 0">-->
+                <!--<li *ngFor="let comment of item.comment;">-->
+                    <!--<span>{{comment.nick}}：</span>{{comment.text}}-->
+                    <!--<ul class="flex-row-start">-->
+                        <!--<li *ngFor="let item of comment.pictures;let i = index;"><img src="{{item}}" alt=""></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
         </ion-col>
     </ion-row>
 </ion-grid>

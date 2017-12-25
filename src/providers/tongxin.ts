@@ -31,6 +31,7 @@ export class TongxinProvider {
     public Status$=this.Source.asObservable();
     // 圈子添加评论组件间通信
     public CircleComment(data) {
+        console.log(data)
         this.commentStatus.showStatus = !this.commentStatus.showStatus;
         this.commentStatus.commentData = data;
        this.Source.next(this.commentStatus);
