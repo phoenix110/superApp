@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+import {Tabs} from "ionic-angular";
 import { PopProvider } from "../../providers/pop";
 import { HttpProvider } from "../../providers/http";
 import {FindProvider} from "../../providers/find";
@@ -24,6 +25,7 @@ export class MyPage {
         'sum_credit2':0,
         'list':[]
     };
+    @ViewChild("tabs") tabs:Tabs;
     public codeStatus = false;
     public active_index = 0;//当前激活的条件
     //筛选条件
@@ -55,7 +57,6 @@ export class MyPage {
   //根据不同类型筛选不同的数据列表
     getListByType(type){
       this.active_index = type;
-      this.getData(type);
     }
 
     //跳转到toUserPage
