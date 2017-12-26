@@ -23,8 +23,7 @@ export class HttpProvider {
                 public Pop: PopProvider,
                 public NativeProvider: NativeProvider,
                 public Storage:Storage,
-                public pop:PopProvider,
-                public find:FindProvider) {
+                public pop:PopProvider) {
         console.log('Hello HttpProvider Provider');
     }
 

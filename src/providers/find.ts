@@ -13,7 +13,7 @@ import { Observable } from "rxjs/Observable";
 export class FindProvider {
 
   constructor(
-      public http:HttpProvider
+      public http:HttpProvider,
   ) {
 
   }

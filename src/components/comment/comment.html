@@ -38,7 +38,7 @@
                 <b *ngIf="item.createtime">{{item.createtime}}</b>
                 <b *ngIf="!item.createtime"></b>
                 <span>
-                    <ion-icon name="thumbs-up" [class.active]="item.is_zan" tappable (click)="dianZan(i)"></ion-icon>
+                    <ion-icon name="thumbs-up" [class.active]="item.is_zan" tappable (click)="dianZan(i,item.id)"></ion-icon>
                     <ion-icon name="chatbubbles" (click)="addComment(i)"></ion-icon>
                 </span>
             </div>

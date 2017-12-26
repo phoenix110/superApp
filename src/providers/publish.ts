@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 // 注入服务
 import {HttpProvider} from "./http";
 import {PopProvider} from "./pop";
+import {AuthProvider} from "./auth";
 
 /*
   Generated class for the PublishProvider provider.
@@ -13,8 +14,10 @@ import {PopProvider} from "./pop";
 @Injectable()
 export class PublishProvider {
 
-    constructor(public http: HttpProvider,
-                public Pop: PopProvider,) {
+    constructor(
+        public Http: HttpProvider,
+         public Pop: PopProvider,
+        public Auth:AuthProvider) {
     }
 
     // 圈子发布
@@ -26,6 +29,15 @@ export class PublishProvider {
             content:params.content,
             src: params.src
         };
-        return this.http.post(options);
+        return this.Http.post(options);
     }
+    // 点赞功能
+    public dianZan(zid){
+        let options = {
+            op:"push_circle_like",
+            circle_id:zid
+        };
+        return this.Auth.authLogin(options);
+    }
+
 }

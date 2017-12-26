@@ -20,6 +20,7 @@
             <img src="{{pubData.src}}" alt="" *ngIf="hasPic">
             <video src="{{pubData.src}}"  webkit-playsinline="true" playsinline="true"
                    controls="controls" *ngIf="hasVideo"></video>
+            <ion-icon name="ios-close-circle"></ion-icon>
         </div>
         <ul class="push-btns flex-row-start" *ngIf="!pubData.src">
             <li tappable (click)="uploadPics()">

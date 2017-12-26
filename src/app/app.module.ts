@@ -11,7 +11,7 @@ import {ImagePicker} from "@ionic-native/image-picker";
 import {AppVersion} from "@ionic-native/app-version";
 import {File} from "@ionic-native/file";
 import {Network} from "@ionic-native/network";
-import { IonicStorageModule } from "@ionic/storage";
+import {IonicStorageModule} from "@ionic/storage";
 // 导入公共Module
 import {ComponentsModule} from "../components/components.module";
 
@@ -24,12 +24,13 @@ import {GlobalDataProvider} from '../providers/globalData';
 import {LoggerProvider} from '../providers/logger';
 import {UnionProvider} from "../providers/union";
 import {CompanyProvider} from "../providers/company";
-import { ArticleProvider } from '../providers/article';
-import { FindProvider } from '../providers/find';
-import { AppProvider } from '../providers/app';
+import {ArticleProvider} from '../providers/article';
+import {FindProvider} from '../providers/find';
+import {AppProvider} from '../providers/app';
 import {PopProvider} from "../providers/pop";
-import { TongxinProvider } from '../providers/tongxin';
-import { PublishProvider } from '../providers/publish';
+import {TongxinProvider} from '../providers/tongxin';
+import {PublishProvider} from '../providers/publish';
+import {AuthProvider} from "../providers/auth";
 
 @NgModule({
     declarations: [
@@ -75,8 +76,9 @@ import { PublishProvider } from '../providers/publish';
         FindProvider,
         AppProvider,
         PopProvider,
-    TongxinProvider,
-    PublishProvider
+        AuthProvider,
+        TongxinProvider,
+        PublishProvider
     ]
 })
 export class AppModule {

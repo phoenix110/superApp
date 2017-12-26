@@ -18,6 +18,9 @@ page-push {
       width:100px;
       height: 100px;
     }
+    ion-icon{
+      @include position()
+    }
   }
   .push-btns{
     flex-wrap: wrap;

@@ -6,6 +6,7 @@ import { HttpProvider } from "../../providers/http";
 import { PopProvider } from "../../providers/pop";
 // 导入组件通信服务
 import { TongxinProvider } from "../../providers/tongxin";
+import {PublishProvider} from "../../providers/publish";
 
 /**
  * Generated class for the CommentComponent component.
@@ -25,7 +26,8 @@ export class CommentComponent {
       public navCtrl:NavController,
       public Http:HttpProvider,
       public Pop:PopProvider,
-      public TongXin:TongxinProvider
+      public TongXin:TongxinProvider,
+      public publish:PublishProvider
       ) {
     console.log('Hello CommentComponent Component');
     this.text = 'Hello World';
@@ -36,19 +38,18 @@ export class CommentComponent {
         this.navCtrl.push("MypagePage",{id:id});
     }
     // 点赞功能
-    public dianZan(index){
-        this.commentList[index]['is_zan'] = !this.commentList[index]['is_zan'];
-      //   this.Http.post(index).subscribe(res=>{
-      //     this.Pop.toast(res.msg);
-      //     if(res.code == 0){
-      //         this.commentList[index]['is_zan'] = true;
-      //     }
-      // })
+    public dianZan(index,id){
+        this.publish.dianZan(id).subscribe(res=>{
+            if(res === 'toLogin'){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.Pop.toast(res.message);
+            this.commentList[index]['is_zan'] = !this.commentList[index]['is_zan'];
+        });
     }
     // 发表评论
-    public addComment(id){
-        console.log(id)
-        console.log(this.commentList[id])
-        this.TongXin.CircleComment(this.commentList[id]);
+    public addComment(index){
+        this.TongXin.CircleComment(this.commentList[index]);
     }
 }
