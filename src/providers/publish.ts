@@ -39,5 +39,14 @@ export class PublishProvider {
         };
         return this.Auth.authLogin(options);
     }
-
+    // 发送圈子评论
+    public sendComment(params){
+        let options = {
+            op:"push_circle_talk",
+            circle_id:params.zid,
+            content:params.content,
+            thumb:params.thumb
+        };
+        return this.Auth.authLogin(options);
+    }
 }

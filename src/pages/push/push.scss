@@ -14,12 +14,15 @@ page-push {
     display: -webkit-flex;
   }
   .push-file{
+    @include position(relative,5px);
     img,video{
       width:100px;
       height: 100px;
     }
     ion-icon{
-      @include position()
+      @include position(absolute,-7px,null,null,92px);
+      color:#ff0000;
+      font-size:20px;
     }
   }
   .push-btns{
@@ -27,7 +30,7 @@ page-push {
 
     li{
       flex:0 0 23%;
-      padding: 5px 0;
+      padding: 8px 0;
       box-sizing: border-box;
       border:1px solid #ccc;
       display: flex;
@@ -37,7 +40,7 @@ page-push {
       justify-content: center;
       align-items: center;
       ion-icon{
-        font-size: 20px;
+        font-size: 25px;
       }
     }
   }

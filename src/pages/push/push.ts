@@ -110,7 +110,8 @@ export class PushPage {
 //发表圈子
     public  pushCircle(){
         this.Http.getToken().subscribe(res=>{
-            if(this.validate.trim(this.pubData['content']) == ''){
+            let content = this.pubData['content'];
+            if(!this.validate.trimBlank(content)){
                 this.pop.toast("发布内容不能为空！")
                 return false;
             }

@@ -74,7 +74,7 @@ export class UserEditPage {
   // 保存会员资料
   public saveInfo(){
       let cityArr = document.getElementById("cities").innerText;
-      cityArr = this.Validate.trim(cityArr);
+      cityArr = this.Validate.trimBlank(cityArr);
       if(cityArr == '省-市-区(县)'){
           this.Pop.toast("请选择所在地区");
           return false;

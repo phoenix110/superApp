@@ -38,22 +38,22 @@
                 <b *ngIf="item.createtime">{{item.createtime}}</b>
                 <b *ngIf="!item.createtime"></b>
                 <span>
-                    <ion-icon name="thumbs-up" [class.active]="item.is_zan" tappable (click)="dianZan(i,item.id)"></ion-icon>
+                    <ion-icon name="thumbs-up" [class.active]="item.is_like" tappable (click)="dianZan(i,item.id)"></ion-icon>
                     <ion-icon name="chatbubbles" (click)="addComment(i)"></ion-icon>
                 </span>
             </div>
-            <!--<div class="circle-zanCount" *ngIf="item.zan.length > 0">-->
-                <!--<ion-icon name="thumbs-up"></ion-icon>-->
-                <!--{{item.zan}}-->
-            <!--</div>-->
-            <!--<ul class="circle-zanCount circle-comment" *ngIf="item.comment.length > 0">-->
-                <!--<li *ngFor="let comment of item.comment;">-->
-                    <!--<span>{{comment.nick}}：</span>{{comment.text}}-->
-                    <!--<ul class="flex-row-start">-->
-                        <!--<li *ngFor="let item of comment.pictures;let i = index;"><img src="{{item}}" alt=""></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-            <!--</ul>-->
+            <div class="circle-zanCount" *ngIf="item.like_list.length > 0">
+                <ion-icon name="thumbs-up"></ion-icon>
+                <span *ngFor="let like of item.like_list;let i = index;">{{ i < item.like_list.length -1 ? like.show_name + '、' : like.show_name }}</span>
+            </div>
+            <ul class="circle-zanCount circle-comment" *ngIf="item.talk_list.length > 0">
+                <li *ngFor="let item of item.talk_list;">
+                    <span>{{item.show_name}}：</span><b>{{item.content}}</b>
+                    <ul class="flex-row-start">
+                        <li><img src="{{item.thumb}}" alt=""></li>
+                    </ul>
+                </li>
+            </ul>
         </ion-col>
     </ion-row>
 </ion-grid>

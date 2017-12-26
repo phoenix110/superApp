@@ -51,7 +51,9 @@
         </ul>
     </section>
     <!--点评列表-->
-    <comment [commentList]="circleData['list']"></comment>
+    <section style="background: #fff;">
+        <comment [commentList]="circleData['list']"></comment>
+    </section>
     <!--<comment *ngIf="listNum > 1" [commentList]="my.circle[listNum-1]"></comment>-->
     <!--点评头条-->
     <!--<topnews *ngIf="listNum == 1" [topNews]="my.topNews"></topnews>-->
