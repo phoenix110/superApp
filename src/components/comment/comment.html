@@ -47,9 +47,9 @@
                 <span *ngFor="let like of item.like_list;let i = index;">{{ i < item.like_list.length -1 ? like.show_name + '、' : like.show_name }}</span>
             </div>
             <ul class="circle-zanCount circle-comment" *ngIf="item.talk_list.length > 0">
-                <li *ngFor="let item of item.talk_list;">
+                <li *ngFor="let item of item.talk_list;">{{item.talk_list}}
                     <span>{{item.show_name}}：</span><b>{{item.content}}</b>
-                    <ul class="flex-row-start">
+                    <ul class="flex-row-start" *ngIf="item.thumb">
                         <li><img src="{{item.thumb}}" alt=""></li>
                     </ul>
                 </li>

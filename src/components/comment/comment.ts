@@ -52,13 +52,13 @@ export class CommentComponent {
             if(likeList.length > 0){
                 likeList.forEach((item, index) => {
                     if (commentList['is_like']) {
-                        item['uid'] != res.data.uid ? likeList.push(res.data) : '';
+                        item['uid'] != res.data.uid ? likeList.unshift(res.data) : '';
                     }else{
                         item['uid'] == res.data.uid ? likeList.splice(index, 1) : '';
                     }
                 });
             }else{
-                likeList.push(res.data);
+                likeList.unshift(res.data);
             }
         });
     }

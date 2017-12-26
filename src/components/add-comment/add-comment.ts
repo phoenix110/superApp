@@ -89,7 +89,7 @@ export class AddCommentComponent {
                 return false;
             }
             this.showStatus = false;
-            this.commentData['talk_list'].push(res.data);
+            this.commentData['talk_list'].unshift(res.data);
             this.Pop.toast(res.message);
         });
     }
