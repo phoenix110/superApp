@@ -19,17 +19,12 @@ import {PublishProvider} from "../../providers/publish";
     templateUrl: 'comment.html'
 })
 export class CommentComponent {
-    text: string;
     @Input() commentList: Array<object> = [];
-
     constructor(public navCtrl: NavController,
                 public Http: HttpProvider,
                 public Pop: PopProvider,
                 public TongXin: TongxinProvider,
                 public publish: PublishProvider) {
-        console.log('Hello CommentComponent Component');
-        this.text = 'Hello World';
-        console.log(this.commentList)
     }
 
     // 跳转至我的世界详情页

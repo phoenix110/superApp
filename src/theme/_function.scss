@@ -113,3 +113,15 @@ $redColor:#f00;
   @if $borderBottom {border-bottom-color:$borderTop;};
   @if $borderLeft {border-left-color:$borderTop;};
 }
+//flex横排多列等间距布局
+@mixin flex-row-warp($attr,$w:25%,$padding:4px,$radius:6px) {
+  @include flex(row,flex-start);
+  flex-wrap: wrap;
+  align-items: center;
+  #{$attr} {
+    flex: 0 0 $w;
+    @include radius($radius);
+    box-sizing: border-box;
+    padding: $padding;
+  }
+}

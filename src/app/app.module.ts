@@ -22,15 +22,16 @@ import {UserProvider} from '../providers/user';
 import {ValidateProvider} from '../providers/validate';
 import {GlobalDataProvider} from '../providers/globalData';
 import {LoggerProvider} from '../providers/logger';
-import {UnionProvider} from "../providers/union";
 import {CompanyProvider} from "../providers/company";
 import {ArticleProvider} from '../providers/article';
-import {FindProvider} from '../providers/find';
 import {AppProvider} from '../providers/app';
 import {PopProvider} from "../providers/pop";
 import {TongxinProvider} from '../providers/tongxin';
 import {PublishProvider} from '../providers/publish';
 import {AuthProvider} from "../providers/auth";
+import { TabsProvider } from '../providers/tabs';
+import { FindProvider } from '../providers/find';
+import { GoodProvider } from '../providers/good';
 
 @NgModule({
     declarations: [
@@ -70,15 +71,16 @@ import {AuthProvider} from "../providers/auth";
         ValidateProvider,
         GlobalDataProvider,
         LoggerProvider,
-        UnionProvider,
         CompanyProvider,
         ArticleProvider,
-        FindProvider,
         AppProvider,
         PopProvider,
         AuthProvider,
         TongxinProvider,
-        PublishProvider
+        PublishProvider,
+        TabsProvider,
+    FindProvider,
+    GoodProvider
     ]
 })
 export class AppModule {

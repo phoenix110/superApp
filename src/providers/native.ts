@@ -89,9 +89,15 @@ export class NativeProvider {
         }, options);
         return Observable.create(observer => {
             this.camera.getPicture(ops).then((imgData: string) => {
-                console.log(ops)
-                if (ops.destinationType === this.camera.DestinationType.DATA_URL) {
-                    observer.next('data:image/jpg;base64,' + imgData);
+                if (ops.destinationType !== this.camera.DestinationType.DATA_URL) {
+                    let type = 'data:image/jpg;base64,';
+                    if(ops.mediaType == this.camera.MediaType.VIDEO ){
+                        type = 'data:video/mp4;base64';
+                    }
+                    this.convertImgToBase64(imgData).subscribe(res=>{
+                        console.log(res);
+                        observer.next(res);
+                    });
                 } else {
                     observer.next(imgData);
                 }
@@ -118,6 +124,7 @@ export class NativeProvider {
             sourceType: this.camera.PictureSourceType.CAMERA,
             destinationType: this.camera.DestinationType.DATA_URL//DATA_URL: 0 base64字符串, FILE_URI: 1图片路径
         }, options);
+        console.log(ops)
         return this.getPicture(ops);
     };
 

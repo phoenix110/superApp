@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnChanges, SimpleChanges} from '@angular/core';
 import {ActionSheetController, NavController} from "ionic-angular";
 import {TongxinProvider} from "../../providers/tongxin";
 import {NativeProvider} from "../../providers/native";
@@ -16,7 +16,7 @@ import {PublishProvider} from "../../providers/publish";
     selector: 'add-comment',
     templateUrl: 'add-comment.html'
 })
-export class AddCommentComponent {
+export class AddCommentComponent implements OnChanges{
     private showStatus: boolean = false;
     private commentData: object = {};
     public pictures: Array<string> = [];
@@ -34,13 +34,15 @@ export class AddCommentComponent {
                 public Publish:PublishProvider) {
         this.subComment();
     }
-
+    ngOnChanges(changes: SimpleChanges): void {
+        this.subComment();
+    }
     // 订阅添加评论输入框显示状态
     public subComment() {
-        this.TongXin.Status$.subscribe(res => {
+        this.TongXin.obComment.subscribe(res => {
+            console.log(res)
             this.showStatus = res.showStatus;
             this.commentInfo.zid = res.commentData.id;
-            console.log(res.commentData)
             this.commentData = res.commentData;
         });
     }
