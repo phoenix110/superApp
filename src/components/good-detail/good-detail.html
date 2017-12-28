@@ -2,7 +2,7 @@
 <div class="good-style">
 	<div class="good-message">
 		<ion-slides pager>
-		  <ion-slide *ngFor="let item of goodInfo.pictures;let i = index;">
+		  <ion-slide *ngFor="let item of goodInfo.thumbs;let i = index;">
 		    <img src="{{item}}">
 		  </ion-slide>
 		</ion-slides>
@@ -13,8 +13,8 @@
 			<div class="guige-bottom flex-row-between">
 				<div class="guige-left">
 					<h2>￥{{goodInfo.sale_price}}</h2>
-					<p>库存 {{goodInfo.total}}</p>
-					<p>销量 {{goodInfo.sale_count}}</p>
+					<p>库存 {{goodInfo.total}}{{goodInfo.unit}}</p>
+					<p>销量 {{goodInfo.sale_count}}{{goodInfo.unit}}</p>
 				</div>
 				<div class="guige-right" tappable (click)="goodPics(20)">
 					<img src="{{goodInfo.thumb}}">
