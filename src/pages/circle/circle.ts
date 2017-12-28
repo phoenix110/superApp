@@ -25,7 +25,7 @@ export class CirclePage {
         public http: HttpClient,
         public storage:Storage,
         public pop:PopProvider,
-        public find:FindProvider) {
+        public Find:FindProvider) {
     }
 
     ionViewDidLoad() {
@@ -41,7 +41,7 @@ export class CirclePage {
     // }
     public getData(type = 0,page = 1){
         this.storage.get('token').then((token)=>{
-            this.find.getCircleList(type,page,token).subscribe(res=>{
+            this.Find.getCircleList(type,page,token).subscribe(res=>{
                 if(res.code == 0){
                     this.circleData = res.data;
                     console.log(this.circleData)

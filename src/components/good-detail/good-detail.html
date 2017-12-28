@@ -12,9 +12,9 @@
 			</div>
 			<div class="guige-bottom flex-row-between">
 				<div class="guige-left">
-					<h2>￥{{goodInfo.price}}</h2>
-					<p>库存 {{goodInfo.kucun}}</p>
-					<p>销量 {{goodInfo.sales}}</p>
+					<h2>￥{{goodInfo.sale_price}}</h2>
+					<p>库存 {{goodInfo.total}}</p>
+					<p>销量 {{goodInfo.sale_count}}</p>
 				</div>
 				<div class="guige-right" tappable (click)="goodPics(20)">
 					<img src="{{goodInfo.thumb}}">

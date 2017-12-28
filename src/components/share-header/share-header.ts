@@ -1,7 +1,8 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {EventEmitter} from "@angular/core";
 import { NavController, NavParams} from "ionic-angular";
 import { PopProvider } from "../../providers/pop";
+import {TongxinProvider} from "../../providers/tongxin";
 
 /**
  * Generated class for the ShareHeaderComponent component.
@@ -13,7 +14,7 @@ import { PopProvider } from "../../providers/pop";
     selector: 'share-header',
     templateUrl: 'share-header.html'
 })
-export class ShareHeaderComponent {
+export class ShareHeaderComponent implements OnInit{
     @Input() headerTitle: string = '';
     @Input() shareLink: string = '';
     @Input() commentPage: string = '';
@@ -26,15 +27,21 @@ export class ShareHeaderComponent {
     @Input() all: string = '';
     //声明事件发射器
     @Output() checkEmitter = new EventEmitter<boolean>();
-    text: string;
     private isLogin:boolean = false;
+    public goodSku:Object = {};
     constructor(public Pop:PopProvider,
                 public navCtrl:NavController,
-                public navParams:NavParams) {
+                public navParams:NavParams,
+                public TongXin:TongxinProvider) {
         console.log('Hello ShareHeaderComponent Component');
-        this.text = 'Hello World';
     }
-
+    ngOnInit(): void {
+        this.TongXin.obSku.subscribe(res=>{
+            console.log(33333)
+            console.log(res)
+            this.goodSku  = res;
+        })
+    }
     // 点击分享
     public share() {
         console.log("您已点击了分享按钮！");
@@ -52,13 +59,15 @@ export class ShareHeaderComponent {
 
     // 点击购买商品
     public buyGood(id) {
-        if(!this.isLogin){
-            this.Pop.confirm().subscribe(data=>{
-                if(data['is_login']){
-                    this.navCtrl.push("OrderDetailPage",{id:id});
-                }
-            });
-        }
+        // if(!this.isLogin){
+        //     this.Pop.confirm().subscribe(data=>{
+        //         if(data['is_login']){
+        //             this.navCtrl.push("OrderDetailPage",{id:id});
+        //         }
+        //     });
+        // }
+        console.log(this.goodSku)
+
     }
 
     // 点击添加购物车
@@ -70,6 +79,7 @@ export class ShareHeaderComponent {
                 }
             });
         }
+
     }
 
     // 点击分享

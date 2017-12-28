@@ -13,8 +13,9 @@
 	<good-detail [goodInfo]="goodDetail"></good-detail>
     <!--商品交流-->
     <good-chat></good-chat>
+	<!--商品规格-->
+    <good-sku [skuInfo]="skuInfo"></good-sku>
     <!--商品详情图-->
-
     <good-pics></good-pics>
 	<!--商品讨论群-->
 	<section class="talkBox" padding>
@@ -31,7 +32,7 @@
 		<div class="commentEdit">
 			<ion-icon class="iconfont icon-edit1" tappable (click)="toTalk()"></ion-icon>
 		</div>
-		<comment [commentList]="goodDetail.comment"></comment>
+		<!--<comment [commentList]="goodDetail.comment"></comment>-->
 	</section>
 
 </ion-content>

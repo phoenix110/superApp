@@ -1,11 +1,20 @@
 @import "../../theme/_function";
 $first:first;
 $rest:rest;
+.shop-box{
+  border-bottom:1px dotted #ccc;
+  .shop-list {
+    h6{
+      font-weight: bold;
+    }
+  }
+}
+
 /*商品展示函数*/
 @mixin shop-instro($first,$align,$wid){
-	.shop-#{$first} {
+  good-intro{
+    .shop-#{$first} {
 		text-align: $align;
-		good-intro{
 			@content;
 			ion-card{
 				margin:0;

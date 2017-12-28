@@ -4,7 +4,7 @@ import { Storage } from "@ionic/storage";
 import {Tabs} from "ionic-angular";
 import { PopProvider } from "../../providers/pop";
 import { HttpProvider } from "../../providers/http";
-import {FindProvider} from "../../providers/find";
+import {TabsProvider} from "../../providers/tabs";
 
 /**
  * Generated class for the MyPage page.
@@ -42,7 +42,7 @@ export class MyPage {
       public http:HttpProvider,
       public storage:Storage,
       public pop:PopProvider,
-      public find:FindProvider
+      public Tabs:TabsProvider
 
   ) {
 
@@ -81,17 +81,15 @@ export class MyPage {
     }
 
     public showQr(){
-        this.codeStatus = true
-
-
+        this.codeStatus = true;
     }
     public fadeOut(event){
         this.codeStatus = event;
     }
-
+    // 获取圈子列表数据
     public getData(type = 0,page = 1){
         this.storage.get('token').then((token)=>{
-            this.find.getCircleList(type,page,token).subscribe(res=>{
+            this.Tabs.getMyCircleList(type,page,token).subscribe(res=>{
                 if(res.code == 0){
                     this.circleData = res.data;
                     console.log(this.circleData)

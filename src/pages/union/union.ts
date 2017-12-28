@@ -6,8 +6,8 @@ import {NavController, NavParams, IonicPage, Slides} from 'ionic-angular';
 import  Swiper from 'swiper';
 import { Storage } from "@ionic/storage";
 
-import {UnionProvider} from "../../providers/union";
 import {PopProvider} from "../../providers/pop";
+import {TabsProvider} from "../../providers/tabs";
 
 /**
  * Generated class for the UnionPage page.
@@ -35,7 +35,7 @@ export class UnionPage {
         public navCtrl: NavController,
         public navParams: NavParams,
         public msgService:PopProvider,
-        public unionService: UnionProvider,
+        public tabs: TabsProvider,
         private Storage:Storage) {
 
         //初始化变量
@@ -72,7 +72,7 @@ export class UnionPage {
     //index索引，改变按钮颜色；cid获取相关的公司列表
     public getCompanyList(index =0,cid = 0,page = 1){
         this.active_index = index;
-        this.unionService.getList(page,cid).subscribe(res => {
+        this.tabs.getUnionList(page,cid).subscribe(res => {
             if (res.code == '0') {
                 this.categories = res.data['categories'];
                 this.companies = res.data['companies'];
