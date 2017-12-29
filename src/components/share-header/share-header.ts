@@ -3,6 +3,7 @@ import {EventEmitter} from "@angular/core";
 import { NavController, NavParams} from "ionic-angular";
 import { PopProvider } from "../../providers/pop";
 import {TongxinProvider} from "../../providers/tongxin";
+import {GoodsProvider} from "../../providers/goods";
 
 /**
  * Generated class for the ShareHeaderComponent component.
@@ -32,7 +33,8 @@ export class ShareHeaderComponent implements OnInit{
     constructor(public Pop:PopProvider,
                 public navCtrl:NavController,
                 public navParams:NavParams,
-                public TongXin:TongxinProvider) {
+                public TongXin:TongxinProvider,
+                public Goods:GoodsProvider) {
         console.log('Hello ShareHeaderComponent Component');
     }
     ngOnInit(): void {
@@ -59,13 +61,13 @@ export class ShareHeaderComponent implements OnInit{
 
     // 点击购买商品
     public buyGood(id) {
-        // if(!this.isLogin){
-        //     this.Pop.confirm().subscribe(data=>{
-        //         if(data['is_login']){
-        //             this.navCtrl.push("OrderDetailPage",{id:id});
-        //         }
-        //     });
-        // }
+        this.Goods.goodsBuy().subscribe(res=>{
+            if(res.code == 0){
+
+            }
+            this.Pop.toast(res.message);
+        })
+
         console.log(this.goodSku)
 
     }

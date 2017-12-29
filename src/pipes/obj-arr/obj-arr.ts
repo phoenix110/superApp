@@ -20,7 +20,7 @@ export class ObjArrPipe implements PipeTransform {
           return value;
       }else if(value instanceof Object){
           for(let attr in value){
-              value[attr].id = attr;
+              value[attr].key = attr;
               arr.push(value[attr]);
           }
           return arr;

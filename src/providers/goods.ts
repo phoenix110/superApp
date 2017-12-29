@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import {HttpProvider} from "./http";
+import {AuthProvider} from "./auth";
 
 /*
   Generated class for the GoodProvider provider.
@@ -9,9 +10,11 @@ import {HttpProvider} from "./http";
   and Angular DI.
 */
 @Injectable()
-export class GoodProvider {
+export class GoodsProvider {
 
-  constructor(public Http: HttpProvider) {
+  constructor(
+      public Http: HttpProvider,
+      public Auth:AuthProvider) {
     console.log('Hello GoodProvider Provider');
   }
   // 获取商品详情
@@ -22,4 +25,14 @@ export class GoodProvider {
     };
     return this.Http.post(options);
   }
+    // 购买商品
+    public goodsBuy(params){
+        let options = {
+            op:"push_circle_talk",
+            circle_id:params.zid,
+            content:params.content,
+            thumb:params.thumb
+        };
+        return this.Auth.authLogin(options);
+    }
 }

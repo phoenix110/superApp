@@ -1,23 +1,2 @@
 <!-- Generated template for the GoodSkuComponent component -->
-<section class="good-sku" margin>
-    <h4>选择规格</h4>
-    <ul class="sku-size" *ngFor="let item of skuInfo.spec_list;let i = index;">
-        <li *ngFor="let item of item.value">
-            <button tappable (click)="setSizeSku(i)" [class.active]="sizeSku == i">{{item}}</button>
-        </li>
-    </ul>
-    <div class="good-info flex-row-start">
-        <div class="good-thumb">
-            <img src="{{skuInfo.thumb}}" alt="">
-        </div>
-        <div class="good-content">
-            <h5>价格：￥{{skuInfo.price}}</h5>
-            <p>库存：{{skuInfo.stock}}</p>
-            <div class="good-change">
-                <span tappable (click)="descGood()">-</span>
-                <ion-input value="{{skuInfo.num}}" no-margin text-center></ion-input>
-                <span tappable (click)="addGood()">+</span>
-            </div>
-        </div>
-    </div>
-</section>
+
