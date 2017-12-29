@@ -21,7 +21,7 @@
         <ion-checkbox  color="danger" checked="{{goods.status}}" tappable (click)="singleChoose(s,g)"></ion-checkbox>
         <img src="{{goods.thumb}}" alt="">
         <div class="cart-guige" *ngIf="!shop.edit">
-          <h5 class="flex-row-start"><span>{{goods.title}}</span><b>￥{{goods.price}}</b></h5>
+          <h5 class="flex-row-between"><span>{{goods.title}}</span><b>￥{{goods.price}}</b></h5>
           <p class="flex-row-between"><span>规格：<em>{{goods.sku == '' ? '默认' : goods.sku }}</em></span><b>X{{goods.num}}</b></p>
         </div>
         <div class="goods-del flex-row-between" *ngIf="shop.edit">
