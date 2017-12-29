@@ -64,13 +64,13 @@ export class ShareHeaderComponent implements OnInit{
 
     // 点击购买商品
     public buyGood(id) {
-        this.Goods.goodsBuy({}).subscribe(res=>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
-            }
-            this.Pop.toast(res.message);
-        });
+        // this.Goods.goodsBuy({}).subscribe(res=>{
+        //     if(res === "toLogin"){
+        //         this.navCtrl.push("LoginPage");
+        //         return false;
+        //     }
+        //     this.Pop.toast(res.message);
+        // });
 
         console.log(this.goodSku)
 
