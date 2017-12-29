@@ -35,4 +35,14 @@ export class GoodsProvider {
         };
         return this.Auth.authLogin(options);
     }
+    // 添加至购物车
+    public goodsAddCart(params){
+        let options = {
+            op:"push_circle_talk",
+            circle_id:params.zid,
+            content:params.content,
+            thumb:params.thumb
+        };
+        return this.Auth.authLogin(options);
+    }
 }

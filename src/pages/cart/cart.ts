@@ -22,5 +22,6 @@ export class CartPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
   }
+  // 购物车列表数据
 
 }

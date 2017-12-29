@@ -51,12 +51,13 @@ export class MyPage {
 
 
   ionViewDidLoad() {
-      this.getData();
+      this.getCircleData();
   }
 
   //根据不同类型筛选不同的数据列表
     getListByType(type){
       this.active_index = type;
+        this.getCircleData(type);
     }
 
     //跳转到toUserPage
@@ -87,7 +88,7 @@ export class MyPage {
         this.codeStatus = event;
     }
     // 获取圈子列表数据
-    public getData(type = 0,page = 1){
+    public getCircleData(type = 0,page = 1){
         this.storage.get('token').then((token)=>{
             this.Tabs.getMyCircleList(type,page,token).subscribe(res=>{
                 if(res.code == 0){

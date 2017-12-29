@@ -19,8 +19,6 @@ export class GoodDetailComponent implements OnChanges {
     @ViewChild(Slides) slides: Slides;
     public colorSku:number = 0;
     public sizeSku:number = 0;
-    public goodNum:number = 1;
-    public goodTotal:number = 0;
     constructor(public navCtrl:NavController,
     public TongXin: TongxinProvider,
                 public Validate: ValidateProvider,

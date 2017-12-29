@@ -30,6 +30,9 @@ export class ShareHeaderComponent implements OnInit{
     @Output() checkEmitter = new EventEmitter<boolean>();
     private isLogin:boolean = false;
     public goodSku:Object = {};
+    public cartStatus:boolean = false;
+    public collectStatus:boolean = false;
+    public shareStatus:boolean = false;
     constructor(public Pop:PopProvider,
                 public navCtrl:NavController,
                 public navParams:NavParams,
@@ -45,7 +48,7 @@ export class ShareHeaderComponent implements OnInit{
         })
     }
     // 点击分享
-    public share() {
+    public shareArticle() {
         console.log("您已点击了分享按钮！");
     }
 
@@ -61,12 +64,13 @@ export class ShareHeaderComponent implements OnInit{
 
     // 点击购买商品
     public buyGood(id) {
-        this.Goods.goodsBuy().subscribe(res=>{
-            if(res.code == 0){
-
+        this.Goods.goodsBuy({}).subscribe(res=>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
             }
             this.Pop.toast(res.message);
-        })
+        });
 
         console.log(this.goodSku)
 
@@ -74,18 +78,19 @@ export class ShareHeaderComponent implements OnInit{
 
     // 点击添加购物车
     public addCart() {
-        if(!this.isLogin){
-            this.Pop.confirm().subscribe(data=>{
-                if(data['is_login']){
-                    console.log('去登陆');
-                }
-            });
-        }
+        // this.Goods.goodsAddCart(id).subscribe(res=>{
+        //     if(res === "toLogin"){
+        //         this.navCtrl.push("LoginPage");
+        //         return false;
+        //     }
+        //     this.Pop.toast(res.message);
+        // });
+        this.cartStatus = true;
 
     }
 
     // 点击分享
-    public addShare() {
+    public shareGoods() {
         if(!this.isLogin){
             this.Pop.confirm().subscribe(data=>{
                 if(data['is_login']){
@@ -104,6 +109,7 @@ export class ShareHeaderComponent implements OnInit{
                 }
             });
         }
+        this.collectStatus = true;
     }
 
 

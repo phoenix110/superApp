@@ -11,23 +11,39 @@
 			<div class="guige-top">
 			<h5 padding-top padding-bottom>{{goodInfo.title}}</h5>
 			</div>
-			<div class="guige-bottom" *ngFor="let item of goodInfo.sku_list | objArr;let i = index;">
-                <div class="flex-row-between" *ngIf="item.key == (colorSku + '_' + sizeSku)">
-                    <div class="guige-left">
-                        <h2>￥{{item.sale_price}}</h2>
-                        <p>库存 {{item.total}}{{goodInfo.unit}}</p>
-                        <p>销量 {{item.sale_count}}{{goodInfo.unit}}</p>
-                    </div>
-                    <div class="guige-right" tappable (click)="goodPics(20)">
-                        <img src="{{goodInfo.thumb}}">
+            <div class="guige-status" *ngIf="goodInfo.sku_list != ''">
+                <div class="guige-bottom" *ngFor="let item of goodInfo.sku_list | objArr;let i = index;">
+                    <div class="flex-row-between" *ngIf="item.key == (colorSku + '_' + sizeSku)">
+                        <div class="guige-left">
+                            <h2>￥{{item.sale_price}}</h2>
+                            <p>库存 {{item.total}}{{goodInfo.unit}}</p>
+                            <p>销量 {{goodInfo.sale_count}}{{goodInfo.unit}}</p>
+                        </div>
+                        <div class="guige-right" tappable (click)="goodPics(20)">
+                            <img src="{{goodInfo.thumb}}">
+                        </div>
                     </div>
                 </div>
-			</div>
+            </div>
+            <div class="guige-status" *ngIf="goodInfo.sku_list == ''">
+                <div class="guige-bottom">
+                    <div class="flex-row-between">
+                        <div class="guige-left">
+                            <h2>￥{{goodInfo.sale_price}}</h2>
+                            <p>库存 {{goodInfo.total}}{{goodInfo.unit}}</p>
+                            <p>销量 {{goodInfo.sale_count}}{{goodInfo.unit}}</p>
+                        </div>
+                        <div class="guige-right" tappable (click)="goodPics(20)">
+                            <img src="{{goodInfo.thumb}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 </section>
 <!--商品规格-->
-<section class="good-sku" margin>
+<section class="good-sku" margin *ngIf="goodInfo.sku_list != ''">
     <h4>选择规格</h4>
     <ul class="{{idx == 0 ? 'sku-color' : 'sku-size'}}"  *ngFor="let item of goodInfo.spec_list;let idx = index;">
         <li *ngFor="let item of item.value;let i = index;">
