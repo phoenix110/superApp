@@ -1,29 +1,29 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 /**
- * Generated class for the ArrsPipe pipe.
+ * Generated class for the ObjArrPipe pipe.
  *
  * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
  */
-// 对象转数组，便于ngFor指令循环遍历
+
+// 循环遍历父对象下的子对象，并将循环出的键名放入子对象中作为子对象的属性
 @Pipe({
-  name: 'arrs',
+  name: 'objArr',
 })
-export class ArrsPipe implements PipeTransform {
+export class ObjArrPipe implements PipeTransform {
   /**
    * Takes a value and makes it lowercase.
    */
   transform(value: any, ...args) {
       let arr:Array<object> = [];
-      let arrStr = [];
       if (value instanceof Array){
           return value;
       }else if(value instanceof Object){
-          arr.push(value);
+          for(let attr in value){
+              value[attr].key = attr;
+              arr.push(value[attr]);
+          }
           return arr;
-      }else if(typeof (value) == "string"){
-          arrStr.push(value);
-          return arrStr;
       }
   }
 }

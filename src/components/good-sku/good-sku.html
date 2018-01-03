@@ -1,28 +1,27 @@
 <!-- Generated template for the GoodSkuComponent component -->
 <section class="good-sku" margin>
     <h4>选择规格</h4>
-    <ul class="sku-color">
-        <li *ngFor="let item of skuInfo.color;let i = index;">
-            <button class="active" tappable (click)="setColorSku(i)" [class.active]="colorSku == i">{{item}}</button>
-        </li>
-    </ul>
-    <ul class="sku-size">
-        <li *ngFor="let item of skuInfo.size;let i = index;">
-            <button tappable (click)="setSizeSku(i)" [class.active]="sizeSku == i">{{item}}</button>
+    <ul class="{{idx == 0 ? 'sku-color' : 'sku-size'}}"  *ngFor="let item of skuInfo.spec_list;let idx = index;">
+        <li *ngFor="let item of item.value;let i = index;">
+            <button *ngIf="idx == 0" tappable (click)="setColorSku(i)" [class.active]="colorSku == i">{{item}}</button>
+            <button *ngIf="idx == 1" tappable (click)="setSizeSku(i)" [class.active]="sizeSku == i">{{item}}</button>
         </li>
     </ul>
     <div class="good-info flex-row-start">
         <div class="good-thumb">
             <img src="{{skuInfo.thumb}}" alt="">
         </div>
-        <div class="good-content">
-            <h5>价格：￥{{skuInfo.price}}</h5>
-            <p>库存：{{skuInfo.stock}}</p>
-            <div class="good-change">
-                <span tappable (click)="descGood()">-</span>
-                <ion-input value="{{skuInfo.num}}" no-margin text-center></ion-input>
-                <span tappable (click)="addGood()">+</span>
+        <div class="good-content" *ngFor="let item of skuInfo.sku_list | objArr">
+            <div class="good-cont" *ngIf="item.key == (colorSku + '_' + sizeSku)">
+                <h5>价格：￥{{item.sale_price}}</h5>
+                <p>库存：{{item.total}}</p>
+                <div class="good-change">
+                    <span tappable (click)="descGood()">-</span>
+                    <ion-input value="{{skuInfo.num}}" no-margin text-center></ion-input>
+                    <span tappable (click)="addGood()">+</span>
+                </div>
             </div>
+
         </div>
     </div>
 </section>

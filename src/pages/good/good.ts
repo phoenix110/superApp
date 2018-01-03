@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, IonicPage} from 'ionic-angular';
-import {GoodProvider} from "../../providers/good";
+import {GoodsProvider} from "../../providers/goods";
 import {PopProvider} from "../../providers/pop";
 
 /**
@@ -19,19 +19,10 @@ import {PopProvider} from "../../providers/pop";
 export class GoodPage {
     public goodDetail: Object = {};
     public loginStatus: false;
-    public skuInfo: Object = {
-        color: ['黑色', '白色', '红色'],
-        size: [25, 26, 27, 28, 29],
-        thumb: "./assets/images/share.jpg",
-        price: 499,
-        stock: 5,
-        num: 1
-    };
-
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public Good:GoodProvider,
+        public Goods:GoodsProvider,
         public Pop:PopProvider)
     {
         this.goodsData();
@@ -45,8 +36,12 @@ export class GoodPage {
     public goodsData() {
         let id = this.navParams.get("id");
         console.log(id)
-        this.Good.getGoodDetail(id).subscribe(res => {
+        this.Goods.getGoodDetail(id).subscribe(res => {
             if(res.code == 0){
+                for(let key in res.data['sku_list']){
+                    res.data['sku_list'][key].num = 1;
+                    res.data['sku_list'][key].constTotal = res.data['sku_list'][key]['total'];
+                }
                 this.goodDetail = res.data;
                 return false;
             }

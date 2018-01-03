@@ -9,67 +9,43 @@
   <header [headerTitle]="'购物车'"></header>
 
 </ion-header>
-
-
 <ion-content class="cart">
   <ion-list>
-    <ion-card>
+    <ion-card *ngFor="let shop of cartList;let s = index;">
       <div class="cart-top flex-row-start">
-        <img src="./assets/images/goods/shouji01.jpg" alt="">
-        <h5 class="text-overflow-one">超G名片</h5>
-        <span>编辑</span>
+        <img src="{{shop.icon}}" alt="">
+        <h5 class="text-overflow-one">{{shop.name}}</h5>
+        <span tappable (click)="cartEdit(s)">编辑</span>
       </div>
-      <div class="cart-center flex-row-start">
-        <ion-checkbox  color="danger" checked="true"></ion-checkbox>
-        <img src="./assets/images/goods/shouji01.jpg" alt="">
-        <div class="cart-guige">
-          <h5><span class="text-overflow-one">爱咖啡</span><b>￥25</b></h5>
-          <p><span class="text-overflow-one">规格：<em>默认</em></span><b>X4</b></p>
+      <div class="cart-center flex-row-start" *ngFor="let goods of shop.goods;let g = index;">
+        <ion-checkbox  color="danger" checked="{{goods.status}}" tappable (click)="singleChoose(s,g)"></ion-checkbox>
+        <img src="{{goods.thumb}}" alt="">
+        <div class="cart-guige" *ngIf="!shop.edit">
+          <h5 class="flex-row-between"><span>{{goods.title}}</span><b>￥{{goods.price}}</b></h5>
+          <p class="flex-row-between"><span>规格：<em>{{goods.sku == '' ? '默认' : goods.sku }}</em></span><b>X{{goods.num}}</b></p>
+        </div>
+        <div class="goods-del flex-row-between" *ngIf="shop.edit">
+          <ul class="flex-column-between">
+            <li>
+              <span>-</span>
+              <span class="input-num">2</span>
+              <span>+</span>
+            </li>
+            <li class="guige">规格：默认</li>
+          </ul>
+          <b tappable (click)="delGood(s,g)"><ion-icon name="ios-trash"></ion-icon></b>
         </div>
       </div>
       <div class="cart-bottom  flex-row-start">
-        <ion-checkbox></ion-checkbox>
+        <ion-checkbox checked="{{shop.status}}" tappable (click)="allChoose(s)"></ion-checkbox>
         <div class="cart-total flex-row-between">
           <span>全选</span>
           <div class="cart-heji flex-row-end">
-            <span>合计：<b>￥0.00</b></span>
-            <button ion-button small>结算(<strong>1</strong>)</button>
+            <span>合计：<b>￥{{shop.totalFee}}</b></span>
+            <button ion-button small tappable (click)="toPay(s)">结算(<strong>{{shop.selectNum}}</strong>)</button>
           </div>
         </div>
       </div>
     </ion-card>
-      <ion-card>
-          <div class="cart-top flex-row-start">
-              <img src="./assets/images/goods/shouji01.jpg" alt="">
-              <h5 class="text-overflow-one">超G名片</h5>
-              <span>编辑</span>
-          </div>
-          <div class="cart-center flex-row-start">
-              <ion-checkbox ></ion-checkbox>
-              <img src="./assets/images/goods/shouji01.jpg" alt="">
-              <div class="cart-guige">
-                  <h5><span class="text-overflow-one">爱咖啡</span><b>￥25</b></h5>
-                  <p><span class="text-overflow-one">规格：<em>默认</em></span><b>X4</b></p>
-              </div>
-          </div>
-          <div class="cart-center flex-row-start">
-              <ion-checkbox></ion-checkbox>
-              <img src="./assets/images/goods/shouji01.jpg" alt="">
-              <div class="cart-guige">
-                  <h5><span class="text-overflow-one">爱咖啡</span><b>￥25</b></h5>
-                  <p><span class="text-overflow-one">规格：<em>默认</em></span><b>X4</b></p>
-              </div>
-          </div>
-          <div class="cart-bottom  flex-row-start">
-              <ion-checkbox color="danger" checked="true"></ion-checkbox>
-              <div class="cart-total flex-row-between">
-                  <span>全选</span>
-                  <div class="cart-heji flex-row-end">
-                      <span>合计：<b>￥0.00</b></span>
-                      <button ion-button small>结算(<strong>1</strong>)</button>
-                  </div>
-              </div>
-          </div>
-      </ion-card>
   </ion-list>
 </ion-content>

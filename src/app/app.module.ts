@@ -31,7 +31,7 @@ import {PublishProvider} from '../providers/publish';
 import {AuthProvider} from "../providers/auth";
 import { TabsProvider } from '../providers/tabs';
 import { FindProvider } from '../providers/find';
-import { GoodProvider } from '../providers/good';
+import { GoodsProvider } from '../providers/goods';
 
 @NgModule({
     declarations: [
@@ -80,7 +80,7 @@ import { GoodProvider } from '../providers/good';
         PublishProvider,
         TabsProvider,
     FindProvider,
-    GoodProvider
+        GoodsProvider
     ]
 })
 export class AppModule {
