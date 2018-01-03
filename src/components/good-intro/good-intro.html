@@ -1,20 +1,21 @@
 <!-- Generated template for the GoodIntroComponent component -->
-<section class="" (tap)="getGoodDetail(item.id)" *ngFor="let item of goodList  | arrs;let i = index">
-  <div [class.shop-first]="i <= 0" [class.shop-rest]="i > 0">
-    <ion-card>
-      <img src="{{item.thumb}}"/>
-      <ion-card-content>
-        <h6>
-          {{item.title}}
-        </h6>
-        <p class="shop-price">
-          <ion-icon name="cart"></ion-icon><b>￥{{item.sale_price}}</b>
-        </p>
-        <p class="shop-num">
-          库存{{item.total}} &nbsp;&nbsp;&nbsp;销量{{item.sale_count}}
-        </p>
-      </ion-card-content>
-    </ion-card>
-  </div>
-</section>
+
+<ion-card  (tap)="getGoodDetail(item.id)" *ngFor="let item of goodList  | arrs;let i = index">
+  <img src="{{item.thumb}}"/>
+  <ion-card-content>
+    <h6>
+      {{item.title}}
+    </h6>
+    <p class="shop-price">
+      <ion-icon name="cart"></ion-icon><b>￥{{item.sale_price}}</b>
+    </p>
+    <p class="shop-num">
+      库存{{item.total}} &nbsp;&nbsp;&nbsp;销量{{item.sale_count}}
+    </p>
+    <span *ngIf="pagination">
+      {{item.pagination}}
+    </span>
+  </ion-card-content>
+</ion-card>
+
 

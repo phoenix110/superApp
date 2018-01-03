@@ -37,7 +37,7 @@
             <div class="circle-zan flex-row-between">
                 <b *ngIf="item.createtime">{{item.createtime}}</b>
                 <b *ngIf="!item.createtime"></b>
-                <span>
+                <span text-end>
                     <ion-icon name="thumbs-up" [class.active]="item.is_like" tappable (click)="dianZan(i,item.id)"></ion-icon>
                     <ion-icon name="chatbubbles" (click)="addComment(i)"></ion-icon>
                 </span>

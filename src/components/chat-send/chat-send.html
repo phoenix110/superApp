@@ -1,0 +1,42 @@
+<!-- Generated template for the ChatSendComponent component -->
+<section class="add-comment">
+  <ion-grid no-padding>
+    <ion-row class="chat-content">
+      <ion-col col-2 text-center class="add-picture"  (click)="addExtra()">
+        <ion-icon name="ios-add-circle-outline"></ion-icon>
+      </ion-col>
+      <ion-col col-8>
+        <ion-input no-margin placeholder="评论..." [(ngModel)]="chat.content"></ion-input>
+      </ion-col>
+      <ion-col col-2 text-center>
+        <span class="send-comment" (click)="sendChat()">发送</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="extra-content" [class.active]="showExtra">
+      <ion-col col-2>
+        <ion-icon name="ios-image"></ion-icon>
+        <span>图片</span>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon name="ios-videocam"></ion-icon>
+        <span>视频</span>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon name="share"></ion-icon>
+        <span>App</span>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon name="star"></ion-icon>
+        <span>收藏</span>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon class="iconfont icon-iconfonthongbao0"></ion-icon>
+        <span>红包</span>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon class="iconfont icon-card"></ion-icon>
+        <span>名片</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</section>

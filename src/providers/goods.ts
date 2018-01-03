@@ -25,6 +25,15 @@ export class GoodsProvider {
     };
     return this.Http.post(options);
   }
+  // 获取更多商品列表
+    public moreGoods(params){
+        let options = {
+            op:"get_goods_detail",
+            id:params.catId,
+            page:params.page
+        };
+        return this.Http.post(options);
+    }
     // 购买商品
     public goodsBuy(params){
         let options = {

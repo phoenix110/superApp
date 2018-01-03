@@ -23,13 +23,13 @@ export class PublishProvider {
     // 圈子发布
     public pubCircle(params) {
 
-        let options = {
-            op: "push_circle",
-            token:params.token,
-            content:params.content,
-            src: params.src
-        };
-        return this.Http.post(options);
+        // let options = {
+        //     op: "push_circle",
+        //     token:params.token,
+        //     content:params.content,
+        //     src: params.src
+        // };
+        return this.Http.formData(params);
     }
     // 点赞功能
     public dianZan(zid){

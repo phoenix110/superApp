@@ -1,4 +1,4 @@
-import {Component, OnChanges} from '@angular/core';
+import {Component, OnChanges, ChangeDetectorRef} from '@angular/core';
 import {ActionSheetController, NavController, NavParams} from "ionic-angular";
 import {NativeProvider} from "../../providers/native";
 import {TongxinProvider} from "../../providers/tongxin";
@@ -25,6 +25,7 @@ export class PublishComponent implements OnChanges {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public native: NativeProvider,
+                public changeDetectorRef:ChangeDetectorRef,
                 private actionSheetCtrl: ActionSheetController,
                 public TongXin:TongxinProvider) {
 
@@ -40,6 +41,7 @@ export class PublishComponent implements OnChanges {
     }
     //上传文件
     public uploadPics() {
+
         let actionSheet = this.actionSheetCtrl.create({
             title: '请选择图片',
             buttons: [
@@ -57,9 +59,10 @@ export class PublishComponent implements OnChanges {
                 }, {
                     text: '图库',
                     handler: () => {
-                        this.native.getPictureByPhotoLibrary({}).subscribe(res => {
+                        this.native.getMultiplePicture({}).subscribe(res => {
                             this.hasPic = true;
                             this.pubData['src'] = res;
+                            this.changeDetectorRef.detectChanges();
                             console.log(res)
 
                         })
@@ -78,6 +81,7 @@ export class PublishComponent implements OnChanges {
 
     //上传视频
     public uploadVideo() {
+
         let actionSheet = this.actionSheetCtrl.create({
             title: '请选择视频',
             buttons: [
@@ -87,7 +91,8 @@ export class PublishComponent implements OnChanges {
                     handler: () => {
                         let options = {
                             sourceType: 0,
-                            mediaType: 1
+                            mediaType: 1,
+                            destinationType:1
                         };
                         this.native.getPictureByCamera(options).subscribe(res => {
                             this.hasVideo = true;

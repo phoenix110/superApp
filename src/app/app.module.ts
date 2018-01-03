@@ -32,6 +32,7 @@ import {AuthProvider} from "../providers/auth";
 import { TabsProvider } from '../providers/tabs';
 import { FindProvider } from '../providers/find';
 import { GoodsProvider } from '../providers/goods';
+import { UtilsProvider } from '../providers/utils/utils';
 
 @NgModule({
     declarations: [
@@ -80,7 +81,8 @@ import { GoodsProvider } from '../providers/goods';
         PublishProvider,
         TabsProvider,
     FindProvider,
-        GoodsProvider
+        GoodsProvider,
+    UtilsProvider
     ]
 })
 export class AppModule {

@@ -90,14 +90,8 @@ export class NativeProvider {
         return Observable.create(observer => {
             this.camera.getPicture(ops).then((imgData: string) => {
                 if (ops.destinationType !== this.camera.DestinationType.DATA_URL) {
-                    let type = 'data:image/jpg;base64,';
-                    if(ops.mediaType == this.camera.MediaType.VIDEO ){
-                        type = 'data:video/mp4;base64';
-                    }
-                    this.convertImgToBase64(imgData).subscribe(res=>{
-                        console.log(res);
-                        observer.next(res);
-                    });
+                    imgData = 'data:image/jpg;base64,' + imgData;
+                    observer.next(imgData);
                 } else {
                     observer.next(imgData);
                 }
@@ -187,7 +181,7 @@ export class NativeProvider {
                     reader.onloadend = function (e) {
                         observer.next(this.result);
                     };
-                    reader.readAsArrayBuffer(file);
+                    reader.readAsDataURL(file);
                 });
             }).catch(err => {
                 this.logger.log(err, '根据图片绝对路径转化为base64字符串失败');

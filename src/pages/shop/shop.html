@@ -15,9 +15,24 @@
 			<div class="shop-title">
 				<span></span>
 				<h6>{{item.title}}</h6>
-				<a href="javascript:;">更多 ></a>
+				<a href="javascript:;" tappable (click)="getMore(item.id)">更多 ></a>
 			</div>
-			<good-intro [goodList]="item.goods_list"></good-intro>
+			<!-- 当前商品分类第一个1列展示 -->
+			<div *ngIf="item.goods_list.length > 1">
+				<div class="shop-first">
+					<good-intro [goodList]="item.goods_list[0]"></good-intro>
+				</div>
+				<!-- 当前商品分类其余商品2列显示 -->
+				<div class="shop-rest">
+					<good-intro [goodList]="item.goods_list"></good-intro>
+				</div>
+			</div>
+			<div *ngIf="item.goods_list.length <= 1">
+				<div class="shop-first">
+					<good-intro [goodList]="item.goods_list[0]"></good-intro>
+				</div>
+			</div>
+
 		</div>
 
 	</section>

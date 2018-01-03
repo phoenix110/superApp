@@ -55,18 +55,31 @@ export class HeaderComponent implements OnChanges {
 
     //发表圈子
     public pushCircle() {
+        let formData = new FormData();
         let content = this.pubData['content'];
+        let src = this.pubData['src'];
+        console.log(this.pubData)
+        if (!this.Validate.trimBlank(content)) {
+            this.Pop.toast("发布内容不能为空！");
+            return false;
+        }
+        if (!this.Validate.trimBlank(src)) {
+            this.Pop.toast("请上传发布图片或视频！");
+            return false;
+        }
+
         this.Http.getToken().subscribe(res => {
-            if (!this.Validate.trimBlank(content)) {
-                this.Pop.toast("发布内容不能为空！")
-                return false;
-            }
+
             if (res === false) {
                 this.navCtrl.push("LoginPage");
                 return false;
             } else {
-                this.pubData['token'] = res;
-                this.publish.pubCircle(this.pubData).subscribe(res => {
+                // this.pubData['token'] = res;
+                formData.append("op","push_circle");
+                formData.append("token",res);
+                formData.append("content",content);
+                formData.append("src",src);
+                this.Publish.pubCircle(formData).subscribe(res => {
                     this.Pop.toast(res.msg);
                     if (res.code == 0) {
                         this.navCtrl.pop();

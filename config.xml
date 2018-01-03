@@ -80,6 +80,8 @@
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
+        <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
+        <icon height="1024" src="resources/ios/icon/icon-1024.png" width="1024" />
     </platform>
     <allow-navigation href="http://192.168.0.105:8100" />
     <allow-navigation href="http://192.168.0.102:8101" />
@@ -94,7 +96,9 @@
     <allow-navigation href="http://192.168.0.107:8101" />
     <allow-navigation href="http://192.168.19.2:8101" />
     <allow-navigation href="http://192.168.0.104:8102" />
+    <allow-navigation href="http://192.168.0.104:8100" />
     <engine name="android" spec="6.2.3" />
+    <engine name="ios" spec="^4.4.0" />
     <plugin name="com.synconset.imagepicker" spec="^2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="是否允许访问您的相册" />
     </plugin>

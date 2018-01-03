@@ -28,13 +28,6 @@ export class ChatPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
-    if(!this.isLogin){
-        this.Pop.confirm().subscribe(data=>{
-            if(data['is_login']){
-                console.log('去登陆');
-            }
-        });
-    }
     this.chatListData();
   }
   // 获取聊天页数据

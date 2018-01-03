@@ -12,11 +12,12 @@ $rest:rest;
 
 /*商品展示函数*/
 @mixin shop-instro($first,$align,$wid){
-  good-intro{
     .shop-#{$first} {
-		text-align: $align;
-			@content;
-			ion-card{
+
+      good-intro{
+        text-align: $align;
+        @content;
+        ion-card{
 				margin:0;
 				width:$wid;
 				@include radius();
@@ -41,9 +42,9 @@ $rest:rest;
 						font-size:7px;
 					}
 				}			
-			}	
+			}
 		}
-		
+
 	}
 }
 /*第一件商品大图展示*/
