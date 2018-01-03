@@ -20,8 +20,8 @@ import { GoodPicsModule } from './good-pics/good-pics.module';
 import { GoodChatModule } from './good-chat/good-chat.module';
 import { AddCommentModule } from './add-comment/add-comment.module';
 import { GoodSkuModule } from './good-sku/good-sku.module';
-import { PublishComponent } from './publish/publish';
 import {PublishModule} from "./publish/publish.module";
+import { ChatSendModule } from './chat-send/chat-send.module';
 
 @NgModule({
 	declarations: [],
@@ -49,6 +49,7 @@ import {PublishModule} from "./publish/publish.module";
         AddCommentModule,
         GoodSkuModule,
         PublishModule,
+        ChatSendModule,
     ]
 })
 export class ComponentsModule {

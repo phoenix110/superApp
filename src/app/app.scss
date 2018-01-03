@@ -96,3 +96,23 @@ ion-menu[side=left] > .menu-inner{
     bottom: 55px!important;
   }
 }
+//单行溢出隐藏
+.text-overflow-one{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+//设置tabs页面底部导航显示隐藏动画
+.tabbar{
+  height:0;
+  display: none;
+}
+.tabbar.show-tabbar{
+  height: 50px;
+  display: flex;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition:all 1s;
+  -o-transition: all 1s;
+}

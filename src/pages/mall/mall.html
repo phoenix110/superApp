@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content no-padding>
+<ion-content no-padding class="cont-background">
     <!--<ion-slides class="slides-parent"  pager="false">-->
       <!--<ion-slide *ngFor="let item of good;let i = index;">-->
         <!--<h2 class="mall-title">{{item.title}}</h2>-->
@@ -24,16 +24,16 @@
     <!--</ion-slides>-->
     <div class="swiper-container swiper-parent">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" *ngFor="let item of good;let i = index;">
+            <div class="swiper-slide" *ngFor="let item of shopData;let i = index;">
                 <h2 class="mall-title" >{{item.title}}</h2>
                 <div class="swiper-container swiper-child" #swiperChild>
                     <div class="swiper-wrapper ">
-                        <div class="swiper-slide" *ngFor="let product of item.goodList;let j = index;">
-                            <good-intro [goodList]="product"></good-intro>
+                        <div class="swiper-slide" *ngFor="let product of item.goods_list;let j = index;">
+                            <good-intro [goodList]="product" ></good-intro>
                         </div>
                     </div>
                     <!-- 如果需要分页器 -->
-                    <div class="child-pagination" #pagination></div>
+                    <div class="child-pagination"></div>
                 </div>
             </div>
         </div>

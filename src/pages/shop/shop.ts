@@ -31,10 +31,15 @@ export class ShopPage {
     public getShopData(){
 	    this.Tabs.getShopList().subscribe(res =>{
             if(res.code == 0){
+
                 this.shopData = res.data;
                 return false;
             }
             this.Pop.toast(res.message);
         })
+    }
+    // 更多分类商品
+    public getMore(cid){
+        this.navCtrl.push("GoodsListPage",{cid:cid});
     }
 }

@@ -3,7 +3,7 @@ page-mall {
       .swiper-slide{
         flex-direction: column;
         .mall-title{
-          @include position(absolute,30px,null,null,0);
+          @include position(absolute,4%,null,null,0);
           width:100%;
         }
         .swiper-child{
@@ -11,14 +11,24 @@ page-mall {
           margin: auto;
           width:300px;
           height:400px;
+          .child-pagination {
+            left: unset;
+            right: 2%;
+            bottom: 30px;
+            width: 50px;
+            position: absolute;
+            font-size: 12px;
+            z-index: 10000;
+          }
         }
       }
       .swiper-up{
-        @include position(absolute,null,0,30px,0);
+        @include position(absolute,null,0,10px,0);
         width:100%;
         text-align: center;
         font-size: 30px;
         color:#8c8c8c;
+        z-index: 1000;
       }
     }
 }

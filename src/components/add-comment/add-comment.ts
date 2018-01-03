@@ -5,6 +5,7 @@ import {NativeProvider} from "../../providers/native";
 import {ValidateProvider} from "../../providers/validate";
 import {PopProvider} from "../../providers/pop";
 import {PublishProvider} from "../../providers/publish";
+import {UtilsProvider} from "../../providers/utils/utils";
 
 /**
  * Generated class for the AddCommentComponent component.
@@ -17,6 +18,7 @@ import {PublishProvider} from "../../providers/publish";
     templateUrl: 'add-comment.html'
 })
 export class AddCommentComponent implements OnChanges{
+
     private showStatus: boolean = false;
     private commentData: object = {};
     public pictures: Array<string> = [];
@@ -31,12 +33,14 @@ export class AddCommentComponent implements OnChanges{
                 public actionSheetCtrl: ActionSheetController,
                 public Validate:ValidateProvider,
                 public Pop:PopProvider,
-                public Publish:PublishProvider) {
+                public Publish:PublishProvider,
+                public Utils:UtilsProvider) {
         this.subComment();
     }
     ngOnChanges(changes: SimpleChanges): void {
         this.subComment();
     }
+
     // 订阅添加评论输入框显示状态
     public subComment() {
         this.TongXin.obComment.subscribe(res => {
@@ -44,6 +48,7 @@ export class AddCommentComponent implements OnChanges{
             this.showStatus = res.showStatus;
             this.commentInfo.zid = res.commentData.id;
             this.commentData = res.commentData;
+           this.Utils.toggleTabs(this.showStatus);
         });
     }
 
@@ -95,4 +100,5 @@ export class AddCommentComponent implements OnChanges{
             this.Pop.toast(res.message);
         });
     }
+
 }

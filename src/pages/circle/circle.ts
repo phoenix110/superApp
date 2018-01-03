@@ -4,6 +4,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import {FindProvider} from "../../providers/find";
 import {PopProvider} from "../../providers/pop";
+import {UtilsProvider} from "../../providers/utils/utils";
 
 /**
  * Generated class for the CirclePage page.
@@ -25,14 +26,17 @@ export class CirclePage {
         public http: HttpClient,
         public storage:Storage,
         public pop:PopProvider,
-        public Find:FindProvider) {
+        public Find:FindProvider,
+        public Utils:UtilsProvider) {
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad CirclePage');
         this.getData();
     }
-
+    ionViewWillLeave(){
+        this.Utils.toggleTabs(false);
+    }
     // 获取圈子页面数据
     // public getCircleData() {
     //     this.http.get("./assets/data.json").subscribe(data => {

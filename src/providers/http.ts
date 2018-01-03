@@ -71,6 +71,23 @@ export class HttpProvider {
                 )
         });
     }
+    /*
+    *  以formData数据形式发送post请求
+    */
+    formData(body:any = {},contentType:string = "multipart/form-data"){
+        let headers = new HttpHeaders({'Content-Type':contentType});
+        return Observable.create(observer => {
+            this.Pop.showLoading();
+            this.http.post(APP_SERVE_URL, body,{headers:headers})
+                .subscribe( res => {
+                    this.Pop.hideLoading();
+                    observer.next(res);
+                },err => {
+                        this.handleError(err);
+                    }
+                )
+        });
+    };
     // 获取本地城市列表服务
     getCityData() {
         return Observable.create(observer => {

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { ArrsPipe } from './arrs/arrs';
 import { ObjArrPipe } from './obj-arr/obj-arr';
+import { DelArrfirstPipe } from './del-arrfirst/del-arrfirst';
 @NgModule({
 	declarations: [ArrsPipe,
-    ObjArrPipe],
+    ObjArrPipe,
+    DelArrfirstPipe],
 	imports: [],
 	exports: [ArrsPipe,
-    ObjArrPipe]
+    ObjArrPipe,
+    DelArrfirstPipe]
 })
 export class PipesModule {}
