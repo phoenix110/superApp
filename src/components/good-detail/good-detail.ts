@@ -26,6 +26,7 @@ export class GoodDetailComponent implements OnChanges {
         console.log('Hello GoodSkuComponent Component');
     }
     ngOnChanges(){
+        this.goodInfo['skuIndex'] = this.colorSku + '_' + this.sizeSku;
         this.changeSku();
     }
     // 跳转至产品（秀）图片详情页
@@ -39,10 +40,12 @@ export class GoodDetailComponent implements OnChanges {
     // 规格一切换
     public setColorSku(index) {
         this.colorSku = index;
+        this.goodInfo['skuIndex'] = this.colorSku + '_' + this.sizeSku;
     }
     // 规格二切换
     public setSizeSku(index) {
         this.sizeSku = index;
+        this.goodInfo['skuIndex'] = this.colorSku + '_' + this.sizeSku;
     }
     // 增加商品数量
     public addGood(){

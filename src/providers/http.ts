@@ -18,7 +18,7 @@ import { Storage } from "@ionic/storage";
 */
 @Injectable()
 export class HttpProvider {
-
+    public ws:WebSocket;
     constructor(public http: HttpClient,
                 public Pop: PopProvider,
                 public NativeProvider: NativeProvider,
@@ -88,6 +88,32 @@ export class HttpProvider {
                 )
         });
     };
+
+    /*
+    *  webSocket 长连接构建即时通信服务
+    */
+    createWebSocket(api:string = ''){
+        //判断当前浏览器是否支持WebSocket
+        if('WebSocket' in window){
+            this.ws = new WebSocket(APP_SERVE_URL + api);
+        }
+        else{
+            this.Pop.toast("当前客户端不支持webSocket！");
+        }
+        return Observable.create(observer => {
+            this.ws.onmessage = (res) => observer.next(res.data);
+            this.ws.onerror = (err) => observer.next(err);
+            this.ws.onclose = (res) => observer.complete();
+        });
+    }
+
+    /*
+    *  利用webSocket向服务端发送消息
+    */
+
+    sendMessage(message){
+        this.ws.send(message);
+    }
     // 获取本地城市列表服务
     getCityData() {
         return Observable.create(observer => {

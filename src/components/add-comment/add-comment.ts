@@ -97,6 +97,7 @@ export class AddCommentComponent implements OnChanges{
             }
             this.showStatus = false;
             this.commentData['talk_list'].unshift(res.data);
+            this.Utils.toggleTabs(this.showStatus);
             this.Pop.toast(res.message);
         });
     }

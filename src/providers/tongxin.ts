@@ -29,6 +29,7 @@ export class TongxinProvider {
     public skuList:Sku = {
         skuInfo:{}
     };
+    public chatData:object = {};
     constructor(
     ) {
         console.log('Hello TongxinProvider Provider');
@@ -39,16 +40,16 @@ export class TongxinProvider {
     public obCircle=this.Circle.asObservable();
     private Sku=new Subject<any>();
     public obSku=this.Sku.asObservable();
+    private Chat=new Subject<any>();
+    public obChat=this.Chat.asObservable();
     // // 圈子添加评论组件间通信
     public CircleComment(data) {
-        console.log(data)
         this.commentStatus.showStatus = !this.commentStatus.showStatus;
         this.commentStatus.commentData = data;
        this.Comment.next(this.commentStatus);
     }
     // // 个人中心发布页（完成组件和编辑组件）通信
     public pubCircle(data){
-        console.log(data)
         this.publish.circleData = data;
         this.Circle.next(this.publish.circleData);
     }
@@ -57,5 +58,9 @@ export class TongxinProvider {
         this.skuList.skuInfo = data;
         this.Sku.next(this.skuList.skuInfo);
     }
-
+    // 即时聊天通信
+    public chatInstant(data){
+        this.chatData = data;
+        this.Chat.next(this.chatData);
+    }
 }

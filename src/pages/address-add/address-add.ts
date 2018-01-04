@@ -14,7 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'address-add.html',
 })
 export class AddressAddPage {
-
+    public userInfo = {
+        name:"",
+        mobile:"",
+        province:"",
+        city:"",
+        district:"",
+        token:"",
+        area:""
+    };
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
