@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <header [headerTitle]="'新建地址'" [save]="'保存'"></header>
+  <header [headerTitle]="'新建地址'" [save]="'保存'" [addressInfo]="userInfo"></header>
 </ion-header>
 
 
@@ -17,21 +17,23 @@
     <div class="address-msg">
       <div class="address-one flex-row-start">
         <span class="address-title">收货人</span>
-        <ion-input type="text" placeholder="收货人姓名" [(ngModel)]="userInfo.name"></ion-input>
+        <ion-input type="text" placeholder="收货人姓名" value="{{userInfo.name}}" [(ngModel)]="userInfo.name"></ion-input>
       </div>
       <div class="address-one flex-row-start">
         <span class="address-title">联系电话</span>
-        <ion-input type="text" placeholder="收货人姓名" [(ngModel)]="userInfo.mobile"></ion-input>
+        <ion-input type="text" placeholder="收货人姓名" value="{{userInfo.mobile}}" [(ngModel)]="userInfo.mobile"></ion-input>
       </div>
       <div class="address-one flex-row-start">
         <span class="address-title">所在区域</span>
         <div class="flex-row-between select-list">
-          <ion-multi-picker id="cities" item-content [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="userInfo.province == '' ? '省-市-区(县)' : (userInfo.province + '-'+ userInfo.city +'-'+ userInfo.district)" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
+          <ion-item>
+            <ion-multi-picker style="padding-left: 4px;" id="cities" item-content [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="userInfo.province == '' ? '省-市-区(县)' : (userInfo.province + '-'+ userInfo.city +'-'+ userInfo.district)" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
+          </ion-item>
         </div>
       </div>
       <div class="address-one flex-row-start">
         <span class="address-title">详细地址</span>
-        <textarea  placeholder="请输入您的详细地址"  [(ngModel)]="userInfo.area"></textarea>
+        <textarea  placeholder="请输入您的详细地址" value="{{userInfo.area}}" [(ngModel)]="userInfo.area"></textarea>
       </div>
     </div>
   </div>

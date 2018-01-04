@@ -132,6 +132,7 @@ export class UserProvider {
     }
     // 获取省市区列表数据
     public cityListData(cityList){
+        console.log(222222)
          this.http.getCityData().subscribe(res=>{
              cityList.area = res;
              console.log(cityList)

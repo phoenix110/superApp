@@ -59,7 +59,7 @@ export class PublishComponent implements OnChanges {
                 }, {
                     text: '图库',
                     handler: () => {
-                        this.native.getMultiplePicture({}).subscribe(res => {
+                        this.native.getPictureByPhotoLibrary({}).subscribe(res => {
                             this.hasPic = true;
                             this.pubData['src'] = res;
                             this.changeDetectorRef.detectChanges();

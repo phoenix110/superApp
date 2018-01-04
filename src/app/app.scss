@@ -62,11 +62,15 @@ ion-menu[side=left] > .menu-inner{
 	height: 3.6rem;
 	font-size: 1.6rem;
 }
+
 .multi-picker-text{
   font-size: 14px;
   color: #333;
 }
 
+.multi-picker-placeholder{
+  font-size: 14px;
+}
 //底部菜单图标样式
 .tabs-ios .tab-button-icon {
   margin-top: 4px;

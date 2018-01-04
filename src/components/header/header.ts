@@ -20,9 +20,10 @@ export class HeaderComponent implements OnChanges {
     @Input() headerTitle: string;
     @Input() save: string;
     @Input() addAddress: string;
+    @Input() addressInfo:object = {};
     @Input() publish;
     public pubData: any = {};
-
+    public cityArr:Array<string> = [];
     constructor(public navCtrl: NavController,
                 public Http: HttpProvider,
                 public Pop: PopProvider,
@@ -50,7 +51,18 @@ export class HeaderComponent implements OnChanges {
 
     // 保存当前页面信息
     public saveAddress() {
-        this.navCtrl.pop();
+        let cityArr = document.getElementById("cities").innerText;
+        cityArr = this.Validate.trimBlank(cityArr);
+        if(cityArr == '省-市-区(县)'){
+            this.Pop.toast("请选择所在地区");
+            return false;
+        }
+        this.cityArr = cityArr.split("-");
+        this.addressInfo['province']  = this.cityArr[0];
+        this.addressInfo['city']  = this.cityArr[1];
+        this.addressInfo['district']  = this.cityArr[2];
+        console.log(this.addressInfo);
+        // this.navCtrl.pop();
     }
 
     //发表圈子

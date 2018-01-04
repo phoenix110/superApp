@@ -89,7 +89,7 @@ export class NativeProvider {
         }, options);
         return Observable.create(observer => {
             this.camera.getPicture(ops).then((imgData: string) => {
-                if (ops.destinationType !== this.camera.DestinationType.DATA_URL) {
+                if (ops.destinationType === this.camera.DestinationType.DATA_URL) {
                     imgData = 'data:image/jpg;base64,' + imgData;
                     observer.next(imgData);
                 } else {
