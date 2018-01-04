@@ -23,10 +23,11 @@ $rest:rest;
 				@include radius();
 				@include boxShadow(none);
 				ion-card-content{
-					padding:13px 0 14px;
+					padding:13px 5px 14px;
 					h6{
 						font-size:14px;
 						color:$grayColor;
+                      @include text-overflow-more(2);
 					}
 					p.shop-price{
 						ion-icon{

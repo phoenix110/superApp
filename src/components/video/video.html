@@ -1,6 +1,6 @@
 <!-- Generated template for the VideoComponent component -->
 <section class="playback-list flex-row-start">
-  <div class="{{ direction == 'row' ? 'video-row' : 'video-column' }}" *ngFor="let item of videoList | arrs;let i = index;" tappable (click)="videoDetail()">
+  <div class="{{ direction == 'row' ? 'video-row' : 'video-column' }}" (click)="toLiveDetailPage()" *ngFor="let item of videoList | arrs;let i = index;" tappable>
     <div class="video-img">
       <div class="video-left">
         <img src="{{item.thumb}}" alt="视频截图">

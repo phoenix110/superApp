@@ -22,4 +22,9 @@ export class VideoComponent {
     this.text = 'Hello World';
   }
 
+  //直播页面
+  toLiveDetailPage(){
+        this.navCtrl.push('LiveDetailPage');
+  }
+
 }
