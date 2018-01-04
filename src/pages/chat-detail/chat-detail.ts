@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from "@angular/common/http";
 
 /**
  * Generated class for the ChatDetailPage page.
@@ -16,12 +17,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'chat-detail.html',
 })
 export class ChatDetailPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public chatData:Array<object> = [];
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public Http:HttpClient) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatDetailPage');
+    this.getChatData();
   }
-
+  public getChatData(){
+    this.Http.get("./assets/data.json").subscribe(res => {
+        console.log(res['chatInfo'])
+      this.chatData = res['chatInfo'];
+    });
+  }
 }

@@ -6,10 +6,10 @@
         <ion-icon name="ios-add-circle-outline"></ion-icon>
       </ion-col>
       <ion-col col-8>
-        <ion-input no-margin placeholder="评论..." [(ngModel)]="chat.content"></ion-input>
+        <ion-input no-margin placeholder="评论..." [(ngModel)]="chatData.content"></ion-input>
       </ion-col>
       <ion-col col-2 text-center>
-        <span class="send-comment" (click)="sendChat()">发送</span>
+        <span class="send-comment" (click)="sendChatData()">发送</span>
       </ion-col>
     </ion-row>
     <ion-row class="extra-content" [class.active]="showExtra">

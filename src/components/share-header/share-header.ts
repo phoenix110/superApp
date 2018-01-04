@@ -42,8 +42,6 @@ export class ShareHeaderComponent implements OnInit{
     }
     ngOnInit(): void {
         this.TongXin.obSku.subscribe(res=>{
-            console.log(33333)
-            console.log(res)
             this.goodSku  = res;
         })
     }
@@ -63,28 +61,40 @@ export class ShareHeaderComponent implements OnInit{
     }
 
     // 点击购买商品
-    public buyGood(id) {
-        // this.Goods.goodsBuy({}).subscribe(res=>{
+    public buyGood() {
+        let skuIndex = this.goodSku['skuIndex'];
+        let params = {
+            id:this.goodSku['id'],
+            sku:skuIndex,
+            num:this.goodSku['sku_list'][skuIndex]['num']
+        };
+        // this.Goods.goodsBuy(params).subscribe(res =>{
         //     if(res === "toLogin"){
         //         this.navCtrl.push("LoginPage");
         //         return false;
         //     }
-        //     this.Pop.toast(res.message);
+        //     this.navCtrl.push("OrderDetailPage",{oId:this.goodSku['id']});
         // });
+        this.navCtrl.push("OrderDetailPage",{oId:this.goodSku['id']});
 
-        console.log(this.goodSku)
-
+        // console.log(this.goodSku)
     }
 
     // 点击添加购物车
     public addCart() {
-        // this.Goods.goodsAddCart(id).subscribe(res=>{
-        //     if(res === "toLogin"){
-        //         this.navCtrl.push("LoginPage");
-        //         return false;
-        //     }
-        //     this.Pop.toast(res.message);
-        // });
+        let skuIndex = this.goodSku['skuIndex'];
+        let params = {
+            id:this.goodSku['id'],
+            sku:skuIndex,
+            num:this.goodSku['sku_list'][skuIndex]['num']
+        };
+        this.Goods.goodsAddCart(params).subscribe(res=>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.Pop.toast(res.message);
+        });
         this.cartStatus = true;
 
     }
