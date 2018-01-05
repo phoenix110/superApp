@@ -68,3 +68,21 @@
         </div>
     </div>
 </section>
+<section class="good-sku" margin *ngIf="goodInfo.sku_list == ''">
+    <div class="good-info flex-row-start" style="margin-top: 20px;">
+        <div class="good-thumb">
+            <img src="{{goodInfo.thumb}}" alt="">
+        </div>
+        <div class="good-content">
+            <div class="good-cont">
+                <h5>价格：￥{{goodInfo.sale_price}}</h5>
+                <p>库存：{{goodInfo.total}}</p>
+                <div class="good-change">
+                    <span tappable (click)="descGood()">-</span>
+                    <ion-input value="{{goodInfo.num}}" no-margin text-center></ion-input>
+                    <span tappable (click)="addGood()">+</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

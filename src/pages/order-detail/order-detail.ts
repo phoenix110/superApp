@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 
 /**
@@ -21,7 +21,11 @@ export class OrderDetailPage {
     public orderInfo: Object = {};
     public sendWay: Array<string> = [];
     public totalPrice:number = 0;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public http: HttpClient,
+        public actionSheetCtrl:ActionSheetController) {
     }
 
     ionViewDidLoad() {
@@ -64,5 +68,37 @@ export class OrderDetailPage {
             return false;
         }
         this.orderInfo['num'] = orderNum - 1;
+    }
+    // 去支付（调起支付方式）
+    public toPay(){
+        let actionSheet = this.actionSheetCtrl.create({
+            title: '选择支付方式',
+            buttons: [
+                {
+                    text: '支付宝支付',
+                    role: 'destructive',
+                    handler: () => {
+
+                    }
+                }, {
+                    text: '微信支付',
+                    handler: () => {
+
+                    }
+                }, {
+                    text: '我的钱包',
+                    handler: () => {
+
+                    }
+                }, {
+                    text: '取消',
+                    role: 'cancel',
+                    handler: () => {
+
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
     }
 }

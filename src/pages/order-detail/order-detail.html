@@ -13,7 +13,7 @@
   <!--收货地址-->
   <div class="addressOut">
     <div class="addressIn flex-row-between" tappable (click)="toAddressList()">
-      <div class="address-left">
+      <div class="address-left" *ngIf="false">
         <div class="user-info flex-row-between">
           <b>收货人：{{orderAddress.name}}</b>
           <span>{{orderAddress.mobile}}</span>
@@ -22,6 +22,7 @@
           收货地址：{{orderAddress.address}}
         </div>
       </div>
+      <div class="address-none" *ngIf="true">暂无地址，去填写！</div>
       <div class="address-right">
         <ion-icon name="arrow-forward"></ion-icon>
       </div>
@@ -67,5 +68,5 @@
   <div class="pay-total">
     合计：￥<b>{{totalPrice}}</b>元
   </div>
-  <button ion-button color="red" small>立即支付</button>
+  <button ion-button color="red" small tappable (click)="toPay()">立即支付</button>
 </ion-footer>

@@ -38,6 +38,8 @@ export class GoodPage {
         console.log(id)
         this.Goods.getGoodDetail(id).subscribe(res => {
             if(res.code == 0){
+                res.data.num = 1;
+                res.data.totalNum = res.data.total;
                 for(let key in res.data['sku_list']){
                     res.data['sku_list'][key].num = 1;
                     res.data['sku_list'][key].constTotal = res.data['sku_list'][key]['total'];

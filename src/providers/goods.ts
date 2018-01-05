@@ -37,10 +37,11 @@ export class GoodsProvider {
     // 购买商品
     public goodsBuy(params){
         let options = {
-            op:"push_circle_talk",
-            circle_id:params.zid,
-            content:params.content,
-            thumb:params.thumb
+            op:"push_order",
+            goods_id :params.id,
+            sku_key :params.sku_key,
+            sku_desc  :params.sku_desc,
+            buy_num :params.num
         };
         return this.Auth.authLogin(options);
     }
