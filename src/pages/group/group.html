@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content class="cont-background">
-  <ion-card padding *ngFor="let item of group;let i = index;">
+  <ion-card padding *ngFor="let item of group;let i = index;" tappable (click)="toTalk()">
     <div class="group-header">
       <div class="group-icon" text-center [style.background-color]="colorArr[i]">
         <ion-icon name="volume-up"></ion-icon>
@@ -20,7 +20,7 @@
       </div>
     </div>
     <ul class="group-tuijian flex-row-between">
-      <li *ngFor="let avatar of item.avatar;let i = index;" tappable (click)="withChat(i)"><img src="{{avatar}}" alt=""></li>
+      <li *ngFor="let avatar of item.avatar;let i = index;" tappable><img src="{{avatar}}" alt=""></li>
     </ul>
     <div class="group-count">
       <span>成员<b>{{item.people}}</b></span>

@@ -79,33 +79,45 @@ export class ShareHeaderComponent implements OnInit{
                 num:this.goodSku['num']
             };
         }
-        console.log(params);
+
         this.Goods.goodsBuy(params).subscribe(res =>{
             if(res === "toLogin"){
                 this.navCtrl.push("LoginPage");
                 return false;
             }
-            this.navCtrl.push("OrderDetailPage",{oId:this.goodSku['id']});
+            let goodSku = JSON.stringify(params);
+            console.log(goodSku)
+            this.navCtrl.push("OrderDetailPage",{goodSku:params});
         });
     }
 
     // 点击添加购物车
     public addCart() {
-        let skuIndex = this.goodSku['skuIndex'];
-        let params = {
-            id:this.goodSku['id'],
-            sku:skuIndex,
-            num:this.goodSku['sku_list'][skuIndex]['num']
-        };
+        let params = {};
+        if(this.goodSku['sku_list'] != ''){
+            let skuIndex = this.goodSku['skuIndex'];
+            params = {
+                id:this.goodSku['id'],
+                sku_key:skuIndex,
+                sku_desc:this.goodSku['sku_list'][skuIndex]['filed_1'] + '-' + this.goodSku['sku_list'][skuIndex]['filed_2'],
+                num:this.goodSku['sku_list'][skuIndex]['num'],
+            };
+        }else{
+            params = {
+                id:this.goodSku['id'],
+                sku_key:"",
+                sku_desc:"",
+                num:this.goodSku['num']
+            };
+        }
         this.Goods.goodsAddCart(params).subscribe(res=>{
             if(res === "toLogin"){
                 this.navCtrl.push("LoginPage");
                 return false;
             }
             this.Pop.toast(res.message);
+            this.cartStatus = true;
         });
-        this.cartStatus = true;
-
     }
 
     // 点击分享

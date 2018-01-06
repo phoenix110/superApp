@@ -28,4 +28,17 @@ export class ValidateProvider {
         }
         return str;
     }
+    // 禁止事件冒泡
+    public stopEventPropagation(event:Event)
+    {
+        let e = event["srcEvent"];
+        if(e && e != undefined && e != null)
+        {
+            let stopPropagation = e["stopPropagation"];
+            if(stopPropagation && stopPropagation != undefined && stopPropagation != null)
+            {
+                e.stopPropagation();
+            }
+        }
+    }
 }

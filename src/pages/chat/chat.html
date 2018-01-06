@@ -11,7 +11,7 @@
 
 <ion-content no-padding>
   <ion-list class="chat-list" no-margin no-border>
-    <ion-item *ngFor="let item of chatList.system;let i = index;">
+    <ion-item *ngFor="let item of chatList.system;let i = index;" tappable (click)="toAdvertise()">
       <ion-thumbnail item-start>
         <button ion-button [style.background-color]="colorArr[i]">
           <ion-icon name="{{item.icon}}"></ion-icon>

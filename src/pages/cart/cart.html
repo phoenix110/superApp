@@ -13,16 +13,16 @@
   <ion-list>
     <ion-card *ngFor="let shop of cartList;let s = index;">
       <div class="cart-top flex-row-start">
-        <img src="{{shop.icon}}" alt="">
-        <h5 class="text-overflow-one">{{shop.name}}</h5>
+        <img src="{{shop.company_logo}}" alt="">
+        <h5 class="text-overflow-one">{{shop.title}}</h5>
         <span tappable (click)="cartEdit(s)">编辑</span>
       </div>
-      <div class="cart-center flex-row-start" *ngFor="let goods of shop.goods;let g = index;">
+      <div class="cart-center flex-row-start" *ngFor="let goods of shop.carts;let g = index;">
         <ion-checkbox  color="danger" checked="{{goods.status}}" tappable (click)="singleChoose(s,g)"></ion-checkbox>
         <img src="{{goods.thumb}}" alt="">
         <div class="cart-guige" *ngIf="!shop.edit">
-          <h5 class="flex-row-between"><span>{{goods.title}}</span><b>￥{{goods.price}}</b></h5>
-          <p class="flex-row-between"><span>规格：<em>{{goods.sku == '' ? '默认' : goods.sku }}</em></span><b>X{{goods.num}}</b></p>
+          <h5 class="flex-row-between"><span>{{goods.goods_name}}</span><b>￥{{goods.sale_price}}</b></h5>
+          <p class="flex-row-between"><span>规格：<em>{{goods.is_open_spec == 0 ? '默认' : goods.sku_desc }}</em></span><b>X{{goods.buy_num}}</b></p>
         </div>
         <div class="goods-del flex-row-between" *ngIf="shop.edit">
           <ul class="flex-column-between">
@@ -31,7 +31,7 @@
               <span class="input-num">2</span>
               <span>+</span>
             </li>
-            <li class="guige">规格：默认</li>
+            <li class="guige">规格：{{goods.is_open_spec == 0 ? '默认' : goods.sku_desc }}</li>
           </ul>
           <b tappable (click)="delGood(s,g)"><ion-icon name="ios-trash"></ion-icon></b>
         </div>

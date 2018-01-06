@@ -1,16 +1,16 @@
 <!-- Generated template for the AddressItemComponent component -->
-<section class="address-list" *ngFor="let item of addressList;let i = index;" tappable (click)="selectAddress()">
+<section class="address-list" *ngFor="let item of addressList;let i = index;">
   <div class="address-zhen"><img src="./assets/images/avatar/shot.png" alt=""></div>
-  <div class="address-detail">
-    <div class="address-user flex-row-between">
+  <div class="address-detail" tappable (click)="selectAddress(item.id)">
+    <div class="address-user">
       <div class="address-name">
-        {{item.name}} <b *ngIf="item.default">[默认地址]</b>
-      </div>
-      <div class="address-manage" tappable (click)="editAddress(i,item.id)">
-        管理
+        {{item.realname}} <b *ngIf="item.isdefault != 0">[默认地址]</b>
       </div>
     </div>
       <h6>{{item.mobile}}</h6>
       <p>{{item.address}}</p>
+  </div>
+  <div class="address-manage" tappable (click)="editAddress(i,item.id,$event)">
+    管理
   </div>
 </section>

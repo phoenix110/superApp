@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
-import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ActionSheetController, IonicPage, NavController, NavParams, Events} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
+import {GoodsProvider} from "../../providers/goods";
+import {PopProvider} from "../../providers/pop";
 
 /**
  * Generated class for the OrderDetailPage page.
@@ -10,44 +12,69 @@ import {HttpClient} from "@angular/common/http";
  */
 
 @IonicPage({
-    segment: 'orderDetail/:id'
+    segment: 'orderDetail/:goodSku'
 })
 @Component({
     selector: 'page-order-detail',
     templateUrl: 'order-detail.html',
 })
 export class OrderDetailPage {
-    public orderAddress: Object = {};
     public orderInfo: Object = {};
     public sendWay: Array<string> = [];
     public totalPrice:number = 0;
+    public goodParams:Object = {};
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         public http: HttpClient,
-        public actionSheetCtrl:ActionSheetController) {
+        public actionSheetCtrl:ActionSheetController,
+        public Goods:GoodsProvider,
+        public events:Events,
+        public Pop:PopProvider) {
+        this.goodParams = this.navParams.get("goodSku");
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad OrderDetailPage');
-        this.orderDetail();
 
     }
-
+    ionViewDidEnter(){
+        this.orderDetail();
+    }
+    // 初始化订单详情数据
+    public orderDetail (){
+        this.events.subscribe('addressCallback', (paramsVar) => {
+            if(paramsVar != ''){
+                this.goodParams['address_id'] = paramsVar;
+                return false;
+            }else{
+                this.goodParams['address_id'] = '';
+            }
+            this.events.unsubscribe('addressCallback');
+        });
+        let params = this.goodParams;
+        this.Goods.goodsBuy(params).subscribe(res =>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.orderInfo = res.data;
+        });
+    }
     // 跳转至收货地址列表
     public toAddressList() {
         this.navCtrl.push("AddressListPage");
     }
 
-    // 获取订单详情数据
-    public orderDetail() {
-        this.http.get("./assets/data.json").subscribe(data => {
-            this.orderAddress = data["orderDetail"]['orderAddress'];
-            this.orderInfo = data["orderDetail"]['orderInfo'];
-            this.sendWay = data["orderDetail"]['sendWay'];
-            console.log(this.sendWay)
-        });
-    }
+    // // 获取订单详情数据
+    // public orderDetail() {
+    //     this.http.get("./assets/data.json").subscribe(data => {
+    //         this.orderAddress = data["orderDetail"]['orderAddress'];
+    //         this.orderInfo = data["orderDetail"]['orderInfo'];
+    //         this.sendWay = data["orderDetail"]['sendWay'];
+    //         console.log(this.sendWay)
+    //     });
+    // }
     // 增加商品数量
     public upOrderNum(){
         console.log(45454)
@@ -78,17 +105,17 @@ export class OrderDetailPage {
                     text: '支付宝支付',
                     role: 'destructive',
                     handler: () => {
-
+                        this.Pop.toast("尚未开通");
                     }
                 }, {
                     text: '微信支付',
                     handler: () => {
-
+                        this.Pop.toast("尚未开通");
                     }
                 }, {
                     text: '我的钱包',
                     handler: () => {
-
+                        this.Pop.toast("尚未开通");
                     }
                 }, {
                     text: '取消',
