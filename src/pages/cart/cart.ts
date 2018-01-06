@@ -3,7 +3,6 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user";
 import {PopProvider} from "../../providers/pop";
 import {GoodsProvider} from "../../providers/goods";
-import {stringify} from "@angular/core/src/util";
 
 
 /**
@@ -181,11 +180,9 @@ export class CartPage {
         let shopList = this.cartList;
         shopList[s]['totalFee'] = 0;
         this.isAllChoose(shopList[s]);
-        console.log(shopList[s]['id'])
-        console.log(JSON,stringify(this.ids))
         let params = {
             id:shopList[s]['id'],
-            ids:this.ids
+            ids:this.ids.toString()
         };
         console.log(params)
         this.Goods.goodsBuy(params,"cart").subscribe(res =>{

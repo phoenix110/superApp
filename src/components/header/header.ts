@@ -104,7 +104,7 @@ export class HeaderComponent implements OnChanges {
 
     //发表圈子
     public pushCircle() {
-        let formData = new FormData();
+        // let formData = new FormData();
         let content = this.pubData['content'];
         let src = this.pubData['src'];
         console.log(this.pubData)
@@ -124,11 +124,11 @@ export class HeaderComponent implements OnChanges {
                 return false;
             } else {
                 // this.pubData['token'] = res;
-                formData.append("op","push_circle");
-                formData.append("token",res);
-                formData.append("content",content);
-                formData.append("src",src);
-                this.Publish.pubCircle(formData).subscribe(res => {
+                // formData.append("op","push_circle");
+                // formData.append("token",res);
+                // formData.append("content",content);
+                // formData.append("src",src);
+                this.Publish.pubCircle(this.pubData).subscribe(res => {
                     this.Pop.toast(res.msg);
                     if (res.code == 0) {
                         this.navCtrl.pop();

@@ -51,7 +51,7 @@ export class GoodsProvider {
             options = {
                 op:"check_order",
                 id :params.id,
-                'ids[]' :params.ids
+                ids :params.ids
             };
         }
         console.log(params)
