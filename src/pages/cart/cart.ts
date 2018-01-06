@@ -180,11 +180,11 @@ export class CartPage {
         let shopList = this.cartList;
         shopList[s]['totalFee'] = 0;
         this.isAllChoose(shopList[s]);
+        let ids = this.ids.toString();
         let params = {
             id:shopList[s]['id'],
-            ids:this.ids.toString()
+            ids:ids
         };
-        console.log(params)
         this.Goods.goodsBuy(params,"cart").subscribe(res =>{
             if(res === "toLogin"){
                 this.navCtrl.push("LoginPage");
