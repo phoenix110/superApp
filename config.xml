@@ -99,10 +99,6 @@
     <allow-navigation href="http://192.168.0.104:8100" />
     <allow-navigation href="http://192.168.211.1:8102" />
     <allow-navigation href="http://192.168.0.103:8102" />
-<<<<<<< HEAD
-=======
-    <engine name="android" spec="6.2.3" />
->>>>>>> 565db3107213fa264cd5e852d7b0c0b59930c3c1
     <plugin name="com.synconset.imagepicker" spec="^2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="是否允许访问您的相册" />
     </plugin>
@@ -116,10 +112,6 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-sqlite-storage" spec="^2.1.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-<<<<<<< HEAD
     <engine name="android" spec="6.2.3" />
     <engine name="ios" spec="^4.4.0" />
-=======
-    <engine name="ios" spec="~4.4.0" />
->>>>>>> 565db3107213fa264cd5e852d7b0c0b59930c3c1
 </widget>
