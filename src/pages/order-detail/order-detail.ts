@@ -12,7 +12,7 @@ import {PopProvider} from "../../providers/pop";
  */
 
 @IonicPage({
-    segment: 'orderDetail/:goodSku'
+    segment: 'orderDetail/:goodSku:type'
 })
 @Component({
     selector: 'page-order-detail',
@@ -23,6 +23,7 @@ export class OrderDetailPage {
     public sendWay: Array<string> = [];
     public totalPrice:number = 0;
     public goodParams:Object = {};
+    public navType = "";
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -32,6 +33,8 @@ export class OrderDetailPage {
         public events:Events,
         public Pop:PopProvider) {
         this.goodParams = this.navParams.get("goodSku");
+        this.navType = this.navParams.get("type");
+        console.log(this.navType)
     }
 
     ionViewDidLoad() {
@@ -43,6 +46,7 @@ export class OrderDetailPage {
     }
     // 初始化订单详情数据
     public orderDetail (){
+        console.log(this.goodParams)
         this.events.subscribe('addressCallback', (paramsVar) => {
             if(paramsVar != ''){
                 this.goodParams['address_id'] = paramsVar;
@@ -53,28 +57,31 @@ export class OrderDetailPage {
             this.events.unsubscribe('addressCallback');
         });
         let params = this.goodParams;
-        this.Goods.goodsBuy(params).subscribe(res =>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
-            }
-            this.orderInfo = res.data;
-        });
+        if(this.navType === 'cart'){
+            this.Goods.goodsBuy(params,"cart").subscribe(res =>{
+                if(res === "toLogin"){
+                    this.navCtrl.push("LoginPage");
+                    return false;
+                }
+                this.orderInfo = res.data;
+                console.log(this.orderInfo)
+            });
+        }else{
+            this.Goods.goodsBuy(params).subscribe(res =>{
+                if(res === "toLogin"){
+                    this.navCtrl.push("LoginPage");
+                    return false;
+                }
+                this.orderInfo = res.data;
+            });
+        }
+
     }
     // 跳转至收货地址列表
     public toAddressList() {
         this.navCtrl.push("AddressListPage");
     }
 
-    // // 获取订单详情数据
-    // public orderDetail() {
-    //     this.http.get("./assets/data.json").subscribe(data => {
-    //         this.orderAddress = data["orderDetail"]['orderAddress'];
-    //         this.orderInfo = data["orderDetail"]['orderInfo'];
-    //         this.sendWay = data["orderDetail"]['sendWay'];
-    //         console.log(this.sendWay)
-    //     });
-    // }
     // 增加商品数量
     public upOrderNum(){
         console.log(45454)

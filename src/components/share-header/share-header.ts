@@ -87,7 +87,7 @@ export class ShareHeaderComponent implements OnInit{
             }
             let goodSku = JSON.stringify(params);
             console.log(goodSku)
-            this.navCtrl.push("OrderDetailPage",{goodSku:params});
+            this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"buy"});
         });
     }
 

@@ -182,16 +182,16 @@ export class CartPage {
         this.isAllChoose(shopList[s]);
         let ids = this.ids.toString();
         let params = {
-            id:shopList[s]['id'],
-            ids:ids
+            // id:shopList[s]['id'],
+            ids:ids,
+
         };
         this.Goods.goodsBuy(params,"cart").subscribe(res =>{
             if(res === "toLogin"){
                 this.navCtrl.push("LoginPage");
                 return false;
             }
-            let cartInfo = JSON.stringify(params);
-            this.navCtrl.push("OrderDetailPage",{goodSku:cartInfo})
+            this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"cart"})
         });
     }
 }

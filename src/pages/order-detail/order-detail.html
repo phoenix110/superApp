@@ -31,10 +31,10 @@
   <!--订单信息-->
   <div class="order-info" *ngFor="let item of orderInfo.list">
     <div class="order-shop">
-        <img src="{{item.company_logo}}" alt="">
-        <b>{{item.company_title}}</b>
+        <img src="{{item.logo}}" alt="">
+        <b>{{item.title}}</b>
     </div>
-      <div class="order-descs flex-row-start">
+      <div class="order-descs flex-row-start" *ngFor="let item of item.goodsList" style="margin-bottom: 10px;">
           <div class="order-pic">
               <img src="{{item.thumb}}" alt="">
           </div>
@@ -47,7 +47,7 @@
                   <b>规格：默认 </b>
               </p>
               <p class="flex-row-between">
-                  <span>￥{{item.sale_price * item.buy_num}}</span>
+                  <span>￥{{item.sale_price}}</span>
                   <b>X {{item.buy_num}}</b>
               </p>
           </div>
@@ -79,7 +79,7 @@
 </ion-content>
 <ion-footer class="flex-row-between">
   <div class="pay-total">
-    合计：￥<b>0.00</b>元
+    合计：￥<b>{{orderInfo.total_price}}</b>元
   </div>
   <button ion-button color="red" small tappable (click)="toPay()">立即支付</button>
 </ion-footer>

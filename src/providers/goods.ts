@@ -37,6 +37,7 @@ export class GoodsProvider {
     // 购买商品
     public goodsBuy(params,type = ""){
         let options = {};
+        console.log(type)
         if(type == ''){
             options = {
                 op:"check_order",
@@ -46,12 +47,11 @@ export class GoodsProvider {
                 buy_num :params.num,
                 address_id:params.address_id
             };
-
         }else{
             options = {
                 op:"check_order",
-                id :params.id,
-                ids :params.ids
+                id :params.ids,
+                // ids :params.ids
             };
         }
         console.log(params)

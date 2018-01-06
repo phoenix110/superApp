@@ -3,7 +3,7 @@
     <name>百变APP</name>
     <description>An content all things app.</description>
     <author email="shiLiang" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.0.104:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
@@ -100,6 +100,7 @@
     <allow-navigation href="http://192.168.211.1:8102" />
     <allow-navigation href="http://192.168.0.103:8102" />
     <engine name="android" spec="6.2.3" />
+    <engine name="ios" spec="~4.4.0" />
     <plugin name="com.synconset.imagepicker" spec="^2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="是否允许访问您的相册" />
     </plugin>
