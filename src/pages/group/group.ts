@@ -40,4 +40,8 @@ export class GroupPage {
             this.colorArr.push(color);
         }
     }
+    // 跳转至社群聊天
+    public toTalk(){
+      this.navCtrl.push("ChatDetailPage");
+    }
 }

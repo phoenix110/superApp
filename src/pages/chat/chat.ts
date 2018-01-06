@@ -50,5 +50,8 @@ export class ChatPage {
             this.colorArr.push(color);
         }
     }
-
+    // 跳转至系统公告
+    public toAdvertise(){
+        this.navCtrl.push("NoticePage");
+    }
 }

@@ -22,7 +22,8 @@ export class AddressAddPage{
         city:"",
         district:"",
         token:"",
-        area:""
+        area:"",
+        type:"add"
     };
     public cityArr:Array<string> = [];
     public cityList = {

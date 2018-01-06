@@ -5,6 +5,7 @@ import {HttpProvider} from "./http";
 import { PopProvider } from "./pop";
 import { ValidateProvider } from "./validate";
 import { Storage } from "@ionic/storage";
+import {AuthProvider} from "./auth";
 
 /*
   Generated class for the UserProvider provider.
@@ -19,7 +20,8 @@ export class UserProvider {
         public http: HttpProvider,
         public Pop:PopProvider,
         public Valify:ValidateProvider,
-        public Storage:Storage
+        public Storage:Storage,
+        public Auth:AuthProvider
     ) {
         console.log('Hello UserProvider Provider');
     }
@@ -132,13 +134,12 @@ export class UserProvider {
     }
     // 获取省市区列表数据
     public cityListData(cityList){
-        console.log(222222)
          this.http.getCityData().subscribe(res=>{
              cityList.area = res;
              console.log(cityList)
         });
     }
-
+    // 注册、修改密码格式验证
     public validate(params){
         let mobile = params.mobile;
         let password = params.password;
@@ -174,5 +175,19 @@ export class UserProvider {
         }
         return true;
     }
-
+    // 获取购物车列表
+    public getCartData(){
+        let options = {
+            op:"get_cart"
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 删除购物车
+    public removeCartData(id){
+        let options = {
+            op:"delete_cart",
+            uid:id
+        };
+        return this.Auth.authLogin(options);
+    }
 }

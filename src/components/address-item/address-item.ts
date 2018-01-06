@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
-import {ActionSheetController, NavController} from "ionic-angular";
+import {ActionSheetController, Events, NavController} from "ionic-angular";
+import {GoodsProvider} from "../../providers/goods";
+import {PopProvider} from "../../providers/pop";
+import {ValidateProvider} from "../../providers/validate";
 
 /**
  * Generated class for the AddressItemComponent component.
@@ -17,16 +20,24 @@ export class AddressItemComponent {
 
   constructor(
       public navCtrl:NavController,
-      public actionSheetCtrl:ActionSheetController) {
+      public actionSheetCtrl:ActionSheetController,
+      public Goods:GoodsProvider,
+      public Pop:PopProvider,
+      public events:Events,
+      public Validate:ValidateProvider) {
     console.log('Hello AddressItemComponent Component');
     this.text = 'Hello World';
   }
-  // 选中当前地址为收货地址
-  public selectAddress(){
-
-  }
+  // 选中当前地址为本次订单收货地址
+    public selectAddress(id){
+        this.navCtrl.pop().then(() => {
+            this.events.publish('addressCallback', id);
+        });
+    }
   // 管理当前收货地址
-  public editAddress(index,id){
+  public editAddress(index,id,$event){
+      this.Validate.stopEventPropagation($event);
+
       let actionSheet = this.actionSheetCtrl.create({
           buttons: [
               {
@@ -34,24 +45,40 @@ export class AddressItemComponent {
                   role: 'destructive',
                   handler: () => {
                       this.navCtrl.push("AddressEditPage",{id:id});
+
                   }
               },{
                   text: '设为默认',
                   role: 'destructive',
                   handler: () => {
-                      this.addressList.forEach((item,idx,arr) => {
-                        if(idx == index){
-                          item['default'] = true;
-                          return false;
-                        }
-                        item['default'] = false;
-
+                      this.Goods.defaultAddress(id).subscribe(res =>{
+                          if(res === "toLogin"){
+                              this.navCtrl.push("LoginPage");
+                              return false;
+                          }
+                          this.Pop.toast(res.message);
+                          this.addressList.forEach((item,idx,arr) => {
+                              if(idx == index){
+                                  item['isdefault'] = 1;
+                                  return false;
+                              }
+                              item['isdefault'] = 0;
+                          });
                       });
+
                   }
               }, {
                   text: '删除',
                   handler: () => {
-                      this.addressList.splice(index,1);
+                      console.log(id)
+                      this.Goods.delAddress(id).subscribe(res =>{
+                          if(res === "toLogin"){
+                              this.navCtrl.push("LoginPage");
+                              return false;
+                          }
+                          this.Pop.toast(res.message);
+                          this.addressList.splice(index,1);
+                      });
                   }
               }, {
                   text: '取消',

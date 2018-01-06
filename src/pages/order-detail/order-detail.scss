@@ -30,13 +30,23 @@ page-order-detail {
   }
   .order-info{
     background: #f3f3f3;
-    height:80px;
-    margin-top: 15px;
+    margin: 15px 0;
+    padding:10px 5px;
     @include radius(5px);
     overflow: hidden;
+    .order-shop{
+      margin-bottom: 10px;
+      img{
+        width:25px;
+        height:25px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
     .order-pic{
       width:80px;
       height:80px;
+      flex:0 0 80px;
     }
     .order-title{
       margin:6px;
@@ -44,13 +54,16 @@ page-order-detail {
       h5{
         height:30px;
         line-height: 30px;
-        max-width: 250px;
+        max-width: 200px;
         font-size:13px;
       }
       p{
         margin: 2px 0;
         span{
           color:#FE576A;
+        }
+        b{
+          margin-right: 5px;
         }
       }
     }

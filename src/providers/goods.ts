@@ -35,23 +35,94 @@ export class GoodsProvider {
         return this.Http.post(options);
     }
     // 购买商品
-    public goodsBuy(params){
-        let options = {
-            op:"push_order",
-            goods_id :params.id,
-            sku_key :params.sku_key,
-            sku_desc  :params.sku_desc,
-            buy_num :params.num
-        };
+    public goodsBuy(params,type = ""){
+        let options = {};
+        if(type == ''){
+            options = {
+                op:"check_order",
+                goods_id :params.id,
+                sku_key :params.sku_key,
+                sku_desc  :params.sku_desc,
+                buy_num :params.num,
+                address_id:params.address_id
+            };
+
+        }else{
+            options = {
+                op:"check_order",
+                id :params.id,
+                'ids[]' :params.ids
+            };
+        }
+        console.log(params)
         return this.Auth.authLogin(options);
     }
     // 添加至购物车
     public goodsAddCart(params){
         let options = {
-            op:"push_circle_talk",
-            circle_id:params.zid,
-            content:params.content,
-            thumb:params.thumb
+            op:"add_cart",
+            goods_id :params.id,
+            sku_key :params.sku_key,
+            sku_desc  :params.sku_desc,
+            buy_num :params.num,
+            address_id:params.address_id
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 获取用户地址列表
+    public addressList(){
+        let options = {
+            op:"get_address",
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 添加新地址
+    public addNewAddress(params){
+        let options = {
+            op:"add_address",
+            realname:params.name,
+            mobile:params.mobile,
+            province:params.province,
+            city:params.city,
+            district:params.district,
+            address:params.area
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 获取当前地址详情
+    public getAddressInfo(id){
+        let options = {
+            op:"address_detail",
+            id:id
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 编辑保存当前地址
+    public editSaveAddress(params){
+        let options = {
+            op:"update_address",
+            realname:params.name,
+            mobile:params.mobile,
+            province:params.province,
+            city:params.city,
+            district:params.district,
+            address:params.area
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 删除当前收货地址
+    public delAddress(id){
+        let options = {
+            op:"delete_address",
+            id:id
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 设为默认地址
+    public defaultAddress(id){
+        let options = {
+            op:"set_default_address",
+            id:id
         };
         return this.Auth.authLogin(options);
     }

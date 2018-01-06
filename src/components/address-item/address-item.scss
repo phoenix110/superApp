@@ -16,18 +16,23 @@ address-item {
       }
     }
     .address-user{
+      @include position(relative,0,null,null,0);
       .address-name{
         b{
           color:#1AADC7;
           margin-left: 15px;
         }
-
       }
-      .address-manage{
-        width:35px;
-        color:#FA6B5B;
-      }
-
+    }
+    .address-manage{
+      width:45px;
+      height:35px;
+      line-height: 35px;
+      text-align: center;
+      color:#FA6B5B;
+      position: absolute;
+      top:0px;
+      right:3px;
     }
     h6{
       height:25px;

@@ -5,6 +5,7 @@ import {PopProvider} from "../../providers/pop";
 import {PublishProvider} from "../../providers/publish";
 import {ValidateProvider} from "../../providers/validate";
 import {TongxinProvider} from "../../providers/tongxin";
+import {GoodsProvider} from "../../providers/goods";
 
 /**
  * Generated class for the HeaderComponent component.
@@ -29,7 +30,8 @@ export class HeaderComponent implements OnChanges {
                 public Pop: PopProvider,
                 public Publish: PublishProvider,
                 public Validate: ValidateProvider,
-                public TongXin: TongxinProvider) {
+                public TongXin: TongxinProvider,
+                public Goods:GoodsProvider) {
         console.log('Hello HeaderComponent Component');
         this.getContent();
     }
@@ -49,18 +51,53 @@ export class HeaderComponent implements OnChanges {
         this.navCtrl.push("AddressAddPage");
     }
 
-    // 保存当前页面信息
+    // 保存新增或编辑地址页面信息
     public saveAddress() {
         let cityArr = document.getElementById("cities").innerText;
+        let name = this.Validate.trimBlank(this.addressInfo['name']);
+        let mobile = this.Validate.trimBlank(this.addressInfo['mobile']) && this.Validate.phone(this.addressInfo['mobile']);
+        let address = this.Validate.trimBlank(this.addressInfo['area']);
         cityArr = this.Validate.trimBlank(cityArr);
+        if(!name){
+            this.Pop.toast("请填写收件人姓名");
+            return false;
+        }
+        if(!mobile){
+            this.Pop.toast("请填写正确的收件人手机号");
+            return false;
+        }
+
         if(cityArr == '省-市-区(县)'){
             this.Pop.toast("请选择所在地区");
+            return false;
+        }
+        if(!address){
+            this.Pop.toast("请填写收件人详细地址信息");
             return false;
         }
         this.cityArr = cityArr.split("-");
         this.addressInfo['province']  = this.cityArr[0];
         this.addressInfo['city']  = this.cityArr[1];
         this.addressInfo['district']  = this.cityArr[2];
+        if(this.addressInfo['type'] === 'add'){
+            this.Goods.addNewAddress(this.addressInfo).subscribe(res =>{
+                if(res === "toLogin"){
+                    this.navCtrl.push("LoginPage");
+                    return false;
+                }
+                this.Pop.toast(res.message);
+                this.navCtrl.pop();
+            });
+        }else{
+            this.Goods.editSaveAddress(this.addressInfo).subscribe(res =>{
+                if(res === "toLogin"){
+                    this.navCtrl.push("LoginPage");
+                    return false;
+                }
+                this.Pop.toast(res.message);
+                this.navCtrl.pop();
+            });
+        }
         console.log(this.addressInfo);
         // this.navCtrl.pop();
     }

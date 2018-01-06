@@ -1,5 +1,9 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {UserProvider} from "../../providers/user";
+import {PopProvider} from "../../providers/pop";
+import {GoodsProvider} from "../../providers/goods";
+import {stringify} from "@angular/core/src/util";
 
 
 /**
@@ -71,18 +75,47 @@ export class CartPage {
             ]
         }
     ];
+    public uid = "";
     public ids:Array<string> = [];
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public User:UserProvider,
+        public Pop:PopProvider,
+        public Goods:GoodsProvider) {
+        this.uid = this.navParams.get("uid");
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad CartPage');
-       this.allChooseInit();
+        this.getCartList();
     }
 
     // 购物车列表数据
     public getCartList(){
+        console.log(1111)
+        this.User.getCartData().subscribe(res =>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.Pop.toast(res.message);
+            console.log(res.data)
+            res.data.forEach((shop,index,arr) => {
+                shop.kaiguan = true;
+                shop.status = false;
+                shop.kaiguan = true;
+                shop.selectNum = 0;
+                shop.totalFee = 0;
+                shop.edit = false;
+                shop.carts.forEach((good,index,arr) => {
+                    good.status = false;
+                })
+            });
+            this.cartList = res.data;
+            this.allChooseInit();
 
+        });
     }
     // 购物车编辑
     public cartEdit(s){
@@ -99,7 +132,7 @@ export class CartPage {
     // 商品单选按钮
     public singleChoose(s,g){
         let shopList = this.cartList;
-        let goodsList = shopList[s]['goods'];
+        let goodsList = shopList[s]['carts'];
         shopList[s]['kaiguan'] = true;
         goodsList[g]['status'] = !goodsList[g]['status'];
         this.isAllChoose(shopList[s]);
@@ -108,14 +141,14 @@ export class CartPage {
     // 多选按钮
     public allChoose(s){
         let shop = this.cartList[s];
-        let goodsList = this.cartList[s]['goods'];
+        let goodsList = this.cartList[s]['carts'];
         shop['totalFee'] = 0;
         shop['selectNum'] = 0;
         shop['status'] = !shop['status'];
         goodsList.forEach((item,index,arr)=>{
             item['status'] = shop['status'];
 
-            shop['status'] == true ? shop['totalFee'] += item['price'] * item['num'] : shop['totalFee'] = 0;
+            shop['status'] == true ? shop['totalFee'] += item['sale_price'] * item['buy_num'] : shop['totalFee'] = 0;
             shop['status'] == true ? shop['selectNum'] ++ : shop['selectNum'] = 0;
         });
     }
@@ -124,12 +157,12 @@ export class CartPage {
         this.ids = [];
         shop['selectNum'] = 0;
         shop['totalFee'] = 0;
-        shop['goods'].forEach((good,index,arr)=>{
+        shop['carts'].forEach((good,index,arr)=>{
             if(!good.status){
                 shop['kaiguan'] = false;
                 return false;
             }
-            shop['totalFee'] += good['price'] * good['num'];
+            shop['totalFee'] += good['sale_price'] * good['buy_num'];
             shop['selectNum'] ++;
             this.ids.push(good.id);
         });
@@ -137,9 +170,9 @@ export class CartPage {
     // 删除店铺中的某一商品
     public delGood(s,g){
         let shopList = this.cartList;
-        shopList[s]['goods'].splice(g,1);
+        shopList[s]['carts'].splice(g,1);
         this.isAllChoose(shopList[s]);
-        if(shopList[s]['goods'].length <= 0){
+        if(shopList[s]['carts'].length <= 0){
             shopList.splice(s,1);
         }
     }
@@ -148,6 +181,20 @@ export class CartPage {
         let shopList = this.cartList;
         shopList[s]['totalFee'] = 0;
         this.isAllChoose(shopList[s]);
-        console.log(shopList[s]['totalFee'])
+        console.log(shopList[s]['id'])
+        console.log(JSON,stringify(this.ids))
+        let params = {
+            id:shopList[s]['id'],
+            ids:this.ids
+        };
+        console.log(params)
+        this.Goods.goodsBuy(params,"cart").subscribe(res =>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            let cartInfo = JSON.stringify(params);
+            this.navCtrl.push("OrderDetailPage",{goodSku:cartInfo})
+        });
     }
 }
