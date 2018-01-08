@@ -76,6 +76,7 @@ export class CartPage {
     ];
     public uid = "";
     public ids:Array<string> = [];
+    public payStatus:boolean = false;
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -109,8 +110,10 @@ export class CartPage {
                 shop.edit = false;
                 shop.carts.forEach((good,index,arr) => {
                     good.status = false;
+                    good.stockNum = good.total;
                 })
             });
+            console.log(res.data);
             this.cartList = res.data;
             this.allChooseInit();
 
@@ -133,9 +136,17 @@ export class CartPage {
         let shopList = this.cartList;
         let goodsList = shopList[s]['carts'];
         shopList[s]['kaiguan'] = true;
+        this.payStatus = false;
         goodsList[g]['status'] = !goodsList[g]['status'];
         this.isAllChoose(shopList[s]);
         shopList[s]['kaiguan'] == true ? shopList[s]['status'] = true : shopList[s]['status'] = false;
+        // 一个商品被选中，则打开支付按钮
+        goodsList.forEach((good,index,arr)=>{
+            if(good['status']){
+                this.payStatus = true;
+                return false;
+            }
+        });
     }
     // 多选按钮
     public allChoose(s){
@@ -146,9 +157,9 @@ export class CartPage {
         shop['status'] = !shop['status'];
         goodsList.forEach((item,index,arr)=>{
             item['status'] = shop['status'];
-
             shop['status'] == true ? shop['totalFee'] += item['sale_price'] * item['buy_num'] : shop['totalFee'] = 0;
             shop['status'] == true ? shop['selectNum'] ++ : shop['selectNum'] = 0;
+            this.payStatus = shop['selectNum'] > 0;
         });
     }
     // 当前店铺商品均选中时，自动选中全选按钮
@@ -169,11 +180,42 @@ export class CartPage {
     // 删除店铺中的某一商品
     public delGood(s,g){
         let shopList = this.cartList;
-        shopList[s]['carts'].splice(g,1);
-        this.isAllChoose(shopList[s]);
-        if(shopList[s]['carts'].length <= 0){
-            shopList.splice(s,1);
+        let id = shopList[s]['carts'][g]['id'];
+        this.Goods.delCartGoods(id).subscribe(res => {
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            shopList[s]['carts'].splice(g,1);
+            this.isAllChoose(shopList[s]);
+            if(shopList[s]['carts'].length <= 0){
+                shopList.splice(s,1);
+            }
+        })
+    }
+    // 增加商品数量
+    public upOrderNum(s,g){
+        let goods = this.cartList[s]['carts'][g];
+        let stockNum = parseInt(goods['stockNum']);
+        let buyNum = parseInt(goods['buy_num']) + 1;
+        if(buyNum > stockNum){
+            this.Pop.toast("已打商品最大库存量！");
+            return false;
         }
+        this.cartList[s]['carts'][g]['buy_num'] = buyNum;
+        this.isAllChoose(this.cartList[s]);
+
+    }
+    // 减少商品数量
+    public downOrderNum(s,g){
+        let goods = this.cartList[s]['carts'][g];
+        let orderNum = parseInt(goods['buy_num']);
+        if(orderNum <= 1){
+            this.Pop.toast("不能再少了哟！");
+            return false;
+        }
+        goods['buy_num'] = orderNum - 1;
+        this.isAllChoose(this.cartList[s]);
     }
     // 去结算
     public toPay(s){
@@ -184,7 +226,6 @@ export class CartPage {
         let params = {
             // id:shopList[s]['id'],
             ids:ids,
-
         };
         this.Goods.goodsBuy(params,"cart").subscribe(res =>{
             if(res === "toLogin"){

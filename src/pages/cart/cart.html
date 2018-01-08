@@ -15,7 +15,7 @@
       <div class="cart-top flex-row-start">
         <img src="{{shop.company_logo}}" alt="">
         <h5 class="text-overflow-one">{{shop.title}}</h5>
-        <span tappable (click)="cartEdit(s)">编辑</span>
+        <span tappable (click)="cartEdit(s);canEdit = !canEdit">{{canEdit ? "完成" : "编辑"}}</span>
       </div>
       <div class="cart-center flex-row-start" *ngFor="let goods of shop.carts;let g = index;">
         <ion-checkbox  color="danger" checked="{{goods.status}}" tappable (click)="singleChoose(s,g)"></ion-checkbox>
@@ -27,9 +27,9 @@
         <div class="goods-del flex-row-between" *ngIf="shop.edit">
           <ul class="flex-column-between">
             <li>
-              <span>-</span>
-              <span class="input-num">2</span>
-              <span>+</span>
+              <span (click)="downOrderNum(s,g)">-</span>
+              <span class="input-num">{{goods.buy_num}}</span>
+              <span (click)="upOrderNum(s,g)">+</span>
             </li>
             <li class="guige">规格：{{goods.is_open_spec == 0 ? '默认' : goods.sku_desc }}</li>
           </ul>
@@ -42,7 +42,7 @@
           <span>全选</span>
           <div class="cart-heji flex-row-end">
             <span>合计：<b>￥{{shop.totalFee}}</b></span>
-            <button ion-button small tappable (click)="toPay(s)">结算(<strong>{{shop.selectNum}}</strong>)</button>
+            <button ion-button small [class.active]="payStatus" [disabled]="!payStatus" tappable (click)="toPay(s)">结算(<strong>{{shop.selectNum}}</strong>)</button>
           </div>
         </div>
       </div>

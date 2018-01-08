@@ -126,7 +126,10 @@ page-cart {
             }
             button{
               margin-left: 5px;
-              background: #FA6B5B;
+              background: #ccc;
+              &.active{
+                background: #f53d3d;
+              }
             }
           }
         }

@@ -69,6 +69,14 @@ export class GoodsProvider {
         };
         return this.Auth.authLogin(options);
     }
+    // 删除购物车商品
+    public delCartGoods(id){
+        let options = {
+            op:"delete_cart",
+            id:id
+        };
+        return this.Auth.authLogin(options);
+    }
     // 获取用户地址列表
     public addressList(){
         let options = {
