@@ -77,6 +77,15 @@ export class GoodsProvider {
         };
         return this.Auth.authLogin(options);
     }
+    // 修改购物车商品数量
+    public editCartGoods(params){
+        let options = {
+            op:"update_cart",
+            cart_id:params.cartId,
+            buy_num:params.buyNum
+        };
+        return this.Auth.authLogin(options);
+    }
     // 获取用户地址列表
     public addressList(){
         let options = {

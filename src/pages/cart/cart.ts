@@ -202,20 +202,47 @@ export class CartPage {
             this.Pop.toast("已打商品最大库存量！");
             return false;
         }
-        this.cartList[s]['carts'][g]['buy_num'] = buyNum;
-        this.isAllChoose(this.cartList[s]);
-
+        goods['buy_num'] = buyNum;
+        let params = {
+            cartId:goods['id'],
+            buyNum:buyNum
+        };
+        this.Goods.editCartGoods(params).subscribe(res =>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            if(res.code !== 0){
+                goods['buy_num'] = goods['buy_num'] - 1;
+                return false;
+            }
+            this.Pop.toast(res.message);
+        });
     }
     // 减少商品数量
     public downOrderNum(s,g){
         let goods = this.cartList[s]['carts'][g];
-        let orderNum = parseInt(goods['buy_num']);
-        if(orderNum <= 1){
+        let buyNum = parseInt(goods['buy_num']);
+        if(buyNum <= 1){
             this.Pop.toast("不能再少了哟！");
             return false;
         }
-        goods['buy_num'] = orderNum - 1;
-        this.isAllChoose(this.cartList[s]);
+        goods['buy_num'] = buyNum - 1;
+        let params = {
+            cartId:goods['id'],
+            buyNum:buyNum
+        };
+        this.Goods.editCartGoods(params).subscribe(res =>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            if(res.code !== 0){
+                goods['buy_num'] = goods['buy_num'] + 1;
+                return false;
+            }
+            this.Pop.toast(res.message);
+        });
     }
     // 去结算
     public toPay(s){
