@@ -45,13 +45,14 @@ export class CommentComponent {
             commentList['is_like'] = !commentList['is_like'];
             // 点赞列表不为空时
             if(likeList.length > 0){
-                likeList.forEach((item, index) => {
-                    if (commentList['is_like']) {
-                        item['uid'] != res.data.uid ? likeList.unshift(res.data) : '';
-                    }else{
+                // 点赞状态已取反，true的时候代表点赞成功，以前未点赞
+                if (commentList['is_like']) {
+                    likeList.unshift(res.data);
+                }else{
+                    likeList.forEach((item,index,arr) => {
                         item['uid'] == res.data.uid ? likeList.splice(index, 1) : '';
-                    }
-                });
+                    })
+                }
             }else{
                 likeList.unshift(res.data);
             }

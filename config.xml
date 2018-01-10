@@ -99,6 +99,8 @@
     <allow-navigation href="http://192.168.0.104:8100" />
     <allow-navigation href="http://192.168.211.1:8102" />
     <allow-navigation href="http://192.168.0.103:8102" />
+    <allow-navigation href="http://192.168.0.105:8101" />
+    <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="~4.4.0" />
     <plugin name="com.synconset.imagepicker" spec="^2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="是否允许访问您的相册" />
@@ -113,9 +115,7 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-sqlite-storage" spec="^2.1.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <plugin name="cordova-alipay-base" spec="0.0.1">
-        <variable name="ALI_PID" value="2017113000260632" />
+    <plugin name="cordova-plugin-alipay-v2" spec="https://github.com/hhjjj1010/cordova-plugin-alipay-v2.git">
+        <variable name="APP_ID" value="[2017113000260632]" />
     </plugin>
-    <allow-navigation href="http://192.168.0.105:8101" />
-    <engine name="android" spec="~6.2.3" />
 </widget>

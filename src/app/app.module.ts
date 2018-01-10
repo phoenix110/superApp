@@ -33,8 +33,7 @@ import { TabsProvider } from '../providers/tabs';
 import { FindProvider } from '../providers/find';
 import { GoodsProvider } from '../providers/goods';
 import { UtilsProvider } from '../providers/utils/utils';
-// 支付宝支付插件
-import {Alipay, AlipayOrder} from '@ionic-native/alipay';
+import { OrderProvider } from '../providers/order';
 
 @NgModule({
     declarations: [
@@ -63,7 +62,6 @@ import {Alipay, AlipayOrder} from '@ionic-native/alipay';
     providers: [
         StatusBar,
         SplashScreen,
-        Alipay,
         Camera,
         ImagePicker,
         AppVersion,
@@ -85,7 +83,8 @@ import {Alipay, AlipayOrder} from '@ionic-native/alipay';
         TabsProvider,
     FindProvider,
         GoodsProvider,
-    UtilsProvider
+    UtilsProvider,
+    OrderProvider
     ]
 })
 export class AppModule {

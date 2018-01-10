@@ -3,8 +3,7 @@ import {ActionSheetController, IonicPage, NavController, NavParams, Events} from
 import {HttpClient} from "@angular/common/http";
 import {GoodsProvider} from "../../providers/goods";
 import {PopProvider} from "../../providers/pop";
-// 支付宝支付插件
-import {Alipay, AlipayOrder} from '@ionic-native/alipay';
+declare let cordova;
 
 /**
  * Generated class for the OrderDetailPage page.
@@ -33,7 +32,6 @@ export class OrderDetailPage {
                 public actionSheetCtrl: ActionSheetController,
                 public Goods: GoodsProvider,
                 public events: Events,
-                public alipay: Alipay,
                 public Pop: PopProvider) {
         this.goodParams = this.navParams.get("goodSku");
         this.navType = this.navParams.get("type");
@@ -113,7 +111,7 @@ export class OrderDetailPage {
 
     // 去支付（调起支付方式）
     public toPay() {
-        const alipayOrder: AlipayOrder = {
+        const alipayOrder = {
             app_id:"2014072300007148",
             method:"alipay.trade.pay",
             format:"JSON",
@@ -133,10 +131,10 @@ export class OrderDetailPage {
                     text: '支付宝支付',
                     role: 'destructive',
                     handler: () => {
-                        this.alipay.pay(alipayOrder).then(result => {
-                            this.Pop.toast(result);
-                        }).catch(error => {
-                            this.Pop.toast(error);
+                        cordova.plugins.alipay.payment(alipayOrder,function success(e){
+                            console.log(e)
+                        },function error(e){
+                            console.log(e)
                         });
 
                     }

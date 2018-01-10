@@ -1,0 +1,158 @@
+page-order-info {
+
+  .order-info{
+    @include radius(8px);
+    background: #fff;
+    margin: 10px;
+    padding: 10px 0;
+    @include position(relative,0,null,null,0);
+    .order-zhen{
+      width:40px;
+      height: 40px;
+      @include position(absolute,22px,null,null,-20px);
+      background: url("../../assets/images/avatar/shot.png") left top no-repeat;
+      background-size: 40px 30px;
+    }
+    .order-status{
+      height:80px;
+      line-height: 80px;
+      text-align: center;
+      color:#FA6B5B;
+      font-size:25px;
+      border-bottom: 1px dotted #ccc;
+    }
+    .cart-top{
+      padding:10px;
+      align-items: center;
+      img{
+        flex:0 0 25px;
+        width: 25px;
+        height:25px;
+      }
+      h5{
+        flex:1 1 auto;
+        font-weight: bold;
+        max-width: 280px;
+        margin: 0 6px;
+      }
+      span{
+        flex:0 0 50px;
+        font-weight: bold;
+        text-align: right;
+      }
+    }
+    .cart-center{
+      background: #e4e4e4;
+      border-top:1px solid #ccc;
+      ion-checkbox{
+        flex:0 0 25px;
+        height:25px;
+        margin: 10px 0 10px 10px;
+      }
+      img{
+        flex:0 0 60px;
+        width: 60px;
+        height:60px;
+        margin: 10px 0 10px 10px;
+      }
+      .cart-guige{
+        flex:1 1 auto;
+        align-self: flex-start;
+        margin: 10px 5px;
+        h5,p{
+          overflow: hidden;
+          color:#333;
+          font-size: 10px;
+          span{
+            @include text-overflow-more(2);
+            max-width: 170px;
+            em{
+              font-style: normal;
+            }
+          }
+          span.text-overflow-one{
+            max-width: 200px;
+          }
+          b{
+            float:right;
+          }
+        }
+        h5 b{
+          color:#FF4055;
+        }
+      }
+    }
+    .order-cancel{
+      @include position(relative,0,null,null,0);
+      margin: 10px;
+      .order-zhen{
+        width:40px;
+        height: 40px;
+        @include position(absolute,2px,null,null,-32px);
+        background: url("../../assets/images/avatar/shot.png") left top no-repeat;
+        background-size: 40px 30px;
+      }
+      h4{
+        background: #FFFCDA;
+        color:#996633;
+        font-size: 13px;
+        padding: 10px;
+      }
+    }
+    .order-shou{
+      padding: 5px 15px;
+      border-bottom: 1px dotted #ccc;
+      h5{
+        color:#1AADC7;
+        height:35px;
+        line-height: 35px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      ul {
+        li{
+          color:#333;
+          height:20px;
+          line-height: 20px;
+          font-size: 12px;
+        }
+      }
+    }
+    .order-price{
+      margin: 15px;
+      li{
+        @include flex(row,space-between);
+        height: 20px;
+        line-height: 20px;
+        font-size: 13px;
+        em{
+          color:#FA6B5B;
+          font-style: normal;
+        }
+      }
+    }
+  }
+}
+ion-footer{
+  background: #fff;
+  border-top: 1px solid #ccc;
+  padding:8px 10px;
+  .order-pay{
+    align-items: center;
+    span{
+      border:1px solid #ccc;
+      color:#333;
+      font-size: 13px;
+      padding:5px;
+      @include radius(5px);
+    }
+    b{
+      color:#fff;
+      background: #FA6B5B;
+      font-size: 13px;
+      padding:5px 15px;
+      @include radius(5px);
+      margin-left: 8px;
+    }
+  }
+}

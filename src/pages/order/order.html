@@ -6,13 +6,162 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>order</ion-title>
-  </ion-navbar>
+  <header [headerTitle]="'我的订单'"></header>
 
 </ion-header>
 
+<section class="order-type">
+  <ion-slides>
+    <ion-slide *ngFor="let status of orderList.statuses;let i = index;" [class.active]="orderType == i" (tap)="setOrderType(i)">
+      <span>{{status}}</span>
+    </ion-slide>
+  </ion-slides>
+</section>
+<ion-content class="cont-background" no-margin>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="刷新...."></ion-refresher-content>
+  </ion-refresher>
+  <ion-scroll scrollY="true">
 
-<ion-content padding>
+    <!--订单信息-->
+    <div class="order-box">
+      <div class="order-info">
+        <div class="order-shop">
+          <img src="./assets/images/share.jpg" alt="">
+          <b>234243244</b>
+          <span>待付款</span>
+        </div>
+        <div class="order-descs flex-row-start" style="margin-bottom: 10px;">
+          <div class="order-pic">
+            <img src="./assets/images/share.jpg" alt="">
+          </div>
+          <div class="order-title">
+            <h5 class="text-overflow-one">56454465464546</h5>
+            <p>
+              <b>规格：默认 </b>
+            </p>
+            <p class="flex-row-between">
+              <span>￥200</span>
+              <b>X 2</b>
+            </p>
+          </div>
+        </div>
+        <ul class="order-do flex-row-end">
+          <li (tap)="toOrderInfo(10)">去付款</li>
+          <li>确认收货</li>
+          <li>去评价</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="order-info">
+      <div class="order-shop">
+        <img src="./assets/images/share.jpg" alt="">
+        <b>234243244</b>
+        <span>待付款</span>
+      </div>
+      <div class="order-descs flex-row-start" style="margin-bottom: 10px;">
+        <div class="order-pic">
+          <img src="./assets/images/share.jpg" alt="">
+        </div>
+        <div class="order-title">
+          <h5 class="text-overflow-one">56454465464546</h5>
+          <p>
+            <b>规格：默认 </b>
+          </p>
+          <p class="flex-row-between">
+            <span>￥200</span>
+            <b>X 2</b>
+          </p>
+        </div>
+      </div>
+      <ul class="order-do flex-row-end">
+        <li>去付款</li>
+        <li>确认收货</li>
+        <li>去评价</li>
+      </ul>
+    </div>
+    <div class="order-info">
+      <div class="order-shop">
+        <img src="./assets/images/share.jpg" alt="">
+        <b>234243244</b>
+        <span>待付款</span>
+      </div>
+      <div class="order-descs flex-row-start" style="margin-bottom: 10px;">
+        <div class="order-pic">
+          <img src="./assets/images/share.jpg" alt="">
+        </div>
+        <div class="order-title">
+          <h5 class="text-overflow-one">56454465464546</h5>
+          <p>
+            <b>规格：默认 </b>
+          </p>
+          <p class="flex-row-between">
+            <span>￥200</span>
+            <b>X 2</b>
+          </p>
+        </div>
+      </div>
+      <ul class="order-do flex-row-end">
+        <li>去付款</li>
+        <li>确认收货</li>
+        <li>去评价</li>
+      </ul>
+    </div>
+    <div class="order-info">
+      <div class="order-shop">
+        <img src="./assets/images/share.jpg" alt="">
+        <b>234243244</b>
+        <span>待付款</span>
+      </div>
+      <div class="order-descs flex-row-start" style="margin-bottom: 10px;">
+        <div class="order-pic">
+          <img src="./assets/images/share.jpg" alt="">
+        </div>
+        <div class="order-title">
+          <h5 class="text-overflow-one">56454465464546</h5>
+          <p>
+            <b>规格：默认 </b>
+          </p>
+          <p class="flex-row-between">
+            <span>￥200</span>
+            <b>X 2</b>
+          </p>
+        </div>
+      </div>
+      <ul class="order-do flex-row-end">
+        <li>去付款</li>
+        <li>确认收货</li>
+        <li>去评价</li>
+      </ul>
+    </div>
+    <div class="order-info">
+      <div class="order-shop">
+        <img src="./assets/images/share.jpg" alt="">
+        <b>234243244</b>
+        <span>待付款</span>
+      </div>
+      <div class="order-descs flex-row-start" style="margin-bottom: 10px;">
+        <div class="order-pic">
+          <img src="./assets/images/share.jpg" alt="">
+        </div>
+        <div class="order-title">
+          <h5 class="text-overflow-one">56454465464546</h5>
+          <p>
+            <b>规格：默认 </b>
+          </p>
+          <p class="flex-row-between">
+            <span>￥200</span>
+            <b>X 2</b>
+          </p>
+        </div>
+      </div>
+      <ul class="order-do flex-row-end">
+        <li>去付款</li>
+        <li>确认收货</li>
+        <li>去评价</li>
+      </ul>
+    </div>
+  </ion-scroll>
 
 </ion-content>
