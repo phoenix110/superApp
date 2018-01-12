@@ -3,6 +3,7 @@ import {ActionSheetController, IonicPage, NavController, NavParams, Events} from
 import {HttpClient} from "@angular/common/http";
 import {GoodsProvider} from "../../providers/goods";
 import {PopProvider} from "../../providers/pop";
+import {OrderProvider} from "../../providers/order";
 declare let cordova;
 
 /**
@@ -25,14 +26,17 @@ export class OrderDetailPage {
     public totalPrice: number = 0;
     public goodParams: Object = {};
     public navType = "";
-
+    public note:object = {
+        text:''
+    };
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public http: HttpClient,
                 public actionSheetCtrl: ActionSheetController,
                 public Goods: GoodsProvider,
                 public events: Events,
-                public Pop: PopProvider) {
+                public Pop: PopProvider,
+                public Order:OrderProvider) {
         this.goodParams = this.navParams.get("goodSku");
         this.navType = this.navParams.get("type");
         console.log(this.navType)
@@ -49,7 +53,6 @@ export class OrderDetailPage {
 
     // 初始化订单详情数据
     public orderDetail() {
-        console.log(this.goodParams)
         this.events.subscribe('addressCallback', (paramsVar) => {
             if (paramsVar != '') {
                 this.goodParams['address_id'] = paramsVar;
@@ -60,24 +63,7 @@ export class OrderDetailPage {
             this.events.unsubscribe('addressCallback');
         });
         let params = this.goodParams;
-        if (this.navType === 'cart') {
-            this.Goods.goodsBuy(params, "cart").subscribe(res => {
-                if (res === "toLogin") {
-                    this.navCtrl.push("LoginPage");
-                    return false;
-                }
-                this.orderInfo = res.data;
-                console.log(this.orderInfo)
-            });
-        } else {
-            this.Goods.goodsBuy(params).subscribe(res => {
-                if (res === "toLogin") {
-                    this.navCtrl.push("LoginPage");
-                    return false;
-                }
-                this.orderInfo = res.data;
-            });
-        }
+        this.navType === 'cart' ? this.buy(params,'cart') : this.buy(params);
 
     }
 
@@ -109,54 +95,34 @@ export class OrderDetailPage {
         this.orderInfo['num'] = orderNum - 1;
     }
 
-    // 去支付（调起支付方式）
-    public toPay() {
-        const alipayOrder = {
-            app_id:"2014072300007148",
-            method:"alipay.trade.pay",
-            format:"JSON",
-            charset:"utf-8",
-            sign_type:"RSA2",
-            sign:"",
-            timestamp:"2014-07-24 03:07:50",
-            version:"1.0",
-            notify_url:"http://api.test.alipay.net/atinterface/receive_notify.htm",
-            biz_content:"100"
+    // 确认下单
+    public confirmPay() {
+        let orderParams = {
+            address_id:this.orderInfo['address']['id'],
+            note:this.note['text']
         };
-        // let alipayOrder: AlipayOrder = {app_id:"23232323"};
-        let actionSheet = this.actionSheetCtrl.create({
-            title: '选择支付方式',
-            buttons: [
-                {
-                    text: '支付宝支付',
-                    role: 'destructive',
-                    handler: () => {
-                        cordova.plugins.alipay.payment(alipayOrder,function success(e){
-                            console.log(e)
-                        },function error(e){
-                            console.log(e)
-                        });
+        Object.assign(orderParams,this.goodParams);
+        this.navType === 'cart' ? this.xiadan(orderParams,'cart') : this.xiadan(orderParams);
+    }
 
-                    }
-                }, {
-                    text: '微信支付',
-                    handler: () => {
-                        this.Pop.toast("尚未开通");
-                    }
-                }, {
-                    text: '我的钱包',
-                    handler: () => {
-                        this.Pop.toast("尚未开通");
-                    }
-                }, {
-                    text: '取消',
-                    role: 'cancel',
-                    handler: () => {
-
-                    }
-                }
-            ]
+    // 确认下单请求
+    public xiadan(orderParams,cart=''){
+        this.Order.orderConfirm(orderParams,cart).subscribe(res => {
+            if (res === "toLogin") {
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.navCtrl.push("OrderPayPage",{id:res.data.pay_log_id});
         });
-        actionSheet.present();
+    }
+    // 购买请求
+    public buy(orderParams,cart=''){
+        this.Goods.goodsBuy(orderParams,cart).subscribe(res => {
+            if (res === "toLogin") {
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.orderInfo = res.data;
+        });
     }
 }

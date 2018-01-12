@@ -182,7 +182,7 @@ export class HttpProvider {
      *  调用: toQueryString(obj);
      *  返回: "name=%E5%B0%8F%E5%86%9B&age=23"
      */
-    private toBodyString(obj) {
+    public toBodyString(obj) {
         let ret = [];
         for (let key in obj) {
             key = encodeURIComponent(key);

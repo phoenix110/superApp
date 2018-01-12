@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HttpClient } from "@angular/common/http";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, Content} from 'ionic-angular';
+import {HttpClient} from "@angular/common/http";
 
 /**
  * Generated class for the ChatDetailPage page.
@@ -10,28 +10,41 @@ import { HttpClient } from "@angular/common/http";
  */
 
 @IonicPage({
-    segment:"chatDetail/:id"
+    segment: "chatDetail/:id"
 })
 @Component({
-  selector: 'page-chat-detail',
-  templateUrl: 'chat-detail.html',
+    selector: 'page-chat-detail',
+    templateUrl: 'chat-detail.html',
 })
 export class ChatDetailPage {
-  public chatData:Array<object> = [];
-  constructor(
-      public navCtrl: NavController,
-      public navParams: NavParams,
-      public Http:HttpClient) {
-  }
+    public chatData: Array<object> = [];
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatDetailPage');
-    this.getChatData();
-  }
-  public getChatData(){
-    this.Http.get("./assets/data.json").subscribe(res => {
-        console.log(res['chatInfo'])
-      this.chatData = res['chatInfo'];
-    });
-  }
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public Http: HttpClient,
+                public content: Content) {
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad ChatDetailPage');
+        this.getChatData();
+        this.content.resize();
+        this.scrollToBottom();
+    }
+
+    public getChatData() {
+        this.Http.get("./assets/data.json").subscribe(res => {
+            console.log(res['chatInfo'])
+            this.chatData = res['chatInfo'];
+        });
+    }
+
+    // 滚动值聊天页最底部
+    public scrollToBottom() {
+        setTimeout(() => {
+            if (this.content.scrollToBottom) {
+                this.content.scrollToBottom();
+            }
+        }, 400)
+    }
 }

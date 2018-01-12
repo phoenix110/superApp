@@ -1,5 +1,5 @@
 import { Component ,ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides  } from 'ionic-angular';
+import {InfiniteScroll, IonicPage, NavController, NavParams, Slides, Content } from 'ionic-angular';
 import {OrderProvider} from "../../providers/order";
 import {PopProvider} from "../../providers/pop";
 
@@ -17,7 +17,10 @@ import {PopProvider} from "../../providers/pop";
 })
 export class OrderPage {
     @ViewChild(Slides) slides: Slides;
+    @ViewChild(Content) content: Content;
   public orderList:Array<object> = [];
+  public orderStatus:Array<string> = [];
+  public loadStatus:boolean = true;
   public orderParams:object = {
     status:0,
     page:1
@@ -41,12 +44,14 @@ export class OrderPage {
   }
   // 获取所有订单列表
   public getOrderList(){
+      let orderObj = {};
     this.Order.orderList(this.orderParams).subscribe( res => {
         if (res === "toLogin") {
             this.navCtrl.push("LoginPage");
             return false;
         }
-        this.orderList = res.data;
+        this.orderStatus = res.data.statuses;
+        this.orderList = res.data.list;
     })
   }
   public initSlides(){
@@ -58,29 +63,39 @@ export class OrderPage {
   public setOrderType(index){
       this.orderType = index;
       this.orderParams['status'] = index;
+      this.orderParams['page'] = 1;
+      this.loadStatus = true;
+      // this.content.scrollTo(2, 0, 100);
       this.getOrderList();
   }
     // 下拉刷新
     public doRefresh(evt){
+        this.orderParams['status'] = this.orderType;
+        this.orderParams['page'] = 1;
         this.Order.orderList(this.orderParams).subscribe(res =>{
-            if(res.code == 0){
-                this.orderList = res.data;
-                evt.complete();
+            if (res === "toLogin") {
+                this.navCtrl.push("LoginPage");
                 return false;
             }
-            this.Pop.toast(res.message);
+            this.orderList = res.data.list;
+            evt.complete();
         })
     }
     // 上拉加载更多
-    public getMore(evt){
+    public loadMore(infiniteScroll: InfiniteScroll){
+        this.orderParams['status'] = this.orderType;
+        this.orderParams['page'] ++;
         this.Order.orderList(this.orderParams).subscribe(res =>{
-            if(res.code == 0){
-                this.orderParams['page'] ++;
-                this.orderList.concat(res.data);
-                evt.complete();
+            if (res === "toLogin") {
+                this.navCtrl.push("LoginPage");
                 return false;
             }
-            this.Pop.toast(res.message);
+            if(res.data.list.length <= 0){
+                this.loadStatus = false;
+                return false;
+            }
+            this.orderList.concat(res.data.list);
+            infiniteScroll.complete();
         })
     }
 }

@@ -9,6 +9,9 @@
 </ion-header>
 
 <ion-content class="cont-background">
+  <ion-refresher (ionRefresh)="doRefresh($event)" style="margin-top: -40px;">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="刷新...." refreshingSpinner="circles" refreshingText="刷新...."></ion-refresher-content>
+  </ion-refresher>
   <ion-card padding *ngFor="let item of group;let i = index;" tappable (click)="toTalk()">
     <div class="group-header">
       <div class="group-icon" text-center [style.background-color]="colorArr[i]">
@@ -27,4 +30,8 @@
       <span>话题<b>{{item.topic}}</b></span>
       <span>讨论<b>{{item.talk}}</b></span>
     </div>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="100px" *ngIf="loadStatus">
+      <ion-infinite-scroll-content  loadingSpinner="bubbles"
+                                    loadingText="加载更多..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </ion-card>

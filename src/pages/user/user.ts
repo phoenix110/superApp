@@ -5,7 +5,6 @@ import {Storage} from "@ionic/storage";
 import {PopProvider} from "../../providers/pop";
 import {AppProvider} from "../../providers/app";
 import {AppConfig} from "../../app/app.config";
-
 /**
  * Generated class for the UserPage page.
  *
@@ -30,12 +29,13 @@ export class UserPage {
         is_bind_bank:0,
         credit2:0.00
     };
+    public code = 0;
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public pop: PopProvider,
                 private User: UserProvider,
                 private storage: Storage,
-                public app:AppProvider
+                public app:AppProvider,
                 ) {
 
 
@@ -82,6 +82,10 @@ export class UserPage {
     // 跳转至订单页面
     public toOrder(uid) {
         this.navCtrl.push("OrderPage", {uid: uid});
+    }
+    // 跳转至公告信息页面
+    public toOrderPay() {
+        this.navCtrl.push("OrderPayPage");
     }
 
     //退出登录

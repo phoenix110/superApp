@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {IonicApp, IonicModule} from 'ionic-angular';
 import {HttpClientModule} from '@angular/common/http';
 import {MyApp} from './app.component';
@@ -34,7 +35,7 @@ import { FindProvider } from '../providers/find';
 import { GoodsProvider } from '../providers/goods';
 import { UtilsProvider } from '../providers/utils/utils';
 import { OrderProvider } from '../providers/order';
-
+import { PincodeInputModule } from  'ionic2-pincode-input';
 @NgModule({
     declarations: [
         MyApp
@@ -43,6 +44,8 @@ import { OrderProvider } from '../providers/order';
         BrowserModule,
         ComponentsModule,
         HttpClientModule,
+        PincodeInputModule,
+        BrowserAnimationsModule,
         IonicStorageModule.forRoot({
             name: 'myApp',
             driverOrder: ['indexeddb', 'sqlite', 'websql']

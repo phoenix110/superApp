@@ -18,62 +18,7 @@ import {GoodsProvider} from "../../providers/goods";
     templateUrl: 'cart.html',
 })
 export class CartPage {
-    public cartList:Array<object> = [
-        {
-            sid:1,
-            name:"花鹿社",
-            icon:"./assets/images/goods/shouji01.jpg",
-            kaiguan:true,
-            status:false,
-            totalFee:200,
-            selectNum:0,
-            edit:false,
-            goods:[
-                {
-                    id:1,
-                    thumb:"./assets/images/goods/shouji01.jpg",
-                    title:"爱敬气垫爱敬气垫爱敬气垫爱敬气垫爱敬气垫爱敬气垫",
-                    sku:"白色-32寸",
-                    price:2500,
-                    num:2,
-                    status:true,
-                    total:5
-                },
-                {
-                    id:2,
-                    thumb:"./assets/images/goods/shouji01.jpg",
-                    title:"爱敬气垫爱敬气垫爱敬气垫爱敬气垫爱敬气垫爱敬气垫",
-                    sku:"白色-32寸",
-                    price:2500,
-                    num:2,
-                    status:true,
-                    total:5
-                }
-            ]
-        },
-        {
-            sid:2,
-            name:"超G名片",
-            icon:"./assets/images/goods/shouji02.jpg",
-            kaiguan:true,
-            status:false,
-            totalFee:300,
-            selectNum:0,
-            edit:false,
-            goods:[
-                {
-                    id:2,
-                    thumb:"./assets/images/goods/shouji02.jpg",
-                    title:"爱咖啡",
-                    sku:"红色-20寸",
-                    price:1000,
-                    num:1,
-                    status:false,
-                    total:3
-                }
-            ]
-        }
-    ];
+    public cartList:Array<object> = [];
     public uid = "";
     public ids:Array<string> = [];
     public payStatus:boolean = false;

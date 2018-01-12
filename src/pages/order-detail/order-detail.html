@@ -75,11 +75,11 @@
     <!--</div>-->
   <!--</div>-->
   <!--留言-->
-  <textarea class="order-liuyan" cols="30" rows="10" placeholder="请填写卖家留言，对本次交易的说明"></textarea>
+  <textarea class="order-liuyan" cols="30" rows="10" [(ngModel)]="note.text" placeholder="请填写卖家留言，对本次交易的说明"></textarea>
 </ion-content>
 <ion-footer class="flex-row-between">
   <div class="pay-total">
     合计：￥<b>{{orderInfo.total_price}}</b>元
   </div>
-  <button ion-button color="red" small tappable (click)="toPay()">立即支付</button>
+  <button ion-button color="red" small tappable (click)="confirmPay(id)">确认下单</button>
 </ion-footer>

@@ -49,4 +49,11 @@ export class TabsProvider {
             token: token
         });
     }
+    // 获取社群列表数据
+    public getGroupList(page = 1) {
+        return this.Http.post({
+            op: 'get_groups',
+            page: page,
+        });
+    }
 }
