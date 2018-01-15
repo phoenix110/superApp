@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <header [headerTitle]="'个人中心'"></header>
+  <header [headerTitle]="'个人中心'" [set]="'设置'" [uid]="member['uid']"></header>
 </ion-header>
 <ion-content no-padding>
   <div class="user-header" tappable (click)="userEdit(20)">
@@ -30,6 +30,7 @@
                 </span>
                 <ion-icon class="icon-right" name="arrow-forward"></ion-icon>
             </li>
+
             <li class="flex-row-start">
                 <!--<ion-icon class="icon-left" name="cart"></ion-icon>-->
                 <h5>绑定银行卡</h5>
@@ -71,8 +72,5 @@
             </li>
         </ul>
     </div>
-    <div class="user-things">
-        <button ion-button full style="background-color: #488aff;" (click)="checkUpgrade()">检查更新</button>
-        <button ion-button full style="background-color: #f53d3d;" (click)="logout()">退出登录</button>
-    </div>
+
 </ion-content>

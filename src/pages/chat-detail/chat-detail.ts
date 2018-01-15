@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, Content} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 
@@ -18,11 +18,10 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ChatDetailPage {
     public chatData: Array<object> = [];
-
+    @ViewChild(Content) content: Content;
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
-                public Http: HttpClient,
-                public content: Content) {
+                public Http: HttpClient) {
     }
 
     ionViewDidLoad() {

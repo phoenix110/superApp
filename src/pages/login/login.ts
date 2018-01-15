@@ -4,6 +4,7 @@ import {PopProvider} from "../../providers/pop";
 import {UserProvider} from "../../providers/user";
 import {ValidateProvider} from "../../providers/validate";
 import { Storage } from "@ionic/storage";
+import {AppConfig} from "../../app/app.config";
 
 /**
  * Generated class for the LoginPage page.
@@ -61,6 +62,7 @@ export class LoginPage {
             this.Pop.toast(res.message);
             if (res.code == '0') {
                 this.Storage.set("token",res['data']['token']);
+                AppConfig.loginStatus = true;
                 this.navCtrl.push("TabsPage");
             }
         });

@@ -4,7 +4,6 @@ import {UserProvider} from "../../providers/user";
 import {Storage} from "@ionic/storage";
 import {PopProvider} from "../../providers/pop";
 import {AppProvider} from "../../providers/app";
-import {AppConfig} from "../../app/app.config";
 /**
  * Generated class for the UserPage page.
  *
@@ -35,14 +34,12 @@ export class UserPage {
                 public pop: PopProvider,
                 private User: UserProvider,
                 private storage: Storage,
-                public app:AppProvider,
                 ) {
 
 
     }
 
     ionViewDidLoad() {
-
     }
     ionViewDidEnter(){
         this.userData();
@@ -68,7 +65,10 @@ export class UserPage {
     public toWallet(uid) {
         this.navCtrl.push("WalletPage", {uid: uid});
     }
-
+    // 跳转至余额支付密码
+    public setPwd(uid) {
+        this.navCtrl.push("PwdChangePage");
+    }
     // 跳转至公告信息页面
     public toNotice() {
         this.navCtrl.push("NoticePage");
@@ -88,32 +88,5 @@ export class UserPage {
         this.navCtrl.push("OrderPayPage");
     }
 
-    //退出登录
-    logout(){
-        this.storage.remove('token');
-        this.pop.toast('退出成功');
-        this.navCtrl.push("TabsPage");
-    }
 
-
-    //检查更新
-    checkUpgrade(){
-        this.app.getConfig().subscribe(res =>{
-            if(res.code == '0'){
-                //如果需要升级
-                if(AppConfig.compareVersion(AppConfig.appVersion,res.data['base']['version'])){
-                    if(AppConfig.platform == 'ios'){
-                        window.location.href = res.data['base']['ios_download_url'];
-                    }else{
-                        //其他默认为android
-                        window.location.href = res.data['base']['android_download_url'];
-                    }
-                    return false;
-                }
-                this.pop.toast('已经是最新版本');
-                return true;
-            }
-            this.pop.toast(res.message);
-        });
-    }
 }

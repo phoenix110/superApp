@@ -1,0 +1,41 @@
+
+  ion-grid.pwd-set{
+    border:1px solid #ccc;
+    @include radius(5px);
+    ion-row{
+      &.pwd-line{
+        border-bottom:1px dotted #ccc;
+      }
+      .pwd-icon{
+        font-size: 25px;
+        color:#FA6B5B;
+        height:40px;
+        line-height: 40px;
+        text-align: center;
+        display: block;
+
+      }
+    }
+    margin-bottom: 10px;
+  }
+  ion-row.pwd-sms{
+    margin: 15px 0 0;
+    ion-col{
+      padding: 0;
+      ion-input{
+        border:1px solid #ccc;
+        height: 32px;
+        line-height: 32px;
+        padding-left: 6px;
+        @include radius(3px);
+      }
+      button{
+        height: 30px;
+        line-height: 30px;
+        @include position(relative,-5px,null,null,0);
+      }
+    }
+  }
+  .pwd-save{
+    margin-top: 10px;
+  }

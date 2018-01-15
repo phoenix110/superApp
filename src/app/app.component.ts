@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {PopProvider} from "../providers/pop";
 import {TabsPage} from "../pages/tabs/tabs";
-
+import { AppConfig } from "./app.config";
 
 
 @Component({
@@ -16,6 +16,7 @@ export class MyApp {
     public backButtonPressed = false;
     @Input() codeData:Object = {};
   @ViewChild(Nav) nav:Nav;
+  public loginStatus:boolean = false;
   constructor(
       public ionicApp: IonicApp,
       public platform: Platform,
@@ -32,7 +33,10 @@ export class MyApp {
       splashScreen.hide();
       this.registerBackButtonAction();
     });
+      console.log(AppConfig.getLoginStatus())
 
+      this.loginStatus = AppConfig.loginStatus;
+    console.log(this.loginStatus)
   }
     registerBackButtonAction() {
         this.platform.registerBackButtonAction(() => {

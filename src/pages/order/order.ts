@@ -94,7 +94,7 @@ export class OrderPage {
                 this.loadStatus = false;
                 return false;
             }
-            this.orderList.concat(res.data.list);
+            this.orderList = this.orderList.concat(res.data.list);
             infiniteScroll.complete();
         })
     }

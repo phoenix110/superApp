@@ -21,6 +21,8 @@ export class HeaderComponent implements OnChanges {
     @Input() headerTitle: string;
     @Input() save: string;
     @Input() addAddress: string;
+    @Input() set: string;
+    @Input() uid: number;
     @Input() addressInfo:object = {};
     @Input() publish;
     public pubData: any = {};
@@ -144,6 +146,9 @@ export class HeaderComponent implements OnChanges {
                 });
             }
         });
-
+    }
+    // 个人信息设置
+    public userSet(){
+        this.navCtrl.push("SetPage",{uid:this.uid});
     }
 }

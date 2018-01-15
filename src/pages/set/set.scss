@@ -1,0 +1,32 @@
+page-set {
+  .user-things{
+    padding:0 0 10px;
+    .user-text{
+      font-weight: bold;
+      font-size:14px;
+      height:40px;
+      line-height: 40px;
+    }
+    .user-list{
+      li{
+        border:1px solid #ccc;
+        @include radius(5px);
+        height:40px;
+        align-items: center;
+        padding:10px;
+        margin-bottom:4px;
+        .icon-left{
+          margin-right:10px;
+        }
+        h5{
+          flex:1 1 auto;
+          font-size:12px;
+        }
+      }
+    }
+    button{
+      @include radius(4px);
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -79,6 +79,53 @@ export class UserProvider {
             }
         });
     }
+    // 修改支付密码(获取验证码)
+    public getPayCode(params){
+        let options = {
+            op: "send_code",
+            uid:params.uid,
+            oldPwd:params.oldPwd,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 添加支付密码
+    public addPayCode(params){
+        let options = {
+            op: "send_code",
+            uid:params.uid,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 保存修改后的支付密码(获取验证码)
+    public changePayCode(params){
+        let options = {
+            op: "send_code",
+            uid:params.uid,
+            oldPwd:params.oldPwd,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 重置支付密码
+    public resetPayPwd(params){
+        let options = {
+            op: "send_code",
+            uid:params.uid,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        console.log(options);
+        return this.Auth.authLogin(options);
+    }
     // 验证码倒计时
     public downTime(obj){
         let time = 60;

@@ -33,6 +33,7 @@ export class AppConfig {
     static userName:string = '';          //账号名
     static token:string = '';             //token
     static userInfo:any = {};             //用户信息
+    static loginStatus:boolean = false;
     //导购配置信息
     static callingType:number = 2;        //通话方式      [1,2,3] 1免费 2普通  3两者
     static inited:boolean=true;              //系统是否可用 (指该执行人员归属的数据是否准备完毕)
@@ -124,6 +125,10 @@ export class AppConfig {
     //获取token
     public static getToken():string {
         return this.token || '';
+    }
+    //获取token
+    public static getLoginStatus():boolean {
+        return this.loginStatus || false;
     }
 
     //获取平台  ios android  none（小写）
