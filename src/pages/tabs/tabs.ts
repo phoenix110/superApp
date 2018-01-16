@@ -8,7 +8,7 @@ import {Tabs} from "ionic-angular";
 export class TabsPage {
   @ViewChild("tabs") tabs:Tabs;
   tab1Root = "UnionPage";
-  tab6Root = "ShopPage";
+  tab6Root = "CartPage";
   tab2Root = "FindPage";
   tab3Root = "MyPage";
   tab4Root = "ChatPage";
