@@ -237,4 +237,23 @@ export class UserProvider {
         };
         return this.Auth.authLogin(options);
     }
+
+    //设置直播信息
+    public setLiveConfig(params = {}){
+        params['op'] = "set_live_config";
+        return this.Auth.authLogin(params);
+    }
+
+    //获取直播信息
+    public getLiveConfig(){
+        return this.Auth.authLogin({op:'get_live_config '});
+    }
+
+    //获取直播列表信息
+    public getLives(page){
+        return this.Auth.authLogin({
+            op:'get_lives ',
+            page:page
+        });
+    }
 }

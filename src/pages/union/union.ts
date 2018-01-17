@@ -8,6 +8,7 @@ import { Storage } from "@ionic/storage";
 
 import {PopProvider} from "../../providers/pop";
 import {TabsProvider} from "../../providers/tabs";
+import {Shake} from "@ionic-native/shake";
 
 /**
  * Generated class for the UnionPage page.
@@ -36,7 +37,8 @@ export class UnionPage {
         public navParams: NavParams,
         public msgService:PopProvider,
         public tabs: TabsProvider,
-        private Storage:Storage) {
+        private Storage:Storage
+        ) {
 
         //初始化变量
         this.active_index = 0;

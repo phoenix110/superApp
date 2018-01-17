@@ -23,7 +23,7 @@ import { HttpProvider } from "../../providers/http";
 })
 export class UserEditPage {
   public userInfo = {
-      avatar:"./assets/images/icon.png",
+      avatar:"assets/images/face.png",
       province:"",
       city:"",
       district:"",

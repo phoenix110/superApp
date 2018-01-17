@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {PopProvider} from "../providers/pop";
 import {TabsPage} from "../pages/tabs/tabs";
 import { AppConfig } from "./app.config";
+import {Shake} from "@ionic-native/shake";
 
 
 @Component({
@@ -31,14 +32,17 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      this.loginStatus = AppConfig.loginStatus;
       this.registerBackButtonAction();
     });
-      console.log(AppConfig.getLoginStatus())
-
-      this.loginStatus = AppConfig.loginStatus;
-    console.log(this.loginStatus)
   }
-    registerBackButtonAction() {
+
+
+
+
+
+
+  registerBackButtonAction() {
         this.platform.registerBackButtonAction(() => {
             if(this.keyboard.isOpen()){
                 this.keyboard.close();

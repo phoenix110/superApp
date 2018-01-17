@@ -5,26 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <header [headerTitle]="'直播'"></header>
-
 </ion-header>
-
-
 <ion-content style="background: #f6f6f6">
-  <section class="video-live">
-    <div class="video-status">
-      <ion-icon class="iconfont icon-zhibo"></ion-icon>最新直播
-      <span>{{status == 1 ? '[进行中]' : '[已结束]'}}</span>
-    </div>
-    <live-video [direction]="'row'" [videoList]="video.onLive"></live-video>
-  </section>
-  <section class="video-playback">
-    <div class="video-status">
-      <ion-icon class="iconfont icon-xunhuan"></ion-icon>直播回放
-    </div>
-      <div class="playback-list flex-row-start">
-          <live-video [direction]="'column'" [videoList]="video.outLive"></live-video>
+  <div *ngIf="lives">
+    <section class="video-live">
+      <div class="video-status">
+        <ion-icon name="ios-paper-plane-outline"></ion-icon>官方直播
+        <span>{{lives? '[进行中]' : '[已结束]'}}</span>
       </div>
-  </section>
+      <live-video [direction]="'row'" [videoList]="lives"></live-video>
+    </section>
+  </div>
+  <div *ngIf="lives">
+    <section class="video-playback">
+      <div class="video-status">
+        <ion-icon name="ios-list-box-outline"></ion-icon>直播列表
+      </div>
+      <div class="playback-list flex-row-start">
+        <live-video [direction]="'column'" [videoList]="lives"></live-video>
+      </div>
+    </section>
+  </div>
 </ion-content>
