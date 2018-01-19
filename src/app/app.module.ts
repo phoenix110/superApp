@@ -37,6 +37,10 @@ import { GoodsProvider } from '../providers/goods';
 import { UtilsProvider } from '../providers/utils/utils';
 import { OrderProvider } from '../providers/order';
 import { PincodeInputModule } from  'ionic2-pincode-input';
+import {Shake} from "@ionic-native/shake";
+import {VideoPlayer} from "@ionic-native/video-player";
+import {StreamingMedia} from "@ionic-native/streaming-media";
+import { ChatProvider } from '../providers/chat/chat';
 @NgModule({
     declarations: [
         MyApp
@@ -89,7 +93,11 @@ import { PincodeInputModule } from  'ionic2-pincode-input';
     FindProvider,
         GoodsProvider,
     UtilsProvider,
-    OrderProvider
+    OrderProvider,
+        Shake,
+        VideoPlayer,
+        StreamingMedia,
+    ChatProvider
     ]
 })
 export class AppModule {

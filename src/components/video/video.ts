@@ -1,5 +1,6 @@
 import { Component , Input} from '@angular/core';
 import { NavController, NavParams } from "ionic-angular"
+import {StreamingMedia, StreamingVideoOptions} from "@ionic-native/streaming-media";
 
 
 /**
@@ -17,14 +18,34 @@ export class VideoComponent {
   @Input() videoList:any;
   text: string;
 
-  constructor(public navCtrl:NavController, public navParams:NavParams) {
+  constructor(
+      public navCtrl:NavController,
+      public navParams:NavParams,
+      public stream:StreamingMedia
+  ) {
     console.log('Hello VideoComponent Component');
     this.text = 'Hello World';
   }
 
   //直播页面
-  toLiveDetailPage(){
-        this.navCtrl.push('LiveDetailPage');
+  toLiveDetailPage(url){
+      this.play(url);
+  }
+
+  play(url){
+      let options: StreamingVideoOptions = {
+          successCallback: () => { console.log('Video played') },
+          errorCallback: (e) => { console.log('Error streaming') },
+          orientation: 'landscape'
+      };
+      this.stream.playVideo(url, options);
+  }
+
+  //跳转
+  jump(url){
+      this.navCtrl.push('LiveDetailPage',{
+          'url':url
+      });
   }
 
 }

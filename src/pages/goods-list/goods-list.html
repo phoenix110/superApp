@@ -14,6 +14,7 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="刷新...."></ion-refresher-content>
     </ion-refresher>
+  <!--<blank  [tip]="'没有更多了！'" [btnText]="" *ngIf="shopData.length <= 0"></blank>-->
   <div class="shop-rest">
     <good-intro [goodList]="shopData"></good-intro>
   </div>

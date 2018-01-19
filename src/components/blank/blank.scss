@@ -1,0 +1,29 @@
+blank {
+  .blank-box{
+    @include position(absolute,0,0,0,0);
+    width:80%;
+    height: 150px;
+    margin: auto;
+    .blank-icon{
+      ion-icon{
+        font-size: 100px;
+        display: block;
+        text-align: center;
+        color: #ccc;
+      }
+    }
+    p{
+      text-align: center;
+      color: #333;
+      span{
+        b{
+          color:#FA6B5B;
+          border: 1px solid #FA6B5B;
+          @include radius(4px);
+          font-size: 12px;
+          padding: 4px;
+        }
+      }
+    }
+  }
+}

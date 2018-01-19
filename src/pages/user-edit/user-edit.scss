@@ -1,14 +1,24 @@
 page-user-edit {
   .avatar-img{
+    background: #ffffff;
     height:200px;
-    @include position(relative,0,null,null,0);
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 10px;
     img{
+      margin-top: 10px;
       width:140px;
       height:140px;
-      @include position(absolute,0,0,0,0);
-      margin: auto;
-      overflow: hidden;
       @include radius(50%);
+    }
+    .set-face-tips{
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
     }
   }
   .form-list{

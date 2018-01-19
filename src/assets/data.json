@@ -879,30 +879,30 @@
   },
   "luckPerson":[
     {
-        "avatar":"./assets/images/company/mingpian.jpg",
+        "avatar":"./assets/images/avatar/1.png",
         "status":1,
-        "out":"11000",
+        "in":"11000",
         "send":"12121",
-        "name":"廖丹霞",
-        "company":"Gworld科技有限公司",
+        "name":"徐克",
+        "company":"著名导演、制片人",
         "job":"总裁助理"
     },
     {
-      "avatar":"./assets/images/company/jieshao.jpg",
+      "avatar":"./assets/images/avatar/2.png",
       "status":0,
-      "out":"5656",
+      "in":"5656",
       "send":"232",
       "name":"廖丹霞",
       "company":"Gworld科技有限公司",
       "job":"总裁助理"
     },
     {
-      "avatar":"./assets/images/company/fuwu.jpg",
+      "avatar":"./assets/images/avatar/3.png",
       "status":1,
-      "out":"54545",
+      "in":"54545",
       "send":"6644",
-      "name":"廖丹霞",
-      "company":"Gworld科技有限公司",
+      "name":"成龙",
+      "company":"功夫巨星",
       "job":"总裁助理"
     }
   ],

@@ -47,7 +47,7 @@ export class CirclePage {
         this.storage.get('token').then((token)=>{
             this.Find.getCircleList(type,page,token).subscribe(res=>{
                 if(res.code == 0){
-                    this.circleData = res.data;
+                    this.circleData = res.data.list;
                     console.log(this.circleData)
                     return true;
                 }

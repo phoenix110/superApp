@@ -20,8 +20,8 @@
         </div>
       </div>
     </nav>
-
-  <div class="card-box">
+  <blank [tip]="'没有相关分类信息哦！'"  *ngIf="companies.length <= 0"></blank>
+  <div class="card-box" *ngIf="companies.length > 0">
     <ion-card class="card-pic" *ngFor="let company of companies" (tap)="toCompany(company['id'])">
       <div class="top-img">
           <img src="{{company['thumb']}}">

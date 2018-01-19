@@ -1,0 +1,72 @@
+<!-- Generated template for the LuckListComponent component -->
+<ion-list class="luck-list">
+  <ion-item-sliding (tap)="toChat(id)" *ngFor="let item of luckList">
+    <ion-item>
+      <ion-row class="luck-item">
+        <ion-col col-2 class="luck-avatar"><img src="{{item.avatar}}" alt=""></ion-col>
+        <ion-col col-10 class="luck-info">
+          <div class="luck-title flex-row-between">
+            <h4>{{item.name}}</h4>
+            <span [class.active]="item.status == 1">{{item.status == 0 ? '离线' : '在线'}}</span>
+          </div>
+          <div class="luck-address text-overflow-one">
+            {{item.company}}
+          </div>
+          <div class="luck-give flex-row-between">
+            <span>赏入：<b>{{item.in}} </b>元</span>
+            <span text-end>赏出：<b>{{item.send}} </b>元</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button (click)="unread(i)">删除</button>
+    </ion-item-options>
+  </ion-item-sliding>
+  <ion-item-sliding (tap)="toChat(id)" *ngFor="let item of luckList">
+    <ion-item>
+      <ion-row class="luck-item">
+        <ion-col col-2 class="luck-avatar"><img src="{{item.avatar}}" alt=""></ion-col>
+        <ion-col col-10 class="luck-info">
+          <div class="luck-title flex-row-between">
+            <h4>{{item.name}}</h4>
+            <span [class.active]="item.status == 1">{{item.status == 0 ? '离线' : '在线'}}</span>
+          </div>
+          <div class="luck-address text-overflow-one">
+            {{item.company}}
+          </div>
+          <div class="luck-give flex-row-between">
+            <span>赏入：<b>{{item.in}} </b>元</span>
+            <span text-end>赏出：<b>{{item.send}} </b>元</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button (click)="unread(i)">删除</button>
+    </ion-item-options>
+  </ion-item-sliding>
+  <ion-item-sliding (tap)="toChat(id)" *ngFor="let item of luckList">
+    <ion-item>
+      <ion-row class="luck-item">
+        <ion-col col-2 class="luck-avatar"><img src="{{item.avatar}}" alt=""></ion-col>
+        <ion-col col-10 class="luck-info">
+          <div class="luck-title flex-row-between">
+            <h4>{{item.name}}</h4>
+            <span [class.active]="item.status == 1">{{item.status == 0 ? '离线' : '在线'}}</span>
+          </div>
+          <div class="luck-address text-overflow-one">
+            {{item.company}}
+          </div>
+          <div class="luck-give flex-row-between">
+            <span>赏入：<b>{{item.in}} </b>元</span>
+            <span text-end>赏出：<b>{{item.send}} </b>元</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button (click)="unread(i)">删除</button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>

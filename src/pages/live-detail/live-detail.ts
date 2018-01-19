@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {StreamingMedia, StreamingVideoOptions} from "@ionic-native/streaming-media";
 
 /**
  * Generated class for the LiveDetailPage page.
@@ -15,11 +16,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LiveDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public stream:StreamingMedia
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LiveDetailPage');
+      let options: StreamingVideoOptions = {
+          successCallback: () => { console.log('Video played') },
+          errorCallback: (e) => { console.log('Error streaming') },
+          orientation: 'landscape'
+      };
+
+      console.log(this.navParams.get('url'));
+      this.stream.playVideo(this.navParams.get('url'), options);
   }
 
 }

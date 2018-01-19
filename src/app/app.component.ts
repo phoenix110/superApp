@@ -1,10 +1,11 @@
 import { Component, Input,ViewChild } from '@angular/core';
-import { Platform, Nav ,IonicApp, Keyboard} from 'ionic-angular';
+import { Platform, Nav ,IonicApp, Keyboard, Events} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {PopProvider} from "../providers/pop";
 import {TabsPage} from "../pages/tabs/tabs";
 import { AppConfig } from "./app.config";
+import {Shake} from "@ionic-native/shake";
 
 
 @Component({
@@ -23,6 +24,7 @@ export class MyApp {
       public statusBar: StatusBar,
       public splashScreen: SplashScreen,
       public pop:PopProvider,
+      public events:Events,
       public keyboard:Keyboard
   ) {
 
@@ -31,14 +33,19 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      this.events.subscribe("loginStatus",(status) => {
+          this.loginStatus = status;
+      });
       this.registerBackButtonAction();
     });
-      console.log(AppConfig.getLoginStatus())
-
-      this.loginStatus = AppConfig.loginStatus;
-    console.log(this.loginStatus)
   }
-    registerBackButtonAction() {
+
+
+
+
+
+
+  registerBackButtonAction() {
         this.platform.registerBackButtonAction(() => {
             if(this.keyboard.isOpen()){
                 this.keyboard.close();

@@ -3,7 +3,6 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user";
 import {Storage} from "@ionic/storage";
 import {PopProvider} from "../../providers/pop";
-import {AppProvider} from "../../providers/app";
 /**
  * Generated class for the UserPage page.
  *
@@ -86,6 +85,11 @@ export class UserPage {
     // 跳转至公告信息页面
     public toOrderPay() {
         this.navCtrl.push("OrderPayPage");
+    }
+
+    //跳转到直播设置页
+    public toLiveConfig(){
+        this.navCtrl.push("LiveConfigPage");
     }
 
 

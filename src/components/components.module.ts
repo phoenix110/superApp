@@ -24,6 +24,8 @@ import {PublishModule} from "./publish/publish.module";
 import { ChatSendModule } from './chat-send/chat-send.module';
 import {ReviewModule} from "./review/review.module";
 import { TouCommentModule } from './tou-comment/tou-comment.module';
+import { LuckListModule } from './luck-list/luck-list.module';
+import { BlankModule } from './blank/blank.module';
 
 @NgModule({
 	declarations: [],
@@ -54,6 +56,8 @@ import { TouCommentModule } from './tou-comment/tou-comment.module';
         ChatSendModule,
         ReviewModule,
         TouCommentModule,
+        LuckListModule,
+        BlankModule,
     ]
 })
 export class ComponentsModule {

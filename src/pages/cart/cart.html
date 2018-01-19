@@ -10,7 +10,8 @@
 
 </ion-header>
 <ion-content class="cart">
-  <ion-list>
+  <blank [type]="'cart'" [tip]="'购物车都空啦'" [btnText]="'去逛逛'" *ngIf="cartList.length <= 0"></blank>
+  <ion-list *ngIf="cartList.length > 0">
     <ion-card *ngFor="let shop of cartList;let s = index;">
       <div class="cart-top flex-row-start">
         <img src="{{shop.company_logo}}" alt="">
