@@ -26,6 +26,7 @@
         "@ionic-native/camera": "^4.5.2",
         "@ionic-native/core": "4.3.2",
         "@ionic-native/file": "^4.5.0",
+        "@ionic-native/file-transfer": "^4.5.2",
         "@ionic-native/image-picker": "^4.5.2",
         "@ionic-native/network": "^4.5.0",
         "@ionic-native/splash-screen": "4.3.2",
@@ -43,6 +44,7 @@
         "cordova-plugin-console": "^1.1.0",
         "cordova-plugin-device": "^1.1.7",
         "cordova-plugin-file": "^4.3.3",
+        "cordova-plugin-file-transfer": "^1.7.0",
         "cordova-plugin-splashscreen": "^4.1.0",
         "cordova-plugin-statusbar": "^2.3.0",
         "cordova-plugin-telerik-imagepicker": "^2.1.8",
@@ -84,7 +86,8 @@
             "cordova-plugin-file": {},
             "cordova-plugin-alipay-v2": {
                 "APP_ID": "2017113000260632"
-            }
+            },
+            "cordova-plugin-file-transfer": {}
         }
     }
 }

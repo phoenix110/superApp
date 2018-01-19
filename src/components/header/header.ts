@@ -6,6 +6,9 @@ import {PublishProvider} from "../../providers/publish";
 import {ValidateProvider} from "../../providers/validate";
 import {TongxinProvider} from "../../providers/tongxin";
 import {GoodsProvider} from "../../providers/goods";
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { APP_SERVE_URL} from "../../app/app.config";
 
 /**
  * Generated class for the HeaderComponent component.
@@ -33,10 +36,13 @@ export class HeaderComponent implements OnChanges {
                 public Publish: PublishProvider,
                 public Validate: ValidateProvider,
                 public TongXin: TongxinProvider,
-                public Goods:GoodsProvider) {
+                public Goods:GoodsProvider,
+                private transfer: FileTransfer,
+                private file: File) {
         console.log('Hello HeaderComponent Component');
         this.getContent();
     }
+    public fileTransfer: FileTransferObject = this.transfer.create();
     // 监听更新发布内容的变化
     ngOnChanges(changes: SimpleChanges) {
 
@@ -109,6 +115,7 @@ export class HeaderComponent implements OnChanges {
         // let formData = new FormData();
         let content = this.pubData['content'];
         let src = this.pubData['src'];
+        let type = this.pubData['type'];
         console.log(this.pubData)
         if (!this.Validate.trimBlank(content)) {
             this.Pop.toast("发布内容不能为空！");
@@ -118,34 +125,58 @@ export class HeaderComponent implements OnChanges {
             this.Pop.toast("请上传发布图片或视频！");
             return false;
         }
-
-        this.Http.getToken().subscribe(res => {
-
-            if (res === false) {
-                this.navCtrl.push("LoginPage");
-                return false;
-            } else {
-                // this.pubData['token'] = res;
-                // formData.append("op","push_circle");
-                // formData.append("token",res);
-                // formData.append("content",content);
-                // formData.append("src",src);
-                this.Publish.pubCircle(this.pubData).subscribe(res => {
-                    this.Pop.toast(res.msg);
-                    if (res.code == 0) {
+        if(type == 'picture'){
+            this.Publish.pubCircle(this.pubData).subscribe( res => {
+                if(res === 'toLogin'){
+                    this.navCtrl.push("LoginPage");
+                }
+                this.Pop.toast(res.message);
+                this.navCtrl.pop();
+            })
+        }else{
+            this.Http.getToken().subscribe(token => {
+                if (token === false) {
+                    this.navCtrl.push("LoginPage");
+                    return false;
+                }
+                this.pubData.token = token;
+                this.uploadByTransfer(src, APP_SERVE_URL, this.pubData).then(res => {
+                    let data = JSON.parse(res.response);
+                    if (data['code'] == 0) {
+                        // 接口请求成功返回接口数据
+                        this.Pop.toast(data['message']);
                         this.navCtrl.pop();
-                    } else if (res.code == -1) {
+                    } else if (data['code'] == -1) {
+                        // 本地有token，后台验证登录过期，重新登录
                         this.Pop.confirm().subscribe(res => {
                             if (res === false) {
                                 this.navCtrl.push("LoginPage");
                             }
                         });
                     } else {
-                        this.Pop.toast(res.msg);
+                        // 其他情况弹出消息提示
+                        this.Pop.toast(data['message']);
                     }
+                    console.log(data)
+                }).catch(err => {
+                    console.log(err);
                 });
+            })
+        }
+    }
+    // 视频文件上传
+    public uploadByTransfer(fileUrl: string, url: string,data:object, options?: FileUploadOptions){
+        options = {
+            fileKey: 'file',
+            fileName: fileUrl.substr(fileUrl.lastIndexOf('/')+1),
+            mimeType:"video/*",
+            params:{
+                op:"push_circle",
+                content:data['content'],
+                token:data['token']
             }
-        });
+        };
+        return this.fileTransfer.upload(fileUrl, url, options);
     }
     // 个人信息设置
     public userSet(){

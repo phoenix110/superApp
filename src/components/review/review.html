@@ -1,0 +1,20 @@
+<!-- Generated template for the commentListComponent component -->
+<section class="review">
+    <div class="circle-zan flex-row-around">
+        <ion-icon name="thumbs-up" [class.active]="commentList.is_like" tappable (click)="dianZan(i,commentList.id)"></ion-icon>
+        <ion-icon name="eye"></ion-icon>
+        <ion-icon name="chatbubbles" (click)="addComment(i)"></ion-icon>
+    </div>
+    <div class="circle-zanCount" *ngIf="commentList.like_list.length > 0">
+        <ion-icon name="thumbs-up"></ion-icon>
+        <span *ngFor="let like of commentList.like_list;let i = index;">{{ i < commentList.like_list.length -1 ? like.show_name + '、' : like.show_name }}</span>
+    </div>
+    <ul class="circle-zanCount circle-comment" *ngIf="commentList.talk_list.length > 0">
+        <li *ngFor="let commentList of commentList.talk_list;">{{commentList.talk_list}}
+            <span>{{commentList.show_name}}：</span><b>{{commentList.content}}</b>
+            <ul class="flex-row-start" *ngIf="commentList.thumb">
+                <li><img src="{{commentList.thumb}}" alt=""></li>
+            </ul>
+        </li>
+    </ul>
+</section>

@@ -1,48 +1,43 @@
 import {Component, Input} from '@angular/core';
-import {NavController} from "ionic-angular";
-
-// 导入自定义服务
 import {HttpProvider} from "../../providers/http";
-import {PopProvider} from "../../providers/pop";
-// 导入组件通信服务
 import {TongxinProvider} from "../../providers/tongxin";
+import {NavController} from "ionic-angular";
 import {PublishProvider} from "../../providers/publish";
+import {PopProvider} from "../../providers/pop";
 
 /**
- * Generated class for the CommentComponent component.
+ * Generated class for the ReviewComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-    selector: 'comment',
-    templateUrl: 'comment.html'
+    selector: 'review',
+    templateUrl: 'review.html'
 })
-export class CommentComponent {
-    @Input() commentList: Array<object> = [];
-    @Input() type: string = "";
-    constructor(public navCtrl: NavController,
-                public Http: HttpProvider,
-                public Pop: PopProvider,
-                public TongXin: TongxinProvider,
-                public publish: PublishProvider) {
-    }
+export class ReviewComponent {
 
-    // 跳转至我的世界详情页
-    public toWorld(id) {
-        this.navCtrl.push("MypagePage", {id: id});
+    text: string;
+    @Input() commentList: object = {};
+    constructor(
+        public Http:HttpProvider,
+        public TongXin:TongxinProvider,
+        public Publish:PublishProvider,
+        public Pop:PopProvider,
+        public navCtrl:NavController) {
+        console.log('Hello ReviewComponent Component');
+        this.text = 'Hello World';
     }
-
     // 点赞功能
-    public dianZan(index, id) {
-        this.publish.dianZan(id).subscribe(res => {
+    public dianZan(id) {
+        this.Publish.dianZan(id).subscribe(res => {
             if (res === 'toLogin') {
                 this.navCtrl.push("LoginPage");
                 return false;
             }
             this.Pop.toast(res.message);
-            let commentList:object = this.commentList[index];
-            let likeList: Array<object> = this.commentList[index]['like_list'];
+            let commentList:object = this.commentList;
+            let likeList: Array<object> = this.commentList['like_list'];
             commentList['is_like'] = !commentList['is_like'];
             // 点赞列表不为空时
             if(likeList.length > 0){
@@ -59,15 +54,14 @@ export class CommentComponent {
             }
         });
     }
-
-    // 发表评论
+// 发表评论
     public addComment(index) {
         this.Http.getToken().subscribe(res => {
             if (res === false) {
                 this.navCtrl.push("LoginPage");
                 return false;
             }
-            this.TongXin.CircleComment(this.commentList[index]);
+            this.TongXin.CircleComment(this.commentList);
         });
     }
 }

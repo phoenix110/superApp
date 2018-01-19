@@ -11,6 +11,7 @@ import {Camera} from "@ionic-native/camera";
 import {ImagePicker} from "@ionic-native/image-picker";
 import {AppVersion} from "@ionic-native/app-version";
 import {File} from "@ionic-native/file";
+import { FileTransfer } from '@ionic-native/file-transfer';
 import {Network} from "@ionic-native/network";
 import {IonicStorageModule} from "@ionic/storage";
 // 导入公共Module
@@ -69,6 +70,7 @@ import { PincodeInputModule } from  'ionic2-pincode-input';
         ImagePicker,
         AppVersion,
         File,
+        FileTransfer,
         Network,
         HttpProvider,
         NativeProvider,

@@ -16,6 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NewsPage {
   public news:Array<object> = [];
+    public review: object = {
+        createtime: "2017-02-03",
+        is_like: true,
+        id: "12121",
+        like_list: [
+            {
+                "show_name": "千叶祥龙"
+            }
+        ],
+        talk_list: [
+            {
+                "show_name": "千叶祥龙",
+                "content": "111111",
+                "thumb": "./assets/images/goods/shouji01.jpg"
+            }
+        ]
+    };
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
   }
 

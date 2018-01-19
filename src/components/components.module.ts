@@ -22,6 +22,8 @@ import { AddCommentModule } from './add-comment/add-comment.module';
 import { GoodSkuModule } from './good-sku/good-sku.module';
 import {PublishModule} from "./publish/publish.module";
 import { ChatSendModule } from './chat-send/chat-send.module';
+import {ReviewModule} from "./review/review.module";
+import { TouCommentModule } from './tou-comment/tou-comment.module';
 
 @NgModule({
 	declarations: [],
@@ -50,6 +52,8 @@ import { ChatSendModule } from './chat-send/chat-send.module';
         GoodSkuModule,
         PublishModule,
         ChatSendModule,
+        ReviewModule,
+        TouCommentModule,
     ]
 })
 export class ComponentsModule {

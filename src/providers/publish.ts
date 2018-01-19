@@ -25,7 +25,6 @@ export class PublishProvider {
 
         let options = {
             op: "push_circle",
-            token:params.token,
             content:params.content,
             src: params.src
         };
@@ -46,6 +45,16 @@ export class PublishProvider {
             circle_id:params.zid,
             content:params.content,
             thumb:params.thumb
+        };
+        return this.Auth.authLogin(options);
+    }
+    // 头条、新闻、客服页面添加评论
+    public addComment(params){
+        let options = {
+            op:params.op,
+            id:params.id,
+            content:params.content,
+            src:params.src
         };
         return this.Auth.authLogin(options);
     }

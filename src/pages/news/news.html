@@ -29,12 +29,10 @@
           <ion-card-content class="news-cont">
             <p class="news-instro">{{item.content}}</p>
           </ion-card-content>
-          <ion-row class="new-zan">
-            <ion-col col-6>点赞 {{item.zan}}</ion-col>
-            <ion-col col-6 text-right>评论 {{item.comment}}</ion-col>
-          </ion-row>
+          <review [commentList]="review"></review>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+<add-comment></add-comment>
