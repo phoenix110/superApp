@@ -52,7 +52,7 @@ export class ShareHeaderComponent implements OnInit{
 
     // 点击评论
     public comment() {
-        console.log("您点击了评论按钮！")
+        this.navCtrl.push("PushPage");
     }
 
     // 打开性别选择框

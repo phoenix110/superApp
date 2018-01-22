@@ -21,9 +21,9 @@
   <ion-refresher (ionRefresh)="doRefresh($event)" style="margin-top: -40px;">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="刷新...." refreshingSpinner="circles" refreshingText="刷新...."></ion-refresher-content>
   </ion-refresher>
-
+  <blank [type]="'cart'" [tip]="'什么都木有哦！'" [btnText]="'去逛逛'" *ngIf="orderList.length <= 0"></blank>
     <!--订单信息-->
-    <div class="order-box">
+    <div class="order-box" *ngIf="orderList.length > 0">
       <div class="order-info" *ngFor="let item of orderList;let i = index;">
         <div class="order-shop">
             订单编号：

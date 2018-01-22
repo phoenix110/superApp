@@ -17,7 +17,8 @@ export class PublishComponent implements OnChanges {
 
     public pubData: object = {
         content: "",
-        src: ""
+        src: "",
+        type:"picture"
     };
     public hasPic: boolean = false;
     public hasVideo: boolean = false;
@@ -52,6 +53,7 @@ export class PublishComponent implements OnChanges {
                         this.native.getPictureByCamera().subscribe(res => {
                             this.hasPic = true;
                             this.pubData['src'] = res;
+                            this.pubData['type'] = "picture";
                             console.log(res)
 
                         })
@@ -62,6 +64,7 @@ export class PublishComponent implements OnChanges {
                         this.native.getPictureByPhotoLibrary({}).subscribe(res => {
                             this.hasPic = true;
                             this.pubData['src'] = res;
+                            this.pubData['type'] = "picture";
                             this.changeDetectorRef.detectChanges();
                             console.log(res)
 
@@ -81,7 +84,6 @@ export class PublishComponent implements OnChanges {
 
     //上传视频
     public uploadVideo() {
-
         let actionSheet = this.actionSheetCtrl.create({
             title: '请选择视频',
             buttons: [
@@ -97,6 +99,7 @@ export class PublishComponent implements OnChanges {
                         this.native.getPictureByCamera(options).subscribe(res => {
                             this.hasVideo = true;
                             this.pubData['src'] = res;
+                            this.pubData['type'] = "video";
                             console.log(res)
                         })
                     }
@@ -110,6 +113,7 @@ export class PublishComponent implements OnChanges {
             ]
         });
         actionSheet.present();
+
     }
 
     // 删除已添加的图片或视频文件

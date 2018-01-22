@@ -25,12 +25,12 @@ export class UnionPage {
 
     @ViewChild(Slides) slides:Slides;
 
-    public companies; //公司列表
-    public categories;//分类列表
-    public colors;//颜色数组
-    public active_index;//当前激活索引
-    public cid;//当前分类
-    public page;//当前页数
+    public companies:Array<object> = []; //公司列表
+    public categories:Array<object> = [];//分类列表
+    public colors:Array<string> = [];//颜色数组
+    public active_index:number = 0;//当前激活索引
+    public cid:number = 0;//当前分类
+    public page:number = 1;//当前页数
 
     constructor(
         public navCtrl: NavController,

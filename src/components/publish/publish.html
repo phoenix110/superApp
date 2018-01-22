@@ -1,8 +1,8 @@
 <!-- Generated template for the PublishComponent component -->
 <div class="push-box">
   <textarea placeholder="请输入内容" [(ngModel)]="pubData.content"></textarea>
-  <div class="push-file" *ngIf="hasPic">
-    <img src="{{pubData.src}}" alt="">
+  <div class="push-file">
+    <img src="{{pubData.src}}" alt="" *ngIf="hasPic">
     <video src="{{pubData.src}}"  webkit-playsinline="true" playsinline="true" controls="controls" *ngIf="hasVideo"></video>
     <ion-icon name="ios-close-circle" tappable (click)="closeBtn()" *ngIf="hasPic || hasVideo"></ion-icon>
   </div>
@@ -15,6 +15,11 @@
       <ion-icon name="ios-videocam"></ion-icon>
       <span>视频</span>
     </li>
+    <!--<li tappable  class="upload-video">-->
+      <!--<ion-icon name="ios-videocam"></ion-icon>-->
+      <!--<input type="file" accept="video/*" name="src" (change)="uploadVideo()">-->
+      <!--<span>视频</span>-->
+    <!--</li>-->
     <li>
       <ion-icon class="iconfont icon-card"></ion-icon>
       <span>名片</span>

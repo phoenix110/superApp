@@ -5,7 +5,7 @@
             <img src="{{item.avatar}}" alt="">
         </ion-col>
         <ion-col col-10 class="circle-right">
-            <div class="circle-tit flex-row-between">
+            <div class="circle-tit flex-row-between" *ngIf="type == ''">
                 <b class="text-overflow-one">{{item.show_name}}</b>
                 <span>赏</span>
             </div>

@@ -879,30 +879,30 @@
   },
   "luckPerson":[
     {
-        "avatar":"./assets/images/company/mingpian.jpg",
+        "avatar":"./assets/images/avatar/1.png",
         "status":1,
-        "out":"11000",
+        "in":"11000",
         "send":"12121",
-        "name":"廖丹霞",
-        "company":"Gworld科技有限公司",
+        "name":"徐克",
+        "company":"著名导演、制片人",
         "job":"总裁助理"
     },
     {
-      "avatar":"./assets/images/company/jieshao.jpg",
+      "avatar":"./assets/images/avatar/2.png",
       "status":0,
-      "out":"5656",
+      "in":"5656",
       "send":"232",
       "name":"廖丹霞",
       "company":"Gworld科技有限公司",
       "job":"总裁助理"
     },
     {
-      "avatar":"./assets/images/company/fuwu.jpg",
+      "avatar":"./assets/images/avatar/3.png",
       "status":1,
-      "out":"54545",
+      "in":"54545",
       "send":"6644",
-      "name":"廖丹霞",
-      "company":"Gworld科技有限公司",
+      "name":"成龙",
+      "company":"功夫巨星",
       "job":"总裁助理"
     }
   ],
@@ -2084,6 +2084,101 @@
       "content":"欢迎您来了",
       "avatar":"./assets/images/avatar/3.png",
       "image":"./assets/images/goods/shouji01.jpg"
+    }
+  ],
+  "topCommnet":[
+    {
+      "id":"10",
+      "type":"0",
+      "content":"我要开直播",
+      "src":"http://wx.51muma.com/attachment/images/6/2018/01/gI2D722iX3Ta76hanaEzHH37xENOEl.jpg",
+      "createtime":"01月09日 13:42",
+      "mobile":"18819295208",
+      "nickname":"接口",
+      "realname":null,
+      "avatar":"",
+      "show_name":"接口",
+      "talk_list":[
+
+      ],
+      "like_list":[
+        {
+          "id":"191",
+          "uid":"5",
+          "avatar":"",
+          "mobile":"17666660762",
+          "nickname":null,
+          "realname":null,
+          "show_name":"17666660762"
+        }
+      ],
+      "is_like":0
+    },
+    {
+      "id":"9",
+      "type":"0",
+      "content":"4566666",
+      "src":"http://wx.51muma.com/attachment/images/6/2018/01/j0Mnjm4gD0489gMdYduPdsz2d482NG.jpg",
+      "createtime":"01月06日",
+      "mobile":"13783907542",
+      "nickname":"千叶祥龙",
+      "realname":null,
+      "avatar":"http://wx.51muma.com/attachment/images/6/2017/12/VL0H9u6McZigGcGMGo9gI4ZgCK363g.png",
+      "show_name":"千叶祥龙",
+      "talk_list":[
+        {
+          "id":"17",
+          "content":"看看皮皮",
+          "thumb":"",
+          "uid":"3",
+          "avatar":"",
+          "mobile":"18819295208",
+          "nickname":"接口",
+          "realname":null,
+          "show_name":"接口"
+        },
+        {
+          "id":"16",
+          "content":"看看",
+          "thumb":"",
+          "uid":"3",
+          "avatar":"",
+          "mobile":"18819295208",
+          "nickname":"接口",
+          "realname":null,
+          "show_name":"接口"
+        }
+      ],
+      "like_list":[
+        {
+          "id":"193",
+          "uid":"4",
+          "avatar":"http://wx.51muma.com/attachment/images/6/2018/01/I07zVlZLtPlv77iZ7P1Q7ZVLPnMlkk.jpg",
+          "mobile":"15237102297",
+          "nickname":"王东升",
+          "realname":null,
+          "show_name":"王东升"
+        },
+        {
+          "id":"127",
+          "uid":"3",
+          "avatar":"",
+          "mobile":"18819295208",
+          "nickname":"接口",
+          "realname":null,
+          "show_name":"接口"
+        },
+        {
+          "id":"122",
+          "uid":"5",
+          "avatar":"",
+          "mobile":"17666660762",
+          "nickname":null,
+          "realname":null,
+          "show_name":"17666660762"
+        }
+      ],
+      "is_like":0
     }
   ]
 }

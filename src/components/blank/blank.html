@@ -1,0 +1,9 @@
+<!-- Generated template for the BlankComponent component -->
+<section class="blank-box">
+  <div class="blank-icon">
+    <ion-icon class="iconfont icon-meiyouneirong" *ngIf="type == ''"></ion-icon>
+    <ion-icon class="iconfont icon-konggouwuche" *ngIf="type == 'cart'"></ion-icon>
+  </div>
+  <p class="tip" *ngIf="type == ''">{{tip}}<span *ngIf="btnText != ''" (tap)="toShop()">，<b>{{btnText}}</b></span></p>
+  <p class="tip" *ngIf="type == 'cart'">{{tip}}<span *ngIf="btnText != ''" (tap)="toShop()">，<b>{{btnText}}</b></span></p>
+</section>

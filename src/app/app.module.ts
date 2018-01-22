@@ -11,6 +11,7 @@ import {Camera} from "@ionic-native/camera";
 import {ImagePicker} from "@ionic-native/image-picker";
 import {AppVersion} from "@ionic-native/app-version";
 import {File} from "@ionic-native/file";
+import { FileTransfer } from '@ionic-native/file-transfer';
 import {Network} from "@ionic-native/network";
 import {IonicStorageModule} from "@ionic/storage";
 // 导入公共Module
@@ -38,7 +39,8 @@ import { OrderProvider } from '../providers/order';
 import { PincodeInputModule } from  'ionic2-pincode-input';
 import {Shake} from "@ionic-native/shake";
 import {VideoPlayer} from "@ionic-native/video-player";
-import {StreamingMedia, StreamingVideoOptions} from "@ionic-native/streaming-media";
+import {StreamingMedia} from "@ionic-native/streaming-media";
+import { ChatProvider } from '../providers/chat/chat';
 @NgModule({
     declarations: [
         MyApp
@@ -72,6 +74,7 @@ import {StreamingMedia, StreamingVideoOptions} from "@ionic-native/streaming-med
         ImagePicker,
         AppVersion,
         File,
+        FileTransfer,
         Network,
         HttpProvider,
         NativeProvider,
@@ -93,7 +96,8 @@ import {StreamingMedia, StreamingVideoOptions} from "@ionic-native/streaming-med
     OrderProvider,
         Shake,
         VideoPlayer,
-        StreamingMedia
+        StreamingMedia,
+    ChatProvider
     ]
 })
 export class AppModule {

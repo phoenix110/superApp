@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {InfiniteScroll, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
+import {FindProvider} from "../../providers/find";
+import {PopProvider} from "../../providers/pop";
 /**
  * Generated class for the LuckPage page.
  *
@@ -17,12 +19,18 @@ import {HttpClient} from "@angular/common/http";
 export class LuckPage {
     public reviewerInfo:any;
     public reviewerArr:Array<object> = [];
+    public loadStatus:boolean = true;
+    public listInfo:object = {
+        page:1
+    };
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
       public platform:Platform,
       public actionSheetCtrl: ActionSheetController,
-      public http:HttpClient
+      public http:HttpClient,
+      public Find:FindProvider,
+      public Pop:PopProvider
   ) {
   }
 
@@ -30,6 +38,7 @@ export class LuckPage {
     console.log('ionViewDidLoad LuckPage');
     this.reviewerData();
   }
+  // 根据聊天人员性别筛选列表
     openActionSheet(type) {
         let actionSheet = this.actionSheetCtrl.create({
             title: '',
@@ -82,5 +91,42 @@ export class LuckPage {
             console.log(this.reviewerArr)
             console.log(this.reviewerInfo)
         });
+    }
+    // 获取聊天人员列表
+    public luckList(){
+        this.Find.getLuckList(this.listInfo).subscribe( res => {
+            this.Pop.toast(res.message);
+            if(res.code == 0){
+                this.reviewerInfo = res.data;
+            }
+        })
+    }
+// 下拉刷新
+    public doRefresh(evt){
+        this.listInfo['page'] = 1;
+        this.Find.getLuckList(this.listInfo).subscribe(res =>{
+            if (res === "toLogin") {
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.reviewerInfo = res.data.list;
+            evt.complete();
+        })
+    }
+    // 上拉加载更多
+    public loadMore(infiniteScroll: InfiniteScroll){
+        this.listInfo['page'] ++;
+        this.Find.getLuckList(this.listInfo).subscribe(res =>{
+            if (res === "toLogin") {
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            if(res.data.list.length <= 0){
+                this.loadStatus = false;
+                return false;
+            }
+            this.reviewerInfo = this.reviewerInfo.concat(res.data.list);
+            infiniteScroll.complete();
+        })
     }
 }

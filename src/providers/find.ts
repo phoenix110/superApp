@@ -23,4 +23,12 @@ export class FindProvider {
             token: token
         });
     }
+    // 获取缘分列表
+    public getLuckList(params){
+      let options = {
+          op:"luck",
+          page:params.page
+      };
+      return this.Http.post(options);
+    }
 }

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Events} from 'ionic-angular';
 import {PopProvider} from "../../providers/pop";
 import {UserProvider} from "../../providers/user";
 import {ValidateProvider} from "../../providers/validate";
@@ -30,6 +30,7 @@ export class LoginPage {
         public navParams: NavParams,
         public Pop: PopProvider,
         public User: UserProvider,
+        public events:Events,
         public Valify: ValidateProvider,
         public Storage:Storage) {
     }
@@ -62,7 +63,7 @@ export class LoginPage {
             this.Pop.toast(res.message);
             if (res.code == '0') {
                 this.Storage.set("token",res['data']['token']);
-                AppConfig.loginStatus = true;
+                this.events.publish("loginStatus",true);
                 this.navCtrl.push("TabsPage");
             }
         });

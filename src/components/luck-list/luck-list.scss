@@ -1,0 +1,68 @@
+luck-list {
+  .luck-list{
+    background: #fff;
+    margin: 0!important;
+    ion-item-sliding{
+      border-bottom: 1px dotted #ccc!important;
+      &:last-child{
+        border-bottom: 1px dotted #fff!important;
+      }
+      ion-item{
+        padding: 5px 0;
+
+        .item-inner{
+          border: none!important;
+        }
+        ion-label{
+          padding: 0;
+          margin: 0;
+          .luck-item{
+            height: auto;
+            align-items: center;
+            padding: 0;
+            .luck-avatar{
+              overflow: hidden;
+              img{
+                width:100%;
+                height: auto;
+                @include radius(50%);
+              }
+            }
+            .luck-info{
+              .luck-title{
+                h4{
+                  font-size: 15px;
+                  font-weight: bold;
+                }
+                span{
+                  border: 1px solid #afafaf;
+                  color:#afafaf;
+                  @include radius(3px);
+                  padding: 2px;
+                  font-size: 12px;
+                  &.active{
+                    border: 1px solid #FA6B5B;
+                    color:#FA6B5B;
+                  }
+                }
+              }
+              .luck-address{
+                font-size: 13px;
+                color:#333;
+                padding: 1px 0;
+              }
+              .luck-give{
+                font-size: 12px;
+                span{
+                  b{
+                    color: #FA6B5B;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

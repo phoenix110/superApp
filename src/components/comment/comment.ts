@@ -20,6 +20,7 @@ import {PublishProvider} from "../../providers/publish";
 })
 export class CommentComponent {
     @Input() commentList: Array<object> = [];
+    @Input() type: string = "";
     constructor(public navCtrl: NavController,
                 public Http: HttpProvider,
                 public Pop: PopProvider,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -18,7 +18,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ToutiaoDetailPage {
   public touDetail:Object = {};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+    public review:Array<object> = [];
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public http:HttpClient) {
   }
 
   ionViewDidLoad() {
@@ -28,6 +32,8 @@ export class ToutiaoDetailPage {
   public touTiaoDetail(){
     this.http.get("./assets/data.json").subscribe(data=>{
       this.touDetail = data['touTiaoDetail'];
+      this.review = data['topCommnet'];
     });
   }
+
 }

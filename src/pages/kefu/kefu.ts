@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the KefuPage page.
@@ -16,7 +16,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class KeFuPage {
   public keFu:Array<object> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public actionSheet:ActionSheetController,
+      public http:HttpClient) {
   }
 
   ionViewDidLoad() {
@@ -31,6 +35,34 @@ export class KeFuPage {
   }
   // 跳转至评论者详情
   public reviewerInfo(id){
-    this.navCtrl.push("ReviewerInfoPage",{id:id});
+    this.navCtrl.push("MyPage",{id:id});
+  }
+  // 追加评论
+  public addAsk(id){
+    let actionSheet = this.actionSheet.create({
+        title: '编辑',
+        buttons: [
+            {
+                text: '添加追问',
+                role: 'destructive',
+                handler: () => {
+                    this.navCtrl.push("CommentPage",{id:id,type:"keFuAdd"})
+                }
+            },{
+                text: '删除',
+                role: 'destructive',
+                handler: () => {
+
+                }
+            }, {
+                text: '取消',
+                role: 'cancel',
+                handler: () => {
+
+                }
+            }
+        ]
+    });
+      actionSheet.present();
   }
 }

@@ -39,8 +39,18 @@ publish {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
+      @include position(relative,0,null,null,0);
       ion-icon{
         font-size: 25px;
+      }
+      &.upload-video{
+        input{
+          width:100%;
+          height:100%;
+          opacity: 0;
+          @include position(absolute,0,null,null,0);
+        }
       }
     }
   }
