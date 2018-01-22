@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import {AppProvider} from "../../providers/app";
 import {AppConfig} from "../../app/app.config";
@@ -25,6 +25,7 @@ export class SetPage {
                 public navParams: NavParams,
                 public pop: PopProvider,
                 private storage: Storage,
+                public events:Events,
                 public app:AppProvider,) {
         this.uid = this.navParams.get("uid");
     }
@@ -52,6 +53,7 @@ export class SetPage {
         this.storage.remove('token');
         this.pop.toast('退出成功');
         this.navCtrl.push("TabsPage");
+        this.events.publish("loginStatus",false);
     }
 
     //检查更新

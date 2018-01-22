@@ -1,53 +1,51 @@
-import { Component, Input,ViewChild } from '@angular/core';
-import { Platform, Nav ,IonicApp, Keyboard, Events} from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {Component, Input, ViewChild} from '@angular/core';
+import {Platform, Nav, IonicApp, Keyboard, Events} from 'ionic-angular';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 import {PopProvider} from "../providers/pop";
 import {TabsPage} from "../pages/tabs/tabs";
-import { AppConfig } from "./app.config";
+import {AppConfig} from "./app.config";
 import {Shake} from "@ionic-native/shake";
+import {HttpProvider} from "../providers/http";
 
 
 @Component({
-  templateUrl: 'app.html'
+    templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = "TabsPage";
-  public codeStatus = false;
+    rootPage: any = "TabsPage";
+    public codeStatus = false;
     public backButtonPressed = false;
-    @Input() codeData:Object = {};
-  @ViewChild(Nav) nav:Nav;
-  public loginStatus:boolean = false;
-  constructor(
-      public ionicApp: IonicApp,
-      public platform: Platform,
-      public statusBar: StatusBar,
-      public splashScreen: SplashScreen,
-      public pop:PopProvider,
-      public events:Events,
-      public keyboard:Keyboard
-  ) {
+    @Input() codeData: Object = {};
+    @ViewChild(Nav) nav: Nav;
+    public loginStatus: boolean = false;
 
-      platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-      this.events.subscribe("loginStatus",(status) => {
-          this.loginStatus = status;
-      });
-      this.registerBackButtonAction();
-    });
-  }
+    constructor(public ionicApp: IonicApp,
+                public platform: Platform,
+                public statusBar: StatusBar,
+                public splashScreen: SplashScreen,
+                public pop: PopProvider,
+                public events: Events,
+                public Http:HttpProvider,
+                public keyboard: Keyboard) {
 
+        platform.ready().then(() => {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+            this.listenLogin();
+            this.events.subscribe("loginStatus", (status) => {
+                this.loginStatus = status;
+            });
+            this.registerBackButtonAction();
+        });
+    }
 
-
-
-
-
-  registerBackButtonAction() {
+    // 注册双击硬件返回按钮退出应用事件
+    public registerBackButtonAction() {
         this.platform.registerBackButtonAction(() => {
-            if(this.keyboard.isOpen()){
+            if (this.keyboard.isOpen()) {
                 this.keyboard.close();
                 return;
             }
@@ -55,8 +53,10 @@ export class MyApp {
             // this.ionicApp._toastPortal.getActive() || this.ionicApp._loadingPortal.getActive() || this.ionicApp._overlayPortal.getActive()
             let activePortal = this.ionicApp._modalPortal.getActive();
             if (activePortal) {
-                activePortal.dismiss().catch(() => {});
-                activePortal.onDidDismiss(() => {});
+                activePortal.dismiss().catch(() => {
+                });
+                activePortal.onDidDismiss(() => {
+                });
                 return;
             }
             let activeVC = this.nav.getActive();
@@ -67,7 +67,7 @@ export class MyApp {
     }
 
     //双击退出提示框
-    showExit() {
+    public showExit() {
         if (this.backButtonPressed) { //当触发标志为true时，即2秒内双击返回按键则退出APP
             this.platform.exitApp();
         } else {
@@ -76,20 +76,30 @@ export class MyApp {
             setTimeout(() => this.backButtonPressed = false, 2000);//2秒内没有再次点击返回则将触发标志标记为false
         }
     }
+    // 监听本地是否有token，判断登录状态
+    public listenLogin(){
+        this.Http.getToken().subscribe(token => {
+            if (token === false) {
+                this.loginStatus = false;
+            }else{
+                this.loginStatus = true;
+            }
+        })
+    }
+    // 显示个人名片
+    public showQr() {
+        this.codeStatus = true
+    }
 
-  public showQr(){
-    this.codeStatus = true
-
-
-  }
-  public fadeOut(event){
-      this.codeStatus = event;
-  }
-
-  public login(){
-      this.nav.push("LoginPage");
-  }
-  public register(){
-    this.nav.push("RegisterPage");
-  }
+    public fadeOut(event) {
+        this.codeStatus = event;
+    }
+    // 跳转至登录页
+    public login() {
+        this.nav.push("LoginPage");
+    }
+    // 跳转至注册页面
+    public register() {
+        this.nav.push("RegisterPage");
+    }
 }
