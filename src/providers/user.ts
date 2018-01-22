@@ -251,7 +251,7 @@ export class UserProvider {
 
     //获取直播列表信息
     public getLives(page){
-        return this.Auth.authLogin({
+        return this.http.post({
             op:'get_lives ',
             page:page
         });
