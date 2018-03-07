@@ -19,8 +19,6 @@ export class AppProvider {
 
   //获取app配置信息
     getConfig(){
-      return this.Http.post({
-          op:"get_config"
-      });
+      return this.Http.post('config');
     }
 }

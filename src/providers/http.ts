@@ -57,11 +57,11 @@ export class HttpProvider {
      * @param {string} contentType      //post请求的编码方式  application/x-www-form-urlencoded  multipart/form-data   application/json   text/xml
      * @return {Promise<never | {}>}
      */
-    post(body: any = {}, contentType: string = "application/x-www-form-urlencoded") {
+    post(sub_url,body: any = {}, contentType: string = "application/x-www-form-urlencoded") {
         let headers = new HttpHeaders({'Content-Type': contentType});
         return Observable.create(observer => {
             this.Pop.showLoading();
-            this.http.post(APP_SERVE_URL, this.toBodyString(body), {headers: headers})
+            this.http.post(APP_SERVE_URL+sub_url, this.toBodyString(body), {headers: headers})
                 .subscribe(res => {
                         this.Pop.hideLoading();
                         observer.next(res);
@@ -74,11 +74,11 @@ export class HttpProvider {
     /*
     *  以formData数据形式发送post请求
     */
-    formData(body:any = {},contentType:string = "multipart/form-data"){
+    formData(sub_url,body:any = {},contentType:string = "multipart/form-data"){
         let headers = new HttpHeaders({'Content-Type':contentType});
         return Observable.create(observer => {
             this.Pop.showLoading();
-            this.http.post(APP_SERVE_URL, body,{headers:headers})
+            this.http.post(APP_SERVE_URL+sub_url, body,{headers:headers})
                 .subscribe( res => {
                     this.Pop.hideLoading();
                     observer.next(res);

@@ -23,7 +23,7 @@ export class AuthProvider {
     }
 
     // 验证是否登录以及登录过期重新登录
-    public authLogin(params) {
+    public authLogin(params,sub_url='') {
         return Observable.create(observer => {
             // 前台，本地没有token时的登录验证
             this.http.getToken().subscribe(token => {
@@ -32,7 +32,7 @@ export class AuthProvider {
                     return false;
                 }
                 params.token = token;
-                this.http.post(params).subscribe(res => {
+                this.http.post(sub_url,params).subscribe(res => {
                     if (res.code == 0) {
                         // 接口请求成功返回接口数据
                         observer.next(res);

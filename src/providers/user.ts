@@ -36,25 +36,22 @@ export class UserProvider {
     // 用户登录
     public login(params) {
         let options = {
-            op: "login",
             mobile: params.mobile,
             password: params.password,
         };
-        console.log(options)
-        return this.http.post(options);
+        return this.http.post('auth/login',options);
     }
 
     // 用户注册
     public register(params) {
         let options = {
-            op: "register",
+            parent_uid:params.parent_uid,
             mobile: params.mobile,
             password: params.password,
             repassword: params.repassword,
             code: params.code
         };
-        console.log(options);
-        return this.http.post(options);
+        return this.http.post('auth/register',options);
     }
     // 获取验证码
     public getCode(obj) {
@@ -68,11 +65,9 @@ export class UserProvider {
             return false;
         }
         let options = {
-            op: "send_code",
             mobile: obj.userInfo.mobile
         };
-        console.log(options);
-        this.http.post(options).subscribe(res=>{
+        this.http.post('sms/send',options).subscribe(res=>{
 			this.Pop.toast(res.message);
             if(res.code == '0'){
                 this.downTime(obj);   
@@ -94,13 +89,12 @@ export class UserProvider {
     // 添加支付密码
     public addPayCode(params){
         let options = {
-            op: "send_code",
             uid:params.uid,
             newPwd:params.newPwd,
             reNewPwd:params.reNewPwd,
             code:params.code
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'sms/send');
     }
     // 保存修改后的支付密码(获取验证码)
     public changePayCode(params){
@@ -148,26 +142,23 @@ export class UserProvider {
     // 忘记密码
     public forget(params) {
         let options = {
-            op: "forget",
             mobile: params.mobile,
             password: params.password,
             repassword: params.repassword,
             code: params.code
         };
-        return this.http.post(options);
+        return this.http.post('auth/forget',options);
     }
     // 获取会员信息
     public getUserInfo(token) {
         let options = {
-            op: "get_user_info",
             token:token
         };
-        return this.http.post(options);
+        return this.http.post('member',options);
     }
     //   更新个人资料
     public updateUserInfo(params) {
         let options = {
-            op: "update_user_info",
             avatar: params.avatar,
             nickname: params.nickname,
             gender: params.gender,
@@ -177,7 +168,7 @@ export class UserProvider {
             district: params.district,
             token:params.token
         };
-        return this.http.post(options);
+        return this.http.post('member/update',options);
     }
     // 获取省市区列表数据
     public cityListData(cityList){

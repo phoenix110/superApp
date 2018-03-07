@@ -3,7 +3,7 @@
     <name>百变APP</name>
     <description>An content all things app.</description>
     <author email="shiLiang" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.0.105:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
@@ -118,8 +118,8 @@
     <allow-navigation href="http://192.168.0.105:8102" />
     <plugin name="cordova-plugin-shake" spec="^0.6.0" />
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
-    <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="~4.4.0" />
     <plugin name="cordova-plugin-file" spec="^4.3.3" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.0" />
+    <engine name="android" spec="^6.2.3" />
+    <engine name="ios" spec="~4.4.0" />
 </widget>
