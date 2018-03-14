@@ -231,19 +231,17 @@ export class UserProvider {
 
     //设置直播信息
     public setLiveConfig(params = {}){
-        params['op'] = "set_live_config";
-        return this.Auth.authLogin(params);
+        return this.Auth.authLogin(params,'live/set');
     }
 
     //获取直播信息
     public getLiveConfig(){
-        return this.Auth.authLogin({op:'get_live_config '});
+        return this.Auth.authLogin({},'live/config');
     }
 
     //获取直播列表信息
     public getLives(page){
-        return this.http.post({
-            op:'get_lives ',
+        return this.http.post('live',{
             page:page
         });
     }
