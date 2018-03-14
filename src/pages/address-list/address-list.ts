@@ -27,18 +27,12 @@ export class AddressListPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddressListPage');
-
   }
     ionViewDidEnter(){
         this.addressListData();
     }
   // 获取地址列表数据
   public addressListData(){
-    // this.http.get("./assets/data.json").subscribe(data=>{
-    //   this.addressList = data['addressList'];
-    //   console.log(data['addressList'])
-    // });
       this.Goods.addressList().subscribe(res =>{
           if(res === "toLogin"){
               this.navCtrl.push("LoginPage");

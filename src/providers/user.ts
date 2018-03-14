@@ -77,14 +77,13 @@ export class UserProvider {
     // 修改支付密码(获取验证码)
     public getPayCode(params){
         let options = {
-            op: "send_code",
             uid:params.uid,
             oldPwd:params.oldPwd,
             newPwd:params.newPwd,
             reNewPwd:params.reNewPwd,
             code:params.code
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'sms/send');
     }
     // 添加支付密码
     public addPayCode(params){
@@ -99,26 +98,23 @@ export class UserProvider {
     // 保存修改后的支付密码(获取验证码)
     public changePayCode(params){
         let options = {
-            op: "send_code",
             uid:params.uid,
             oldPwd:params.oldPwd,
             newPwd:params.newPwd,
             reNewPwd:params.reNewPwd,
             code:params.code
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'sms/send');
     }
     // 重置支付密码
     public resetPayPwd(params){
         let options = {
-            op: "send_code",
             uid:params.uid,
             newPwd:params.newPwd,
             reNewPwd:params.reNewPwd,
             code:params.code
         };
-        console.log(options);
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'sms/send');
     }
     // 验证码倒计时
     public downTime(obj){
@@ -174,7 +170,6 @@ export class UserProvider {
     public cityListData(cityList){
          this.http.getCityData().subscribe(res=>{
              cityList.area = res;
-             console.log(cityList)
         });
     }
     // 注册、修改密码格式验证
@@ -215,18 +210,14 @@ export class UserProvider {
     }
     // 获取购物车列表
     public getCartData(){
-        let options = {
-            op:"get_cart"
-        };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin({},'cart');
     }
     // 删除购物车
     public removeCartData(id){
         let options = {
-            op:"delete_cart",
-            uid:id
+            id:id
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'cart/delete');
     }
 
     //设置直播信息

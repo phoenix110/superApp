@@ -16,8 +16,7 @@ export class FindProvider {
   }
     //获取我的圈子列表
     public getCircleList(type = 0, page = 1, token = '') {
-        return this.Http.post({
-            op: 'get_circle_list',
+        return this.Http.post('circle',{
             type: type,
             page: page,
             token: token
@@ -26,9 +25,8 @@ export class FindProvider {
     // 获取缘分列表
     public getLuckList(params){
       let options = {
-          op:"luck",
           page:params.page
       };
-      return this.Http.post(options);
+      return this.Http.post('luck',options);
     }
 }

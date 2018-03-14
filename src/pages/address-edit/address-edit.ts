@@ -41,14 +41,12 @@ export class AddressEditPage {
         public Goods:GoodsProvider,
         public Pop:PopProvider
     ) {
-        console.log(this.userInfo)
         this.addressId = this.navParams.get("id");
     }
 
     ionViewDidLoad() {
         // 获取省市区城市列表数据
         this.User.cityListData(this.cityList);
-        console.log('ionViewDidLoad AddressAddPage');
         this.getAddressInfo();
     }
     // 获取地址详情

@@ -26,10 +26,7 @@ export class TabsProvider {
 
     //获取商品分类列表
     getShopList() {
-        let options = {
-            op: "get_category_list"
-        };
-        return this.Http.post(options);
+        return this.Http.post('goods',{});
     }
 
     //获取发现分类列表

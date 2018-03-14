@@ -40,7 +40,6 @@ export class AddressAddPage{
   ionViewDidLoad() {
       // 获取省市区城市列表数据
       this.User.cityListData(this.cityList);
-      console.log('ionViewDidLoad AddressAddPage');
 
   }
 

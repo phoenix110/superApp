@@ -31,24 +31,17 @@ export class CirclePage {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad CirclePage');
         this.getData();
     }
     ionViewWillLeave(){
         this.Utils.toggleTabs(false);
     }
     // 获取圈子页面数据
-    // public getCircleData() {
-    //     this.http.get("./assets/data.json").subscribe(data => {
-    //         this.circle = data['circle'];
-    //     });
-    // }
     public getData(type = 0,page = 1){
         this.storage.get('token').then((token)=>{
             this.Find.getCircleList(type,page,token).subscribe(res=>{
                 if(res.code == 0){
                     this.circleData = res.data.list;
-                    console.log(this.circleData)
                     return true;
                 }
                 this.pop.toast(res.message);

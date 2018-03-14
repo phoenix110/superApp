@@ -55,7 +55,7 @@ export class CommentPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CommentPage');
+
   }
 //选择上传的图片
     public uploadPics() {

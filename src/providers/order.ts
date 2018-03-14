@@ -47,46 +47,41 @@ export class OrderProvider {
     // 获取已下单订单的详情信息
     public getOrderInfo(id){
         let options = {
-            op:"pay",
             id:id
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'pay');
     }
     // 支付宝、微信、余额付款
     public payMoney(params,pwd = 0){
         let options = {};
         if(pwd === 0){
             options = {
-                op:"push_pay",
                 id:params.id,
                 pay_method:params.payMethod
             };
         }else{
             options = {
-                op:"push_pay",
                 id:params.id,
                 pay_method:params.payMethod,
                 password:pwd
             };
         }
 
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'pay/push');
     }
     // 已下单订单信息页数据
     public orderInfo(id){
         let options = {
-            op:"get_orders",
             id:id
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'order');
     }
     // 获取所有订单状态列表
     public orderList(params){
         let options = {
-            op:"get_orders",
             status:params.status,
             page:params.page
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'order');
     }
 }

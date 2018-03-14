@@ -24,38 +24,34 @@ export class PublishProvider {
     public pubCircle(params) {
 
         let options = {
-            op: "push_circle",
             content:params.content,
             src: params.src
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'circle/push');
     }
     // 点赞功能
     public dianZan(zid){
         let options = {
-            op:"push_circle_like",
             circle_id:zid
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'circle/push_like');
     }
     // 发送圈子评论
     public sendComment(params){
         let options = {
-            op:"push_circle_talk",
             circle_id:params.zid,
             content:params.content,
             thumb:params.thumb
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'circle/push_talk');
     }
     // 头条、新闻、客服页面添加评论
     public addComment(params){
         let options = {
-            op:params.op,
             id:params.id,
             content:params.content,
             src:params.src
         };
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'circle/'+params.op);
     }
 }

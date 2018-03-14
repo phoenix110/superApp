@@ -32,20 +32,17 @@ export class CartPage {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad CartPage');
         this.getCartList();
     }
 
     // 购物车列表数据
     public getCartList(){
-        console.log(1111)
         this.User.getCartData().subscribe(res =>{
             if(res === "toLogin"){
                 this.navCtrl.push("LoginPage");
                 return false;
             }
             this.Pop.toast(res.message);
-            console.log(res.data)
             res.data.forEach((shop,index,arr) => {
                 shop.kaiguan = true;
                 shop.status = false;
