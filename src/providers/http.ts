@@ -51,11 +51,10 @@ export class HttpProvider {
     }
 
     /**
-     * post方式请求
-     * @param {string} url
-     * @param body       //如：paramObj:{name:'大见',age:'23'}
-     * @param {string} contentType      //post请求的编码方式  application/x-www-form-urlencoded  multipart/form-data   application/json   text/xml
-     * @return {Promise<never | {}>}
+     * @param sub_url
+     * @param body
+     * @param {string} contentType
+     * @returns {any}
      */
     post(sub_url,body: any = {}, contentType: string = "application/x-www-form-urlencoded") {
         let headers = new HttpHeaders({'Content-Type': contentType});
@@ -207,7 +206,6 @@ export class HttpProvider {
             return key;
         }
         return key + '=' + encodeURIComponent(value === null ? '' : String(value));
-        // return key + '=' +(value === null ? '' : String(value));
     }
 
     private toSignPair(key, value) {
@@ -227,18 +225,13 @@ export class HttpProvider {
      */
     private handleError(err: any): void {
         this.Pop.hideLoading();
-        console.log('%c 请求失败 %c', 'color:red', 'err', err);
         if (err instanceof TimeoutError) {
             this.Pop.alert('请求超时,请稍后再试!');
             return;
         }
-        // if (!this.NativeProvider.isConnecting()) {
-        //     this.AlertProvider.alert('请求失败，请连接网络');
-        //     return;
-        // }
         let msg = '请求发生异常';
         try {
-            let result = err.json();
+            let result = JSON.parse(err.toString());
             this.Pop.alert(result.message || msg);
         } catch (err) {
             let status = err.status;
@@ -250,10 +243,6 @@ export class HttpProvider {
                 msg = '请求失败，服务器出错，请稍后再试';
             }
             this.Pop.alert(msg);
-            // this.logger.httpLog(err, msg, {
-            //     url: url,
-            //     status: status
-            // });
         }
 
     }

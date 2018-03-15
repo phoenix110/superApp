@@ -43,7 +43,6 @@ export class OrderDetailPage {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad OrderDetailPage');
 
     }
 
@@ -74,11 +73,9 @@ export class OrderDetailPage {
 
     // 增加商品数量
     public upOrderNum() {
-        console.log(45454)
         let stockNum = parseInt(this.orderInfo['stock']);
         let orderNum = parseInt(this.orderInfo['num']) + 1;
         if (orderNum > stockNum) {
-            console.log("已打商品最大库存量");
             return false;
         }
         this.orderInfo['num'] = orderNum;
@@ -89,7 +86,6 @@ export class OrderDetailPage {
     public downOrderNum() {
         let orderNum = parseInt(this.orderInfo['num']);
         if (orderNum <= 1) {
-            console.log("不能再少了哟！");
             return false;
         }
         this.orderInfo['num'] = orderNum - 1;

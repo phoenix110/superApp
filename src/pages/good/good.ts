@@ -29,13 +29,12 @@ export class GoodPage {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad GoodPage');
+
     }
 
     // 请求商品详情页数据
     public goodsData() {
         let id = this.navParams.get("id");
-        console.log(id)
         this.Goods.getGoodDetail(id).subscribe(res => {
             if(res.code == 0){
                 res.data.num = 1;

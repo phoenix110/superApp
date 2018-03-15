@@ -47,7 +47,7 @@ export class LiveConfigPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LiveConfigPage');
+
   }
 
   //跳转到设置教程

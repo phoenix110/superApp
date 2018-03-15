@@ -104,4 +104,14 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-sqlite-storage" spec="^2.1.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+<<<<<<< HEAD
+=======
+    <allow-navigation href="http://192.168.0.105:8102" />
+    <plugin name="cordova-plugin-shake" spec="^0.6.0" />
+    <plugin name="cordova-plugin-file" spec="^4.3.3" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.0" />
+    <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
+    <engine name="android" spec="^6.2.3" />
+    <engine name="ios" spec="~4.4.0" />
+>>>>>>> fa7959f1f8f6ec38b678f0edf39b32d256d1d783
 </widget>

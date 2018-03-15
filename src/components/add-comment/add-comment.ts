@@ -44,7 +44,6 @@ export class AddCommentComponent implements OnChanges{
     // 订阅添加评论输入框显示状态
     public subComment() {
         this.TongXin.obComment.subscribe(res => {
-            console.log(res)
             this.showStatus = res.showStatus;
             this.commentInfo.zid = res.commentData.id;
             this.commentData = res.commentData;
@@ -89,7 +88,6 @@ export class AddCommentComponent implements OnChanges{
     }
     // 发送圈子评论
     public sendComment(){
-        console.log(this.commentInfo)
         this.Publish.sendComment(this.commentInfo).subscribe(res=>{
             if(res === "toLogin"){
                 this.navCtrl.push("LoginPage");
