@@ -51,7 +51,6 @@ export class MallPage {
     public initSwiper(){
         new Swiper(".swiper-parent",{
             direction:"vertical",
-            // slidesPerView:"auto",
             observer:true,
             observeParents:true,
             initialSlide :0,

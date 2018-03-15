@@ -23,7 +23,6 @@ export class OrderProvider {
        // 类型为空，来自直接下单
         if(type == ''){
             options = {
-                op:"push_order",
                 push_type:0,
                 goods_id :params.id,
                 sku_key :params.sku_key,
@@ -35,14 +34,13 @@ export class OrderProvider {
         }else{
             // 类型不为空，来自购物车
             options = {
-                op:"push_order",
                 push_type:1,
                 note:params.note,
                 id :params.ids,
                 address_id:params.address_id
             };
         }
-        return this.Auth.authLogin(options);
+        return this.Auth.authLogin(options,'order/push');
     }
     // 获取已下单订单的详情信息
     public getOrderInfo(id){

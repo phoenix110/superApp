@@ -63,7 +63,7 @@ export class ShareHeaderComponent implements OnInit{
     // 点击购买商品
     public buyGood() {
         let params = {};
-        if(this.goodSku['sku_list'] != ''){
+        if(this.goodSku['sku_list']){
             let skuIndex = this.goodSku['skuIndex'];
             params = {
                 id:this.goodSku['id'],
@@ -86,7 +86,6 @@ export class ShareHeaderComponent implements OnInit{
                 return false;
             }
             let goodSku = JSON.stringify(params);
-            console.log(goodSku)
             this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"buy"});
         });
     }
@@ -94,7 +93,7 @@ export class ShareHeaderComponent implements OnInit{
     // 点击添加购物车
     public addCart() {
         let params = {};
-        if(this.goodSku['sku_list'] != ''){
+        if(this.goodSku['sku_list']){
             let skuIndex = this.goodSku['skuIndex'];
             params = {
                 id:this.goodSku['id'],
