@@ -1009,9 +1009,9 @@
   },
   "group":[
     {
-      "name":"官方社群",
-      "cont":"29999",
-      "avatar":[
+      "name": "官方社群",
+      "cont": "29999",
+      "avatar": [
         "./assets/images/avatar/6.png",
         "./assets/images/avatar/2.png",
         "./assets/images/avatar/3.png",
@@ -1022,63 +1022,9 @@
         "./assets/images/avatar/7.png",
         "./assets/images/avatar/9.png"
       ],
-      "people":"1212122",
-      "topic":"4545",
-      "talk":"45656"
-    },
-    {
-      "name":"腾讯社群",
-      "cont":"5656565",
-      "avatar":[
-        "./assets/images/avatar/6.png",
-        "./assets/images/avatar/2.png",
-        "./assets/images/avatar/3.png",
-        "./assets/images/avatar/4.png",
-        "./assets/images/avatar/5.png",
-        "./assets/images/avatar/6.png",
-        "./assets/images/avatar/8.png",
-        "./assets/images/avatar/7.png",
-        "./assets/images/avatar/9.png"
-      ],
-      "people":"44332",
-      "topic":"45452",
-      "talk":"45656"
-    },
-    {
-      "name":"淘宝群",
-      "cont":"454545",
-      "avatar":[
-        "./assets/images/avatar/6.png",
-        "./assets/images/avatar/2.png",
-        "./assets/images/avatar/3.png",
-        "./assets/images/avatar/4.png",
-        "./assets/images/avatar/5.png",
-        "./assets/images/avatar/6.png",
-        "./assets/images/avatar/8.png",
-        "./assets/images/avatar/7.png",
-        "./assets/images/avatar/9.png"
-      ],
-      "people":"76777",
-      "topic":"98989",
-      "talk":"45656"
-    },
-    {
-      "name":"京东社群",
-      "cont":"454545",
-      "avatar":[
-        "./assets/images/avatar/6.png",
-        "./assets/images/avatar/2.png",
-        "./assets/images/avatar/3.png",
-        "./assets/images/avatar/4.png",
-        "./assets/images/avatar/5.png",
-        "./assets/images/avatar/6.png",
-        "./assets/images/avatar/8.png",
-        "./assets/images/avatar/7.png",
-        "./assets/images/avatar/9.png"
-      ],
-      "people":"43334",
-      "topic":"4542345",
-      "talk":"45656"
+      "people": "1212122",
+      "topic": "4545",
+      "talk": "45656"
     }
   ],
   "my":{

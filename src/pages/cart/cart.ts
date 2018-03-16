@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user";
 import {PopProvider} from "../../providers/pop";
@@ -55,7 +55,6 @@ export class CartPage {
                     good.stockNum = good.total;
                 })
             });
-            console.log(res.data);
             this.cartList = res.data;
             this.allChooseInit();
 

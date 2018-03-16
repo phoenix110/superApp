@@ -27,29 +27,25 @@ export class ChatPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
     this.chatListData();
   }
   // 获取聊天页数据
     public chatListData(){
-        this.http.get("./assets/data.json").subscribe(data=>{
-            this.chatList = data['chatData'];
-            this.getColorArr();
-        });
+        // this.chatList = {};
     }
     // 拉黑名单
     public delRecord(index){
-        this.chatList['chat'].splice(index,1);
+        // this.chatList['chat'].splice(index,1);
     }
     // 给颜色数组赋值
     public getColorArr() {
-        for (let i in this.chatList['system']) {
-            console.log(i);
-            // 获取随机的颜色值
-            let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
-            this.colorArr.push(color);
-        }
+
     }
+    // 跳转至系统公告
+    public toNotice(){
+        this.navCtrl.push("NoticePage");
+    }
+
     // 跳转至系统公告
     public toAdvertise(){
         this.navCtrl.push("NoticePage");
