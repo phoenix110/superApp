@@ -36,12 +36,16 @@ import { FindProvider } from '../providers/find';
 import { GoodsProvider } from '../providers/goods';
 import { UtilsProvider } from '../providers/utils/utils';
 import { OrderProvider } from '../providers/order';
+import { CommonProvider } from "../providers/common";
+
+// 插件服务模块
 import { PincodeInputModule } from  'ionic2-pincode-input';
 import {Shake} from "@ionic-native/shake";
 import {VideoPlayer} from "@ionic-native/video-player";
 import {StreamingMedia} from "@ionic-native/streaming-media";
 import { ChatProvider } from '../providers/chat/chat';
 import {PhotoViewer} from "@ionic-native/photo-viewer";
+
 @NgModule({
     declarations: [
         MyApp
@@ -96,6 +100,7 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
         GoodsProvider,
         UtilsProvider,
         OrderProvider,
+        CommonProvider,
         Shake,
         VideoPlayer,
         StreamingMedia,

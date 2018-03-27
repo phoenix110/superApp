@@ -9,7 +9,9 @@ import {PublishProvider} from "../../providers/publish";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+    segment:"reward/:id"
+})
 @Component({
   selector: 'page-reward',
   templateUrl: 'reward.html',

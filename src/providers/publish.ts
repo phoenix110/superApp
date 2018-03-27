@@ -29,7 +29,6 @@ export class PublishProvider {
         };
         return this.Auth.authLogin(options,'circle/push');
     }
-<<<<<<< HEAD
     // 打赏功能
     public giveReward(params){
         let options = {
@@ -41,15 +40,13 @@ export class PublishProvider {
     // 发起投诉
     public sendComplian(params){
         let options = {
-            idea:params.idea,
-            own:params.own,
-            thumb:params.imgPath,
-            id:params.complainId
+            idea:params.setReason,
+            own:params.otherReason,
+            thumbs:params.thumbs,
+            id:params.circleId
         }
         return this.Auth.authLogin(options,'circle/complain');
     }
-=======
->>>>>>> 85b256bd82b61c68355346efa001f0aba0bde47a
     // 点赞功能
     public dianZan(zid){
         let options = {
@@ -75,4 +72,5 @@ export class PublishProvider {
         };
         return this.Auth.authLogin(options,'circle/'+params.op);
     }
+
 }

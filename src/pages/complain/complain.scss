@@ -1,8 +1,58 @@
 page-complain {
+  p{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+  }
   .complain-reason{
-    ion-row{
-      ion-col{
-
+      padding:0;
+      ion-row{
+        ion-col{
+          height: 30px;
+          background: #fff;
+          padding-left: 10px;
+          margin-bottom: 3px;
+          color:#333;
+          &.active{
+            color:red;
+          }
+        }
+      }
+  }
+  .complain-other{
+    width:100%;
+    min-height:150px;
+    text-indent: 8px;
+    border:none;
+    resize: none;
+  }
+  .complain-thumbs{
+    flex-wrap: wrap;
+    li{
+      margin: 5px 1%;
+      flex:0 0 24%;
+      border:1px solid #ccc;
+      position: relative;
+      padding: 3px;
+      min-height:85px;
+      img{
+        width:100%;
+        height:100%;
+        display: block;
+        border:none;
+      }
+      ion-icon{
+        width:35px;
+        height:35px;
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
       }
     }
   }

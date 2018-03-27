@@ -205,20 +205,13 @@ export class HeaderComponent implements OnChanges {
     }
     // 发起投诉
     public sendComplian(){
-        let idea = this.Validate.trimBlank(this.complainInfo['idea']) || "";
-        let own = this.Validate.trimBlank(this.complainInfo['own']) || "";
-        let imgPath = this.Validate.trimBlank(this.complainInfo['imgUrl']);
-        let complainId = this.complainId;
-        if( idea || own){
+        console.log(this.complainInfo);
+        let setReason = this.Validate.trimBlank(this.complainInfo['setReason']) || "";
+        let otherReason = this.Validate.trimBlank(this.complainInfo['otherReason']) || "";
+        if( !setReason  && !otherReason){
             this.Pop.toast("投诉建议不能为空！");
             return false;
         }
-        this.complainInfo = {
-            idea:idea,
-            own:own,
-            imgUrl:imgPath,
-            id:complainId
-        };
         this.Publish.sendComplian(this.complainInfo).subscribe( res => {
             if(res === "toLogin"){
                 this.navCtrl.push("LoginPage");
