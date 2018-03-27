@@ -34,7 +34,7 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #f53d3d,
+  primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
@@ -90,9 +90,4 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
-.text-overflow-one{
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-}
 

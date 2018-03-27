@@ -1,5 +1,5 @@
 <!-- Generated template for the ReviewerComponent component -->
-<ion-card *ngFor="let item of reviewerInfo;let i = index;">
+<ion-card class="chat-card" *ngFor="let item of reviewerInfo;let i = index;" ondragstart ="swipeCard(event,i)">
   <div class="reviewer-pic">
     <img src="{{item.avatar}}"/>
       <ion-grid>

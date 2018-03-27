@@ -1,0 +1,63 @@
+page-order-pay {
+  .order-cont{
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #fff;
+    h4{
+      height: 30px;
+      line-height: 30px;
+      font-size: 18px;
+    }
+  }
+  .pay-way{
+    background: #fff;
+    h3{
+      height: 40px;
+      line-height: 40px;
+      padding: 0 15px;
+      font-size: 17px;
+      b{
+        color:#e93a3a;
+      }
+    }
+    ion-list{
+      ion-row{
+        border-top:1px solid #ccc;
+        height: 45px;
+        line-height: 45px;
+        ion-col{
+          padding: 0;
+          ion-icon{
+            text-align: center;
+            font-size: 30px;
+            height: 45px;
+            line-height: 45px;
+            display: block;
+          }
+          h5{
+            height: 45px;
+            line-height: 45px;
+            font-weight: bold;
+            font-size: 16px;
+          }
+          ion-radio{
+            width: 30px;
+            height: 45px;
+            padding-left: 20px;
+            top:5px;
+            .radio-icon{
+              width: 30px;
+              height: 45px;
+              .radio-inner{
+                width:9px;
+                height: 18px;
+              }
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+}

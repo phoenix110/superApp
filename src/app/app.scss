@@ -62,11 +62,15 @@ ion-menu[side=left] > .menu-inner{
 	height: 3.6rem;
 	font-size: 1.6rem;
 }
+
 .multi-picker-text{
   font-size: 14px;
   color: #333;
 }
 
+.multi-picker-placeholder{
+  font-size: 14px;
+}
 //底部菜单图标样式
 .tabs-ios .tab-button-icon {
   margin-top: 4px;
@@ -95,4 +99,24 @@ ion-menu[side=left] > .menu-inner{
   .toast-bottom {
     bottom: 55px!important;
   }
+}
+//单行溢出隐藏
+.text-overflow-one{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+//设置tabs页面底部导航显示隐藏动画
+.tabbar{
+  height:0;
+  display: none;
+}
+.tabbar.show-tabbar{
+  height: 50px;
+  display: flex;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition:all 1s;
+  -o-transition: all 1s;
 }

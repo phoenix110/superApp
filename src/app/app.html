@@ -20,11 +20,11 @@
             </ion-row>
             <ion-row margin-top (click)="register()">
                 <ion-col text-center>
-                    <ion-icon class="iconfont icon-denglu" menuToggle></ion-icon>
+                    <ion-icon class="iconfont icon-zhuceyaoqing" menuToggle></ion-icon>
                     <p>快速注册</p>
                 </ion-col>
             </ion-row>
-            <ion-row margin-top (click)="login()">
+            <ion-row margin-top (click)="login()" *ngIf="!loginStatus">
                 <ion-col text-center>
                     <ion-icon class="iconfont icon-denglu" menuToggle></ion-icon>
                     <p>立即登录</p>

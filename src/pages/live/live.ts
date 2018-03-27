@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {UserProvider} from "../../providers/user";
+import {PopProvider} from "../../providers/pop";
 
 /**
  * Generated class for the LivePage page.
@@ -15,11 +17,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'live.html',
 })
 export class LivePage {
-  public video:object = {
-      "onLive":{},
-      "outLive":[]
-  };
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public http:HttpClient) {
+  public lives = {};
+  public page = 1;
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams ,
+      public http:HttpClient,
+      public userService:UserProvider,
+      public pop:PopProvider
+  ) {
   }
 
   ionViewDidLoad() {
@@ -28,9 +34,11 @@ export class LivePage {
   }
 // 获取直播列表数据
     public videoData(){
-        this.http.get("./assets/data.json").subscribe(data=>{
-            this.video['onLive'] = data['video']['onLive'];
-            this.video['outLive'] = data['video']['outLive'];
-        })
+      this.userService.getLives(this.page).subscribe(res=>{
+        this.pop.toast(res.message);
+        if(res.code == 0){
+            this.lives = res.data;
+        }
+      });
     }
 }

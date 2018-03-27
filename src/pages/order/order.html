@@ -6,13 +6,55 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>order</ion-title>
-  </ion-navbar>
+  <header [headerTitle]="'我的订单'"></header>
 
 </ion-header>
 
-
-<ion-content padding>
-
+<section class="order-type">
+  <ion-slides>
+    <ion-slide *ngFor="let status of orderStatus;let i = index;" [class.active]="orderType == i" (tap)="setOrderType(i)">
+      <span>{{status}}</span>
+    </ion-slide>
+  </ion-slides>
+</section>
+<ion-content class="cont-background" style="margin-top: 86px;margin-bottom: 80px;">
+  <ion-refresher (ionRefresh)="doRefresh($event)" style="margin-top: -40px;">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="刷新...." refreshingSpinner="circles" refreshingText="刷新...."></ion-refresher-content>
+  </ion-refresher>
+  <blank [type]="'cart'" [tip]="'什么都木有哦！'" [btnText]="'去逛逛'" *ngIf="orderList.length <= 0"></blank>
+    <!--订单信息-->
+    <div class="order-box" *ngIf="orderList.length > 0">
+      <div class="order-info" *ngFor="let item of orderList;let i = index;">
+        <div class="order-shop">
+            订单编号：
+          <b>{{item.order_no}}</b>
+          <span>{{item.pay_desc}}</span>
+        </div>
+        <div class="order-descs flex-row-start" style="margin-bottom: 10px;">
+          <div class="order-pic">
+            <img src="{{item.thumb}}" alt="">
+          </div>
+          <div class="order-title">
+            <h5 class="text-overflow-one">{{item.goods_name}}</h5>
+            <p>
+              <b>规格：{{item.sku_desc != '' ? item.sku_desc : '默认'}} </b>
+            </p>
+            <p class="flex-row-between">
+              <span>￥{{item.pay_price}}</span>
+              <b>X {{item.buy_num}}</b>
+            </p>
+          </div>
+        </div>
+        <ul class="order-do flex-row-end">
+          <li (tap)="toOrderInfo(item.id)" *ngIf="item.order_status == 0">去付款</li>
+          <li (tap)="toOrderInfo(item.id)" *ngIf="item.order_status == 2">申请退款</li>
+          <li (tap)="toOrderInfo(item.id)" *ngIf="item.order_status == 2">确认收货</li>
+          <li (tap)="toOrderInfo(item.id)" *ngIf="item.order_status == 3">去评价</li>
+        </ul>
+      </div>
+    </div>
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="100px" *ngIf="loadStatus">
+    <ion-infinite-scroll-content  loadingSpinner="bubbles"
+    loadingText="加载更多..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

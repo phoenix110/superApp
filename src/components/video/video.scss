@@ -21,7 +21,7 @@ live-video {
         }
         @if($direction == 'column'){
           &::before{
-            content:"回放";
+            //content:"回放";
             @include position(absolute,10px,null,null,5px);
             color:#fff;
             font-size:12px;

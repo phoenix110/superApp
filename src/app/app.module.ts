@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {IonicApp, IonicModule} from 'ionic-angular';
 import {HttpClientModule} from '@angular/common/http';
 import {MyApp} from './app.component';
@@ -10,8 +11,9 @@ import {Camera} from "@ionic-native/camera";
 import {ImagePicker} from "@ionic-native/image-picker";
 import {AppVersion} from "@ionic-native/app-version";
 import {File} from "@ionic-native/file";
+import { FileTransfer } from '@ionic-native/file-transfer';
 import {Network} from "@ionic-native/network";
-import { IonicStorageModule } from "@ionic/storage";
+import {IonicStorageModule} from "@ionic/storage";
 // 导入公共Module
 import {ComponentsModule} from "../components/components.module";
 
@@ -22,14 +24,24 @@ import {UserProvider} from '../providers/user';
 import {ValidateProvider} from '../providers/validate';
 import {GlobalDataProvider} from '../providers/globalData';
 import {LoggerProvider} from '../providers/logger';
-import {UnionProvider} from "../providers/union";
 import {CompanyProvider} from "../providers/company";
-import { ArticleProvider } from '../providers/article';
-import { FindProvider } from '../providers/find';
-import { AppProvider } from '../providers/app';
+import {ArticleProvider} from '../providers/article';
+import {AppProvider} from '../providers/app';
 import {PopProvider} from "../providers/pop";
-import { TongxinProvider } from '../providers/tongxin';
-
+import {TongxinProvider} from '../providers/tongxin';
+import {PublishProvider} from '../providers/publish';
+import {AuthProvider} from "../providers/auth";
+import { TabsProvider } from '../providers/tabs';
+import { FindProvider } from '../providers/find';
+import { GoodsProvider } from '../providers/goods';
+import { UtilsProvider } from '../providers/utils/utils';
+import { OrderProvider } from '../providers/order';
+import { PincodeInputModule } from  'ionic2-pincode-input';
+import {Shake} from "@ionic-native/shake";
+import {VideoPlayer} from "@ionic-native/video-player";
+import {StreamingMedia} from "@ionic-native/streaming-media";
+import { ChatProvider } from '../providers/chat/chat';
+import {PhotoViewer} from "@ionic-native/photo-viewer";
 @NgModule({
     declarations: [
         MyApp
@@ -38,6 +50,8 @@ import { TongxinProvider } from '../providers/tongxin';
         BrowserModule,
         ComponentsModule,
         HttpClientModule,
+        PincodeInputModule,
+        BrowserAnimationsModule,
         IonicStorageModule.forRoot({
             name: 'myApp',
             driverOrder: ['indexeddb', 'sqlite', 'websql']
@@ -61,6 +75,7 @@ import { TongxinProvider } from '../providers/tongxin';
         ImagePicker,
         AppVersion,
         File,
+        FileTransfer,
         Network,
         HttpProvider,
         NativeProvider,
@@ -68,13 +83,23 @@ import { TongxinProvider } from '../providers/tongxin';
         ValidateProvider,
         GlobalDataProvider,
         LoggerProvider,
-        UnionProvider,
         CompanyProvider,
         ArticleProvider,
-        FindProvider,
         AppProvider,
         PopProvider,
-    TongxinProvider
+        PhotoViewer,
+        AuthProvider,
+        TongxinProvider,
+        PublishProvider,
+        TabsProvider,
+    FindProvider,
+        GoodsProvider,
+    UtilsProvider,
+    OrderProvider,
+        Shake,
+        VideoPlayer,
+        StreamingMedia,
+    ChatProvider
     ]
 })
 export class AppModule {

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {TongxinProvider} from "../../providers/tongxin";
 
 /**
  * Generated class for the GoodChatComponent component.
@@ -10,13 +11,23 @@ import { Component } from '@angular/core';
   selector: 'good-chat',
   templateUrl: 'good-chat.html'
 })
-export class GoodChatComponent {
+export class GoodChatComponent implements OnInit{
 
-  text: string;
-
-  constructor() {
+  @Input() chatData:Array<object> = [];
+  constructor(
+      public TongXin:TongxinProvider
+  ) {
     console.log('Hello GoodChatComponent Component');
-    this.text = 'Hello World';
   }
-
+  // 初始化聊天数据
+  ngOnInit(){
+    console.log(this.chatData);
+    this.getChatData();
+  }
+  public getChatData(){
+    this.TongXin.obChat.subscribe(res => {
+        console.log(res)
+      this.chatData.push(res);
+    });
+  }
 }

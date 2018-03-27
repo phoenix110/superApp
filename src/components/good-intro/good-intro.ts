@@ -13,11 +13,10 @@ import {NavController} from "ionic-angular";
 })
 export class GoodIntroComponent {
   @Input() goodList:any;
-  text: string;
+  @Input() pagination:boolean = false;
 
   constructor(public navCtrl:NavController) {
     console.log('Hello GoodIntroComponent Component');
-    this.text = 'Hello World';
   }
   // 跳转至商品详情页
     getGoodDetail(id){

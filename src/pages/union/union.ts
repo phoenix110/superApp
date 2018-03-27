@@ -6,8 +6,9 @@ import {NavController, NavParams, IonicPage, Slides} from 'ionic-angular';
 import  Swiper from 'swiper';
 import { Storage } from "@ionic/storage";
 
-import {UnionProvider} from "../../providers/union";
 import {PopProvider} from "../../providers/pop";
+import {TabsProvider} from "../../providers/tabs";
+import {Shake} from "@ionic-native/shake";
 
 /**
  * Generated class for the UnionPage page.
@@ -24,19 +25,20 @@ export class UnionPage {
 
     @ViewChild(Slides) slides:Slides;
 
-    public companies; //公司列表
-    public categories;//分类列表
-    public colors;//颜色数组
-    public active_index;//当前激活索引
-    public cid;//当前分类
-    public page;//当前页数
+    public companies:Array<object> = []; //公司列表
+    public categories:Array<object> = [];//分类列表
+    public colors:Array<string> = [];//颜色数组
+    public active_index:number = 0;//当前激活索引
+    public cid:number = 0;//当前分类
+    public page:number = 1;//当前页数
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         public msgService:PopProvider,
-        public unionService: UnionProvider,
-        private Storage:Storage) {
+        public tabs: TabsProvider,
+        private Storage:Storage
+        ) {
 
         //初始化变量
         this.active_index = 0;
@@ -72,7 +74,7 @@ export class UnionPage {
     //index索引，改变按钮颜色；cid获取相关的公司列表
     public getCompanyList(index =0,cid = 0,page = 1){
         this.active_index = index;
-        this.unionService.getList(page,cid).subscribe(res => {
+        this.tabs.getUnionList(page,cid).subscribe(res => {
             if (res.code == '0') {
                 this.categories = res.data['categories'];
                 this.companies = res.data['companies'];

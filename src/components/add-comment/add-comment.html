@@ -6,7 +6,7 @@
         <ion-icon name="camera"></ion-icon>
       </ion-col>
       <ion-col col-8>
-        <ion-input no-margin placeholder="评论..."></ion-input>
+        <ion-input no-margin placeholder="评论..." [(ngModel)]="commentInfo.content"></ion-input>
       </ion-col>
       <ion-col col-2 text-center>
         <span class="send-comment" (click)="sendComment()">发送</span>

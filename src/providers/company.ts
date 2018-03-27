@@ -13,11 +13,9 @@ export class CompanyProvider {
 
   //获取公司详情
   getInfo(id){
-      let options = {
-          op: "get_company_info",
+      return this.http.post('company',{
           id:id
-      };
-      return this.http.post(options);
+      });
   }
 
 }

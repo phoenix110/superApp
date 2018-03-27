@@ -29,14 +29,25 @@ page-order-detail {
     }
   }
   .order-info{
+    min-height: 138px;
     background: #f3f3f3;
-    height:80px;
-    margin-top: 15px;
+    margin: 15px 0 0;
+    padding:10px 5px;
     @include radius(5px);
     overflow: hidden;
+    .order-shop{
+      margin-bottom: 10px;
+      img{
+        width:25px;
+        height:25px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
     .order-pic{
       width:80px;
       height:80px;
+      flex:0 0 80px;
     }
     .order-title{
       margin:6px;
@@ -44,7 +55,7 @@ page-order-detail {
       h5{
         height:30px;
         line-height: 30px;
-        max-width: 250px;
+        max-width: 200px;
         font-size:13px;
       }
       p{
@@ -52,12 +63,15 @@ page-order-detail {
         span{
           color:#FE576A;
         }
+        b{
+          margin-right: 5px;
+        }
       }
     }
   }
 
   .order-num{
-    padding:15px 0;
+    padding:15px 0 ;
     .set-num{
       b{
         width:25px;
@@ -103,8 +117,43 @@ page-order-detail {
     height:100px;
     border:1px solid #ccc;
     @include radius(5px);
+    margin-top: 15px;
   }
-
+  //.pay-way{
+  //  height:200px;
+  //  width: 100%;
+  //  background: #ccc;
+  //  @include position(fixed,null,null,0,0);
+  //  ul li{
+  //    margin-bottom:10px;
+  //    text-align: center;
+  //    color:#fff;
+  //    font-size: 10px;
+  //    height: 30px;
+  //    line-height: 30px;
+  //    &:first-child{
+  //      background: #0075BF;
+  //    }
+  //    &:nth-child(2){
+  //      background: rgb(31, 186, 31);
+  //    }
+  //    &:nth-child(3){
+  //      background: rgb(0, 162, 233);
+  //    }
+  //    &:last-child{
+  //      background: #fff;
+  //    }
+  //    z-index:100001;
+  //  }
+  //
+  //}
+  //.pay-mask{
+  //  background: rgba(0,0,0,0.2);
+  //  @include position(fixed,0,null,null,0);
+  //  width:100%;
+  //  height: 100%;
+  //  z-index:100000;
+  //}
   ion-footer{
     align-items: center;
     height:45px;

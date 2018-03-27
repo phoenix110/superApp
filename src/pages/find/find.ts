@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { NavController, NavParams,IonicPage } from 'ionic-angular';
 import {PopProvider} from "../../providers/pop";
-import {FindProvider} from "../../providers/find";
-import {Http} from "@angular/http";
+import {TabsProvider} from "../../providers/tabs";
 
 /**
  * Generated class for the FindPage page.
@@ -21,15 +19,14 @@ export class FindPage {
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      public http:HttpClient,
       public msgService:PopProvider,
-      public findService:FindProvider
+      public Tabs:TabsProvider
   ) {
 
   }
 
   ionViewDidLoad() {
-      this.findService.getList().subscribe(res=>{
+      this.Tabs.getFindList().subscribe(res=>{
           if(res.code == 0){
                 this.menus = res.data;
                 return true;
@@ -39,13 +36,6 @@ export class FindPage {
   }
   // 跳转至find分类页面
     public toFind(route){
-      if(route == 'CompanyPage'){
-          this.navCtrl.push(route,{
-              id:1
-          });
-      }else{
-          this.navCtrl.push(route);
-      }
-
+        this.navCtrl.push(route);
     }
 }

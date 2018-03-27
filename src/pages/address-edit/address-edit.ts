@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {UserProvider} from "../../providers/user";
+import {GoodsProvider} from "../../providers/goods";
+import {PopProvider} from "../../providers/pop";
 
 /**
  * Generated class for the AddressEditPage page.
@@ -16,12 +19,46 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'address-edit.html',
 })
 export class AddressEditPage {
+    public userInfo = {
+        name:"",
+        mobile:"",
+        province:"",
+        city:"",
+        district:"",
+        token:"",
+        area:"",
+        type:"edit"
+    };
+    public addressId = '';
+    public cityArr:Array<string> = [];
+    public cityList = {
+        area:[]
+    };
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        private User:UserProvider,
+        public Goods:GoodsProvider,
+        public Pop:PopProvider
+    ) {
+        this.addressId = this.navParams.get("id");
+    }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddressEditPage');
-  }
+    ionViewDidLoad() {
+        // 获取省市区城市列表数据
+        this.User.cityListData(this.cityList);
+        this.getAddressInfo();
+    }
+    // 获取地址详情
+    public getAddressInfo(){
+        this.Goods.getAddressInfo(this.addressId).subscribe(res =>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.Pop.toast(res.message);
+            this.userInfo = res.data;
+        });
+    }
 
 }

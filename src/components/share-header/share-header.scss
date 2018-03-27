@@ -1,9 +1,13 @@
+$active:#FA6B5B;
 share-header {
   ion-icon{
     margin: 0 10px 0 30px;
     height:40px;
     line-height: 40px;
     font-size: 25px;
+  }
+  .cart.active, .collect.active{
+    color:$active
   }
   button.clickBtn{
     margin-top: 6px!important;

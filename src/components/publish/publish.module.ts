@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { IonicPageModule } from "ionic-angular";
-import {PublishComponent} from "./publish";
+import { PublishComponent } from "./publish";
 
 @NgModule ({
     declarations: [

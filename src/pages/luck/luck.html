@@ -6,14 +6,18 @@
 -->
 <ion-header>
 
-  <share-header [headerTitle]="'缘分'" [all]="'全部'" (checkEmitter)="openActionSheet($event)"></share-header>
+    <share-header [headerTitle]="'缘分'" [all]="'全部'" (checkEmitter)="openActionSheet($event)"></share-header>
 
 </ion-header>
 
-<ion-content padding class="reviwer-box" style="background: #ccc">
-  <reviewer [reviewerInfo]="reviewerArr"></reviewer>
+<ion-content class="reviwer-box cont-background">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="刷新...." refreshingSpinner="circles" refreshingText="刷新...."></ion-refresher-content>
+    </ion-refresher>
+    <!--聊天人员列表-->
+    <luck-list [luckList]="reviewerInfo"></luck-list>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="100px" *ngIf="loadStatus">
+        <ion-infinite-scroll-content  loadingSpinner="bubbles" loadingText="加载更多..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
-    <!--开始聊天-->
-<ion-footer>
-    <chatbtn></chatbtn>
-</ion-footer>
+

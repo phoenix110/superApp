@@ -1,18 +1,18 @@
 <!-- Generated template for the VideoComponent component -->
-<section class="playback-list flex-row-start">
-  <div class="{{ direction == 'row' ? 'video-row' : 'video-column' }}" *ngFor="let item of videoList | arrs;let i = index;" tappable (click)="videoDetail()">
+<section class="playback-list flex-row-start" *ngIf="videoList">
+  <div class="{{ direction == 'row' ? 'video-row' : 'video-column' }}" (click)="toLiveDetailPage(item['url'])" *ngFor="let item of videoList | arrs;let i = index;" tappable>
     <div class="video-img">
       <div class="video-left">
-        <img src="{{item.thumb}}" alt="视频截图">
+        <img src="{{item['thumb']}}" alt="视频截图">
         <ion-icon class="video-btn iconfont icon-play"></ion-icon>
-        <p no-margin *ngIf="direction != 'row'"><ion-icon name="contact"></ion-icon>{{item.people}}人观看</p>
+        <p no-margin *ngIf="direction != 'row'"><ion-icon name="contact"></ion-icon>{{item['look_num']}}人观看</p>
       </div>
     </div>
     <div class="video-right">
-      <h2 class="text-overflow-one">{{item.name}}的直播</h2>
+      <h2 class="text-overflow-one">{{item['show_name']}}的直播</h2>
       <div class="video-count">
-        <p no-margin><ion-icon name="clock"></ion-icon>{{item.days}}天前</p>
-        <p no-margin *ngIf="direction == 'row'"><ion-icon name="contact"></ion-icon>{{item.people}}人观看</p>
+        <p no-margin><ion-icon name="clock"></ion-icon>{{item['updatetime']}}</p>
+        <p no-margin *ngIf="direction == 'row'"><ion-icon name="contact"></ion-icon>{{item['look_num']}}人观看</p>
       </div>
     </div>
   </div>

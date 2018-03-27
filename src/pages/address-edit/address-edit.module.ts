@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { AddressEditPage } from './address-edit';
 // 公共组件
 import { ComponentsModule } from "../../components/components.module";
+import { MultiPickerModule} from "ion-multi-picker";
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { ComponentsModule } from "../../components/components.module";
   ],
   imports: [
     IonicPageModule.forChild(AddressEditPage),
-      ComponentsModule
+      ComponentsModule,
+      MultiPickerModule
   ],
 })
 export class AddressEditPageModule {}

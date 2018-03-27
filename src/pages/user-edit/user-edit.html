@@ -13,12 +13,13 @@
 
 <ion-content no-padding style="background: #eeeeee">
   <div class="avatar-img" tappable (click)="getAvatar()">
-      <img src="{{userInfo.avatar}}" alt="">
+      <img src="{{userInfo.avatar?userInfo.avatar:'assets/images/face.png'}}" alt="">
+      <div class="set-face-tips">设置头像</div>
   </div>
     <ion-list class="form-list">
         <ion-item>
           <ion-label fixed>姓名</ion-label>
-          <ion-input type="text" value="{{userInfo.nickname}}" [(ngModel)]="userInfo.nickname"></ion-input>
+          <ion-input type="text" value="{{userInfo.nickname}}" placeholder="请输入姓名" [(ngModel)]="userInfo.nickname"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label fixed>年龄</ion-label>
@@ -34,7 +35,7 @@
       </ion-item>
       <ion-item>
         <ion-label>城市</ion-label>
-          <ion-multi-picker id="cities" item-content [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="userInfo.province == '' ? '省-市-区(县)' : (userInfo.province + '-'+ userInfo.city +'-'+ userInfo.district)" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
+          <ion-multi-picker id="cities" item-content [cancelText]="'取消'" [doneText]="'完成'" [placeholder]="userInfo.province == undefined ? '省-市-区(县)' : (userInfo.province + '-'+ userInfo.city +'-'+ userInfo.district)" [separator]="'-'" [multiPickerColumns]="cityList['area']"></ion-multi-picker>
       </ion-item>
     </ion-list>
     <div class="user-xieyi flex-row-between">

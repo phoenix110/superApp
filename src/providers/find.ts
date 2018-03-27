@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import {HttpProvider} from "./http";
-import { Observable } from "rxjs/Observable";
 
 /*
   Generated class for the FindProvider provider.
@@ -12,35 +11,22 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class FindProvider {
 
-  constructor(
-      public http:HttpProvider
-  ) {
-
+  constructor(public Http: HttpProvider) {
+    console.log('Hello FindProvider Provider');
   }
-    public circleList = [];
-  //获取菜单列表
-  getList(){
-      return this.http.post({
-          op:'get_find'
-      });
-  }
-    //获取圈子列表
-    public getCircleList($this,type = 0,page = 1) {
-        return Observable.create(observer => {
-            this.http.post({
-                op: 'get_circle_list',
-                type: type,
-                page: page
-            }).subscribe(res => {
-                if (res.code == '0') {
-                    $this.circleData = res.data;
-                }
-                if (res.code == '-1') {
-                    observer.next(false);
-                }
-            });
-        })
-
+    //获取我的圈子列表
+    public getCircleList(type = 0, page = 1, token = '') {
+        return this.Http.post('circle',{
+            type: type,
+            page: page,
+            token: token
+        });
     }
-
+    // 获取缘分列表
+    public getLuckList(params){
+      let options = {
+          page:params.page
+      };
+      return this.Http.post('luck',options);
+    }
 }

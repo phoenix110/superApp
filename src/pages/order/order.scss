@@ -1,3 +1,80 @@
 page-order {
+  .order-type{
+    background: #fff;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px;
+    @include position(fixed,44px,null,null,0);
+    ion-slides{
+      ion-slide{
+        width:auto!important;
+        font-size: 15px;
+        &.active{
+          color:#FA6B5B;
+          font-weight: bold;
+          border-bottom:1px solid #FA6B5B;
+        }
+      }
+    }
+  }
+  .fixed-content,.scroll-content{
+    margin-top: 0!important;
+    margin-bottom:80px;
+  }
 
+  .order-info{
+    min-height: 138px;
+    margin: 10px 15px ;
+    padding:10px 5px;
+    @include radius(5px);
+    background: #fff;
+    overflow: hidden;
+    .order-shop{
+      margin-bottom: 10px;
+      font-size:12px;
+      span{
+        float:right;
+        color: #FA6B5B;
+      }
+    }
+    .order-descs{
+      background: #f3f3f3;
+      .order-pic{
+        width:80px;
+        height:80px;
+        flex:0 0 80px;
+      }
+      .order-title{
+        margin:6px;
+        flex:1 1 auto;
+        h5{
+          height:30px;
+          line-height: 30px;
+          max-width: 200px;
+          font-size:13px;
+        }
+        p{
+          margin: 2px 0;
+          span{
+            color:#FE576A;
+          }
+          b{
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    .order-do{
+      li{
+        border:1px solid #FA6B5B;
+        @include radius(5px);
+        padding:1px 10px;
+        color: #FA6B5B;
+        margin-left: 10px;
+      }
+
+    }
+
+  }
 }

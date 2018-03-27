@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+import {Tabs} from "ionic-angular";
 import { PopProvider } from "../../providers/pop";
 import { HttpProvider } from "../../providers/http";
-import {FindProvider} from "../../providers/find";
+import {TabsProvider} from "../../providers/tabs";
 
 /**
  * Generated class for the MyPage page.
@@ -17,9 +18,14 @@ import {FindProvider} from "../../providers/find";
   templateUrl: 'my.html',
 })
 export class MyPage {
+    //圈子数据
     public circleData = {
-
+        'push_num':0,
+        'member_num':0,
+        'sum_credit2':0,
+        'list':[]
     };
+    @ViewChild("tabs") tabs:Tabs;
     public codeStatus = false;
     public active_index = 0;//当前激活的条件
     //筛选条件
@@ -36,19 +42,22 @@ export class MyPage {
       public http:HttpProvider,
       public storage:Storage,
       public pop:PopProvider,
-      public find:FindProvider
+      public Tabs:TabsProvider
 
   ) {
 
 
   }
+
+
   ionViewDidLoad() {
-      this.getList(0,1);
+      this.getCircleData();
   }
 
   //根据不同类型筛选不同的数据列表
     getListByType(type){
       this.active_index = type;
+        this.getCircleData(type);
     }
 
     //跳转到toUserPage
@@ -73,22 +82,26 @@ export class MyPage {
     }
 
     public showQr(){
-        this.codeStatus = true
-
-
+        this.codeStatus = true;
     }
     public fadeOut(event){
         this.codeStatus = event;
     }
-
-    public getList(type,page){
-        let res = this.find.getCircleList(type,page).subscribe(res=>{
-            if(res === false){
-                this.navCtrl.push("LoginPage");
-                return false;
-            }
-            console.log(res);
-        })
+    // 获取圈子列表数据
+    public getCircleData(type = 0,page = 1){
+        this.storage.get('token').then((token)=>{
+            this.Tabs.getMyCircleList(type,page,token).subscribe(res=>{
+                if(res.code == 0){
+                    this.circleData = res.data;
+                    console.log(this.circleData)
+                    return true;
+                }
+                this.pop.toast(res.message);
+                if(res.code == '-1'){
+                    this.navCtrl.push("LoginPage");
+                }
+            })
+        });
     }
 
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
+import {GoodsProvider} from "../../providers/goods";
+import {PopProvider} from "../../providers/pop";
 
 /**
  * Generated class for the AddressListPage page.
@@ -16,18 +18,28 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AddressListPage {
   public addressList:Array<Object> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public http:HttpClient,
+      public Goods:GoodsProvider,
+      public Pop:PopProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddressListPage');
-    this.addressListData();
   }
+    ionViewDidEnter(){
+        this.addressListData();
+    }
   // 获取地址列表数据
   public addressListData(){
-    this.http.get("./assets/data.json").subscribe(data=>{
-      this.addressList = data['addressList'];
-      console.log(data['addressList'])
-    });
+      this.Goods.addressList().subscribe(res =>{
+          if(res === "toLogin"){
+              this.navCtrl.push("LoginPage");
+              return false;
+          }
+          this.Pop.toast(res.message);
+          this.addressList = res.data;
+      });
   }
 }

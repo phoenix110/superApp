@@ -3,14 +3,16 @@
 add-comment {
   .add-comment {
     position: fixed;
-    bottom:-45px;
+    bottom:-50px;
     left:0;
     width: 100%;
+    z-index: 1000;
+    contain: strict;
     @include transition(1s);
     background: #f9f9f9;
     border-top: 1px solid #ccc;
-    height: 45px;
-    line-height: 30px;
+    height: 50px;
+    line-height: 35px;
     &.active{
       bottom:0;
       @include transition(1s);

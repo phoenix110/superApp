@@ -10,12 +10,12 @@
 
 </ion-header>
 
-<ion-content padding style="background:#F3F3F3;">
+<ion-content no-padding style="background:#F3F3F3;">
     <div class="comment-box" *ngIf="keFu.length > 0">
         <ion-card class="comment-card" *ngFor="let item of keFu;let i = index;">
             <ion-grid>
-                <ion-row *ngFor="let comment of item;let j = index;" class="user-comment" tappable (click)="reviewerInfo(j)">
-                    <ion-col col-2 class="user-avatar">
+                <ion-row *ngFor="let comment of item;let j = index;" class="user-comment" tappable>
+                    <ion-col col-2 class="user-avatar" (click)="reviewerInfo(j)">
                         <img src="{{comment.avatar}}" alt="" >
                     </ion-col>
                     <ion-col col-10 class="user-cont">
@@ -23,6 +23,7 @@
                             {{comment.nick}} &nbsp;
                             <b *ngIf="comment.type == 1">提问</b>
                             <b *ngIf="comment.type == 3">追问</b>
+                            <ion-icon name="more" *ngIf="comment.type == 1" (tap)="addAsk(j)"></ion-icon>
                         </h4>
                         <h4 *ngIf="comment.type == 2" class="guanfang">官方回复</h4>
                         <h6>{{comment.day}}天前</h6>

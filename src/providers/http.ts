@@ -18,11 +18,12 @@ import { Storage } from "@ionic/storage";
 */
 @Injectable()
 export class HttpProvider {
-
+    public ws:WebSocket;
     constructor(public http: HttpClient,
                 public Pop: PopProvider,
                 public NativeProvider: NativeProvider,
-                public Storage:Storage) {
+                public Storage:Storage,
+                public pop:PopProvider) {
         console.log('Hello HttpProvider Provider');
     }
 
@@ -50,17 +51,16 @@ export class HttpProvider {
     }
 
     /**
-     * post方式请求
-     * @param {string} url
-     * @param body       //如：paramObj:{name:'大见',age:'23'}
-     * @param {string} contentType      //post请求的编码方式  application/x-www-form-urlencoded  multipart/form-data   application/json   text/xml
-     * @return {Promise<never | {}>}
+     * @param sub_url
+     * @param body
+     * @param {string} contentType
+     * @returns {any}
      */
-    post(body: any = {}, contentType: string = "application/x-www-form-urlencoded") {
+    post(sub_url,body: any = {}, contentType: string = "application/x-www-form-urlencoded") {
         let headers = new HttpHeaders({'Content-Type': contentType});
         return Observable.create(observer => {
             this.Pop.showLoading();
-            this.http.post(APP_SERVE_URL, this.toBodyString(body), {headers: headers})
+            this.http.post(APP_SERVE_URL+sub_url, this.toBodyString(body), {headers: headers})
                 .subscribe(res => {
                         this.Pop.hideLoading();
                         observer.next(res);
@@ -69,6 +69,49 @@ export class HttpProvider {
                     }
                 )
         });
+    }
+    /*
+    *  以formData数据形式发送post请求
+    */
+    formData(sub_url,body:any = {},contentType:string = "multipart/form-data"){
+        let headers = new HttpHeaders({'Content-Type':contentType});
+        return Observable.create(observer => {
+            this.Pop.showLoading();
+            this.http.post(APP_SERVE_URL+sub_url, body,{headers:headers})
+                .subscribe( res => {
+                    this.Pop.hideLoading();
+                    observer.next(res);
+                },err => {
+                        this.handleError(err);
+                    }
+                )
+        });
+    };
+
+    /*
+    *  webSocket 长连接构建即时通信服务
+    */
+    createWebSocket(api:string = ''){
+        //判断当前浏览器是否支持WebSocket
+        if('WebSocket' in window){
+            this.ws = new WebSocket(APP_SERVE_URL + api);
+        }
+        else{
+            this.Pop.toast("当前客户端不支持webSocket！");
+        }
+        return Observable.create(observer => {
+            this.ws.onmessage = (res) => observer.next(res.data);
+            this.ws.onerror = (err) => observer.next(err);
+            this.ws.onclose = (res) => observer.complete();
+        });
+    }
+
+    /*
+    *  利用webSocket向服务端发送消息
+    */
+
+    sendMessage(message){
+        this.ws.send(message);
     }
     // 获取本地城市列表服务
     getCityData() {
@@ -138,7 +181,7 @@ export class HttpProvider {
      *  调用: toQueryString(obj);
      *  返回: "name=%E5%B0%8F%E5%86%9B&age=23"
      */
-    private toBodyString(obj) {
+    public toBodyString(obj) {
         let ret = [];
         for (let key in obj) {
             key = encodeURIComponent(key);
@@ -163,7 +206,6 @@ export class HttpProvider {
             return key;
         }
         return key + '=' + encodeURIComponent(value === null ? '' : String(value));
-        // return key + '=' +(value === null ? '' : String(value));
     }
 
     private toSignPair(key, value) {
@@ -183,18 +225,13 @@ export class HttpProvider {
      */
     private handleError(err: any): void {
         this.Pop.hideLoading();
-        console.log('%c 请求失败 %c', 'color:red', 'err', err);
         if (err instanceof TimeoutError) {
             this.Pop.alert('请求超时,请稍后再试!');
             return;
         }
-        // if (!this.NativeProvider.isConnecting()) {
-        //     this.AlertProvider.alert('请求失败，请连接网络');
-        //     return;
-        // }
         let msg = '请求发生异常';
         try {
-            let result = err.json();
+            let result = JSON.parse(err.toString());
             this.Pop.alert(result.message || msg);
         } catch (err) {
             let status = err.status;
@@ -206,10 +243,6 @@ export class HttpProvider {
                 msg = '请求失败，服务器出错，请稍后再试';
             }
             this.Pop.alert(msg);
-            // this.logger.httpLog(err, msg, {
-            //     url: url,
-            //     status: status
-            // });
         }
 
     }

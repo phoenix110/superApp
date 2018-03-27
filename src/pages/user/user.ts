@@ -3,9 +3,6 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UserProvider} from "../../providers/user";
 import {Storage} from "@ionic/storage";
 import {PopProvider} from "../../providers/pop";
-import {AppProvider} from "../../providers/app";
-import {AppConfig} from "../../app/app.config";
-
 /**
  * Generated class for the UserPage page.
  *
@@ -30,19 +27,18 @@ export class UserPage {
         is_bind_bank:0,
         credit2:0.00
     };
+    public code = 0;
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public pop: PopProvider,
                 private User: UserProvider,
                 private storage: Storage,
-                public app:AppProvider
                 ) {
 
 
     }
 
     ionViewDidLoad() {
-
     }
     ionViewDidEnter(){
         this.userData();
@@ -68,7 +64,10 @@ export class UserPage {
     public toWallet(uid) {
         this.navCtrl.push("WalletPage", {uid: uid});
     }
-
+    // 跳转至余额支付密码
+    public setPwd(uid) {
+        this.navCtrl.push("PwdChangePage");
+    }
     // 跳转至公告信息页面
     public toNotice() {
         this.navCtrl.push("NoticePage");
@@ -83,33 +82,15 @@ export class UserPage {
     public toOrder(uid) {
         this.navCtrl.push("OrderPage", {uid: uid});
     }
+    // 跳转至公告信息页面
+    public toOrderPay() {
+        this.navCtrl.push("OrderPayPage");
+    }
 
-    //退出登录
-    logout(){
-        this.storage.remove('token');
-        this.pop.toast('退出成功');
-        this.navCtrl.push("TabsPage");
+    //跳转到直播设置页
+    public toLiveConfig(){
+        this.navCtrl.push("LiveConfigPage");
     }
 
 
-    //检查更新
-    checkUpgrade(){
-        this.app.getConfig().subscribe(res =>{
-            if(res.code == '0'){
-                //如果需要升级
-                if(AppConfig.compareVersion(AppConfig.appVersion,res.data['base']['version'])){
-                    if(AppConfig.platform == 'ios'){
-                        window.location.href = res.data['base']['ios_download_url'];
-                    }else{
-                        //其他默认为android
-                        window.location.href = res.data['base']['android_download_url'];
-                    }
-                    return false;
-                }
-                this.pop.toast('已经是最新版本');
-                return true;
-            }
-            this.pop.toast(res.message);
-        });
-    }
 }

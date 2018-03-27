@@ -1,34 +1,36 @@
 <!-- Generated template for the PublishComponent component -->
 <div class="push-box">
-    <textarea placeholder="请输入内容"></textarea>
-    <div class="images-show">
-        <img src="{{item}}" *ngFor="let item of images;let i = index;">
-    </div>
-    <div class="push-file">
-        <img src="" alt="" *ngIf="hasPic">
-        <video src="" *ngIf="hasVideo"></video>
-    </div>
-    <ul class="push-btns flex-row-start" >
-        <li tappable (click)="uploadPics()">
-            <ion-icon name="ios-image"></ion-icon>
-            <span>图片</span>
-        </li>
-        <li tappable (click)="uploadVideo()">
-            <ion-icon name="ios-videocam"></ion-icon>
-            <span>视频</span>
-        </li>
-        <li>
-            <ion-icon class="iconfont icon-card"></ion-icon>
-            <span>名片</span>
-        </li>
-        <li>
-            <ion-icon class="iconfont icon-iconfonthongbao0"></ion-icon>
-            <span>红包</span>
-        </li>
-        <li>
-            <ion-icon name="ios-stats"></ion-icon>
-            <span>投票</span>
-        </li>
-    </ul>
+  <textarea placeholder="请输入内容" [(ngModel)]="pubData.content"></textarea>
+  <div class="push-file">
+    <img src="{{pubData.src}}" alt="" *ngIf="hasPic">
+    <video src="{{pubData.src}}"  webkit-playsinline="true" playsinline="true" controls="controls" *ngIf="hasVideo"></video>
+    <ion-icon name="ios-close-circle" tappable (click)="closeBtn()" *ngIf="hasPic || hasVideo"></ion-icon>
+  </div>
+  <ul class="push-btns flex-row-start" *ngIf="pubData.src == ''">
+    <li tappable (click)="uploadPics()">
+      <ion-icon name="ios-image"></ion-icon>
+      <span>图片</span>
+    </li>
+    <li tappable (click)="uploadVideo()">
+      <ion-icon name="ios-videocam"></ion-icon>
+      <span>视频</span>
+    </li>
+    <!--<li tappable  class="upload-video">-->
+      <!--<ion-icon name="ios-videocam"></ion-icon>-->
+      <!--<input type="file" accept="video/*" name="src" (change)="uploadVideo()">-->
+      <!--<span>视频</span>-->
+    <!--</li>-->
+    <li>
+      <ion-icon class="iconfont icon-card"></ion-icon>
+      <span>名片</span>
+    </li>
+    <li>
+      <ion-icon class="iconfont icon-iconfonthongbao0"></ion-icon>
+      <span>红包</span>
+    </li>
+    <li>
+      <ion-icon name="ios-stats"></ion-icon>
+      <span>投票</span>
+    </li>
+  </ul>
 </div>
-

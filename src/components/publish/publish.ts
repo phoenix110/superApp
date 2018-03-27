@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import {PopProvider} from "../../providers/pop";
-import { ActionSheetController } from 'ionic-angular';
-import { NativeProvider } from "../../providers/native";
+import {Component, OnChanges, ChangeDetectorRef} from '@angular/core';
+import {ActionSheetController, NavController, NavParams} from "ionic-angular";
+import {NativeProvider} from "../../providers/native";
+import {TongxinProvider} from "../../providers/tongxin";
 
 /**
  * Generated class for the PublishComponent component.
@@ -10,46 +10,67 @@ import { NativeProvider } from "../../providers/native";
  * Components.
  */
 @Component({
-  selector: 'publish',
-  templateUrl: 'publish.html'
+    selector: 'publish',
+    templateUrl: 'publish.html'
 })
-export class PublishComponent {
+export class PublishComponent implements OnChanges {
 
-    public content; //存放发表的内容
-    public images = []; //存放图片url
-    public video = "";  //存放视频url
-    public hasPic:boolean = false; //图片显示开关
-    public hasVideo:boolean = false; //视频显示开关
-    public hasAdd:boolean = true;
-  constructor(
-      public pop:PopProvider,
-      private actionSheetCtrl:ActionSheetController,
-      public native:NativeProvider,
-  ) {
+    public pubData: object = {
+        content: "",
+        src: "",
+        type:"picture"
+    };
+    public hasPic: boolean = false;
+    public hasVideo: boolean = false;
 
-  }
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public native: NativeProvider,
+                public changeDetectorRef:ChangeDetectorRef,
+                private actionSheetCtrl: ActionSheetController,
+                public TongXin:TongxinProvider) {
 
-  //上传文件
-    public uploadPics(){
+        this.sendPublishCont();
+    }
+
+    ngOnChanges() {
+        this.sendPublishCont();
+    }
+    // 向TongXin.ts发送将要发布的内容
+    public sendPublishCont(){
+        this.TongXin.pubCircle(this.pubData);
+    }
+    //上传文件
+    public uploadPics() {
+
         let actionSheet = this.actionSheetCtrl.create({
-            title: '请选择图片/视频',
+            title: '请选择图片',
             buttons: [
                 {
                     text: '相机',
                     role: 'destructive',
                     handler: () => {
                         this.native.getPictureByCamera().subscribe(res => {
-                            this.images.push.apply(res);
+                            this.hasPic = true;
+                            this.pubData['src'] = res;
+                            this.pubData['type'] = "picture";
+                            console.log(res)
+
                         })
                     }
-                },{
+                }, {
                     text: '图库',
                     handler: () => {
-                        this.native.getMultiplePicture({destinationType:1}).subscribe(res => {
-                            this.images.push.apply(res);
+                        this.native.getPictureByPhotoLibrary({}).subscribe(res => {
+                            this.hasPic = true;
+                            this.pubData['src'] = res;
+                            this.pubData['type'] = "picture";
+                            this.changeDetectorRef.detectChanges();
+                            console.log(res)
+
                         })
                     }
-                },{
+                }, {
                     text: '取消',
                     role: 'cancel',
                     handler: () => {
@@ -60,8 +81,9 @@ export class PublishComponent {
         });
         actionSheet.present();
     }
+
     //上传视频
-    public uploadVideo(){
+    public uploadVideo() {
         let actionSheet = this.actionSheetCtrl.create({
             title: '请选择视频',
             buttons: [
@@ -69,11 +91,19 @@ export class PublishComponent {
                     text: '视频',
                     role: 'destructive',
                     handler: () => {
-                        this.native.getPictureByCamera({ mediaType:1}).subscribe(res => {
-                            this.video = res;
+                        let options = {
+                            sourceType: 0,
+                            mediaType: 1,
+                            destinationType:1
+                        };
+                        this.native.getPictureByCamera(options).subscribe(res => {
+                            this.hasVideo = true;
+                            this.pubData['src'] = res;
+                            this.pubData['type'] = "video";
+                            console.log(res)
                         })
                     }
-                },{
+                }, {
                     text: '取消',
                     role: 'cancel',
                     handler: () => {
@@ -83,6 +113,14 @@ export class PublishComponent {
             ]
         });
         actionSheet.present();
+
+    }
+
+    // 删除已添加的图片或视频文件
+    public closeBtn() {
+        this.hasVideo = false;
+        this.hasPic = false;
+        this.pubData['src'] = "";
     }
 
 }

@@ -1,0 +1,23 @@
+<!--
+  Generated template for the RewardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <header [headerTitle]="'我要打赏'" [complain]="'投诉'"></header>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid class="reward-options">
+        <ion-row>
+            <ion-col class="flex-row-start" *ngFor="let money of rewardOptions;let i = index;" (click)="setReward(i)"><button ion-button color="{{active == i ? 'pink' : 'gray'}}">￥{{money}}</button></ion-col>
+        </ion-row>
+    </ion-grid>
+    <p class="reward-text" no-margin>谢谢您对作者的支持</p>
+    <h4 class="reward-money">￥<b> {{active !== -1 ? rewardOptions[active] : 0}} </b>元</h4>
+    <button ion-button [disabled]="active === -1" [color]="active !== 1 ? 'pink' : 'gray'"  block (click)="confirmReward()">打赏</button>
+</ion-content>

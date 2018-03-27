@@ -5,6 +5,7 @@ import {HttpProvider} from "./http";
 import { PopProvider } from "./pop";
 import { ValidateProvider } from "./validate";
 import { Storage } from "@ionic/storage";
+import {AuthProvider} from "./auth";
 
 /*
   Generated class for the UserProvider provider.
@@ -19,7 +20,8 @@ export class UserProvider {
         public http: HttpProvider,
         public Pop:PopProvider,
         public Valify:ValidateProvider,
-        public Storage:Storage
+        public Storage:Storage,
+        public Auth:AuthProvider
     ) {
         console.log('Hello UserProvider Provider');
     }
@@ -34,25 +36,22 @@ export class UserProvider {
     // 用户登录
     public login(params) {
         let options = {
-            op: "login",
             mobile: params.mobile,
             password: params.password,
         };
-        console.log(options)
-        return this.http.post(options);
+        return this.http.post('auth/login',options);
     }
 
     // 用户注册
     public register(params) {
         let options = {
-            op: "register",
+            parent_uid:params.parent_uid,
             mobile: params.mobile,
             password: params.password,
             repassword: params.repassword,
             code: params.code
         };
-        console.log(options);
-        return this.http.post(options);
+        return this.http.post('auth/register',options);
     }
     // 获取验证码
     public getCode(obj) {
@@ -66,16 +65,56 @@ export class UserProvider {
             return false;
         }
         let options = {
-            op: "send_code",
             mobile: obj.userInfo.mobile
         };
-        console.log(options);
-        this.http.post(options).subscribe(res=>{
+        this.http.post('sms/send',options).subscribe(res=>{
 			this.Pop.toast(res.message);
             if(res.code == '0'){
                 this.downTime(obj);   
             }
         });
+    }
+    // 修改支付密码(获取验证码)
+    public getPayCode(params){
+        let options = {
+            uid:params.uid,
+            oldPwd:params.oldPwd,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        return this.Auth.authLogin(options,'sms/send');
+    }
+    // 添加支付密码
+    public addPayCode(params){
+        let options = {
+            uid:params.uid,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        return this.Auth.authLogin(options,'sms/send');
+    }
+    // 保存修改后的支付密码(获取验证码)
+    public changePayCode(params){
+        let options = {
+            uid:params.uid,
+            oldPwd:params.oldPwd,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        return this.Auth.authLogin(options,'sms/send');
+    }
+    // 重置支付密码
+    public resetPayPwd(params){
+        let options = {
+            uid:params.uid,
+            newPwd:params.newPwd,
+            reNewPwd:params.reNewPwd,
+            code:params.code
+        };
+        return this.Auth.authLogin(options,'sms/send');
     }
     // 验证码倒计时
     public downTime(obj){
@@ -99,26 +138,23 @@ export class UserProvider {
     // 忘记密码
     public forget(params) {
         let options = {
-            op: "forget",
             mobile: params.mobile,
             password: params.password,
             repassword: params.repassword,
             code: params.code
         };
-        return this.http.post(options);
+        return this.http.post('auth/forget',options);
     }
     // 获取会员信息
     public getUserInfo(token) {
         let options = {
-            op: "get_user_info",
             token:token
         };
-        return this.http.post(options);
+        return this.http.post('member',options);
     }
     //   更新个人资料
     public updateUserInfo(params) {
         let options = {
-            op: "update_user_info",
             avatar: params.avatar,
             nickname: params.nickname,
             gender: params.gender,
@@ -128,16 +164,15 @@ export class UserProvider {
             district: params.district,
             token:params.token
         };
-        return this.http.post(options);
+        return this.http.post('member/update',options);
     }
     // 获取省市区列表数据
     public cityListData(cityList){
          this.http.getCityData().subscribe(res=>{
              cityList.area = res;
-             console.log(cityList)
         });
     }
-
+    // 注册、修改密码格式验证
     public validate(params){
         let mobile = params.mobile;
         let password = params.password;
@@ -173,5 +208,32 @@ export class UserProvider {
         }
         return true;
     }
+    // 获取购物车列表
+    public getCartData(){
+        return this.Auth.authLogin({},'cart');
+    }
+    // 删除购物车
+    public removeCartData(id){
+        let options = {
+            id:id
+        };
+        return this.Auth.authLogin(options,'cart/delete');
+    }
 
+    //设置直播信息
+    public setLiveConfig(params = {}){
+        return this.Auth.authLogin(params,'live/set');
+    }
+
+    //获取直播信息
+    public getLiveConfig(){
+        return this.Auth.authLogin({},'live/config');
+    }
+
+    //获取直播列表信息
+    public getLives(page){
+        return this.http.post('live',{
+            page:page
+        });
+    }
 }

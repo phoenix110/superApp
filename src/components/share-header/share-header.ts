@@ -1,7 +1,9 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {EventEmitter} from "@angular/core";
 import { NavController, NavParams} from "ionic-angular";
 import { PopProvider } from "../../providers/pop";
+import {TongxinProvider} from "../../providers/tongxin";
+import {GoodsProvider} from "../../providers/goods";
 
 /**
  * Generated class for the ShareHeaderComponent component.
@@ -13,7 +15,7 @@ import { PopProvider } from "../../providers/pop";
     selector: 'share-header',
     templateUrl: 'share-header.html'
 })
-export class ShareHeaderComponent {
+export class ShareHeaderComponent implements OnInit{
     @Input() headerTitle: string = '';
     @Input() shareLink: string = '';
     @Input() commentPage: string = '';
@@ -26,23 +28,31 @@ export class ShareHeaderComponent {
     @Input() all: string = '';
     //声明事件发射器
     @Output() checkEmitter = new EventEmitter<boolean>();
-    text: string;
     private isLogin:boolean = false;
+    public goodSku:Object = {};
+    public cartStatus:boolean = false;
+    public collectStatus:boolean = false;
+    public shareStatus:boolean = false;
     constructor(public Pop:PopProvider,
                 public navCtrl:NavController,
-                public navParams:NavParams) {
+                public navParams:NavParams,
+                public TongXin:TongxinProvider,
+                public Goods:GoodsProvider) {
         console.log('Hello ShareHeaderComponent Component');
-        this.text = 'Hello World';
     }
-
+    ngOnInit(): void {
+        this.TongXin.obSku.subscribe(res=>{
+            this.goodSku  = res;
+        })
+    }
     // 点击分享
-    public share() {
+    public shareArticle() {
         console.log("您已点击了分享按钮！");
     }
 
     // 点击评论
     public comment() {
-        console.log("您点击了评论按钮！")
+        this.navCtrl.push("PushPage");
     }
 
     // 打开性别选择框
@@ -51,29 +61,66 @@ export class ShareHeaderComponent {
     }
 
     // 点击购买商品
-    public buyGood(id) {
-        if(!this.isLogin){
-            this.Pop.confirm().subscribe(data=>{
-                if(data['is_login']){
-                    this.navCtrl.push("OrderDetailPage",{id:id});
-                }
-            });
+    public buyGood() {
+        let params = {};
+        if(this.goodSku['sku_list']){
+            let skuIndex = this.goodSku['skuIndex'];
+            params = {
+                id:this.goodSku['id'],
+                sku_key:skuIndex,
+                sku_desc:this.goodSku['sku_list'][skuIndex]['filed_1'] + '-' + this.goodSku['sku_list'][skuIndex]['filed_2'],
+                num:this.goodSku['sku_list'][skuIndex]['num'],
+            };
+        }else{
+            params = {
+                id:this.goodSku['id'],
+                sku_key:"",
+                sku_desc:"",
+                num:this.goodSku['num']
+            };
         }
+
+        this.Goods.goodsBuy(params).subscribe(res =>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            let goodSku = JSON.stringify(params);
+            this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"buy"});
+        });
     }
 
     // 点击添加购物车
     public addCart() {
-        if(!this.isLogin){
-            this.Pop.confirm().subscribe(data=>{
-                if(data['is_login']){
-                    console.log('去登陆');
-                }
-            });
+        let params = {};
+        if(this.goodSku['sku_list']){
+            let skuIndex = this.goodSku['skuIndex'];
+            params = {
+                id:this.goodSku['id'],
+                sku_key:skuIndex,
+                sku_desc:this.goodSku['sku_list'][skuIndex]['filed_1'] + '-' + this.goodSku['sku_list'][skuIndex]['filed_2'],
+                num:this.goodSku['sku_list'][skuIndex]['num'],
+            };
+        }else{
+            params = {
+                id:this.goodSku['id'],
+                sku_key:"",
+                sku_desc:"",
+                num:this.goodSku['num']
+            };
         }
+        this.Goods.goodsAddCart(params).subscribe(res=>{
+            if(res === "toLogin"){
+                this.navCtrl.push("LoginPage");
+                return false;
+            }
+            this.Pop.toast(res.message);
+            this.cartStatus = true;
+        });
     }
 
     // 点击分享
-    public addShare() {
+    public shareGoods() {
         if(!this.isLogin){
             this.Pop.confirm().subscribe(data=>{
                 if(data['is_login']){
@@ -92,6 +139,7 @@ export class ShareHeaderComponent {
                 }
             });
         }
+        this.collectStatus = true;
     }
 
 

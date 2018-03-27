@@ -1,0 +1,24 @@
+page-reward {
+  .reward-options{
+    ion-col{
+      flex-wrap: wrap;
+      flex:0 0 33.3%;
+      button{
+        width:90%;
+        height:2.5em;
+      }
+    }
+  }
+  .reward-text{
+    text-align: center;
+  }
+  .reward-money{
+    text-align: center;
+    font-size: 17px;
+    color: #FA6B5B;
+    font-weight: bold;
+    b{
+      font-size: 23px;
+    }
+  }
+}

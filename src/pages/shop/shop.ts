@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import {TabsProvider} from "../../providers/tabs";
+import {PopProvider} from "../../providers/pop";
 
 /**
  * Generated class for the ShopPage page.
@@ -14,8 +15,12 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
   templateUrl: 'shop.html',
 })
 export class ShopPage {
-    public shop:Array<object> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
+    public shopData:Array<object> = [];
+  constructor(
+      public navCtrl: NavController,
+    public navParams: NavParams,
+      public Tabs:TabsProvider,
+      public Pop:PopProvider) {
   }
 
   ionViewDidLoad() {
@@ -24,8 +29,17 @@ export class ShopPage {
 
 	// 获取商城首页数据
     public getShopData(){
-	    this.http.get("./assets/data.json").subscribe(data=>{
-            this.shop = data['shop'];
-        });
+	    this.Tabs.getShopList().subscribe(res =>{
+            if(res.code == 0){
+
+                this.shopData = res.data;
+                return false;
+            }
+            this.Pop.toast(res.message);
+        })
+    }
+    // 更多分类商品
+    public getMore(cid){
+        this.navCtrl.push("GoodsListPage",{cid:cid});
     }
 }

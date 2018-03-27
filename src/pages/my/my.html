@@ -11,7 +11,7 @@
 <ion-content id="my-content" class="cont-background">
     <ion-card *ngIf="false">
         <ul class="card-title">
-            <li><a href="javascript:;"><img src="#img#" alt=""></a></li>
+            <li><a href="javascript:;"><img src="assets/images/bg.jpg" alt=""></a></li>
         </ul>
         <ion-card-content>
             <ion-card-title no-padding>
@@ -45,17 +45,22 @@
     </section>
     <section class="count-box">
         <ul class="my-count flex-row-between" padding-horizontal>
-            <li><span>发表</span><b>100</b></li>
-            <li><span>成员</span><b>100</b></li>
-            <li><span>GDP</span><b>100</b></li>
+            <li><span>发表</span><b>{{circleData['push_num']}}</b></li>
+            <li><span>成员</span><b>{{circleData['member_num']}}</b></li>
+            <li><span>GDP</span><b>{{circleData['sum_credit2']}}</b></li>
         </ul>
     </section>
     <!--点评列表-->
-    <comment *ngIf="listNum < 1" [commentList]="my.circle[listNum]"></comment>
-    <comment *ngIf="listNum > 1" [commentList]="my.circle[listNum-1]"></comment>
+    <section style="background: #fff;">
+        <comment [commentList]="circleData['list']"></comment>
+    </section>
+    <!--<comment *ngIf="listNum > 1" [commentList]="my.circle[listNum-1]"></comment>-->
     <!--点评头条-->
-    <topnews *ngIf="listNum == 1" [topNews]="my.topNews"></topnews>
+    <!--<topnews *ngIf="listNum == 1" [topNews]="my.topNews"></topnews>-->
 
     <!-- 我的名片 -->
     <qrcode  *ngIf="codeStatus" (hideQr)="fadeOut($event)"></qrcode>
+
 </ion-content>
+<!--添加评论-->
+<add-comment></add-comment>

@@ -13,59 +13,73 @@
   <!--收货地址-->
   <div class="addressOut">
     <div class="addressIn flex-row-between" tappable (click)="toAddressList()">
-      <div class="address-left">
+      <div class="address-left" *ngIf="orderInfo.address">
         <div class="user-info flex-row-between">
-          <b>收货人：{{orderAddress.name}}</b>
-          <span>{{orderAddress.mobile}}</span>
+          <b>收货人：{{orderInfo.address.realname}}</b>  &nbsp;&nbsp;&nbsp;
+          <span>{{orderInfo.address.mobile}}</span>
         </div>
         <div class="user-address">
-          收货地址：{{orderAddress.address}}
+          收货地址：{{orderInfo.address.address}}
         </div>
       </div>
+      <div class="address-none" *ngIf="!orderInfo.address">暂无地址，去填写！</div>
       <div class="address-right">
         <ion-icon name="arrow-forward"></ion-icon>
       </div>
     </div>
   </div>
   <!--订单信息-->
-  <div class="order-info flex-row-start">
-    <div class="order-pic">
-      <img src="{{orderInfo.thumb}}" alt="">
+  <div class="order-info" *ngFor="let item of orderInfo.list">
+    <div class="order-shop">
+        <img src="{{item.logo}}" alt="">
+        <b>{{item.title}}</b>
     </div>
-    <div class="order-title">
-      <h5 class="text-overflow-one">{{orderInfo.title}}</h5>
-      <p class="flex-row-between">
-        <span>￥{{orderInfo.price}}</span>
-        <b>X {{orderInfo.num}}</b>
-      </p>
-    </div>
+      <div class="order-descs flex-row-start" *ngFor="let item of item.goodsList" style="margin-bottom: 10px;">
+          <div class="order-pic">
+              <img src="{{item.thumb}}" alt="">
+          </div>
+          <div class="order-title">
+              <h5 class="text-overflow-one">{{item.goods_title}}</h5>
+              <p *ngIf="item.is_open_spec != 0">
+                  <b>规格：{{item.sku_desc}} </b>
+              </p>
+              <p *ngIf="item.is_open_spec == 0">
+                  <b>规格：默认 </b>
+              </p>
+              <p class="flex-row-between">
+                  <span>￥{{item.sale_price}}</span>
+                  <b>X {{item.buy_num}}</b>
+              </p>
+          </div>
+      </div>
+
   </div>
   <!--购买数量-->
-  <div class="order-num flex-row-between">
-    <span>购买数量</span>
-    <div class="set-num">
-      <b class="down" tappable (click)="downOrderNum()">-</b>
-      <b>{{orderInfo.num}}</b>
-      <b class="up" tappable (click)="upOrderNum()">+</b>
-    </div>
-  </div>
+  <!--<div class="order-num flex-row-between">-->
+    <!--<span>购买数量</span>-->
+    <!--<div class="set-num">-->
+      <!--<b class="down" tappable (click)="downOrderNum()">-</b>-->
+      <!--<b>{{orderInfo.num}}</b>-->
+      <!--<b class="up" tappable (click)="upOrderNum()">+</b>-->
+    <!--</div>-->
+  <!--</div>-->
   <!--配送方式-->
-  <div class="order-send flex-row-between">
-    <div class="send-left">
-      <ion-icon ></ion-icon>配送方式
-    </div>
-    <div class="send-right">
-      <select name="" id="">
-        <option value="{{item}}" *ngFor="let item of sendWay;let i = index;">{{item}}</option>
-      </select>
-    </div>
-  </div>
+  <!--<div class="order-send flex-row-between">-->
+    <!--<div class="send-left">-->
+      <!--<ion-icon ></ion-icon>配送方式-->
+    <!--</div>-->
+    <!--<div class="send-right">-->
+      <!--<select name="" id="">-->
+        <!--<option value="{{item}}" *ngFor="let item of sendWay;let i = index;">{{item}}</option>-->
+      <!--</select>-->
+    <!--</div>-->
+  <!--</div>-->
   <!--留言-->
-  <textarea class="order-liuyan" cols="30" rows="10" placeholder="请填写卖家留言，对本次交易的说明"></textarea>
+  <textarea class="order-liuyan" cols="30" rows="10" [(ngModel)]="note.text" placeholder="请填写卖家留言，对本次交易的说明"></textarea>
 </ion-content>
 <ion-footer class="flex-row-between">
   <div class="pay-total">
-    合计：￥<b>{{totalPrice}}</b>元
+    合计：￥<b>{{orderInfo.total_price}}</b>元
   </div>
-  <button ion-button color="red" small>立即支付</button>
+  <button ion-button color="red" small tappable (click)="confirmPay(id)">确认下单</button>
 </ion-footer>

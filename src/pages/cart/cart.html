@@ -9,67 +9,44 @@
   <header [headerTitle]="'购物车'"></header>
 
 </ion-header>
-
-
 <ion-content class="cart">
-  <ion-list>
-    <ion-card>
+  <blank [type]="'cart'" [tip]="'购物车都空啦'" [btnText]="'去逛逛'" *ngIf="cartList.length <= 0"></blank>
+  <ion-list *ngIf="cartList.length > 0">
+    <ion-card *ngFor="let shop of cartList;let s = index;">
       <div class="cart-top flex-row-start">
-        <img src="./assets/images/goods/shouji01.jpg" alt="">
-        <h5 class="text-overflow-one">超G名片</h5>
-        <span>编辑</span>
+        <img src="{{shop.company_logo}}" alt="">
+        <h5 class="text-overflow-one">{{shop.title}}</h5>
+        <span tappable (click)="cartEdit(s);canEdit = !canEdit">{{canEdit ? "完成" : "编辑"}}</span>
       </div>
-      <div class="cart-center flex-row-start">
-        <ion-checkbox  color="danger" checked="true"></ion-checkbox>
-        <img src="./assets/images/goods/shouji01.jpg" alt="">
-        <div class="cart-guige">
-          <h5><span class="text-overflow-one">爱咖啡</span><b>￥25</b></h5>
-          <p><span class="text-overflow-one">规格：<em>默认</em></span><b>X4</b></p>
+      <div class="cart-center flex-row-start" *ngFor="let goods of shop.carts;let g = index;">
+        <ion-checkbox  color="danger" checked="{{goods.status}}" tappable (click)="singleChoose(s,g)"></ion-checkbox>
+        <img src="{{goods.thumb}}" alt="">
+        <div class="cart-guige" *ngIf="!shop.edit">
+          <h5 class="flex-row-between"><span>{{goods.goods_name}}</span><b>￥{{goods.sale_price}}</b></h5>
+          <p class="flex-row-between"><span>规格：<em>{{goods.is_open_spec == 0 ? '默认' : goods.sku_desc }}</em></span><b>X{{goods.buy_num}}</b></p>
+        </div>
+        <div class="goods-del flex-row-between" *ngIf="shop.edit">
+          <ul class="flex-column-between">
+            <li>
+              <span (click)="downOrderNum(s,g)">-</span>
+              <span class="input-num">{{goods.buy_num}}</span>
+              <span (click)="upOrderNum(s,g)">+</span>
+            </li>
+            <li class="guige">规格：{{goods.is_open_spec == 0 ? '默认' : goods.sku_desc }}</li>
+          </ul>
+          <b tappable (click)="delGood(s,g)"><ion-icon name="ios-trash"></ion-icon></b>
         </div>
       </div>
       <div class="cart-bottom  flex-row-start">
-        <ion-checkbox></ion-checkbox>
+        <ion-checkbox checked="{{shop.status}}" tappable (click)="allChoose(s)"></ion-checkbox>
         <div class="cart-total flex-row-between">
           <span>全选</span>
           <div class="cart-heji flex-row-end">
-            <span>合计：<b>￥0.00</b></span>
-            <button ion-button small>结算(<strong>1</strong>)</button>
+            <span>合计：<b>￥{{shop.totalFee}}</b></span>
+            <button ion-button small [class.active]="payStatus" [disabled]="!payStatus" tappable (click)="toPay(s)">结算(<strong>{{shop.selectNum}}</strong>)</button>
           </div>
         </div>
       </div>
     </ion-card>
-      <ion-card>
-          <div class="cart-top flex-row-start">
-              <img src="./assets/images/goods/shouji01.jpg" alt="">
-              <h5 class="text-overflow-one">超G名片</h5>
-              <span>编辑</span>
-          </div>
-          <div class="cart-center flex-row-start">
-              <ion-checkbox ></ion-checkbox>
-              <img src="./assets/images/goods/shouji01.jpg" alt="">
-              <div class="cart-guige">
-                  <h5><span class="text-overflow-one">爱咖啡</span><b>￥25</b></h5>
-                  <p><span class="text-overflow-one">规格：<em>默认</em></span><b>X4</b></p>
-              </div>
-          </div>
-          <div class="cart-center flex-row-start">
-              <ion-checkbox></ion-checkbox>
-              <img src="./assets/images/goods/shouji01.jpg" alt="">
-              <div class="cart-guige">
-                  <h5><span class="text-overflow-one">爱咖啡</span><b>￥25</b></h5>
-                  <p><span class="text-overflow-one">规格：<em>默认</em></span><b>X4</b></p>
-              </div>
-          </div>
-          <div class="cart-bottom  flex-row-start">
-              <ion-checkbox color="danger" checked="true"></ion-checkbox>
-              <div class="cart-total flex-row-between">
-                  <span>全选</span>
-                  <div class="cart-heji flex-row-end">
-                      <span>合计：<b>￥0.00</b></span>
-                      <button ion-button small>结算(<strong>1</strong>)</button>
-                  </div>
-              </div>
-          </div>
-      </ion-card>
   </ion-list>
 </ion-content>

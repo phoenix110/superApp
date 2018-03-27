@@ -8,8 +8,9 @@
     <share-header [headerTitle]="'圈子'" [commentPage]="'commentPage'"></share-header>
 </ion-header>
 
-<ion-content padding *ngIf="circle.length > 0">
-    <comment [commentList]="circle"></comment>
-    <add-comment></add-comment>
+<ion-content padding>
+    <blank  [tip]="'什么都木有呀！'" *ngIf="circleData.length <= 0"></blank>
+    <comment [commentList]="circleData" *ngIf="circleData.length > 0"></comment>
 </ion-content>
+<add-comment></add-comment>
 <!--添加评论组件-->

@@ -19,7 +19,13 @@ import { AddressItemModule } from './address-item/address-item.module';
 import { GoodPicsModule } from './good-pics/good-pics.module';
 import { GoodChatModule } from './good-chat/good-chat.module';
 import { AddCommentModule } from './add-comment/add-comment.module';
-import {PublishModule} from './publish/publish.module';
+import { GoodSkuModule } from './good-sku/good-sku.module';
+import {PublishModule} from "./publish/publish.module";
+import { ChatSendModule } from './chat-send/chat-send.module';
+import {ReviewModule} from "./review/review.module";
+import { TouCommentModule } from './tou-comment/tou-comment.module';
+import { LuckListModule } from './luck-list/luck-list.module';
+import { BlankModule } from './blank/blank.module';
 
 @NgModule({
 	declarations: [],
@@ -45,7 +51,13 @@ import {PublishModule} from './publish/publish.module';
         GoodPicsModule,
         GoodChatModule,
         AddCommentModule,
-        PublishModule
+        GoodSkuModule,
+        PublishModule,
+        ChatSendModule,
+        ReviewModule,
+        TouCommentModule,
+        LuckListModule,
+        BlankModule,
     ]
 })
 export class ComponentsModule {

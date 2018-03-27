@@ -24,7 +24,6 @@ import { IMAGE_SIZE, QUALITY_SIZE } from "./constant";
 */
 @Injectable()
 export class NativeProvider {
-
     constructor(
         public platform:Platform,
         // public network:Network,
@@ -91,7 +90,8 @@ export class NativeProvider {
         return Observable.create(observer => {
             this.camera.getPicture(ops).then((imgData: string) => {
                 if (ops.destinationType === this.camera.DestinationType.DATA_URL) {
-                    observer.next('data:image/jpg;base64,' + imgData);
+                    imgData = 'data:image/jpg;base64,' + imgData;
+                    observer.next(imgData);
                 } else {
                     observer.next(imgData);
                 }
@@ -118,6 +118,7 @@ export class NativeProvider {
             sourceType: this.camera.PictureSourceType.CAMERA,
             destinationType: this.camera.DestinationType.DATA_URL//DATA_URL: 0 base64字符串, FILE_URI: 1图片路径
         }, options);
+        console.log(ops)
         return this.getPicture(ops);
     };
 
@@ -146,16 +147,16 @@ export class NativeProvider {
             quality: QUALITY_SIZE//图像质量，范围为0 - 100
         }, options);
         return Observable.create(observer => {
-            this.imagePicker.getPictures(ops).then(files => {
+            this.imagePicker.getPictures(ops).then(filesUrl => {
                 let destinationType = options['destinationType'] || 0;//0:base64字符串,1:图片url
                 if (destinationType === 1) {
-                    observer.next(files);
+                    observer.next(filesUrl);
                 } else {
                     let imgBase64s = [];//base64字符串数组
-                    for (let fileUrl of files) {
+                    for (let fileUrl of filesUrl) {
                         that.convertImgToBase64(fileUrl).subscribe(base64 => {
                             imgBase64s.push(base64);
-                            if (imgBase64s.length === files.length) {
+                            if (imgBase64s.length === filesUrl.length) {
                                 observer.next(imgBase64s);
                             }
                         })

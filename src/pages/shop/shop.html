@@ -9,21 +9,33 @@
 </ion-header>
 
 <ion-content padding>
-	<section class="shop-box">
-		<!-- 商品分类标题 -->
-		<div class="shop-title">
-			<span></span>
-			<h6>中秋必备礼品（4）</h6>
-			<a href="javascript:;">更多 ></a>
-		</div>
-		<!-- 当前商品分类第一个1列展示 -->
-		<div class="shop-first">
-			<good-intro [goodList]="shop.goodRecommend"></good-intro>
-		</div>
-		<!-- 当前商品分类其余商品2列显示 -->
-		<div class="shop-rest">
-			<good-intro [goodList]="shop.goodList"></good-intro>
+	<blank [tip]="'什么都木有呀！'" *ngIf="shopData.length <= 0"></blank>
+	<section *ngIf="shopData.length > 0">
+		<div class="shop-box" *ngFor="let item of shopData;let i = index;">
+			<div class="shop-list" *ngIf="item.is_show == 1">
+				<!-- 商品分类标题 -->
+				<div class="shop-title">
+					<span></span>
+					<h6>{{item.title}}</h6>
+					<a href="javascript:;" tappable (click)="getMore(item.id)">更多 ></a>
+				</div>
+				<!-- 当前商品分类第一个1列展示 -->
+				<div *ngIf="item.goods_list.length > 1">
+					<div class="shop-first">
+						<good-intro [goodList]="item.goods_list[0]"></good-intro>
+					</div>
+					<!-- 当前商品分类其余商品2列显示 -->
+					<div class="shop-rest">
+						<good-intro [goodList]="item.goods_list"></good-intro>
+					</div>
+				</div>
+				<div *ngIf="item.goods_list.length <= 1">
+					<div class="shop-first">
+						<good-intro [goodList]="item.goods_list[0]"></good-intro>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</section>
-	
 </ion-content>

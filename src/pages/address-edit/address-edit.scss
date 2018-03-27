@@ -20,7 +20,7 @@
           color:#8B8B8B;
           align-self: flex-start;
         }
-        input{
+        ion-input{
           background: #F7F7F7;
           @include radius(3px);
           border: 1px solid #ccc;
@@ -28,18 +28,26 @@
           height:30px;
           line-height: 30px;
           align-items: center;
-          padding:2px 4px;
+          padding:0 4px;
+          input{
+            margin: 0;
+
+          }
         }
         .select-list{
           flex:auto;
-          select{
-            flex:1 1 30%;
-            margin: 0 2px;
-            box-sizing: border-box;
-            height:30px;
-            line-height: 30px;
-            border: 1px solid #ccc;
-            @include radius(3px);
+          ion-item{
+            min-height: 30px;
+            height: 30px;
+            padding-left: 0;
+            .item-inner{
+              border:1px solid #ccc;
+              @include radius(3px);
+            }
+            ion-multi-picker{
+              max-width: 165px;
+              overflow: hidden;
+            }
           }
         }
         textarea{

@@ -4,16 +4,16 @@ page-kefu {
     overflow: visible;
     @include radius(10px);
     &::before {
-      @include position(absolute, 10px, null, null, -40px);
+      @include position(absolute, 16px, null, null, -37px);
       content: '';
       background: url("../assets/images/avatar/shot.png") left top no-repeat;
       background-size: 100% 100%;
       z-index: 100;
-      width: 65px;
-      height: 40px;
+      width: 56px;
+      height: 35px;
     }
     .user-comment {
-      padding: 10px 0 10px 15px;
+      padding: 10px 0 10px 10px;
       border-bottom: 1px dotted #ccc;
 
       &:nth-child(3) {
@@ -21,14 +21,23 @@ page-kefu {
       }
     }
     .user-avatar img {
-      width: 40px;
-      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
     }
     .user-cont {
       .user-ask {
         color: #333;
         b {
           color: #FA6B5B;
+        }
+        ion-icon{
+          float: right;
+          font-size: 26px;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          margin-top: -10px;
         }
       }
       .guanfang {

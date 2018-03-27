@@ -17,12 +17,10 @@ export class ArticleProvider {
 
     //获取文章详情
     getInfo(cid,id){
-        let options = {
-            op: "get_article",
+        return this.http.post('article',{
             id:id,
             cid:cid
-        };
-        return this.http.post(options);
+        });
     }
 
 }
