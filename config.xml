@@ -105,4 +105,7 @@
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
     <engine name="android" spec="6.2.3" />
     <engine name="ios" spec="4.4.0" />
+    <plugin name="cordova-plugin-shake" spec="^0.6.0" />
+    <plugin name="cordova-plugin-file" spec="^4.3.3" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.0" />
 </widget>

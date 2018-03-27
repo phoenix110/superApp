@@ -46,6 +46,7 @@ export class CommentComponent {
             this.navCtrl.push("RewardPage",{id:id});
         });
     }
+
     // 点赞功能
     public dianZan(index, id) {
         this.publish.dianZan(id).subscribe(res => {

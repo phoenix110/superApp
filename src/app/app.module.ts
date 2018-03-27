@@ -92,14 +92,14 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
         TongxinProvider,
         PublishProvider,
         TabsProvider,
-    FindProvider,
+        FindProvider,
         GoodsProvider,
-    UtilsProvider,
-    OrderProvider,
+        UtilsProvider,
+        OrderProvider,
         Shake,
         VideoPlayer,
         StreamingMedia,
-    ChatProvider
+        ChatProvider
     ]
 })
 export class AppModule {

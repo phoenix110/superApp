@@ -47,5 +47,4 @@ export class VideoComponent {
           'url':url
       });
   }
-
 }

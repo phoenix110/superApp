@@ -33,6 +33,7 @@ export class HeaderComponent implements OnChanges {
     @Input() juBao:string;
     @Input() complainInfo:object = {};
     public complainId:number;
+
     public pubData: any = {};
     public cityArr:Array<string> = [];
     constructor(public navCtrl: NavController,
@@ -48,6 +49,7 @@ export class HeaderComponent implements OnChanges {
                 public Auth:AuthProvider) {
         console.log('Hello HeaderComponent Component');
         this.complainId = this.navParams.get("id");
+
         this.getContent();
     }
     public fileTransfer: FileTransferObject = this.transfer.create();
