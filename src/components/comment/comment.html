@@ -14,7 +14,7 @@
             <!--</div>-->
             <p class="circle-text">{{item.content}}</p>
             <div class="circle-img" *ngIf="item.type == 0">
-                <img src="{{item.src}}" alt="">
+                <img src="{{item.src}}" alt="" (click)="viewPhoto(item.src)">
             </div>
             <!--<div class="circle-banner" *ngIf="item.banner.thumb">-->
                 <!--<img src="{{item.banner.thumb}}" alt="">-->
@@ -47,10 +47,10 @@
                 <span *ngFor="let like of item.like_list;let i = index;">{{ i < item.like_list.length -1 ? like.show_name + '、' : like.show_name }}</span>
             </div>
             <ul class="circle-zanCount circle-comment" *ngIf="item.talk_list.length > 0">
-                <li *ngFor="let item of item.talk_list;">{{item.talk_list}}
-                    <span>{{item.show_name}}：</span><b>{{item.content}}</b>
-                    <ul class="flex-row-start" *ngIf="item.thumb" (click)="viewPhoto()">
-                        <li><img src="{{item.thumb}}" alt=""></li>
+                <li *ngFor="let talk of item.talk_list;">
+                    <span>{{talk.show_name}}：</span><b>{{talk.content}}</b>
+                    <ul class="flex-row-start" *ngIf="talk.thumb" (click)="viewPhoto(item.talk_list,'thumb')">
+                        <li><img src="{{talk.thumb}}" alt=""></li>
                     </ul>
                 </li>
             </ul>

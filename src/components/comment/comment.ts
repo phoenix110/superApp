@@ -9,6 +9,7 @@ import {TongxinProvider} from "../../providers/tongxin";
 import {PublishProvider} from "../../providers/publish";
 import {AuthProvider} from "../../providers/auth";
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import {CommonProvider} from "../../providers/common";
 
 /**
  * Generated class for the CommentComponent component.
@@ -29,7 +30,8 @@ export class CommentComponent {
                 public TongXin: TongxinProvider,
                 public publish: PublishProvider,
                 public Auth:AuthProvider,
-                public photoViewer: PhotoViewer ) {
+                public photoViewer: PhotoViewer,
+                public Common:CommonProvider) {
     }
 
     // 跳转至我的世界详情页
@@ -84,7 +86,8 @@ export class CommentComponent {
             this.TongXin.CircleComment(this.commentList[index]);
         });
     }
-    public viewPhoto(){
-        this.photoViewer.show('https://mysite.com/path/to/image.jpg');
+    // 图片预览
+    public viewPhoto(photoData,key){
+        this.Common.photoViews(photoData,key);
     }
 }

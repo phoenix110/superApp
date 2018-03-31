@@ -45,7 +45,9 @@ import {VideoPlayer} from "@ionic-native/video-player";
 import {StreamingMedia} from "@ionic-native/streaming-media";
 import { ChatProvider } from '../providers/chat/chat';
 import {PhotoViewer} from "@ionic-native/photo-viewer";
-
+// 列表图片预览插件
+import * as ionicGalleryModal from 'ionic-gallery-modal';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 @NgModule({
     declarations: [
         MyApp
@@ -56,6 +58,7 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
         HttpClientModule,
         PincodeInputModule,
         BrowserAnimationsModule,
+        ionicGalleryModal.GalleryModalModule,
         IonicStorageModule.forRoot({
             name: 'myApp',
             driverOrder: ['indexeddb', 'sqlite', 'websql']
@@ -104,7 +107,11 @@ import {PhotoViewer} from "@ionic-native/photo-viewer";
         Shake,
         VideoPlayer,
         StreamingMedia,
-        ChatProvider
+        ChatProvider,
+        {
+            provide: HAMMER_GESTURE_CONFIG,
+            useClass: ionicGalleryModal.GalleryModalHammerConfig,
+        }
     ]
 })
 export class AppModule {

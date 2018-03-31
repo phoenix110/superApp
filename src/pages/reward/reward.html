@@ -19,5 +19,6 @@
     </ion-grid>
     <p class="reward-text" no-margin>谢谢您对作者的支持</p>
     <h4 class="reward-money">￥<b> {{active !== -1 ? rewardOptions[active] : 0}} </b>元</h4>
-    <button ion-button [disabled]="active === -1" [color]="active !== 1 ? 'pink' : 'gray'"  block (click)="confirmReward()">打赏</button>
+    <button ion-button [disabled]="active === -1" [color]="active !== -1 ? 'pink' : 'gray'"  block (click)="confirmReward()">打赏</button>
 </ion-content>
+<div style="width:100%;height:100%;background: #000;opacity: 0.2;position: absolute;z-index: 10"></div>

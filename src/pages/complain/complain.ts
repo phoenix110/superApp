@@ -17,7 +17,7 @@ import { CommonProvider } from "../../providers/common"
 })
 export class ComplainPage {
   public complainData:object = {
-      checkIndex:-1,
+      checkedIndex:-1,
       setReason:"",
       reasonArr:[
         "诈骗，欺骗，传销",
@@ -44,7 +44,7 @@ export class ComplainPage {
   }
   // 选择默认投诉原因
   public setReason(index){
-    this.complainData['checkIndex'] = index;
+    this.complainData['checkedIndex'] = index;
     this.complainData['setReason'] = this.complainData['reasonArr'][index];
   }
   // 上传投诉截图
