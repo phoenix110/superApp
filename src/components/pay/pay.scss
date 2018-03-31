@@ -1,0 +1,60 @@
+pay {
+  .pay-mask{
+    width:100%;
+    height:100%;
+    background: #000;
+    opacity: 0.4;
+    position: absolute;
+    z-index: 10;
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+  .pay-options{
+    width:100%;
+    background: #fff;
+    display: none;
+    @include position(absolute,null,null,0,0);
+    z-index: 100;
+    li{
+      margin-bottom: 10px;
+      button{
+        ion-icon{
+          font-size: 20px;
+          margin:0 10px;
+        }
+      }
+    }
+    &.active{
+      display: block;
+      animation: slowShow 1s;
+      -moz-animation: slowShow 1s;	/* Firefox */
+      -webkit-animation: slowShow 1s;	/* Safari 和 Chrome */
+      -o-animation: slowShow 1s;	/* Opera */
+    }
+  }
+  @keyframes slowShow
+  {
+    from {height: 0;}
+    to {height: 256px;}
+  }
+
+  @-moz-keyframes slowShow /* Firefox */
+  {
+    from {height: 0;}
+    to {height: 256px;}
+  }
+
+  @-webkit-keyframes slowShow /* Safari 和 Chrome */
+  {
+    from {height: 0;}
+    to {height: 256px;}
+  }
+
+  @-o-keyframes slowShow /* Opera */
+  {
+    from {height: 0;}
+    to {height: 256px;}
+  }
+}

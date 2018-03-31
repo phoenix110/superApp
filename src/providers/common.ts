@@ -3,13 +3,18 @@ import {ActionSheetController, ModalController} from "ionic-angular";
 import {Injectable} from "@angular/core";
 // 列表图片上传预览插件
 import { GalleryModal } from 'ionic-gallery-modal';
-
+import {OrderProvider} from "./order";
+import {Observable} from "rxjs/Observable";
+import {PopProvider} from "./pop";
+declare let cordova;
 @Injectable()
 export class CommonProvider{
     constructor(
         public native:NativeProvider,
         public modalCtrl:ModalController,
         public actionSheetCtrl:ActionSheetController,
+        public Order:OrderProvider,
+        public Pop:PopProvider
     ){
 
     }
@@ -42,13 +47,13 @@ export class CommonProvider{
                     role: 'cancel',
                     handler: () => {
                         console.log('选择头像已取消');
-                        return false;
                     }
                 }
             ]
         });
         actionSheet.present();
     }
+
     // (单图)多图预览model
     public photoViews(photoData,key = ''){
         let photos:Array<object> = [];
@@ -86,4 +91,58 @@ export class CommonProvider{
         modal.present();
     }
 
+    // 支付宝、微信、余额付款
+    public confirmPay(payId,payWay,payMoney = '') {
+        let that = this;
+        let password:number = 0;
+        let params = {
+            // id: this.orderInfo['id'],
+            id: payId,
+            payMethod: payWay
+        };
+        return Observable.create(observer => {
+            if (params.payMethod == 3) {
+                // 支付宝支付
+                that.Order.payMoney(params).subscribe(res => {
+                    if (res === "toLogin") {
+                        observer.next("toLogin");
+                        return false;
+                    }
+                    let alipayOrder = res.data;
+                    cordova.plugins.alipay.payment(alipayOrder, function success(e) {
+                        observer.next("paySuccess");
+                    }, function error(e) {
+                        that.Pop.toast(e.memo);
+                    });
+                });
+            }
+            // 微信支付
+            if (params.payMethod == 2) {
+                this.Order.payMoney(params).subscribe(res => {
+                    if (res === "toLogin") {
+                        observer.next("toLogin");
+                        return false;
+                    }
+                    observer.next("paySuccess");
+                });
+            }
+            // 余额支付
+            if (params.payMethod == 1) {
+                this.Pop.openPinCode().subscribe(res => {
+                    if (res !== false) {
+                        password = res;
+                        console.log(password);
+                        this.Order.payMoney(params, password).subscribe(res => {
+                            if (res === "toLogin") {
+                                observer.next("toLogin");
+                                return false;
+                            }
+                            this.Pop.toast(res.message);
+                            observer.next("paySuccess");
+                        });
+                    }
+                });
+            }
+        });
+    }
 }

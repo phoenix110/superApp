@@ -8,7 +8,6 @@ import {PopProvider} from "../../providers/pop";
 import {TongxinProvider} from "../../providers/tongxin";
 import {PublishProvider} from "../../providers/publish";
 import {AuthProvider} from "../../providers/auth";
-import { PhotoViewer } from '@ionic-native/photo-viewer';
 import {CommonProvider} from "../../providers/common";
 
 /**
@@ -30,7 +29,6 @@ export class CommentComponent {
                 public TongXin: TongxinProvider,
                 public publish: PublishProvider,
                 public Auth:AuthProvider,
-                public photoViewer: PhotoViewer,
                 public Common:CommonProvider) {
     }
 

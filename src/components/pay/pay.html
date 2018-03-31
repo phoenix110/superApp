@@ -1,0 +1,28 @@
+<!-- Generated template for the PayComponent component -->
+<div class="pay-mask" [class.active]="payStatus"  (click)="hidePay()"></div>
+<ul class="pay-options" padding [class.active]="payStatus">
+    <li>
+        <button ion-button block (click)="payReward(3)">
+            <ion-icon class="iconfont icon-zhifubao"></ion-icon>
+            支付宝
+        </button>
+    </li>
+    <li>
+        <button ion-button block color="secondary" (click)="payReward(2)">
+            <ion-icon class="iconfont icon-weixin-copy"></ion-icon>
+            微信支付
+        </button>
+    </li>
+    <li>
+        <button ion-button block color="deepGray" (click)="payReward(1)">
+            <ion-icon class="iconfont icon-yuepay"></ion-icon>
+            我的钱包(0)元
+        </button>
+    </li>
+    <li>
+        <button ion-button block color="light" (click)="hidePay()">
+            取消
+        </button>
+    </li>
+</ul>
+

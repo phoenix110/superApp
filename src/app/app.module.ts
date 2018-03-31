@@ -44,7 +44,6 @@ import {Shake} from "@ionic-native/shake";
 import {VideoPlayer} from "@ionic-native/video-player";
 import {StreamingMedia} from "@ionic-native/streaming-media";
 import { ChatProvider } from '../providers/chat/chat';
-import {PhotoViewer} from "@ionic-native/photo-viewer";
 // 列表图片预览插件
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -94,7 +93,6 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
         ArticleProvider,
         AppProvider,
         PopProvider,
-        PhotoViewer,
         AuthProvider,
         TongxinProvider,
         PublishProvider,

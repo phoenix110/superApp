@@ -20,6 +20,8 @@ export class RewardPage {
   public active:number = -1;
   public rewardOptions:Array<number> = [1,5,10,50,100,200];
   public rewardId:number;
+  public payStatus:boolean = false;
+  public rewardData:object = {};
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
@@ -36,11 +38,15 @@ export class RewardPage {
   }
   // 确认打赏
   public confirmReward(){
+    this.payStatus = true;
     let cash = this.rewardOptions[this.active];
-    let options = {
+    this.rewardData = {
       money:cash,
       id:this.rewardId
     };
-    this.Publish.giveReward(options);
+  }
+  // 接受子组件传递来的数据状态
+  public changeStatus($event){
+      this.payStatus = $event;
   }
 }

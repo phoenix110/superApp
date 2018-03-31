@@ -44,8 +44,9 @@ page-complain {
       ion-icon{
         width:35px;
         height:35px;
-        @include position(ausolute,0,0,0,0);
-        font-size: 35px;
+        @include position(absolute,0,0,0,0);
+        margin: auto;
+        font-size: 40px;
         font-weight: bold;
         text-align: center;
       }
