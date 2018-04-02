@@ -1,41 +1,44 @@
-import { Injectable } from '@angular/core';
-import { Platform} from "ionic-angular";
-
-// 注入本地Native功能调用插件
-import { Camera , CameraOptions } from "@ionic-native/camera";
-import { ImagePicker } from "@ionic-native/image-picker";
-import { AppVersion} from "@ionic-native/app-version";
-import { File, FileEntry } from "@ionic-native/file";
-// import { Network} from "@ionic-native/network";
-
-// 注入rxjs服务模块
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
-
-// 注入自定义服务
-import { PopProvider } from "./pop";
-import { LoggerProvider } from "./logger";
-import { IMAGE_SIZE, QUALITY_SIZE } from "./constant";
-
 /*
   Generated class for the NativeServieProvider provider.
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+import {Injectable} from '@angular/core';
+import {Platform} from "ionic-angular";
+
+// 注入本地Native功能调用插件
+import {Camera, CameraOptions} from "@ionic-native/camera";
+import {ImagePicker} from "@ionic-native/image-picker";
+import {AppVersion} from "@ionic-native/app-version";
+import {File, FileEntry} from "@ionic-native/file";
+// import { Network} from "@ionic-native/network";
+
+// 注入rxjs服务模块
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+
+// 注入自定义服务
+import {PopProvider} from "./pop";
+import {LoggerProvider} from "./logger";
+import { IMAGE_SIZE, QUALITY_SIZE} from "./constant";
+import {FileTransfer, FileTransferObject, FileUploadOptions} from "@ionic-native/file-transfer";
+import {APP_SERVE_URL} from "../app/app.config";
+
+
 @Injectable()
 export class NativeProvider {
-    constructor(
-        public platform:Platform,
-        // public network:Network,
-        private camera:Camera,
-        private imagePicker:ImagePicker,
-        private appVersion:AppVersion,
-        private Pop:PopProvider,
-        private logger:LoggerProvider,
-        private file:File
-    ) {
+    constructor(public platform: Platform,
+                // public network:Network,
+                private camera: Camera,
+                private imagePicker: ImagePicker,
+                private appVersion: AppVersion,
+                private Pop: PopProvider,
+                private logger: LoggerProvider,
+                private file: File,
+                private transfer: FileTransfer) {
         console.log('Hello NativeServieProvider Provider');
     }
+
     /**
      * 是否真机环境
      */
@@ -56,6 +59,7 @@ export class NativeProvider {
     isIos(): boolean {
         return this.isMobile() && (this.platform.is('ios') || this.platform.is('ipad') || this.platform.is('iphone'));
     }
+
     /**
      * 获取网络类型 如`unknown`, `ethernet`, `wifi`, `2g`, `3g`, `4g`, `cellular`, `none`
      */
@@ -65,6 +69,7 @@ export class NativeProvider {
         }
         // return this.network.type;
     }
+
     /**
      * 判断是否有网络
      */
@@ -162,7 +167,7 @@ export class NativeProvider {
                         })
                     }
                 }
-            }) .catch(err => {
+            }).catch(err => {
                 this.logger.log(err, '通过图库选择多图失败');
                 this.Pop.alert('获取照片失败');
             });
@@ -201,5 +206,58 @@ export class NativeProvider {
                 this.logger.log(err, '获得app版本号失败');
             });
         });
+    }
+
+    /**
+     * 文件上传
+     * @param file
+     * @returns {Observable<any>}
+     */
+    uploadFile(file:object):Observable<any> {
+        return Observable.create(observer => {
+            let options: FileUploadOptions = {
+                fileKey: file['fileKey'] = 'file',
+                fileName: file['fileName'] = 'fileName.jpg',
+                httpMethod: 'POST',
+                params: file['params'] = {},
+                headers: file['headers'] = {}
+            };
+            const fileTransfer: FileTransferObject = this.transfer.create();
+            // 上传文件
+            fileTransfer.upload(file['path'] = '', APP_SERVE_URL + file['api'], options)
+                .then((data) => {
+                    observer.next(true);
+                }, (err) => {
+                    this.Pop.toast(err.code);
+                });
+            // 文件上传进度显示
+            fileTransfer.onProgress(progressEvent => {
+                if(progressEvent.lengthComputable){
+                    let percent = progressEvent.loaded / progressEvent.total;
+                    this.Pop.toast('已上传'+percent +'%');
+                }
+            })
+        });
+    }
+
+    /**
+     * 文件下载(带进度显示）
+     */
+    downloadFile(url,fileName = ""){
+        // const url = 'http://www.getmarkman.com/static/download/MarkMan.air';
+        const fileTransfer: FileTransferObject = this.transfer.create();
+        fileTransfer.download(url, this.file.dataDirectory + fileName).then((entry) => {
+            this.Pop.toast('下载完成: ' + entry.toURL());
+        }, (error) => {
+            this.Pop.toast(error);
+        });
+        // 文件下载进度显示
+        fileTransfer.onProgress(progressEvent => {
+            console.log(progressEvent.lengthComputable)
+            if(progressEvent.lengthComputable){
+                let percent = progressEvent.loaded / progressEvent.total;
+                this.Pop.toast('已下载'+percent +'%');
+            }
+        })
     }
 }

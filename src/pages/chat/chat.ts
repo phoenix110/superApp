@@ -32,6 +32,9 @@ export class ChatPage {
   // 获取聊天页数据
     public chatListData(){
         // this.chatList = {};
+        this.http.get("./assets/data.json",{}).subscribe(res => {
+          this.chatList['chat'] = res['chatData']['chat'];
+        });
     }
     // 拉黑名单
     public delRecord(index){

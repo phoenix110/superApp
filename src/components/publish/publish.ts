@@ -25,7 +25,7 @@ export class PublishComponent implements OnChanges {
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
-                public native: NativeProvider,
+                public Native: NativeProvider,
                 public changeDetectorRef:ChangeDetectorRef,
                 private actionSheetCtrl: ActionSheetController,
                 public TongXin:TongxinProvider) {
@@ -40,7 +40,7 @@ export class PublishComponent implements OnChanges {
     public sendPublishCont(){
         this.TongXin.pubCircle(this.pubData);
     }
-    //上传文件
+    //上传图片
     public uploadPics() {
 
         let actionSheet = this.actionSheetCtrl.create({
@@ -50,7 +50,7 @@ export class PublishComponent implements OnChanges {
                     text: '相机',
                     role: 'destructive',
                     handler: () => {
-                        this.native.getPictureByCamera().subscribe(res => {
+                        this.Native.getPictureByCamera().subscribe(res => {
                             this.hasPic = true;
                             this.pubData['src'] = res;
                             this.pubData['type'] = "picture";
@@ -61,7 +61,7 @@ export class PublishComponent implements OnChanges {
                 }, {
                     text: '图库',
                     handler: () => {
-                        this.native.getPictureByPhotoLibrary({}).subscribe(res => {
+                        this.Native.getPictureByPhotoLibrary({}).subscribe(res => {
                             this.hasPic = true;
                             this.pubData['src'] = res;
                             this.pubData['type'] = "picture";
@@ -96,7 +96,7 @@ export class PublishComponent implements OnChanges {
                             mediaType: 1,
                             destinationType:1
                         };
-                        this.native.getPictureByCamera(options).subscribe(res => {
+                        this.Native.getPictureByCamera(options).subscribe(res => {
                             this.hasVideo = true;
                             this.pubData['src'] = res;
                             this.pubData['type'] = "video";
@@ -122,5 +122,6 @@ export class PublishComponent implements OnChanges {
         this.hasPic = false;
         this.pubData['src'] = "";
     }
+
 
 }
