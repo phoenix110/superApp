@@ -104,26 +104,22 @@ export class CommonProvider{
             if (params.payMethod == 3) {
                 // 支付宝支付
                 that.Order.payMoney(params).subscribe(res => {
-                    if (res === "toLogin") {
-                        observer.next("toLogin");
-                        return false;
+                    if (res !== false) {
+                        let alipayOrder = res.data;
+                        cordova.plugins.alipay.payment(alipayOrder, function success(e) {
+                            observer.next("paySuccess");
+                        }, function error(e) {
+                            that.Pop.toast(e.memo);
+                        });
                     }
-                    let alipayOrder = res.data;
-                    cordova.plugins.alipay.payment(alipayOrder, function success(e) {
-                        observer.next("paySuccess");
-                    }, function error(e) {
-                        that.Pop.toast(e.memo);
-                    });
                 });
             }
             // 微信支付
             if (params.payMethod == 2) {
                 this.Order.payMoney(params).subscribe(res => {
-                    if (res === "toLogin") {
-                        observer.next("toLogin");
-                        return false;
+                    if (res !== false) {
+                        observer.next("paySuccess");
                     }
-                    observer.next("paySuccess");
                 });
             }
             // 余额支付
@@ -133,12 +129,10 @@ export class CommonProvider{
                         password = res;
                         console.log(password);
                         this.Order.payMoney(params, password).subscribe(res => {
-                            if (res === "toLogin") {
-                                observer.next("toLogin");
-                                return false;
+                            if (res !== false) {
+                                this.Pop.toast(res.message);
+                                observer.next("paySuccess");
                             }
-                            this.Pop.toast(res.message);
-                            observer.next("paySuccess");
                         });
                     }
                 });

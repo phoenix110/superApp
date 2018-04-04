@@ -3,10 +3,8 @@ import {Platform, Nav, IonicApp, Keyboard, Events} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {PopProvider} from "../providers/pop";
-import {TabsPage} from "../pages/tabs/tabs";
-import {AppConfig} from "./app.config";
-import {Shake} from "@ionic-native/shake";
 import {HttpProvider} from "../providers/http";
+import {AuthProvider} from "../providers/auth";
 
 
 @Component({
@@ -24,7 +22,8 @@ export class MyApp {
                 public platform: Platform,
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
-                public pop: PopProvider,
+                public Pop: PopProvider,
+                public Auth:AuthProvider,
                 public events: Events,
                 public Http:HttpProvider,
                 public keyboard: Keyboard) {
@@ -35,6 +34,7 @@ export class MyApp {
             statusBar.styleDefault();
             splashScreen.hide();
             this.listenLogin();
+            //订阅登录状态信息
             this.events.subscribe("loginStatus", (status) => {
                 this.loginStatus = status;
             });
@@ -71,14 +71,14 @@ export class MyApp {
         if (this.backButtonPressed) { //当触发标志为true时，即2秒内双击返回按键则退出APP
             this.platform.exitApp();
         } else {
-            this.pop.toast("再按一次退出应用");
+            this.Pop.toast("再按一次退出应用");
             this.backButtonPressed = true;
             setTimeout(() => this.backButtonPressed = false, 2000);//2秒内没有再次点击返回则将触发标志标记为false
         }
     }
     // 监听本地是否有token，判断登录状态
     public listenLogin(){
-        this.Http.getToken().subscribe(token => {
+        this.Http.hasToken().subscribe(token => {
             if (token === false) {
                 this.loginStatus = false;
             }else{
@@ -96,10 +96,13 @@ export class MyApp {
     }
     // 跳转至登录页
     public login() {
-        this.nav.push("LoginPage");
+        this.Auth.modalNoData("LoginPage");
+        // this.nav.push("LoginPage");
     }
     // 跳转至注册页面
     public register() {
-        this.nav.push("RegisterPage");
+        this.Auth.modalNoData("RegisterPage");
+
+        // this.nav.push("RegisterPage");
     }
 }

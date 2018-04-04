@@ -81,12 +81,9 @@ export class ShareHeaderComponent implements OnInit{
         }
 
         this.Goods.goodsBuy(params).subscribe(res =>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"buy"});
             }
-            let goodSku = JSON.stringify(params);
-            this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"buy"});
         });
     }
 
@@ -110,12 +107,10 @@ export class ShareHeaderComponent implements OnInit{
             };
         }
         this.Goods.goodsAddCart(params).subscribe(res=>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.Pop.toast(res.message);
+                this.cartStatus = true;
             }
-            this.Pop.toast(res.message);
-            this.cartStatus = true;
         });
     }
 

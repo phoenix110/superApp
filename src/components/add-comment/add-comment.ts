@@ -89,14 +89,12 @@ export class AddCommentComponent implements OnChanges{
     // 发送圈子评论
     public sendComment(){
         this.Publish.sendComment(this.commentInfo).subscribe(res=>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.showStatus = false;
+                this.commentData['talk_list'].unshift(res.data);
+                this.Utils.toggleTabs(this.showStatus);
+                this.Pop.toast(res.message);
             }
-            this.showStatus = false;
-            this.commentData['talk_list'].unshift(res.data);
-            this.Utils.toggleTabs(this.showStatus);
-            this.Pop.toast(res.message);
         });
     }
 

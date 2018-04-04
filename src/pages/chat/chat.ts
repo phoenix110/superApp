@@ -15,7 +15,6 @@ import { PopProvider } from "../../providers/pop";
   templateUrl: 'chat.html',
 })
 export class ChatPage {
-  private isLogin:boolean = false;
   public chatList:object= {};
   public colorArr: string[] = [];
   constructor(

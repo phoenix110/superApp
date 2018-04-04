@@ -114,12 +114,10 @@ export class CommentPage {
                 break;
         }
         this.Publish.addComment(this.pubData).subscribe( res => {
-            if(res == "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.Pop.toast(res.message);
+                this.navCtrl.pop();
             }
-            this.Pop.toast(res.message);
-            this.navCtrl.pop();
         })
     }
 }

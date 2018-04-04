@@ -39,11 +39,9 @@ export class OrderPayPage {
     // 获取下单订单的详情信息
     public orderTotal() {
         this.Order.getOrderInfo(this.orderId).subscribe(res => {
-            if (res === "toLogin") {
-                this.navCtrl.push("LoginPage");
-                return false;
+            if (res !== false) {
+                this.orderInfo = res.data;
             }
-            this.orderInfo = res.data;
         });
     }
     // 支付宝、微信、余额付款
@@ -57,26 +55,22 @@ export class OrderPayPage {
         // 支付宝支付
         if(params.payMethod == 3){
             that.Order.payMoney(params).subscribe(res => {
-                if (res === "toLogin") {
-                    this.navCtrl.push("LoginPage");
-                    return false;
+                if (res !== false) {
+                    let alipayOrder = res.data;
+                    cordova.plugins.alipay.payment(alipayOrder,function success(e){
+                        that.navCtrl.push("OrderPage");
+                    },function error(e){
+                        that.Pop.toast(e.memo);
+                    });
                 }
-                let alipayOrder = res.data;
-                cordova.plugins.alipay.payment(alipayOrder,function success(e){
-                    that.navCtrl.push("OrderPage");
-                },function error(e){
-                    that.Pop.toast(e.memo);
-                });
             });
         }
         // 微信支付
         if(params.payMethod == 2){
             this.Order.payMoney(params).subscribe(res => {
-                if (res === "toLogin") {
-                    this.navCtrl.push("LoginPage");
-                    return false;
-                }
+                if (res !== false) {
 
+                }
             });
         }
         // 余额支付
@@ -86,12 +80,10 @@ export class OrderPayPage {
                     this.password = res;
                     console.log(this.password);
                     this.Order.payMoney(params,this.password).subscribe(res => {
-                        if (res === "toLogin") {
-                            this.navCtrl.push("LoginPage");
-                            return false;
+                        if (res !== false) {
+                            this.Pop.toast(res.message);
+                            this.navCtrl.push("OrderPage");
                         }
-                        this.Pop.toast(res.message);
-                        this.navCtrl.push("OrderPage");
                     });
                 }
             });

@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular'
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular'
 import {UserProvider} from "../../providers/user";
 import {PopProvider} from "../../providers/pop";
 import { ValidateProvider} from "../../providers/validate";
 import { Storage } from "@ionic/storage";
+import {AuthProvider} from "../../providers/auth";
 
 /**
  * Generated class for the RegisterPage page.
@@ -30,7 +31,9 @@ export class RegisterPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
+        public viewCtrl: ViewController,
         public Pop: PopProvider,
+        public Auth:AuthProvider,
         public User: UserProvider,
         public Validate:ValidateProvider,
         private Storage:Storage
@@ -42,12 +45,13 @@ export class RegisterPage {
 
     // 退出注册
     public popOut() {
-        this.navCtrl.pop();
+        this.viewCtrl.dismiss();
     }
 
     // 去登录
     public toLogin() {
-        this.navCtrl.push("LoginPage");
+        this.viewCtrl.dismiss();
+        this.Auth.modalNoData("LoginPage");
     }
 
     // 新用户注册
@@ -59,7 +63,7 @@ export class RegisterPage {
             this.Pop.toast(res.message);
             if (res.code == '0') {
                 this.Storage.set("token",res['data']['token']);
-                this.navCtrl.push("TabsPage");
+                this.viewCtrl.dismiss();
             }
         });
     }

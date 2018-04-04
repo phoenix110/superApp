@@ -4,11 +4,9 @@ import {Component, ViewChild} from '@angular/core';
 import {NavController, NavParams, IonicPage, Slides} from 'ionic-angular';
 
 import  Swiper from 'swiper';
-import { Storage } from "@ionic/storage";
 
 import {PopProvider} from "../../providers/pop";
 import {TabsProvider} from "../../providers/tabs";
-import {Shake} from "@ionic-native/shake";
 
 /**
  * Generated class for the UnionPage page.
@@ -35,9 +33,8 @@ export class UnionPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        public msgService:PopProvider,
+        public Pop:PopProvider,
         public tabs: TabsProvider,
-        private Storage:Storage
         ) {
 
         //初始化变量
@@ -79,11 +76,11 @@ export class UnionPage {
                 this.categories = res.data['categories'];
                 this.companies = res.data['companies'];
                 if(this.companies.length == 0){
-                    this.msgService.toast('没有搜索到相关的公司');
+                    this.Pop.toast('没有搜索到相关的公司');
                 }
                 return true;
             }
-            this.msgService.toast(res.message);
+            this.Pop.toast(res.message);
         });
     }
 

@@ -34,12 +34,11 @@ export class AddressListPage {
   // 获取地址列表数据
   public addressListData(){
       this.Goods.addressList().subscribe(res =>{
-          if(res === "toLogin"){
-              this.navCtrl.push("LoginPage");
-              return false;
+          if(res !== false){
+              this.Pop.toast(res.message);
+              this.addressList = res.data;
           }
-          this.Pop.toast(res.message);
-          this.addressList = res.data;
+
       });
   }
 }

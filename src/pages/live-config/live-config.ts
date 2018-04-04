@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {LiveStudyPage} from "../live-study/live-study";
 import {ImagePicker} from "@ionic-native/image-picker";
 import {NativeProvider} from "../../providers/native";
 import {UserProvider} from "../../providers/user";

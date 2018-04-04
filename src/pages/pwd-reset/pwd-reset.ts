@@ -43,23 +43,19 @@ export class PwdResetPage {
 // 获取验证码
     public getSms(){
         this.User.getPayCode(this.pwdInfo).subscribe( res => {
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.Pop.toast(res.message);
+                this.User.downTime(this);
             }
-            this.Pop.toast(res.message);
-            this.User.downTime(this);
         });
     }
     // 保存修改
     public savePwd(){
         this.User.resetPayPwd(this.pwdInfo).subscribe( res => {
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.Pop.toast(res.message);
+                this.navCtrl.pop();
             }
-            this.Pop.toast(res.message);
-            this.navCtrl.pop();
         });
     }
 }

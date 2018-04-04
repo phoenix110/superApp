@@ -52,18 +52,16 @@ export class AddressItemComponent {
                   role: 'destructive',
                   handler: () => {
                       this.Goods.defaultAddress(id).subscribe(res =>{
-                          if(res === "toLogin"){
-                              this.navCtrl.push("LoginPage");
-                              return false;
+                          if(res !== false){
+                              this.Pop.toast(res.message);
+                              this.addressList.forEach((item,idx,arr) => {
+                                  if(idx == index){
+                                      item['isdefault'] = 1;
+                                      return false;
+                                  }
+                                  item['isdefault'] = 0;
+                              });
                           }
-                          this.Pop.toast(res.message);
-                          this.addressList.forEach((item,idx,arr) => {
-                              if(idx == index){
-                                  item['isdefault'] = 1;
-                                  return false;
-                              }
-                              item['isdefault'] = 0;
-                          });
                       });
 
                   }
@@ -72,12 +70,10 @@ export class AddressItemComponent {
                   handler: () => {
                       console.log(id)
                       this.Goods.delAddress(id).subscribe(res =>{
-                          if(res === "toLogin"){
-                              this.navCtrl.push("LoginPage");
-                              return false;
+                          if(res !== false){
+                              this.Pop.toast(res.message);
+                              this.addressList.splice(index,1);
                           }
-                          this.Pop.toast(res.message);
-                          this.addressList.splice(index,1);
                       });
                   }
               }, {

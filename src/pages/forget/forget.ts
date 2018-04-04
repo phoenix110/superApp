@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {UserProvider} from "../../providers/user";
 import {PopProvider} from "../../providers/pop";
 import { Storage } from "@ionic/storage";
@@ -28,6 +28,7 @@ export class ForgetPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
+        public viewCtrl:ViewController,
         public User: UserProvider,
         public Pop:PopProvider,
         private Storage:Storage
@@ -39,7 +40,7 @@ export class ForgetPage {
     }
 
     public popOut() {
-        this.navCtrl.pop();
+        this.viewCtrl.dismiss();
     }
 
     // 忘记密码 - 重新设置新密码
@@ -51,7 +52,7 @@ export class ForgetPage {
 			this.Pop.toast(res.message);
             if (res.code == '0') {
                 this.Storage.set("token",res['data']['token']);
-                this.navCtrl.push("TabsPage");
+                this.viewCtrl.dismiss();
             }
         });
     }

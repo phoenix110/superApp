@@ -55,7 +55,7 @@ export class UserEditPage {
   }
     // 获取会员信息
     public userData() {
-        let token = this.Http.getToken().subscribe(res=>{
+        this.Http.getToken().subscribe(res=>{
             if(res == false){
                 this.navCtrl.push("LoginPage");
             }else{

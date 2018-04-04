@@ -44,14 +44,11 @@ export class OrderPage {
   }
   // 获取所有订单列表
   public getOrderList(){
-      let orderObj = {};
     this.Order.orderList(this.orderParams).subscribe( res => {
-        if (res === "toLogin") {
-            this.navCtrl.push("LoginPage");
-            return false;
+        if (res !== false) {
+            this.orderStatus = res.data.statuses;
+            this.orderList = res.data.list;
         }
-        this.orderStatus = res.data.statuses;
-        this.orderList = res.data.list;
     })
   }
   public initSlides(){
@@ -73,12 +70,10 @@ export class OrderPage {
         this.orderParams['status'] = this.orderType;
         this.orderParams['page'] = 1;
         this.Order.orderList(this.orderParams).subscribe(res =>{
-            if (res === "toLogin") {
-                this.navCtrl.push("LoginPage");
-                return false;
+            if (res !== false) {
+                this.orderList = res.data.list;
+                evt.complete();
             }
-            this.orderList = res.data.list;
-            evt.complete();
         })
     }
     // 上拉加载更多
@@ -86,16 +81,14 @@ export class OrderPage {
         this.orderParams['status'] = this.orderType;
         this.orderParams['page'] ++;
         this.Order.orderList(this.orderParams).subscribe(res =>{
-            if (res === "toLogin") {
-                this.navCtrl.push("LoginPage");
-                return false;
+            if (res !== false) {
+                if(res.data.list.length <= 0){
+                    this.loadStatus = false;
+                    return false;
+                }
+                this.orderList = this.orderList.concat(res.data.list);
+                infiniteScroll.complete();
             }
-            if(res.data.list.length <= 0){
-                this.loadStatus = false;
-                return false;
-            }
-            this.orderList = this.orderList.concat(res.data.list);
-            infiniteScroll.complete();
         })
     }
 }

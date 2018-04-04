@@ -37,10 +37,7 @@ export class PayComponent {
       let money = this.rewardData['money'];
       this.hidePay();
       this.Common.confirmPay(id,payWay,money).subscribe( res =>{
-          if(res == "toLogin"){
-              this.navCtrl.push("LoginPage");
-              return false;
-          }
+
       });
   }
 }

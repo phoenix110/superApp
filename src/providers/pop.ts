@@ -39,13 +39,13 @@ export class PopProvider {
                     {
                         text: btnText1,
                         handler: () => {
-                            observable.next({is_login: false});
+                            observable.next({to_login: false});
                         }
                     },
                     {
                         text: btnText2,
                         handler: () => {
-                            observable.next({is_login: true});
+                            observable.next({to_login: true});
                         }
                     }
                 ]

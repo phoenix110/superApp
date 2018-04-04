@@ -45,7 +45,6 @@ export class HeaderComponent implements OnChanges {
                 public TongXin: TongxinProvider,
                 public Goods:GoodsProvider,
                 private transfer: FileTransfer,
-                private file: File,
                 public Auth:AuthProvider) {
         console.log('Hello HeaderComponent Component');
         this.complainId = this.navParams.get("id");
@@ -99,21 +98,18 @@ export class HeaderComponent implements OnChanges {
         this.addressInfo['district']  = this.cityArr[2];
         if(this.addressInfo['type'] === 'add'){
             this.Goods.addNewAddress(this.addressInfo).subscribe(res =>{
-                if(res === "toLogin"){
-                    this.navCtrl.push("LoginPage");
-                    return false;
+                if(res !== false){
+                    this.Pop.toast(res.message);
+                    this.navCtrl.pop();
                 }
-                this.Pop.toast(res.message);
-                this.navCtrl.pop();
+
             });
         }else{
             this.Goods.editSaveAddress(this.addressInfo).subscribe(res =>{
-                if(res === "toLogin"){
-                    this.navCtrl.push("LoginPage");
-                    return false;
+                if(res !== false){
+                    this.Pop.toast(res.message);
+                    this.navCtrl.pop();
                 }
-                this.Pop.toast(res.message);
-                this.navCtrl.pop();
             });
         }
         console.log(this.addressInfo);
@@ -196,11 +192,9 @@ export class HeaderComponent implements OnChanges {
     public toComplain(){
         this.Auth.checkLogin().subscribe( res => {
             let complainId = this.complainId;
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.navCtrl.push("ComplainPage",{id:complainId});
             }
-            this.navCtrl.push("ComplainPage",{id:complainId});
         });
     }
     // 发起投诉
@@ -213,11 +207,9 @@ export class HeaderComponent implements OnChanges {
             return false;
         }
         this.Publish.sendComplian(this.complainInfo).subscribe( res => {
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.Pop.toast(res.message);
             }
-            this.Pop.toast(res.message);
         });
     }
 }

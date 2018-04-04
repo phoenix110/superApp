@@ -59,7 +59,7 @@ export class MallPage {
         });
         // 监听@viewChildren组件的填充内容增加或删除后自动更新@viewChildren集合的值
         this.swiperChildren.changes.subscribe(()=>{
-            let swipers = new Swiper(".swiper-child",{
+            new Swiper(".swiper-child",{
                 slidesPerView:"auto",
                 pagination : '.child-pagination',
                 paginationType : 'fraction',

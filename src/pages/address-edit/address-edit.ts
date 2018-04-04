@@ -52,12 +52,10 @@ export class AddressEditPage {
     // 获取地址详情
     public getAddressInfo(){
         this.Goods.getAddressInfo(this.addressId).subscribe(res =>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.Pop.toast(res.message);
+                this.userInfo = res.data;
             }
-            this.Pop.toast(res.message);
-            this.userInfo = res.data;
         });
     }
 

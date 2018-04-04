@@ -125,16 +125,36 @@ export class HttpProvider {
                 )
         });
     }
-    // 获取登录的token值
+
+    /**
+     * 判断token是否存在，不存在则弹出登录提示框
+     * @returns {any}
+     */
     public getToken(){
         return Observable.create(observer =>{
             this.Storage.get("token").then(val=>{
                 if(val == null || val == "" || val == undefined){
                     this.Pop.confirm().subscribe(res=>{
-                        if(res['is_login']){
+                        if(res['to_login']){
                             observer.next(false);
                         }
                     });
+                }else{
+                    observer.next(val);
+                }
+            });
+        });
+    }
+
+    /**
+     * 仅用于判断token是否存在
+     * @returns {any}
+     */
+    public hasToken(){
+        return Observable.create(observer =>{
+            this.Storage.get("token").then(val=>{
+                if(val == null || val == "" || val == undefined){
+                    observer.next(false);
                 }else{
                     observer.next(val);
                 }

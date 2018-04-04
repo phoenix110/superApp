@@ -30,34 +30,33 @@ export class CartPage {
         public Goods:GoodsProvider) {
         this.uid = this.navParams.get("uid");
     }
-
-    ionViewDidLoad() {
+    ionViewWillEnter(){
         this.getCartList();
+    }
+    ionViewDidLoad() {
+
     }
 
     // 购物车列表数据
     public getCartList(){
         this.User.getCartData().subscribe(res =>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.Pop.toast(res.message);
+                res.data.forEach((shop,index,arr) => {
+                    shop.kaiguan = true;
+                    shop.status = false;
+                    shop.kaiguan = true;
+                    shop.selectNum = 0;
+                    shop.totalFee = 0;
+                    shop.edit = false;
+                    shop.carts.forEach((good,index,arr) => {
+                        good.status = false;
+                        good.stockNum = good.total;
+                    })
+                });
+                this.cartList = res.data;
+                this.allChooseInit();
             }
-            this.Pop.toast(res.message);
-            res.data.forEach((shop,index,arr) => {
-                shop.kaiguan = true;
-                shop.status = false;
-                shop.kaiguan = true;
-                shop.selectNum = 0;
-                shop.totalFee = 0;
-                shop.edit = false;
-                shop.carts.forEach((good,index,arr) => {
-                    good.status = false;
-                    good.stockNum = good.total;
-                })
-            });
-            this.cartList = res.data;
-            this.allChooseInit();
-
         });
     }
     // 购物车编辑
@@ -123,14 +122,12 @@ export class CartPage {
         let shopList = this.cartList;
         let id = shopList[s]['carts'][g]['id'];
         this.Goods.delCartGoods(id).subscribe(res => {
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
-            }
-            shopList[s]['carts'].splice(g,1);
-            this.isAllChoose(shopList[s]);
-            if(shopList[s]['carts'].length <= 0){
-                shopList.splice(s,1);
+            if(res !== false){
+                shopList[s]['carts'].splice(g,1);
+                this.isAllChoose(shopList[s]);
+                if(shopList[s]['carts'].length <= 0){
+                    shopList.splice(s,1);
+                }
             }
         })
     }
@@ -149,15 +146,13 @@ export class CartPage {
             buyNum:buyNum
         };
         this.Goods.editCartGoods(params).subscribe(res =>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                if(res.code !== 0){
+                    goods['buy_num'] = goods['buy_num'] - 1;
+                    return false;
+                }
+                this.Pop.toast(res.message);
             }
-            if(res.code !== 0){
-                goods['buy_num'] = goods['buy_num'] - 1;
-                return false;
-            }
-            this.Pop.toast(res.message);
         });
     }
     // 减少商品数量
@@ -174,15 +169,13 @@ export class CartPage {
             buyNum:buyNum
         };
         this.Goods.editCartGoods(params).subscribe(res =>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                if(res.code !== 0){
+                    goods['buy_num'] = goods['buy_num'] + 1;
+                    return false;
+                }
+                this.Pop.toast(res.message);
             }
-            if(res.code !== 0){
-                goods['buy_num'] = goods['buy_num'] + 1;
-                return false;
-            }
-            this.Pop.toast(res.message);
         });
     }
     // 去结算
@@ -196,11 +189,9 @@ export class CartPage {
             ids:ids,
         };
         this.Goods.goodsBuy(params,"cart").subscribe(res =>{
-            if(res === "toLogin"){
-                this.navCtrl.push("LoginPage");
-                return false;
+            if(res !== false){
+                this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"cart"})
             }
-            this.navCtrl.push("OrderDetailPage",{goodSku:params,type:"cart"})
         });
     }
 }

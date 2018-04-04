@@ -1,6 +1,6 @@
 import {Injectable, ViewChild} from '@angular/core';
 import 'rxjs/add/operator/map';
-import {Nav} from 'ionic-angular';
+import {Nav,ModalController} from 'ionic-angular';
 import {PopProvider} from "./pop";
 import {Observable} from "rxjs/Observable";
 import {HttpProvider} from "./http";
@@ -18,7 +18,8 @@ export class AuthProvider {
     public token;//登录记录的token值
     constructor(
         public pop: PopProvider,
-        public http: HttpProvider) {
+        public http: HttpProvider,
+        public modalCtrl:ModalController) {
 
     }
 
@@ -28,7 +29,8 @@ export class AuthProvider {
             // 前台，本地没有token时的登录验证
             this.http.getToken().subscribe(token => {
                 if (token === false) {
-                    observer.next("toLogin");
+                    this.modalNoData("LoginPage");
+                    observer.next(false);
                     return false;
                 }
                 params.token = token;
@@ -40,7 +42,8 @@ export class AuthProvider {
                         // 本地有token，后台验证登录过期，重新登录
                         this.pop.confirm().subscribe(res => {
                             if (res === false) {
-                                observer.next("toLogin");
+                                this.modalNoData("LoginPage");
+                                observer.next(false);
                             }
                         });
                     } else {
@@ -57,11 +60,46 @@ export class AuthProvider {
             // 前台，本地没有token时的登录验证
             this.http.getToken().subscribe(token => {
                 if (token === false) {
-                    observer.next("toLogin");
+                    this.modalNoData("LoginPage");
+                    observer.next(false);
                 }else{
                     observer.next(true);
                 }
             });
         });
+    }
+
+    /**
+     * modal模型关闭时不需回调的modal页
+     * @param page
+     * @param params
+     */
+    public modalNoData(page,params?){
+        let modal;
+        if(params){
+            modal = this.modalCtrl.create(page,params);
+        }else{
+            modal = this.modalCtrl.create(page);
+        }
+        modal.present();
+    }
+
+    /**
+     * modal模型关闭时需要回调的modal页
+     * @param page
+     * @param params
+     */
+    public modalWidthData(page,params?){
+        let modal;
+        if(params){
+            modal = this.modalCtrl.create(page,params);
+        }else{
+            modal = this.modalCtrl.create(page);
+        }
+        modal.present();
+        // modal关闭时的回调函数
+        modal.onDidDismiss(res => {
+            console.log(res);
+        })
     }
 }

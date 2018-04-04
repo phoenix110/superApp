@@ -105,28 +105,24 @@ export class LuckPage {
     public doRefresh(evt){
         this.listInfo['page'] = 1;
         this.Find.getLuckList(this.listInfo).subscribe(res =>{
-            if (res === "toLogin") {
-                this.navCtrl.push("LoginPage");
-                return false;
+            if (res !== false) {
+                this.reviewerInfo = res.data.list;
+                evt.complete();
             }
-            this.reviewerInfo = res.data.list;
-            evt.complete();
         })
     }
     // 上拉加载更多
     public loadMore(infiniteScroll: InfiniteScroll){
         this.listInfo['page'] ++;
         this.Find.getLuckList(this.listInfo).subscribe(res =>{
-            if (res === "toLogin") {
-                this.navCtrl.push("LoginPage");
-                return false;
+            if (res !== false) {
+                if(res.data.list.length <= 0){
+                    this.loadStatus = false;
+                    return false;
+                }
+                this.reviewerInfo = this.reviewerInfo.concat(res.data.list);
+                infiniteScroll.complete();
             }
-            if(res.data.list.length <= 0){
-                this.loadStatus = false;
-                return false;
-            }
-            this.reviewerInfo = this.reviewerInfo.concat(res.data.list);
-            infiniteScroll.complete();
         })
     }
 }

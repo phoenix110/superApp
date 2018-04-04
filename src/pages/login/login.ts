@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, Events} from 'ionic-angular';
+import {IonicPage, NavController,ViewController, NavParams, Events} from 'ionic-angular';
 import {PopProvider} from "../../providers/pop";
 import {UserProvider} from "../../providers/user";
 import {ValidateProvider} from "../../providers/validate";
 import { Storage } from "@ionic/storage";
-import {AppConfig} from "../../app/app.config";
+import {AuthProvider} from "../../providers/auth";
 
 /**
  * Generated class for the LoginPage page.
@@ -31,6 +31,8 @@ export class LoginPage {
         public Pop: PopProvider,
         public User: UserProvider,
         public events:Events,
+        public Auth:AuthProvider,
+        public viewCtrl:ViewController,
         public Valify: ValidateProvider,
         public Storage:Storage) {
     }
@@ -63,23 +65,26 @@ export class LoginPage {
             this.Pop.toast(res.message);
             if (res.code == '0') {
                 this.Storage.set("token",res['data']['token']);
+                //发布登录成功状态信息
                 this.events.publish("loginStatus",true);
-                this.navCtrl.push("TabsPage");
+                this.viewCtrl.dismiss();
             }
         });
     }
     // 跳转至注册页面
     public toRegister() {
-        this.navCtrl.push("RegisterPage");
+        this.viewCtrl.dismiss();
+        this.Auth.modalNoData("RegisterPage");
     }
 
     // 退出登录页面
     public popOut() {
-        this.navCtrl.pop();
+        this.viewCtrl.dismiss();
     }
 
     // 跳转至忘记密码
     public forgetPwd() {
-        this.navCtrl.push("ForgetPage");
+        this.viewCtrl.dismiss();
+        this.Auth.modalNoData("ForgetPage");
     }
 }

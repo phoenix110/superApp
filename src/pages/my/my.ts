@@ -5,6 +5,7 @@ import {Tabs} from "ionic-angular";
 import { PopProvider } from "../../providers/pop";
 import { HttpProvider } from "../../providers/http";
 import {TabsProvider} from "../../providers/tabs";
+import {AuthProvider} from "../../providers/auth";
 
 /**
  * Generated class for the MyPage page.
@@ -42,7 +43,8 @@ export class MyPage {
       public http:HttpProvider,
       public storage:Storage,
       public pop:PopProvider,
-      public Tabs:TabsProvider
+      public Tabs:TabsProvider,
+      public Auth:AuthProvider
 
   ) {
 
@@ -62,28 +64,26 @@ export class MyPage {
 
     //跳转到toUserPage
     toUserPage(){
-        this.checkLogin('UserPage');
+        this.Auth.checkLogin().subscribe(res=>{
+            if(res !== false){
+                this.navCtrl.push("UserPage");
+            }
+        });
     }
 
     //跳转到发表界面
     toPushPage(){
-        this.checkLogin('PushPage');
-    }
-
-    //检查是否登录
-    checkLogin(page,params = {}){
-        this.http.getToken().subscribe(res =>{
-            if(!res){
-                this.navCtrl.push('LoginPage');
-                return true;
+        this.Auth.checkLogin().subscribe(res=>{
+            if(res !== false){
+                this.navCtrl.push("PushPage");
             }
-            this.navCtrl.push(page,params);
         });
     }
-
+    // 显示我的名片
     public showQr(){
         this.codeStatus = true;
     }
+    // 隐藏我的名片
     public fadeOut(event){
         this.codeStatus = event;
     }
@@ -98,7 +98,7 @@ export class MyPage {
                 }
                 this.pop.toast(res.message);
                 if(res.code == '-1'){
-                    this.navCtrl.push("LoginPage");
+                    this.Auth.modalNoData("LoginPage");
                 }
             })
         });

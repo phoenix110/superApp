@@ -4,7 +4,6 @@ import {HttpClient} from "@angular/common/http";
 import {GoodsProvider} from "../../providers/goods";
 import {PopProvider} from "../../providers/pop";
 import {OrderProvider} from "../../providers/order";
-declare let cordova;
 
 /**
  * Generated class for the OrderDetailPage page.
@@ -104,21 +103,17 @@ export class OrderDetailPage {
     // 确认下单请求
     public xiadan(orderParams,cart=''){
         this.Order.orderConfirm(orderParams,cart).subscribe(res => {
-            if (res === "toLogin") {
-                this.navCtrl.push("LoginPage");
-                return false;
+            if (res !== false) {
+                this.navCtrl.push("OrderPayPage",{id:res.data.pay_log_id});
             }
-            this.navCtrl.push("OrderPayPage",{id:res.data.pay_log_id});
         });
     }
     // 购买请求
     public buy(orderParams,cart=''){
         this.Goods.goodsBuy(orderParams,cart).subscribe(res => {
-            if (res === "toLogin") {
-                this.navCtrl.push("LoginPage");
-                return false;
+            if (res !== false) {
+                this.orderInfo = res.data;
             }
-            this.orderInfo = res.data;
         });
     }
 }

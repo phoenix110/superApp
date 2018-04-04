@@ -52,7 +52,7 @@ export class SetPage {
     logout(){
         this.storage.remove('token');
         this.pop.toast('退出成功');
-        this.navCtrl.push("TabsPage");
+        this.navCtrl.setRoot("MyPage");
         this.events.publish("loginStatus",false);
     }
 
