@@ -106,5 +106,5 @@
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <allow-navigation href="http://192.168.56.1:8101" />
     <engine name="ios" spec="~4.4.0" />
-    <engine name="android" spec="6.3.0" />
+    <engine name="android" spec="~6.3.0" />
 </widget>

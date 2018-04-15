@@ -46,7 +46,7 @@ import {StreamingMedia} from "@ionic-native/streaming-media";
 import { ChatProvider } from '../providers/chat/chat';
 // 列表图片预览插件
 import * as ionicGalleryModal from 'ionic-gallery-modal';
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+// import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 @NgModule({
     declarations: [
         MyApp
@@ -106,10 +106,10 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
         VideoPlayer,
         StreamingMedia,
         ChatProvider,
-        {
-            provide: HAMMER_GESTURE_CONFIG,
-            useClass: ionicGalleryModal.GalleryModalHammerConfig,
-        }
+        // {
+        //     provide: HAMMER_GESTURE_CONFIG,
+        //     useClass: ionicGalleryModal.GalleryModalHammerConfig,
+        // }
     ]
 })
 export class AppModule {
